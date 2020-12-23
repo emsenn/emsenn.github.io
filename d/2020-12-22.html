@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-22 Tue 23:03 -->
+<!-- 2020-12-22 Tue 23:08 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2020-12-22</title>
@@ -153,10 +153,10 @@
 <main id="content">
 <header>
 <h1 class="title">2020-12-22</h1>
-</header><div class="head" id="org006c981">
+</header><div class="head" id="orge4fde73">
 
 </div>
-<summary id="org7c5d0e1">
+<summary id="orgbc3ea4b">
 <p>
 This is my personal record for <span class="timestamp-wrapper"><span class="timestamp">[2020-12-22 Tue]</span></span>. If you are viewing this record outside of its original environment, please be aware it maybe be heavily redacted.
 </p>
@@ -303,7 +303,23 @@ That appears to work, at least at the time of writing. You can also use Org-mode
 </p>
 
 <p>
-(As requested by <a href=../20201217095150-benjamin_slade.html>Benjamin Slade</a>, here's the Org-mode all together; put this in an empty Org-mode buffer and press <code>C-c C-c</code> over the second block and you should get the following:
+As requested by <a href=../20201217095150-benjamin_slade.html>Benjamin Slade</a>, here's the Org-mode all together:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-org"><span class="org-org-meta-line">#+name: demonstration-code-block-1</span>
+<span class="org-org-block-begin-line">#+begin_src elisp</span>
+<span class="org-org-block">(print </span><span class="org-org-block"><span class="org-string">"practice gratitude"</span></span><span class="org-org-block">)</span>
+<span class="org-org-block-end-line">#+end_src</span>
+<span class="org-org-meta-line">#+name: working-with-alpha </span>
+<span class="org-org-block-begin-line">#+begin_src elisp :var alpha=alpha-paragraph :results raw :wrap quote</span>
+<span class="org-org-block">  (print alpha)</span>
+<span class="org-org-block-end-line">#+end_src</span>
+</pre>
+</div>
+
+<p>
+Put this in an empty Org-mode buffer and press <code>C-c C-c</code> over the second block and you should get the following:
 </p>
 
 <div class="org-src-container">
@@ -335,7 +351,7 @@ That appears to work, at least at the time of writing. You can also use Org-mode
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-22 Tue 09:50</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-22 Tue 23:03</p>
+<p class="date">Created: 2020-12-22 Tue 23:08</p>
 </section>
 </body>
 </html>
