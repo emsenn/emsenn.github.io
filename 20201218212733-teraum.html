@@ -1,139 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-22 Tue 18:52 -->
+<!-- 2020-12-22 Tue 20:17 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Teraum</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="emsenn">
 <style>
-	      body {
-		  position: relative;
-		  background-color: #ddc;
-		  color: #413;
-		  font-family: serif;
-		  margin: 0 auto;
-		  min-height: 100%;
-		  font-size: 0.8em;
-		  font-family: sans-serif;
-	      }
-	      main, #content {
-		 width: 75vw;
-		 max-width: 60em;
-		 background-color: #eed;
-		 box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-		 margin: 0.5em auto;
-		 padding: 1em;
-	      }
-	      header {
-		 margin-bottom: 2em;
-		 padding-bottom: 0.5em;
-		 border-bottom: 0.2em dotted #444;
-	      }
+			body {
+			    position: relative;
+			    background-color: #ddc;
+			    color: #413;
+			    font-family: serif;
+			    margin: 0 auto;
+			    min-height: 100%;
+			    font-size: 0.8em;
+			    font-family: sans-serif;
+			}
+			main, #content {
+			   width: 75vw;
+			   max-width: 60em;
+			   background-color: #eed;
+			   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+			   margin: 0.5em auto;
+			   padding: 1em;
+			}
+			header {
+			   margin-bottom: 2em;
+			   padding-bottom: 0.5em;
+			   border-bottom: 0.2em dotted #444;
+			}
 	
-	      h1 { margin: 0.2em 0 0.2em 0; font-size: 3.2em; }
+			h1 { margin: 0.2em 0 0.2em 0; font-size: 3.2em; }
 	
-	      footer, #postamble, #preamble {
-		  width: 75vw;
-		  max-width: 45em;
-		  margin: 0.5em auto;
-	padding: 0.5em;
-		  overflow: hidden;
-	      }
-	      table {
-		 border-collapse: collapse;
-		 border-spacing: 0;
-		 empty-cells: show;
-		 border: 0.1em solid #444;
-		 }
-		 thead { font-family: sans-serif; }
-		 th, td {
-		 padding: 0 0.3em;
-		 border: 0.01em solid #444;
-		 }
-		 img {
-		 max-width: 80vw;
-		 vertical-align: middle;
-		 }
-		 pre, .src {
-		 padding: 0.5em;
-		 border: 0.1em solid #444;
-		 white-space: pre-wrap;
-		 overflow-x: scroll;
-		 text-overflow: clip;
-		 }
-		 dt {
-		 font-weight: normal;
-		 display: inline-block;
-		 border-bottom: 0.1rem dotted #444;
-		 }
-		 #text-index dt { border-bottom: none; }
-		 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
-		 display: block;
-		 font-family: sans-serif;
-		 margin: 0.2em auto 0.5em 0;
-		 }
-		 h2 { text-align: left; font-size: 2em;}
-		 h3 {
-		 font-size: 1.8em;
-		 }
-		 h4 {
-		 font-size: 1.6em;
-		 }
-		 h5 {
-		 font-size: 1.4em;
-		 margin: 0.5em 0 0.2em 10%;
-		 }
-		 h6 {
-		 font-size: 1.2em;
-		 margin: 0.5em 0 0.2em 30%;
-		 }
-		 a {
-		 text-decoration: none;
-		 color: #880;
-		 display: inline;
-		 position: relative;
-		 border-bottom: 0.1rem dotted;
-		 line-height: 1.2;
-		 transition: border 0.3s;
-		 }
-		 a:hover {
-		 color: #aa2;
-		 outline-style: none;
-		 border-bottom: 0.1rem solid;
-		 }
-		 a:visited { color: #934; }
-		 a:visited:hover { color: #b56; }
-		 a:focus {
-		 outline-style: none;
-		 border-bottom: 0.1rem solid;
-		 }
-		 ::selection { background-color: #777; color: #eee; }
-		 a::selection { background-color: #ccc; }
-		 .org-todo {
-		 background-color: #ddd;
-		 color: #333;
-		font-size: .8rem;
-		float: right;
-		}
-		.org-src-container + .example {
-		margin-left: 8em;
-		}
-		label.org-src-name {
-		margin: 0 0 0 3em;
-		font-family: sans-serif;
-		font-size: 1rem;
-		line-height: 0;
-		}
-		.skip-to-content {
-		opacity: 0;
-		position: absolute;
-		}
-		.skip-to-content:focus{
-		opacity:1
-		}
-		ul { max-width: 85%; }
+			footer, #postamble, #preamble {
+			    width: 75vw;
+			    max-width: 45em;
+			    margin: 0.5em auto;
+		  padding: 0.5em;
+			    overflow: hidden;
+			}
+			table {
+			   border-collapse: collapse;
+			   border-spacing: 0;
+			   empty-cells: show;
+			   border: 0.1em solid #444;
+			   }
+			   thead { font-family: sans-serif; }
+			   th, td {
+			   padding: 0 0.3em;
+			   border: 0.01em solid #444;
+			   }
+			   img {
+			   max-width: 80vw;
+			   vertical-align: middle;
+			   }
+			   pre, .src {
+			   padding: 0.5em;
+			   border: 0.1em solid #444;
+			   white-space: pre-wrap;
+			   overflow-x: scroll;
+			   text-overflow: clip;
+			   scrollbar-width: none;
+			   }
+			   pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+	  display: none;
+	}
+			   dt {
+			   font-weight: normal;
+			   display: inline-block;
+			   border-bottom: 0.1rem dotted #444;
+			   }
+			   #text-index dt { border-bottom: none; }
+			   h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+			   display: block;
+			   font-family: sans-serif;
+			   margin: 0.2em auto 0.5em 0;
+			   }
+			   h2 { text-align: left; font-size: 2em;}
+			   h3 {
+			   font-size: 1.8em;
+			   }
+			   h4 {
+			   font-size: 1.6em;
+			   }
+			   h5 {
+			   font-size: 1.4em;
+			   margin: 0.5em 0 0.2em 10%;
+			   }
+			   h6 {
+			   font-size: 1.2em;
+			   margin: 0.5em 0 0.2em 30%;
+			   }
+			   a {
+			   text-decoration: none;
+			   color: #880;
+			   display: inline;
+			   position: relative;
+			   border-bottom: 0.1rem dotted;
+			   line-height: 1.2;
+			   transition: border 0.3s;
+			   }
+			   a:hover {
+			   color: #aa2;
+			   outline-style: none;
+			   border-bottom: 0.1rem solid;
+			   }
+			   a:visited { color: #934; }
+			   a:visited:hover { color: #b56; }
+			   a:focus {
+			   outline-style: none;
+			   border-bottom: 0.1rem solid;
+			   }
+			   ::selection { background-color: #777; color: #eee; }
+			   a::selection { background-color: #ccc; }
+			   .org-todo {
+			   background-color: #ddd;
+			   color: #333;
+			  font-size: .8rem;
+			  float: right;
+			  }
+			  .org-src-container + .example {
+			  margin-left: 8em;
+			  }
+			  label.org-src-name {
+			  margin: 0 0 0 3em;
+			  font-family: sans-serif;
+			  font-size: 1rem;
+			  line-height: 0;
+			  }
+			  .skip-to-content {
+			  opacity: 0;
+			  position: absolute;
+			  }
+			  .skip-to-content:focus{
+			  opacity:1
+			  }
+			  ul { max-width: 85%; }
 	
 	</style>
 </head>
@@ -144,21 +148,21 @@
 <main id="content">
 <header>
 <h1 class="title">Teraum</h1>
-</header><div class="head" id="orgdbc1ccf">
+</header><div class="head" id="org4484cfc">
 
 </div>
-<summary id="orgbc7d84a">
+<summary id="orga9e5bd6">
 <p>
 <b><i>Teraum</i></b> is a <a href="20201219132431-tragedy.html">tragically</a> <a href="20201219132454-funny.html">funny</a> <a href="20201218212741-fantasy.html">fantasy</a> <a href="20201216102657-world.html">world</a> <a href="20201218195425-crafted.html">crafted</a> by <a href="20201216170857-emsenn.html">emsenn</a>.
 </p>
 </summary>
-<section id="outline-container-orgca03d83" class="outline-2">
-<h2 id="orgca03d83">Components</h2>
-<div class="outline-text-2" id="text-orgca03d83">
+<section id="outline-container-org61786ea" class="outline-2">
+<h2 id="org61786ea">Components</h2>
+<div class="outline-text-2" id="text-org61786ea">
 </div>
-<div id="outline-container-orgb50a525" class="outline-3">
-<h3 id="orgb50a525">Groundhog Records</h3>
-<div class="outline-text-3" id="text-orgb50a525">
+<div id="outline-container-org0b043f9" class="outline-3">
+<h3 id="org0b043f9">Groundhog Records</h3>
+<div class="outline-text-3" id="text-org0b043f9">
 <p>
 The <a href="20201216102657-world.html">world</a> of Teraum is recorded using <a href="20201219131009-groundhog_records.html">Groundhog records</a>, which are handled using <a href="20201216162900-groundhog_emacs.html">Groundhog Emacs</a>.
 </p>
@@ -168,24 +172,24 @@ The <a href="20201216102657-world.html">world</a> of Teraum is recorded using <a
 </p>
 </div>
 </div>
-<div id="outline-container-org8bfa554" class="outline-3">
-<h3 id="org8bfa554">Emacs Configuration</h3>
-<div class="outline-text-3" id="text-org8bfa554">
+<div id="outline-container-orgf973c29" class="outline-3">
+<h3 id="orgf973c29">Emacs Configuration</h3>
+<div class="outline-text-3" id="text-orgf973c29">
 </div>
-<div id="outline-container-org087684a" class="outline-4">
-<h4 id="org087684a">Org</h4>
-<div class="outline-text-4" id="text-org087684a">
+<div id="outline-container-orgc3105d3" class="outline-4">
+<h4 id="orgc3105d3">Org</h4>
+<div class="outline-text-4" id="text-orgc3105d3">
 </div>
 <ul class="org-ul">
-<li><a id="org310a412"></a>Org-roam<br>
+<li><a id="orgdee9efd"></a>Org-roam<br>
 <ul class="org-ul">
-<li><a id="org3912b28"></a>Org-roam Capture Templates<br>
+<li><a id="orgf280e6e"></a>Org-roam Capture Templates<br>
 <ul class="org-ul">
-<li><a id="org3d94db4"></a>Person<br></li>
-<li><a id="org1d8345a"></a>Area<br></li>
-<li><a id="orge0d5b3f"></a>Object<br></li>
-<li><a id="orgf9e0c15"></a>Event<br></li>
-<li><a id="orga18d084"></a>Group<br></li>
+<li><a id="org2d05a3f"></a>Person<br></li>
+<li><a id="org1537a73"></a>Area<br></li>
+<li><a id="orgb27226f"></a>Object<br></li>
+<li><a id="orga93ceea"></a>Event<br></li>
+<li><a id="org9af552d"></a>Group<br></li>
 </ul>
 </li>
 </ul>
@@ -194,9 +198,9 @@ The <a href="20201216102657-world.html">world</a> of Teraum is recorded using <a
 </div>
 </div>
 
-<div id="outline-container-org260e502" class="outline-3">
-<h3 id="org260e502">Backlinks</h3>
-<div class="outline-text-3" id="text-org260e502">
+<div id="outline-container-orgab30b44" class="outline-3">
+<h3 id="orgab30b44">Backlinks</h3>
+<div class="outline-text-3" id="text-orgab30b44">
 <ul class="org-ul">
 <li><a href="20201218213022-farsteppes.html">Farsteppes</a></li>
 <li><a href="20201218212946-central_plains.html">Central Plains</a></li>
@@ -209,7 +213,7 @@ The <a href="20201216102657-world.html">world</a> of Teraum is recorded using <a
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-18 Fri 21:27</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-22 Tue 18:52</p>
+<p class="date">Created: 2020-12-22 Tue 20:17</p>
 </section>
 </body>
 </html>

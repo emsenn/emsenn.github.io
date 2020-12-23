@@ -1,139 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-22 Tue 18:53 -->
+<!-- 2020-12-22 Tue 20:18 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>emsenn</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="emsenn">
 <style>
-	      body {
-		  position: relative;
-		  background-color: #ddc;
-		  color: #413;
-		  font-family: serif;
-		  margin: 0 auto;
-		  min-height: 100%;
-		  font-size: 0.8em;
-		  font-family: sans-serif;
-	      }
-	      main, #content {
-		 width: 75vw;
-		 max-width: 60em;
-		 background-color: #eed;
-		 box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-		 margin: 0.5em auto;
-		 padding: 1em;
-	      }
-	      header {
-		 margin-bottom: 2em;
-		 padding-bottom: 0.5em;
-		 border-bottom: 0.2em dotted #444;
-	      }
+			body {
+			    position: relative;
+			    background-color: #ddc;
+			    color: #413;
+			    font-family: serif;
+			    margin: 0 auto;
+			    min-height: 100%;
+			    font-size: 0.8em;
+			    font-family: sans-serif;
+			}
+			main, #content {
+			   width: 75vw;
+			   max-width: 60em;
+			   background-color: #eed;
+			   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+			   margin: 0.5em auto;
+			   padding: 1em;
+			}
+			header {
+			   margin-bottom: 2em;
+			   padding-bottom: 0.5em;
+			   border-bottom: 0.2em dotted #444;
+			}
 	
-	      h1 { margin: 0.2em 0 0.2em 0; font-size: 3.2em; }
+			h1 { margin: 0.2em 0 0.2em 0; font-size: 3.2em; }
 	
-	      footer, #postamble, #preamble {
-		  width: 75vw;
-		  max-width: 45em;
-		  margin: 0.5em auto;
-	padding: 0.5em;
-		  overflow: hidden;
-	      }
-	      table {
-		 border-collapse: collapse;
-		 border-spacing: 0;
-		 empty-cells: show;
-		 border: 0.1em solid #444;
-		 }
-		 thead { font-family: sans-serif; }
-		 th, td {
-		 padding: 0 0.3em;
-		 border: 0.01em solid #444;
-		 }
-		 img {
-		 max-width: 80vw;
-		 vertical-align: middle;
-		 }
-		 pre, .src {
-		 padding: 0.5em;
-		 border: 0.1em solid #444;
-		 white-space: pre-wrap;
-		 overflow-x: scroll;
-		 text-overflow: clip;
-		 }
-		 dt {
-		 font-weight: normal;
-		 display: inline-block;
-		 border-bottom: 0.1rem dotted #444;
-		 }
-		 #text-index dt { border-bottom: none; }
-		 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
-		 display: block;
-		 font-family: sans-serif;
-		 margin: 0.2em auto 0.5em 0;
-		 }
-		 h2 { text-align: left; font-size: 2em;}
-		 h3 {
-		 font-size: 1.8em;
-		 }
-		 h4 {
-		 font-size: 1.6em;
-		 }
-		 h5 {
-		 font-size: 1.4em;
-		 margin: 0.5em 0 0.2em 10%;
-		 }
-		 h6 {
-		 font-size: 1.2em;
-		 margin: 0.5em 0 0.2em 30%;
-		 }
-		 a {
-		 text-decoration: none;
-		 color: #880;
-		 display: inline;
-		 position: relative;
-		 border-bottom: 0.1rem dotted;
-		 line-height: 1.2;
-		 transition: border 0.3s;
-		 }
-		 a:hover {
-		 color: #aa2;
-		 outline-style: none;
-		 border-bottom: 0.1rem solid;
-		 }
-		 a:visited { color: #934; }
-		 a:visited:hover { color: #b56; }
-		 a:focus {
-		 outline-style: none;
-		 border-bottom: 0.1rem solid;
-		 }
-		 ::selection { background-color: #777; color: #eee; }
-		 a::selection { background-color: #ccc; }
-		 .org-todo {
-		 background-color: #ddd;
-		 color: #333;
-		font-size: .8rem;
-		float: right;
-		}
-		.org-src-container + .example {
-		margin-left: 8em;
-		}
-		label.org-src-name {
-		margin: 0 0 0 3em;
-		font-family: sans-serif;
-		font-size: 1rem;
-		line-height: 0;
-		}
-		.skip-to-content {
-		opacity: 0;
-		position: absolute;
-		}
-		.skip-to-content:focus{
-		opacity:1
-		}
-		ul { max-width: 85%; }
+			footer, #postamble, #preamble {
+			    width: 75vw;
+			    max-width: 45em;
+			    margin: 0.5em auto;
+		  padding: 0.5em;
+			    overflow: hidden;
+			}
+			table {
+			   border-collapse: collapse;
+			   border-spacing: 0;
+			   empty-cells: show;
+			   border: 0.1em solid #444;
+			   }
+			   thead { font-family: sans-serif; }
+			   th, td {
+			   padding: 0 0.3em;
+			   border: 0.01em solid #444;
+			   }
+			   img {
+			   max-width: 80vw;
+			   vertical-align: middle;
+			   }
+			   pre, .src {
+			   padding: 0.5em;
+			   border: 0.1em solid #444;
+			   white-space: pre-wrap;
+			   overflow-x: scroll;
+			   text-overflow: clip;
+			   scrollbar-width: none;
+			   }
+			   pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+	  display: none;
+	}
+			   dt {
+			   font-weight: normal;
+			   display: inline-block;
+			   border-bottom: 0.1rem dotted #444;
+			   }
+			   #text-index dt { border-bottom: none; }
+			   h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+			   display: block;
+			   font-family: sans-serif;
+			   margin: 0.2em auto 0.5em 0;
+			   }
+			   h2 { text-align: left; font-size: 2em;}
+			   h3 {
+			   font-size: 1.8em;
+			   }
+			   h4 {
+			   font-size: 1.6em;
+			   }
+			   h5 {
+			   font-size: 1.4em;
+			   margin: 0.5em 0 0.2em 10%;
+			   }
+			   h6 {
+			   font-size: 1.2em;
+			   margin: 0.5em 0 0.2em 30%;
+			   }
+			   a {
+			   text-decoration: none;
+			   color: #880;
+			   display: inline;
+			   position: relative;
+			   border-bottom: 0.1rem dotted;
+			   line-height: 1.2;
+			   transition: border 0.3s;
+			   }
+			   a:hover {
+			   color: #aa2;
+			   outline-style: none;
+			   border-bottom: 0.1rem solid;
+			   }
+			   a:visited { color: #934; }
+			   a:visited:hover { color: #b56; }
+			   a:focus {
+			   outline-style: none;
+			   border-bottom: 0.1rem solid;
+			   }
+			   ::selection { background-color: #777; color: #eee; }
+			   a::selection { background-color: #ccc; }
+			   .org-todo {
+			   background-color: #ddd;
+			   color: #333;
+			  font-size: .8rem;
+			  float: right;
+			  }
+			  .org-src-container + .example {
+			  margin-left: 8em;
+			  }
+			  label.org-src-name {
+			  margin: 0 0 0 3em;
+			  font-family: sans-serif;
+			  font-size: 1rem;
+			  line-height: 0;
+			  }
+			  .skip-to-content {
+			  opacity: 0;
+			  position: absolute;
+			  }
+			  .skip-to-content:focus{
+			  opacity:1
+			  }
+			  ul { max-width: 85%; }
 	
 	</style>
 </head>
@@ -144,10 +148,10 @@
 <main id="content">
 <header>
 <h1 class="title">emsenn</h1>
-</header><div class="head" id="orgc4872b6">
+</header><div class="head" id="org4abd085">
 
 </div>
-<blockquote id="org1abf627">
+<blockquote id="org168b8f5">
 <p>
 <b><i>emsenn</i></b> is me, the creator of this <a href="20201217113603-digital_garden.html">digital garden</a> and (most of) its contents.
 </p>
@@ -156,28 +160,28 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgbce8054">Introduction</a></li>
-<li><a href="#org25835ec">emsenn</a></li>
-<li><a href="#org2f0e306">Supplements</a>
+<li><a href="#org3bbc18a">Introduction</a></li>
+<li><a href="#org02e63ae">emsenn</a></li>
+<li><a href="#orgb86b94f">Supplements</a>
 <ul>
-<li><a href="#org5b62da3">Record history</a></li>
-<li><a href="#org4e2c491">Backlinks</a></li>
+<li><a href="#org2e861a0">Record history</a></li>
+<li><a href="#org0506dc2">Backlinks</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
-<section id="outline-container-orgbce8054" class="outline-2">
-<h2 id="orgbce8054">Introduction</h2>
-<div class="outline-text-2" id="text-orgbce8054">
+<section id="outline-container-org3bbc18a" class="outline-2">
+<h2 id="org3bbc18a">Introduction</h2>
+<div class="outline-text-2" id="text-org3bbc18a">
 <p>
 This profile was created as a part of <a href="index.html">emsenn's digital garden</a>. If you are viewing this record outside of its original environment, please be aware it maybe be heavily redacted. 
 </p>
 </div>
 </section>
-<section id="outline-container-org25835ec" class="outline-2">
-<h2 id="org25835ec">emsenn</h2>
-<div class="outline-text-2" id="text-org25835ec">
+<section id="outline-container-org02e63ae" class="outline-2">
+<h2 id="org02e63ae">emsenn</h2>
+<div class="outline-text-2" id="text-org02e63ae">
 <dl class="org-dl">
 <dt>Public name</dt><dd>emsenn</dd>
 <dt><a href="20201215151949-website.html">Website</a></dt><dd><a href="https://emsenn.net">emsenn.net</a></dd>
@@ -185,13 +189,13 @@ This profile was created as a part of <a href="index.html">emsenn's digital gard
 </dl>
 </div>
 </section>
-<section id="outline-container-org2f0e306" class="outline-2">
-<h2 id="org2f0e306">Supplements</h2>
-<div class="outline-text-2" id="text-org2f0e306">
+<section id="outline-container-orgb86b94f" class="outline-2">
+<h2 id="orgb86b94f">Supplements</h2>
+<div class="outline-text-2" id="text-orgb86b94f">
 </div>
-<div id="outline-container-org5b62da3" class="outline-3">
-<h3 id="org5b62da3">Record history</h3>
-<div class="outline-text-3" id="text-org5b62da3">
+<div id="outline-container-org2e861a0" class="outline-3">
+<h3 id="org2e861a0">Record history</h3>
+<div class="outline-text-3" id="text-org2e861a0">
 <section class="org-drawer"> <ul class="org-ul">
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-22 Tue 16:17] </span></span> <br>
 I added more details to this record, playing with a potential new version of the <a href="20201222161832-person_record.html">person record</a>.</li>
@@ -204,22 +208,21 @@ I created this record.</li>
 
 
 
-<div id="outline-container-org4e2c491" class="outline-3">
-<h3 id="org4e2c491">Backlinks</h3>
-<div class="outline-text-3" id="text-org4e2c491">
+<div id="outline-container-org0506dc2" class="outline-3">
+<h3 id="org0506dc2">Backlinks</h3>
+<div class="outline-text-3" id="text-org0506dc2">
 <ul class="org-ul">
 <li><a href="20201218212733-teraum.html">Teraum</a></li>
-<li><a href="d/2020-12-13.html">2020-12-13</a></li>
-<li><a href="d/2020-12-12.html">2020-12-12</a></li>
-<li><a href="d/2020-12-16.html">2020-12-16</a></li>
 <li><a href="index.html">emsenn's digital garden</a></li>
-<li><a href="d/2020-12-17.html">2020-12-17</a></li>
-<li><a href="d/2020-12-19.html">2020-12-19</a></li>
 <li><a href="d/2020-12-15.html">2020-12-15</a></li>
+<li><a href="d/2020-12-17.html">2020-12-17</a></li>
+<li><a href="d/2020-12-16.html">2020-12-16</a></li>
+<li><a href="d/2020-12-12.html">2020-12-12</a></li>
+<li><a href="d/2020-12-13.html">2020-12-13</a></li>
+<li><a href="d/2020-12-19.html">2020-12-19</a></li>
+<li><a href="d/2020-12-18.html">2020-12-18</a></li>
 <li><a href="d/2020-12-21.html">2020-12-21</a></li>
 <li><a href="d/2020-12-20.html">2020-12-20</a></li>
-<li><a href="d/2020-12-18.html">2020-12-18</a></li>
-<li><a href="d/2020-12-22.html">2020-12-22</a></li>
 <li><a href="records.html">Records Index</a></li>
 </ul>
 </div>
@@ -229,7 +232,7 @@ I created this record.</li>
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-21 Mon 14:48</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-22 Tue 18:53</p>
+<p class="date">Created: 2020-12-22 Tue 20:18</p>
 </section>
 </body>
 </html>
