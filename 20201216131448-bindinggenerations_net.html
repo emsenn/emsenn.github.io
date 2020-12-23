@@ -1,165 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-22 Tue 20:18 -->
+<!-- 2020-12-22 Tue 22:34 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BindingGenerations.net</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="emsenn">
 <style>
-			body {
-			    position: relative;
-			    background-color: #ddc;
-			    color: #413;
-			    font-family: serif;
-			    margin: 0 auto;
-			    min-height: 100%;
-			    font-size: 0.8em;
-			    font-family: sans-serif;
-			}
-			main, #content {
-			   width: 75vw;
-			   max-width: 60em;
-			   background-color: #eed;
-			   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-			   margin: 0.5em auto;
-			   padding: 1em;
-			}
-			header {
-			   margin-bottom: 2em;
-			   padding-bottom: 0.5em;
-			   border-bottom: 0.2em dotted #444;
-			}
+						  body {
+						      position: relative;
+						      background-color: #ddc;
+						      color: #413;
+						      font-family: serif;
+						      margin: 0 auto;
+						      min-height: 100%;
+						      font-size: 0.8em;
+						      font-family: sans-serif;
+						  }
+						  main, #content {
+						     width: 75vw;
+						     max-width: 60em;
+						     background-color: #eed;
+						     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+						     margin: 0.5em auto;
+						     padding: 1em;
+						  }
+						  header {
+						     margin-bottom: 2em;
+						     padding-bottom: 0.5em;
+						     border-bottom: 0.2em dotted #444;
+						  }
 	
-			h1 { margin: 0.2em 0 0.2em 0; font-size: 3.2em; }
+						  h1 { margin: 0.2em 0 0.2em 0; font-size: 3.2em; }
 	
-			footer, #postamble, #preamble {
-			    width: 75vw;
-			    max-width: 45em;
-			    margin: 0.5em auto;
-		  padding: 0.5em;
-			    overflow: hidden;
-			}
-			table {
-			   border-collapse: collapse;
-			   border-spacing: 0;
-			   empty-cells: show;
-			   border: 0.1em solid #444;
-			   }
-			   thead { font-family: sans-serif; }
-			   th, td {
-			   padding: 0 0.3em;
-			   border: 0.01em solid #444;
-			   }
-			   img {
-			   max-width: 80vw;
-			   vertical-align: middle;
-			   }
-			   pre, .src {
-			   padding: 0.5em;
-			   border: 0.1em solid #444;
-			   white-space: pre-wrap;
-			   overflow-x: scroll;
-			   text-overflow: clip;
-			   scrollbar-width: none;
-			   }
-			   pre::-webkit-scrollbar, .src::-webkit-scrollbar {
-	  display: none;
-	}
-			   dt {
-			   font-weight: normal;
-			   display: inline-block;
-			   border-bottom: 0.1rem dotted #444;
-			   }
-			   #text-index dt { border-bottom: none; }
-			   h2, h3, h4, h5, h6, h7, h8, h9, h10 {
-			   display: block;
-			   font-family: sans-serif;
-			   margin: 0.2em auto 0.5em 0;
-			   }
-			   h2 { text-align: left; font-size: 2em;}
-			   h3 {
-			   font-size: 1.8em;
-			   }
-			   h4 {
-			   font-size: 1.6em;
-			   }
-			   h5 {
-			   font-size: 1.4em;
-			   margin: 0.5em 0 0.2em 10%;
-			   }
-			   h6 {
-			   font-size: 1.2em;
-			   margin: 0.5em 0 0.2em 30%;
-			   }
-			   a {
-			   text-decoration: none;
-			   color: #880;
-			   display: inline;
-			   position: relative;
-			   border-bottom: 0.1rem dotted;
-			   line-height: 1.2;
-			   transition: border 0.3s;
-			   }
-			   a:hover {
-			   color: #aa2;
-			   outline-style: none;
-			   border-bottom: 0.1rem solid;
-			   }
-			   a:visited { color: #934; }
-			   a:visited:hover { color: #b56; }
-			   a:focus {
-			   outline-style: none;
-			   border-bottom: 0.1rem solid;
-			   }
-			   ::selection { background-color: #777; color: #eee; }
-			   a::selection { background-color: #ccc; }
-			   .org-todo {
-			   background-color: #ddd;
-			   color: #333;
-			  font-size: .8rem;
-			  float: right;
-			  }
-			  .org-src-container + .example {
-			  margin-left: 8em;
-			  }
-			  label.org-src-name {
-			  margin: 0 0 0 3em;
-			  font-family: sans-serif;
-			  font-size: 1rem;
-			  line-height: 0;
-			  }
-			  .skip-to-content {
-			  opacity: 0;
-			  position: absolute;
-			  }
-			  .skip-to-content:focus{
-			  opacity:1
-			  }
-			  ul { max-width: 85%; }
+						  footer, #postamble, #preamble {
+						      width: 75vw;
+						      max-width: 45em;
+						      margin: 0.5em auto;
+					    padding: 0.5em;
+						      overflow: hidden;
+						  }
+						  table {
+						     border-collapse: collapse;
+						     border-spacing: 0;
+						     empty-cells: show;
+						     border: 0.1em solid #444;
+						     }
+						     thead { font-family: sans-serif; }
+						     th, td {
+						     padding: 0 0.3em;
+						     border: 0.01em solid #444;
+						     }
+						     img {
+						     max-width: 80vw;
+						     vertical-align: middle;
+						     }
+						     pre, .src {
+						     padding: 0.5em;
+						     border: 0.1em solid #444;
+						     white-space: pre-wrap;
+						     overflow-x: scroll;
+						     text-overflow: clip;
+						     scrollbar-width: none;
+						     }
+						     pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+				    display: none;
+				  }
+						     dt {
+						     font-weight: normal;
+						     display: inline-block;
+						     border-bottom: 0.1rem dotted #444;
+						     }
+						     #text-index dt { border-bottom: none; }
+						     h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+						     display: block;
+						     font-family: sans-serif;
+						     margin: 0.2em auto 0.5em 0;
+						     }
+						     h2 { text-align: left; font-size: 2em;}
+						     h3 {
+						     font-size: 1.8em;
+						     }
+						     h4 {
+						     font-size: 1.6em;
+						     }
+						     h5 {
+						     font-size: 1.4em;
+						     margin: 0.5em 0 0.2em 10%;
+						     }
+						     h6 {
+						     font-size: 1.2em;
+						     margin: 0.5em 0 0.2em 30%;
+						     }
+						     a {
+						     text-decoration: none;
+						     color: #880;
+						     display: inline;
+						     position: relative;
+						     border-bottom: 0.1rem dotted;
+						     line-height: 1.2;
+						     transition: border 0.3s;
+						     }
+						     a:hover {
+						     color: #aa2;
+						     outline-style: none;
+						     border-bottom: 0.1rem solid;
+						     }
+						     a:visited { color: #934; }
+						     a:visited:hover { color: #b56; }
+						     a:focus {
+						     outline-style: none;
+						     border-bottom: 0.1rem solid;
+						     }
+						     ::selection { background-color: #777; color: #eee; }
+						     a::selection { background-color: #ccc; }
+						     .org-todo {
+						     background-color: #ddd;
+						     color: #333;
+						    font-size: .8rem;
+						    float: right;
+						    }
+						    .org-src-container + .example {
+						    margin-left: 8em;
+						    }
+						    a[href^="https://"]:not([href*="emsenn.net"]):after{ 
+			    content: "^";
+		  font-size: 0.5em;
+	vertical-align: super;
+			}			    label.org-src-name {
+						    margin: 0 0 0 3em;
+						    font-family: sans-serif;
+						    font-size: 1rem;
+						    line-height: 0;
+						    }
+						    .skip-to-content {
+						    opacity: 0;
+						    position: absolute;
+						    left: 0.2em;
+						    }
+						    .skip-to-content:focus{
+						    opacity:1
+						    }
+						    ul { max-width: 85%; }
 	
 	</style>
 </head>
 <body>
 <section id="preamble" class="status">
-<section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./records.html">record index</a> | <a href="./d/index.html">daily records</a></section>
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./records.html">record index</a> | <a href="./d/index.html">daily records</a><p>This record is part of my <a href="./digital_garden.html">digital garden</a>, which was cultivated as a <a href="./public_asset.html">public asset</a> with <a href="https://ko-fi.com/emsenn">support</a> from <a href="./human.html">humans</a> like you. <strong><em>Thank you!</em></strong></p></section>
 </section>
 <main id="content">
 <header>
 <h1 class="title">BindingGenerations.net</h1>
 </header><p>
-<b><i>BindingGenerations.net</i></b> is the personal website of <a href="20201216103031-esther_davis.html">Esther Davis</a>. This file is my notes on building up that <a href="20201215151949-website.html">Website</a>.
+<b><i>BindingGenerations.net</i></b> is the personal website of <a href=20201216103031-esther_davis.html>Esther Davis</a>. This file is my notes on building up that <a href=20201215151949-website.html>Website</a>.
 </p>
 <section id="outline-container-org56d06c9" class="outline-2">
 <h2 id="org56d06c9">Getting Started</h2>
 <div class="outline-text-2" id="text-org56d06c9">
 <p>
-Before creating this <a href="20201216131742-note.html">note</a>, I have already made a few decisions about how the Website should work, that I discussed with Esther. They're trusting me that they'll be a fan of the <a href="20201215154118-zettelkasten_method.html">Zettelkasten method</a> of <a href="20201215151536-note_taking.html">note-taking</a>, and because of other decisions made in relationship to the <a href="20201216131832-webgaz.html">WebGAZ</a>, <a href="20201215150328-org_roam.html">Org-roam</a> seems like the best way of creating those notes. (The fact its built on-top of <a href="20201215150436-org_mode.html">Org-mode</a> and so its notes will be suitable for independent export as <a href="20201216131936-pdf.html">PDFs</a> is a nice bonus, but honestly unrelated to the choice to use Org-roam.
+Before creating this <a href=20201216131742-note.html>note</a>, I have already made a few decisions about how the Website should work, that I discussed with Esther. They're trusting me that they'll be a fan of the <a href=20201215154118-zettelkasten_method.html>Zettelkasten method</a> of <a href=20201215151536-note_taking.html>note-taking</a>, and because of other decisions made in relationship to the <a href=20201216131832-webgaz.html>WebGAZ</a>, <a href=20201215150328-org_roam.html>Org-roam</a> seems like the best way of creating those notes. (The fact its built on-top of <a href=20201215150436-org_mode.html>Org-mode</a> and so its notes will be suitable for independent export as <a href=20201216131936-pdf.html>PDFs</a> is a nice bonus, but honestly unrelated to the choice to use Org-roam.
 </p>
 
 <p>
-I've been using Org-roam myself since yesterday, and so my first task is to configure some sort of&#x2026; not-my-own <a href="20201216132036-org_roam_directory.html">Org-roam directory</a>, so that I can separate the notes for BN.net from my notes. <a href="https://www.orgroam.com/manual.html#How-do-I-have-more-than-one-Org_002droam-directory_003f">Section 21.1</a> of the Org-roam manual seems to have the answer, but not enough context for me to know for sure: I'm not sure if I understand how <a href="20201215150459-emacs.html">Emacs</a> handles "directory-local variables," as that section calls it.
+I've been using Org-roam myself since yesterday, and so my first task is to configure some sort of&#x2026; not-my-own <a href=20201216132036-org_roam_directory.html>Org-roam directory</a>, so that I can separate the notes for BN.net from my notes. <a href="https://www.orgroam.com/manual.html#How-do-I-have-more-than-one-Org_002droam-directory_003f">Section 21.1</a> of the Org-roam manual seems to have the answer, but not enough context for me to know for sure: I'm not sure if I understand how <a href=20201215150459-emacs.html>Emacs</a> handles "directory-local variables," as that section calls it.
 </p>
 
 <p>
@@ -173,11 +178,11 @@ The relevant section of the manual, <a href="https://www.gnu.org/software/emacs/
 </div>
 
 <p>
-With that directory in place, I can start to capture Org-roam notes while in that directory. I seeded it with one for Esther Davis, to kick things off, and now I want to set up an <a href="20201216150628-org_publish.html">Org-publish</a> project for rendering out those notes as a Website.
+With that directory in place, I can start to capture Org-roam notes while in that directory. I seeded it with one for Esther Davis, to kick things off, and now I want to set up an <a href=20201216150628-org_publish.html>Org-publish</a> project for rendering out those notes as a Website.
 </p>
 
 <p>
-Yesterday I found <a href="https://commonplace.doubleloop.net/20200821142536-how_i_publish_my_wiki_with_org_publish">"How I publish my wiki with org-publish"</a> on the <a href="20201216150949-commonplace_wiki.html">Commonplace wiki</a>, and it's probably a good resource for getting a publishing process set up myself. (I looked for how <a href="20201216151229-jethro_kuan.html">Jethro Kuan</a> publishes their <a href="https://braindump.jethro.dev/">braindump</a> but didn't find it.)
+Yesterday I found <a href="https://commonplace.doubleloop.net/20200821142536-how_i_publish_my_wiki_with_org_publish">"How I publish my wiki with org-publish"</a> on the <a href=20201216150949-commonplace_wiki.html>Commonplace wiki</a>, and it's probably a good resource for getting a publishing process set up myself. (I looked for how <a href=20201216151229-jethro_kuan.html>Jethro Kuan</a> publishes their <a href="https://braindump.jethro.dev/">braindump</a> but didn't find it.)
 </p>
 
 <p>
@@ -232,11 +237,11 @@ Dang, nope! That's not too important though - we want to have the author hard-co
 
 
 <p>
-That worked, okay. Tabling the "wrong author" problem for now, since it'll get resolved by the next step: setting up <a href="20201216154325-org_roam_capture_templates.html">Org-roam capture templates</a>.
+That worked, okay. Tabling the "wrong author" problem for now, since it'll get resolved by the next step: setting up <a href=20201216154325-org_roam_capture_templates.html>Org-roam capture templates</a>.
 </p>
 
 <p>
-<a href="https://www.orgroam.com/manual.html#The-Templating-System">Section 7</a> of the Org-roam manual talks about its extension/hijacking of <a href="20201216154426-org_mode_capture_templates.html">Org-mode capture templates</a>.
+<a href="https://www.orgroam.com/manual.html#The-Templating-System">Section 7</a> of the Org-roam manual talks about its extension/hijacking of <a href=20201216154426-org_mode_capture_templates.html>Org-mode capture templates</a>.
 </p>
 
 <div class="org-src-container">
@@ -295,9 +300,9 @@ But before I can really get further in those problems, I need to figure out how 
 <h3 id="orgc8f407d">Backlinks</h3>
 <div class="outline-text-3" id="text-orgc8f407d">
 <ul class="org-ul">
-<li><a href="d/2020-12-17.html">2020-12-17</a></li>
-<li><a href="d/2020-12-17.html">2020-12-17</a></li>
-<li><a href="records.html">Records Index</a></li>
+<li><a href=d/2020-12-17.html>2020-12-17</a></li>
+<li><a href=d/2020-12-17.html>2020-12-17</a></li>
+<li><a href=records.html>Records Index</a></li>
 </ul>
 </div>
 </div>
@@ -305,7 +310,7 @@ But before I can really get further in those problems, I need to figure out how 
 </main>
 <section id="postamble" class="status">
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-22 Tue 20:18</p>
+<p class="date">Created: 2020-12-22 Tue 22:34</p>
 </section>
 </body>
 </html>
