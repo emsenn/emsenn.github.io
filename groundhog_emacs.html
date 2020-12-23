@@ -1,195 +1,2472 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-22 Tue 22:34 -->
+<!-- 2020-12-23 Wed 16:03 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Groundhog Emacs</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="emsenn">
 <style>
-						  body {
-						      position: relative;
-						      background-color: #ddc;
-						      color: #413;
-						      font-family: serif;
-						      margin: 0 auto;
-						      min-height: 100%;
-						      font-size: 0.8em;
-						      font-family: sans-serif;
-						  }
-						  main, #content {
-						     width: 75vw;
-						     max-width: 60em;
-						     background-color: #eed;
-						     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-						     margin: 0.5em auto;
-						     padding: 1em;
-						  }
-						  header {
-						     margin-bottom: 2em;
-						     padding-bottom: 0.5em;
-						     border-bottom: 0.2em dotted #444;
-						  }
+	@charset "UTF-8";
 	
-						  h1 { margin: 0.2em 0 0.2em 0; font-size: 3.2em; }
+	:root {
+	    --body-font: sans-serif;
+	    --header-font: sans-serif;
+	    --code-font: monospace;
+	    --primary-color: #ffe;
+	    --primary-dim-color: #eed;
+	    --secondary-color: #312;
+	    --secondary-dim-color: #756;
+	    --link-color: #880;
+	    --link-hover-color: #aa2;
+	    --link-visited-color: #934;
+	    --link-visited-hover-color: #b56;
+	    --external-link-color: #008;
+	    --external-link-hover-color: #60b;
+	    --external-link-visited-color: #394;
+	    --external-link-visited-hover-color: #5b6;
+	}
+	@media(prefers-color-scheme:dark){
+	    :root {
+		--body-font: sans-serif;
+		--header-font: sans-serif;
+		--code-font: monospace;
+		--primary-color: #756;
+		--primary-dim-color: #312;
+		--secondary-color: #eed;
+		--secondary-dim-color: #ffe;
+		--link-color: #880;
+		--link-hover-color: #aa2;
+		--link-visited-color: #934;
+		--link-visited-hover-color: #b56;
+	    }}
+	body {
+	    position: relative;
+	    min-height: 100%;
+	    background-color: var(--primary-color);
+	    color: var(--secondary-color);
+	    margin: 0 auto;
+	    font-family: sans-serif;
+	}
+	main, #content {
+	    background-color: var(--primary-dim-color);
+	    border-left: 1.5em dashed var(--primary-color);
+	    padding: 1em;
+	}
+	header {
+	    border-bottom: 0.2em dashed var(--secondary-dim-color);
+	}
+	h1 { font-size: 2em; margin-bottom: 0; }
+	h2 {
+	    border-bottom: 0.1em dashed var(--secondary-dim-color);
+	}
+	h2, h3, h4, h5, h6, p, .org-src-container {
+	    width: 60%;
+	}
+	aside {
+	    float: right;
+	    width: 35%;
+	}
+	aside p { width: 100%; }
+	@media screen and (max-width:760px) {
+	    h2, h3, h4, h5, h6, p, .org-src-container {
+		width: 90%;
+	    }
+	    aside {
+		float: inherit;
+		width: 90%;
+		border-top: 0.1em dashed var(--secondary-dim-color);
+		border-bottom: 0.1em dashed var(--secondary-dim-color);
+		font-size: 0.8em;
+		  }
+	}
 	
-						  footer, #postamble, #preamble {
-						      width: 75vw;
-						      max-width: 45em;
-						      margin: 0.5em auto;
-					    padding: 0.5em;
-						      overflow: hidden;
-						  }
-						  table {
-						     border-collapse: collapse;
-						     border-spacing: 0;
-						     empty-cells: show;
-						     border: 0.1em solid #444;
-						     }
-						     thead { font-family: sans-serif; }
-						     th, td {
-						     padding: 0 0.3em;
-						     border: 0.01em solid #444;
-						     }
-						     img {
-						     max-width: 80vw;
-						     vertical-align: middle;
-						     }
-						     pre, .src {
-						     padding: 0.5em;
-						     border: 0.1em solid #444;
-						     white-space: pre-wrap;
-						     overflow-x: scroll;
-						     text-overflow: clip;
-						     scrollbar-width: none;
-						     }
-						     pre::-webkit-scrollbar, .src::-webkit-scrollbar {
-				    display: none;
-				  }
-						     dt {
-						     font-weight: normal;
-						     display: inline-block;
-						     border-bottom: 0.1rem dotted #444;
-						     }
-						     #text-index dt { border-bottom: none; }
-						     h2, h3, h4, h5, h6, h7, h8, h9, h10 {
-						     display: block;
-						     font-family: sans-serif;
-						     margin: 0.2em auto 0.5em 0;
-						     }
-						     h2 { text-align: left; font-size: 2em;}
-						     h3 {
-						     font-size: 1.8em;
-						     }
-						     h4 {
-						     font-size: 1.6em;
-						     }
-						     h5 {
-						     font-size: 1.4em;
-						     margin: 0.5em 0 0.2em 10%;
-						     }
-						     h6 {
-						     font-size: 1.2em;
-						     margin: 0.5em 0 0.2em 30%;
-						     }
-						     a {
-						     text-decoration: none;
-						     color: #880;
-						     display: inline;
-						     position: relative;
-						     border-bottom: 0.1rem dotted;
-						     line-height: 1.2;
-						     transition: border 0.3s;
-						     }
-						     a:hover {
-						     color: #aa2;
-						     outline-style: none;
-						     border-bottom: 0.1rem solid;
-						     }
-						     a:visited { color: #934; }
-						     a:visited:hover { color: #b56; }
-						     a:focus {
-						     outline-style: none;
-						     border-bottom: 0.1rem solid;
-						     }
-						     ::selection { background-color: #777; color: #eee; }
-						     a::selection { background-color: #ccc; }
-						     .org-todo {
-						     background-color: #ddd;
-						     color: #333;
-						    font-size: .8rem;
-						    float: right;
-						    }
-						    .org-src-container + .example {
-						    margin-left: 8em;
-						    }
-						    a[href^="https://"]:not([href*="emsenn.net"]):after{ 
-			    content: "^";
-		  font-size: 0.5em;
-	vertical-align: super;
-			}			    label.org-src-name {
-						    margin: 0 0 0 3em;
-						    font-family: sans-serif;
-						    font-size: 1rem;
-						    line-height: 0;
-						    }
-						    .skip-to-content {
-						    opacity: 0;
-						    position: absolute;
-						    left: 0.2em;
-						    }
-						    .skip-to-content:focus{
-						    opacity:1
-						    }
-						    ul { max-width: 85%; }
+	footer, #postamble, #preamble {
+	    padding: 0.5em;
+	}
+	table {
+	    border-collapse: collapse;
+	    border-spacing: 0;
+	    empty-cells: show;
+	    border: 0.1em solid #444;
+	}
+	thead { font-family: sans-serif; }
+	th, td {
+	    padding: 0 0.3em;
+	    border: 0.01em solid #444;
+	}
+	img {
+	    max-width: 80vw;
+	    vertical-align: middle;
+	}
+	pre, .src {
+	    padding: 0.5em;
+	    border: 0.1em solid #444;
+	    white-space: pre-wrap;
+	    overflow-x: scroll;
+	    text-overflow: clip;
+	    scrollbar-width: none;
+	}
+	pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+	    display: none;
+	}
 	
+	
+	dt {
+	    font-weight: normal;
+	    display: inline-block;
+	    border-bottom: 0.1rem dotted #444;
+	}
+	#text-index dt { border-bottom: none; }
+	h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+	    display: block;
+	    font-family: sans-serif;
+	    margin: 0.2em auto 0.5em 0;
+	}
+	a {
+	    text-decoration: none;
+	    color: #880;
+	    display: inline;
+	    position: relative;
+	    border-bottom: 0.1rem dotted;
+	    line-height: 1.2;
+	    transition: border 0.3s;
+	}
+	a:hover {
+	    color: #aa2;
+	    outline-style: none;
+	    border-bottom: 0.1rem solid;
+	}
+	a:visited { color: #934; }
+	a:visited:hover { color: #b56; }
+	a:focus {
+	    outline-style: none;
+	    border-bottom: 0.1rem solid;
+	}
+	::selection { background-color: #777; color: #eee; }
+	a::selection { background-color: #ccc; }
+	.org-todo {
+	    background-color: #ddd;
+	    color: #333;
+	    font-size: .8rem;
+	    float: right;
+	}
+	.org-src-container + .example {
+	    margin-left: 8em;
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):after{ 
+	    content: "^";
+	    font-size: 0.5em;
+	    vertical-align: super;
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]){ 
+	    color: var(--external-link-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+	    color: var(--external-link-hover-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):visited{ 
+	    color: var(--external-link-visited-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+	    color: var(--external-link-visited-hover-color);
+	}
+	label.org-src-name {
+	    margin: 0 0 0 3em;
+	    font-family: sans-serif;
+	    font-size: 1rem;
+	    line-height: 0;
+	}
+	.skip-to-content {
+	    opacity: 0;
+	    position: absolute;
+	    left: 0.2em;
+	}
+	.skip-to-content:focus{
+	    opacity: 1;
+	    background-color: var(--secondary-dim-color);
+	    color: var(--primary-color);
+	}
+	ul { max-width: 85%; }
 	</style>
 </head>
 <body>
 <section id="preamble" class="status">
-<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./records.html">record index</a> | <a href="./d/index.html">daily records</a><p>This record is part of my <a href="./digital_garden.html">digital garden</a>, which was cultivated as a <a href="./public_asset.html">public asset</a> with <a href="https://ko-fi.com/emsenn">support</a> from <a href="./human.html">humans</a> like you. <strong><em>Thank you!</em></strong></p></section>
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./records.html">record index</a> | <a href="./d/index.html">daily records</a><p>This record is part of my <a href="./digital_garden.html">digital garden</a>, which was cultivated as a <a href="./public_asset.html">public asset</a> with <a href="https://ko-fi.com/emsenn">support</a> from <a href="./human.html">humans</a> like you. <strong><em>Thank you!</em></strong></p><details><summary>Click for tips on using this Website</summary><p>This digital garden is in its early days, but here's some useful things to know:</p><ul><li><span style="color: var(--link-color)">This color text</span> is a link to a part of the garden you haven't been to. <span style="color: var(--link-visited-color)">This color text</span> is a link to a part of the garden you <em>have</em> been to. <span style="color: var(--external-link-color)">This color text</span> is a link to a Webpage you haven't been to. <span style="color: var(--external-link-visited-color)">This color text</span> is a link to a Webpage you <em>have</em> been to. </li></ul></details></section>
 </section>
 <main id="content">
 <header>
 <h1 class="title">Groundhog Emacs</h1>
-</header><div class="head" id="org5641631">
+</header><div class="head" id="orge5d2c14">
 
 </div>
-<summary id="orgf2ba564">
+<summary id="orga2eb31f">
 <p>
-<b><i>Groundhog Emacs</i></b> is a <a href=20201215154153-tool.html>tool</a> for <a href=20201218102824-groundhog_person.html>Groundhog people</a> doing <a href=20201216101922-information_management.html>information management</a> using a <a href=20201217094215-computer.html>computer</a>.
+<b><i>Groundhog Emacs</i></b> is a <a href="20201215154153-tool.html">tool</a> for <a href="20201218102824-groundhog_person.html">Groundhog people</a> doing <a href="20201216101922-information_management.html">information management</a> using a <a href="20201217094215-computer.html">computer</a>.
 </p>
 </summary>
-<section id="outline-container-org806a467" class="outline-2">
-<h2 id="org806a467">Introduction</h2>
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgbf1ccf1">Introduction</a></li>
+<li><a href="#org16f257b">Groundhog Emacs</a>
+<ul>
+<li><a href="#org609a684">Known Bugs</a></li>
+<li><a href="#org2a117d9">Components</a></li>
+</ul>
+</li>
+<li><a href="#orgd9b3027">Supplements</a>
+<ul>
+<li><a href="#orgeee6462">Decisions</a></li>
+<li><a href="#orgba76b5c">Elisp Code Blocks</a></li>
+<li><a href="#orgcd848bb">Source Files</a></li>
+<li><a href="#org81654f9">Backlinks</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<section id="outline-container-orgbf1ccf1" class="outline-2">
+<h2 id="orgbf1ccf1">Introduction</h2>
 </section>
-<section id="outline-container-org6276d69" class="outline-2">
-<h2 id="org6276d69">Groundhog Emacs</h2>
-<div class="outline-text-2" id="text-org6276d69">
+<section id="outline-container-org16f257b" class="outline-2">
+<h2 id="org16f257b">Groundhog Emacs</h2>
+<div class="outline-text-2" id="text-org16f257b">
 </div>
-<div id="outline-container-org9e54d50" class="outline-3">
-<h3 id="org9e54d50">Known Bugs</h3>
-<div class="outline-text-3" id="text-org9e54d50">
+<div id="outline-container-org609a684" class="outline-3">
+<h3 id="org609a684">Known Bugs</h3>
+<div class="outline-text-3" id="text-org609a684">
 </div>
-<div id="outline-container-orgb6f74ec" class="outline-4">
-<h4 id="orgb6f74ec">Ox-org isn't on by default</h4>
+<div id="outline-container-org756fbeb" class="outline-4">
+<h4 id="org756fbeb">Ox-org isn't on by default</h4>
 </div>
-<div id="outline-container-orgc3d3c08" class="outline-4">
-<h4 id="orgc3d3c08">Ivy-mode needs to be toggled on startup</h4>
+<div id="outline-container-org2da1471" class="outline-4">
+<h4 id="org2da1471">Ivy-mode needs to be toggled on startup</h4>
 </div>
 </div>
-</section>
-<section id="outline-container-org141e24b" class="outline-2">
-<h2 id="org141e24b">Supplements</h2>
-<div class="outline-text-2" id="text-org141e24b">
+<div id="outline-container-org2a117d9" class="outline-3">
+<h3 id="org2a117d9">Components</h3>
+<div class="outline-text-3" id="text-org2a117d9">
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgf85ee6f">Basics</a></li>
+<li><a href="#org6e87e4a">HTMLize</a></li>
+<li><a href="#org063f259">Ivy</a></li>
+<li><a href="#orgad155e7">Magit</a></li>
+<li><a href="#orgfc14d50">Org</a></li>
+</ul>
 </div>
-<div id="outline-container-org0632100" class="outline-3">
-<h3 id="org0632100">Backlinks</h3>
-<div class="outline-text-3" id="text-org0632100">
+</div>
+<div id="outline-container-orgf85ee6f" class="outline-4">
+<h4 id="orgf85ee6f">Basics</h4>
+<div class="outline-text-4" id="text-orgf85ee6f">
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org6da27c6">User configuration</a></li>
+<li><a href="#orgcefdb4b">Bugfixes &amp; Version-handling</a></li>
+<li><a href="#orge594d5a">Package Handling</a></li>
+<li><a href="#org22c03b8">Save behavior</a></li>
+<li><a href="#org118c409">Startup behavior</a></li>
+<li><a href="#orgb9fa6e8">UI</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6da27c6" class="outline-5">
+<h5 id="org6da27c6">User configuration</h5>
+<div class="outline-text-5" id="text-org6da27c6">
+</div>
+<div id="outline-container-org42278a5" class="outline-6">
+<h6 id="org42278a5">Full name</h6>
+</div>
+<div id="outline-container-orgbb0d9af" class="outline-6">
+<h6 id="orgbb0d9af">Email</h6>
+<div class="outline-text-6" id="text-orgbb0d9af">
+<div class="org-src-container">
+<pre class="src src-text" id="org036e4a7">emsenn@emsenn.net
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcefdb4b" class="outline-5">
+<h5 id="orgcefdb4b">Bugfixes &amp; Version-handling</h5>
+<div class="outline-text-5" id="text-orgcefdb4b">
+</div>
+<div id="outline-container-org168ac26" class="outline-6">
+<h6 id="org168ac26">Bugfixes</h6>
+<div class="outline-text-6" id="text-org168ac26">
+</div>
+<div id="outline-container-orgc270a26" class="outline-7">
+<h7 id="orgc270a26">Isearch occur bugfix</h7>
+<div class="outline-text-7" id="text-orgc270a26">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>A fix for an isearch bug</label><pre class="src src-elisp" id="orgd0512a8">(<span class="org-keyword">defadvice</span> <span class="org-function-name">isearch-occur</span> (after isearch-occur-fix activate)
+    <span class="org-doc">"Fix bug #20971: http://debbugs.gnu.org/cgi/bugreport.cgi?bug=20971"</span>
+    (<span class="org-keyword">setq</span> buffer-read-only nil))
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org818f1e3" class="outline-6">
+<h6 id="org818f1e3">Version-handling</h6>
+<div class="outline-text-6" id="text-org818f1e3">
+</div>
+<div id="outline-container-orgfe8bb9b" class="outline-7">
+<h7 id="orgfe8bb9b">Fix TLS on Emacs &lt;26.3</h7>
+<div class="outline-text-7" id="text-orgfe8bb9b">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Fix TLS stuff on Emacs &lt;26.3</label><pre class="src src-elisp" id="org796e6a7">(<span class="org-keyword">if</span> (<span class="org-keyword">and</span> (version&lt; emacs-version <span class="org-string">"26.3"</span>) (&gt;= libgnutls-version 30600))
+    (<span class="org-keyword">setq</span> gnutls-algorithm-priority <span class="org-string">"NORMAL:-VERS-TLS1.3"</span>))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orge594d5a" class="outline-5">
+<h5 id="orge594d5a">Package Handling</h5>
+<div class="outline-text-5" id="text-orge594d5a">
+</div>
+<div id="outline-container-org63a7e20" class="outline-6">
+<h6 id="org63a7e20">Package installation</h6>
+<div class="outline-text-6" id="text-org63a7e20">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>Install straight.el and use-package</label><pre class="src src-elisp" id="orgcaa5cea">(<span class="org-keyword">defvar</span> <span class="org-variable-name">straight-install-script-path</span>
+  <span class="org-string">"https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"</span>)
+
+(<span class="org-keyword">defvar</span> <span class="org-variable-name">bootstrap-version</span>)
+(<span class="org-keyword">let</span> ((bootstrap-file
+       (expand-file-name <span class="org-string">"straight/repos/straight.el/bootstrap.el"</span> user-emacs-directory))
+      (bootstrap-version 5))
+  (<span class="org-keyword">unless</span> (file-exists-p bootstrap-file)
+    (<span class="org-keyword">with-current-buffer</span>
+        (url-retrieve-synchronously straight-install-script-path
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org22c03b8" class="outline-5">
+<h5 id="org22c03b8">Save behavior</h5>
+<div class="outline-text-5" id="text-org22c03b8">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>Turn off backups</label><pre class="src src-elisp" id="orgf788585">(<span class="org-keyword">setq</span> make-backup-files nil)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org118c409" class="outline-5">
+<h5 id="org118c409">Startup behavior</h5>
+<div class="outline-text-5" id="text-org118c409">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>Turn off the startup screen</label><pre class="src src-elisp" id="org007895f">(<span class="org-keyword">setq</span> initial-scratch-message <span class="org-string">";; landback"</span>)
+(<span class="org-keyword">setq</span> inhibit-startup-message t)
+
+(<span class="org-keyword">setq</span> inhibit-startup-screen t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb9fa6e8" class="outline-5">
+<h5 id="orgb9fa6e8">UI</h5>
+<div class="outline-text-5" id="text-orgb9fa6e8">
+</div>
+<div id="outline-container-org8028860" class="outline-6">
+<h6 id="org8028860">Theme</h6>
+<div class="outline-text-6" id="text-org8028860">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>Configure the theme</label><pre class="src src-elisp" id="orgf3ad576">(<span class="org-keyword">use-package</span> <span class="org-constant">tao-theme</span> <span class="org-builtin">:straight</span> t
+  <span class="org-builtin">:config</span> (load-theme 'tao-yin t))
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6af60e0" class="outline-6">
+<h6 id="org6af60e0">UI Configuration</h6>
+<div class="outline-text-6" id="text-org6af60e0">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>UI configuration</label><pre class="src src-elisp" id="org29da3e2">  (<span class="org-keyword">setq</span> echo-keystrokes 0.1)
+(menu-bar-mode 1)
+  (tool-bar-mode -1)
+  (show-paren-mode 1)
+  (<span class="org-keyword">setq</span> fill-column 68)
+  (<span class="org-keyword">setq</span> mouse-wheel-scroll-amount '(1 ((shift) .1)))
+  (<span class="org-keyword">setq</span> line-number-mode t)
+  (<span class="org-keyword">setq</span> column-number-mode t)
+  (<span class="org-keyword">setq-default</span> truncate-lines t)
+  (<span class="org-keyword">setq-default</span> line-spacing 1)
+  (<span class="org-keyword">setq</span> sentence-end-double-space nil)
+
+  (<span class="org-keyword">when</span> (fboundp 'windmove-default-keybindings)
+    (windmove-default-keybindings))
+
+  (global-visual-line-mode t)
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org6e87e4a" class="outline-4">
+<h4 id="org6e87e4a">HTMLize</h4>
+<div class="outline-text-4" id="text-org6e87e4a">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>HTMLize</label><pre class="src src-elisp" id="org989fb06">(<span class="org-keyword">use-package</span> <span class="org-constant">htmlize</span> <span class="org-builtin">:straight</span> t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org063f259" class="outline-4">
+<h4 id="org063f259">Ivy</h4>
+<div class="outline-text-4" id="text-org063f259">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 9: </span>Setup ivy</label><pre class="src src-elisp" id="org5ba4bd1">(<span class="org-keyword">use-package</span> <span class="org-constant">ivy</span>
+   <span class="org-builtin">:straight</span> t
+   <span class="org-builtin">:diminish</span> (ivy-mode . <span class="org-string">""</span>)
+   <span class="org-builtin">:bind</span> ((<span class="org-string">"C-c C-r"</span> . ivy-resume))
+   <span class="org-builtin">:config</span> (ivy-mode 1)
+   (<span class="org-keyword">setq</span> ivy-use-virtual-buffers t)
+   (<span class="org-keyword">setq</span> ivy-height 12)
+   (<span class="org-keyword">setq</span> ivy-count-format <span class="org-string">"(%d/%d) "</span>)
+   (<span class="org-keyword">setq</span> ivy-initial-inputs-alist nil)
+   (<span class="org-keyword">setq</span> ivy-re-builders-alist
+         '((read-file-name-internal . ivy--regex-fuzzy)
+           (t . ivy--regex-ignore-order))))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgad155e7" class="outline-4">
+<h4 id="orgad155e7">Magit</h4>
+<div class="outline-text-4" id="text-orgad155e7">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgcffd2e9">(<span class="org-keyword">use-package</span> <span class="org-constant">magit</span> <span class="org-builtin">:straight</span> t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfc14d50" class="outline-4">
+<h4 id="orgfc14d50">Org</h4>
+<div class="outline-text-4" id="text-orgfc14d50">
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgaf7b851">Org configuration</a></li>
+<li><a href="#org7a9777d">Org-agenda</a></li>
+<li><a href="#org107023b">Org-attach-screenshot</a></li>
+<li><a href="#org3323198">Org-babel</a></li>
+<li><a href="#org5e0bf7b">Org-capture</a></li>
+<li><a href="#org4c68082">Org-export</a></li>
+<li><a href="#org44c2bc1">Org-log</a></li>
+<li><a href="#org764f0ed">Org-publish</a></li>
+<li><a href="#orgedc470c">Org-roam</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaf7b851" class="outline-5">
+<h5 id="orgaf7b851">Org configuration</h5>
+<div class="outline-text-5" id="text-orgaf7b851">
+</div>
+<div id="outline-container-org681f4db" class="outline-6">
+<h6 id="org681f4db">Org variables</h6>
+<div class="outline-text-6" id="text-org681f4db">
+</div>
+<div id="outline-container-orgd2e260e" class="outline-7">
+<h7 id="orgd2e260e">Org directory</h7>
+<div class="outline-text-7" id="text-orgd2e260e">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 10: </span>The value of org-directory</label><pre class="src src-text" id="org6d05d08">"~/org"
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org637e5c3" class="outline-6">
+<h6 id="org637e5c3">Org hooks</h6>
+<div class="outline-text-6" id="text-org637e5c3">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 11: </span>Org hooks</label><pre class="src src-elisp" id="org5a3f22f">(org-export-before-processing . ghe-org-export-preprocessor)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb30ffa6" class="outline-6">
+<h6 id="orgb30ffa6">Org bindings</h6>
+<div class="outline-text-6" id="text-orgb30ffa6">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 12: </span>Org bindings</label><pre class="src src-elisp" id="orgc566414">(<span class="org-string">"C-c l"</span> . org-store-link)
+           (<span class="org-string">"C-c a"</span> . org-agenda)
+           (<span class="org-string">"C-c c"</span> . org-capture)
+           (<span class="org-string">"C-c t"</span> . org-toggle-link-display)
+           (<span class="org-string">"C-c C-q"</span> . counsel-org-tag)
+           (<span class="org-string">"&lt;f8&gt;"</span> . ghe-org-capture-capture-at-point)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org7a9777d" class="outline-5">
+<h5 id="org7a9777d">Org-agenda</h5>
+<div class="outline-text-5" id="text-org7a9777d">
+</div>
+<div id="outline-container-org6d5ae73" class="outline-6">
+<h6 id="org6d5ae73">Org-agenda configuration</h6>
+<div class="outline-text-6" id="text-org6d5ae73">
+</div>
+<div id="outline-container-org60ad8af" class="outline-7">
+<h7 id="org60ad8af">Org agenda files</h7>
+<div class="outline-text-7" id="text-org60ad8af">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 13: </span>The value of org-agenda-files</label><pre class="src src-text" id="org3fd43cf">(list "~/org")
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org107023b" class="outline-5">
+<h5 id="org107023b">Org-attach-screenshot</h5>
+<div class="outline-text-5" id="text-org107023b">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 14: </span>Org-attach-screenshot</label><pre class="src src-elisp" id="org0ea33c4">(<span class="org-keyword">use-package</span> <span class="org-constant">org-attach-screenshot</span> <span class="org-builtin">:straight</span> t
+   <span class="org-builtin">:config</span> (<span class="org-keyword">setq</span>
+            org-attach-screenshot-command-line <span class="org-string">"spectacle -rbno $f"</span>))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org3323198" class="outline-5">
+<h5 id="org3323198">Org-babel</h5>
+<div class="outline-text-5" id="text-org3323198">
+</div>
+<div id="outline-container-org26ff7a3" class="outline-6">
+<h6 id="org26ff7a3">Org-babel configuration</h6>
+<div class="outline-text-6" id="text-org26ff7a3">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 15: </span>Org-babel configuration Elisp</label><pre class="src src-elisp" id="orgc634451">(org-babel-do-load-languages 'org-babel-load-languages
+                              '((shell . t)))
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgab06588" class="outline-6">
+<h6 id="orgab06588">Org-babel functions</h6>
+<div class="outline-text-6" id="text-orgab06588">
+</div>
+<div id="outline-container-org5656aa4" class="outline-7">
+<h7 id="org5656aa4">Org-mode to Elisp functions</h7>
+<div class="outline-text-7" id="text-org5656aa4">
+</div>
 <ul class="org-ul">
-<li><a href=d/2020-12-22.html>2020-12-22</a></li>
-<li><a href=records.html>Records Index</a></li>
+<li><a id="orgbf4000e"></a>Org-table to defvar<br>
+<div class="outline-text-8" id="text-orgbf4000e">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org2549983">(<span class="org-keyword">defun</span> <span class="org-function-name">ghe-org-table-to-defvar</span> (table)
+  (string-join 
+      (mapcar
+       (<span class="org-keyword">lambda</span> (item)
+         (print (concat <span class="org-string">"(defvar "</span>
+                        (car item)
+                        <span class="org-string">" \""</span>
+                        (car (cdr item))
+                        <span class="org-string">"\" \""</span>
+                        (car (cdr (cdr item)))
+                        <span class="org-string">"\")\n"</span>)))
+         table)))
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orged36db9"></a>Org-table to setq<br>
+<div class="outline-text-8" id="text-orged36db9">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgba9ea56">(<span class="org-keyword">defun</span> <span class="org-function-name">ghe-org-table-to-setq</span> (table)
+  (string-join 
+      (mapcar
+       (<span class="org-keyword">lambda</span> (item)
+         (print (concat <span class="org-string">"(setq "</span>
+                        (car item)
+                        <span class="org-string">" "</span>
+                        (car (cdr item))
+                        <span class="org-string">")\n"</span>)))
+         table)))
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org5e0bf7b" class="outline-5">
+<h5 id="org5e0bf7b">Org-capture</h5>
+<div class="outline-text-5" id="text-org5e0bf7b">
+</div>
+<div id="outline-container-org620d141" class="outline-6">
+<h6 id="org620d141">Org-capture functions</h6>
+<div class="outline-text-6" id="text-org620d141">
+</div>
+<div id="outline-container-org4986e0a" class="outline-7">
+<h7 id="org4986e0a">Capture at point</h7>
+<div class="outline-text-7" id="text-org4986e0a">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 16: </span>Capture at the current point</label><pre class="src src-elisp" id="org253409a">(<span class="org-keyword">defun</span> <span class="org-function-name">ghe-org-capture-capture-at-point</span> ()
+   <span class="org-doc">"Insert an org capture template at point."</span>
+   (<span class="org-keyword">interactive</span>)
+   (org-capture 0))
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org508f98e" class="outline-6">
+<h6 id="org508f98e">Org-capture templates</h6>
+<div class="outline-text-6" id="text-org508f98e">
+</div>
+<div id="outline-container-orga90c541" class="outline-7">
+<h7 id="orga90c541">Capture source code block</h7>
+<div class="outline-text-7" id="text-orga90c541">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 17: </span>The capture template for capturing source blocks</label><pre class="src src-elisp" id="orgc91f224">(<span class="org-string">"s"</span> <span class="org-string">"Capture source code block"</span>)
+</pre>
+</div>
+</div>
+<ul class="org-ul">
+<li><a id="org0f90dd5"></a>Capture Elisp source block<br>
+<div class="outline-text-8" id="text-org0f90dd5">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 18: </span>Capture an Elisp code block</label><pre class="src src-elisp" id="org5fbea10">(<span class="org-string">"se"</span> <span class="org-string">"Elisp code block"</span>
+             plain (clock)
+             ,(concat <span class="org-string">"#+name: %^{NAME}-elisp\n"</span>
+                      <span class="org-string">"#+caption: %^{CAPTION}\n"</span>
+                    <span class="org-string">"#+begin_src elisp %^{HEADER-ARGS}\n"</span>
+                    <span class="org-string">"%?\n"</span>
+                    <span class="org-string">"#+end_src\n"</span>))
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org4c68082" class="outline-5">
+<h5 id="org4c68082">Org-export</h5>
+<div class="outline-text-5" id="text-org4c68082">
+</div>
+<div id="outline-container-org2290c49" class="outline-6">
+<h6 id="org2290c49">Org-export configuration</h6>
+<div class="outline-text-6" id="text-org2290c49">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 19: </span>The value of org-export-with-section-numbers</label><pre class="src src-text" id="org34cc61b">nil
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 20: </span>The value of org-export-with-smart-quotes</label><pre class="src src-text" id="org720ce52">nil
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 21: </span>The value of org-export-with-toc</label><pre class="src src-text" id="org7aa77f8">nil
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb63a1e6" class="outline-6">
+<h6 id="orgb63a1e6">Org-export functions</h6>
+<div class="outline-text-6" id="text-orgb63a1e6">
+</div>
+<div id="outline-container-org664acd6" class="outline-7">
+<h7 id="org664acd6">Preprocessor</h7>
+<div class="outline-text-7" id="text-org664acd6">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-22 Tue 16:21] </span></span> <br>
+Changed the backlinks to be two (<code>**</code>) headlines into the file. With the new <a href="20201216103556-schema.html">schema</a> for <a href="20201217220539-record.html">records</a>, that'll put it under the <code>* Supplements</code> header.</li>
+</ul>
+ </section>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 22: </span>The preprocessor used by Org-export</label><pre class="src src-elisp" id="org6cf8f2d">(<span class="org-keyword">defun</span> <span class="org-function-name">ghe-org-export-preprocessor</span> (backend)
+  (<span class="org-keyword">let</span> ((links (ghe-org-roam-format-backlinks-list (buffer-file-name))))
+    (<span class="org-keyword">unless</span> (string= links <span class="org-string">""</span>)
+      (<span class="org-keyword">save-excursion</span>
+        (goto-char (point-max))
+        (insert (concat <span class="org-string">"\n** Backlinks\n"</span>) links)))))
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org51fccf3" class="outline-6">
+<h6 id="org51fccf3">HTML export</h6>
+<div class="outline-text-6" id="text-org51fccf3">
+</div>
+<div id="outline-container-orgbc3b32e" class="outline-7">
+<h7 id="orgbc3b32e">HTML export functions</h7>
+<div class="outline-text-7" id="text-orgbc3b32e">
+</div>
+<ul class="org-ul">
+<li><a id="org4c69dbb"></a>Format drawer<br>
+<div class="outline-text-8" id="text-org4c69dbb">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 23: </span>Wrap drawers in a org-drawer class section tag</label><pre class="src src-elisp" id="orgaa2270b">(<span class="org-keyword">defun</span> <span class="org-function-name">ghe-org-html-format-drawer</span> (name contents)
+  (format <span class="org-string">"&lt;section class=\"org-drawer\"&gt; %s &lt;/section&gt;"</span> contents))
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-orgfa16d6e" class="outline-7">
+<h7 id="orgfa16d6e">HTML export configuration</h7>
+<div class="outline-text-7" id="text-orgfa16d6e">
+<div class="org-src-container">
+<pre class="src src-text" id="org3966e9c">'css
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-text" id="orgfde1999">
+</pre>
+</div>
+</div>
+<ul class="org-ul">
+<li><a id="orgc497d96"></a>Format drawer function<br>
+<div class="outline-text-8" id="text-orgc497d96">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 24: </span>The value of org-html-format-drawer-function</label><pre class="src src-text" id="org475e3eb">'ghe-org-html-format-drawer
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="orgb68b045"></a>Display validation link<br>
+<div class="outline-text-8" id="text-orgb68b045">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 25: </span>The value of org-html-validation-link</label><pre class="src src-text" id="org79e87e7">nil
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org6ac4991"></a>HTML export base preamble<br>
+<div class="outline-text-8" id="text-org6ac4991">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 26: </span>The preamble text inserted by Org-export after the opening body tag, and before the header tag.</label><pre class="src src-elisp" id="org4a685f4">(<span class="org-keyword">setq</span> ghe-org-html-base-preamble
+    (concat <span class="org-string">"&lt;a href=\"#content\" class=\"skip-to-content\"&gt;skip to content&lt;/a&gt;"</span>
+            <span class="org-string">"&lt;section class=\"nav\"&gt;&lt;strong&gt;Website navigation:&lt;/strong&gt; "</span>
+            <span class="org-string">"&lt;a href=\"./index.html\"&gt;"</span>
+            <span class="org-string">"homepage&lt;/a&gt; | "</span>
+            <span class="org-string">"&lt;a href=\"./records.html\"&gt;"</span>
+            <span class="org-string">"record index&lt;/a&gt; | "</span>
+            <span class="org-string">"&lt;a href=\"./d/index.html\"&gt;"</span>
+            <span class="org-string">"daily records"</span>
+            <span class="org-string">"&lt;/a&gt;"</span>
+            <span class="org-string">"&lt;p&gt;"</span>
+     <span class="org-string">"This record is part of my &lt;a href=\"./digital_garden.html\"&gt;digital garden&lt;/a&gt;, which was cultivated as a &lt;a href=\"./public_asset.html\"&gt;public asset&lt;/a&gt; with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from &lt;a href=\"./human.html\"&gt;humans&lt;/a&gt; like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"</span>
+        <span class="org-string">"&lt;/p&gt;"</span>
+     <span class="org-string">"&lt;details&gt;"</span>
+     <span class="org-string">"&lt;summary&gt;Click for tips on using this Website&lt;/summary&gt;"</span>
+     <span class="org-string">"&lt;p&gt;"</span>
+     <span class="org-string">"This digital garden is in its early days, but here's some useful things to know:&lt;/p&gt;"</span>
+     <span class="org-string">"&lt;ul&gt;"</span>
+     <span class="org-string">"&lt;li&gt;"</span>
+     <span class="org-string">"&lt;span style=\"color: var(--link-color)\"&gt;"</span>
+     <span class="org-string">"This color text&lt;/span&gt;"</span>
+     <span class="org-string">" is a link to a part of the garden you haven't been to. "</span>
+     <span class="org-string">"&lt;span style=\"color: var(--link-visited-color)\"&gt;"</span>
+     <span class="org-string">"This color text&lt;/span&gt;"</span>
+     <span class="org-string">" is a link to a part of the garden you &lt;em&gt;have&lt;/em&gt; been to. "</span>
+     <span class="org-string">"&lt;span style=\"color: var(--external-link-color)\"&gt;"</span>
+     <span class="org-string">"This color text&lt;/span&gt;"</span>
+     <span class="org-string">" is a link to a Webpage you haven't been to. "</span>
+     <span class="org-string">"&lt;span style=\"color: var(--external-link-visited-color)\"&gt;"</span>
+     <span class="org-string">"This color text&lt;/span&gt;"</span>
+     <span class="org-string">" is a link to a Webpage you &lt;em&gt;have&lt;/em&gt; been to. "</span>
+     <span class="org-string">"&lt;/li&gt;"</span>
+
+     <span class="org-string">"&lt;/ul&gt;"</span>
+     <span class="org-string">"&lt;/details&gt;"</span>
+     <span class="org-string">"&lt;/section&gt;"</span>))
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org9b97842"></a>HTML export dailies preamble<br>
+<div class="outline-text-8" id="text-org9b97842">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 27: </span>The preamble text inserted by Org-export after the opening body tag, and before the header tag.</label><pre class="src src-elisp" id="org53a9308">(<span class="org-keyword">setq</span> ghe-org-html-dailies-preamble
+    (concat <span class="org-string">"&lt;a href=\"#content\" class=\"skip-to-content\"&gt;skip to content&lt;/a&gt;"</span>
+            <span class="org-string">"&lt;section class=\"nav\"&gt;&lt;strong&gt;Website navigation:&lt;/strong&gt; "</span>
+            <span class="org-string">"&lt;a href=\"../index.html\"&gt;"</span>
+            <span class="org-string">"homepage&lt;/a&gt; | "</span>
+            <span class="org-string">"&lt;a href=\"../records.html\"&gt;"</span>
+            <span class="org-string">"record index&lt;/a&gt; | "</span>
+            <span class="org-string">"&lt;a href=\"./index.html\"&gt;"</span>
+            <span class="org-string">"daily records"</span>
+           <span class="org-string">"&lt;/a&gt;"</span>
+           <span class="org-string">"&lt;p&gt;"</span>
+        <span class="org-string">"This record is part of my &lt;a href=\"../digital_garden.html\"&gt;digital garden&lt;/a&gt;, which was cultivated as a &lt;a href=\"../public_asset.html\"&gt;public asset&lt;/a&gt; with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from &lt;a href=\"../human.html\"&gt;humans&lt;/a&gt; like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"</span>
+           <span class="org-string">"&lt;/p&gt;"</span>
+     <span class="org-string">"&lt;details&gt;"</span>
+     <span class="org-string">"&lt;summary&gt;Click for tips on using this Website&lt;/summary&gt;"</span>
+     <span class="org-string">"&lt;p&gt;"</span>
+     <span class="org-string">"This digital garden is in its early days, but here's some useful things to know:&lt;/p&gt;"</span>
+     <span class="org-string">"&lt;ul&gt;"</span>
+     <span class="org-string">"&lt;li&gt;"</span>
+     <span class="org-string">"&lt;span style=\"color: var(--link-color)\"&gt;"</span>
+     <span class="org-string">"This color text&lt;/span&gt;"</span>
+     <span class="org-string">" is a link to a part of the garden you haven't been to. "</span>
+     <span class="org-string">"&lt;span style=\"color: var(--link-visited-color)\"&gt;"</span>
+     <span class="org-string">"This color text&lt;/span&gt;"</span>
+     <span class="org-string">" is a link to a part of the garden you &lt;em&gt;have&lt;/em&gt; been to. "</span>
+     <span class="org-string">"&lt;span style=\"color: var(--external-link-color)\"&gt;"</span>
+     <span class="org-string">"This color text&lt;/span&gt;"</span>
+     <span class="org-string">" is a link to a Webpage you haven't been to. "</span>
+     <span class="org-string">"&lt;span style=\"color: var(--external-link-visited-color)\"&gt;"</span>
+     <span class="org-string">"This color text&lt;/span&gt;"</span>
+     <span class="org-string">" is a link to a Webpage you &lt;em&gt;have&lt;/em&gt; been to. "</span>
+     <span class="org-string">"&lt;/li&gt;"</span>
+     <span class="org-string">"&lt;/ul&gt;"</span>
+     <span class="org-string">"&lt;/details&gt;"</span>
+           <span class="org-string">"&lt;/section&gt;"</span>))
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org76fbc14"></a>HTML export head<br>
+<div class="outline-text-8" id="text-org76fbc14">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgcd4a642">(<span class="org-keyword">setq</span> ghe-org-html-head <span class="org-string">"&lt;link rel=\"stylesheet\" href=\"style.css\"&gt;"</span>)
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 28: </span>The HTML put inside the head tag of files generated by Org-export</label><pre class="src src-elisp" id="org7293655">   (<span class="org-keyword">setq</span> ghe-org-html-head
+         (concat <span class="org-string">"&lt;style&gt;</span>
+<span class="org-string">@charset \"UTF-8\";</span>
+
+<span class="org-string">:root {</span>
+<span class="org-string">    --body-font: sans-serif;</span>
+<span class="org-string">    --header-font: sans-serif;</span>
+<span class="org-string">    --code-font: monospace;</span>
+<span class="org-string">    --primary-color: #ffe;</span>
+<span class="org-string">    --primary-dim-color: #eed;</span>
+<span class="org-string">    --secondary-color: #312;</span>
+<span class="org-string">    --secondary-dim-color: #756;</span>
+<span class="org-string">    --link-color: #880;</span>
+<span class="org-string">    --link-hover-color: #aa2;</span>
+<span class="org-string">    --link-visited-color: #934;</span>
+<span class="org-string">    --link-visited-hover-color: #b56;</span>
+<span class="org-string">    --external-link-color: #008;</span>
+<span class="org-string">    --external-link-hover-color: #60b;</span>
+<span class="org-string">    --external-link-visited-color: #394;</span>
+<span class="org-string">    --external-link-visited-hover-color: #5b6;</span>
+<span class="org-string">}</span>
+<span class="org-string">@media(prefers-color-scheme:dark){</span>
+<span class="org-string">    :root {</span>
+<span class="org-string">        --body-font: sans-serif;</span>
+<span class="org-string">        --header-font: sans-serif;</span>
+<span class="org-string">        --code-font: monospace;</span>
+<span class="org-string">        --primary-color: #756;</span>
+<span class="org-string">        --primary-dim-color: #312;</span>
+<span class="org-string">        --secondary-color: #eed;</span>
+<span class="org-string">        --secondary-dim-color: #ffe;</span>
+<span class="org-string">        --link-color: #880;</span>
+<span class="org-string">        --link-hover-color: #aa2;</span>
+<span class="org-string">        --link-visited-color: #934;</span>
+<span class="org-string">        --link-visited-hover-color: #b56;</span>
+<span class="org-string">    }}</span>
+<span class="org-string">body {</span>
+<span class="org-string">    position: relative;</span>
+<span class="org-string">    min-height: 100%;</span>
+<span class="org-string">    background-color: var(--primary-color);</span>
+<span class="org-string">    color: var(--secondary-color);</span>
+<span class="org-string">    margin: 0 auto;</span>
+<span class="org-string">    font-family: sans-serif;</span>
+<span class="org-string">}</span>
+<span class="org-string">main, #content {</span>
+<span class="org-string">    background-color: var(--primary-dim-color);</span>
+<span class="org-string">    border-left: 1.5em dashed var(--primary-color);</span>
+<span class="org-string">    padding: 1em;</span>
+<span class="org-string">}</span>
+<span class="org-string">header {</span>
+<span class="org-string">    border-bottom: 0.2em dashed var(--secondary-dim-color);</span>
+<span class="org-string">}</span>
+<span class="org-string">h1 { font-size: 2em; margin-bottom: 0; }</span>
+<span class="org-string">h2 {</span>
+<span class="org-string">    border-bottom: 0.1em dashed var(--secondary-dim-color);</span>
+<span class="org-string">}</span>
+<span class="org-string">h2, h3, h4, h5, h6, p, .org-src-container {</span>
+<span class="org-string">    width: 60%;</span>
+<span class="org-string">}</span>
+<span class="org-string">aside {</span>
+<span class="org-string">    float: right;</span>
+<span class="org-string">    width: 35%;</span>
+<span class="org-string">}</span>
+<span class="org-string">aside p { width: 100%; }</span>
+<span class="org-string">@media screen and (max-width:760px) {</span>
+<span class="org-string">    h2, h3, h4, h5, h6, p, .org-src-container {</span>
+<span class="org-string">        width: 90%;</span>
+<span class="org-string">    }</span>
+<span class="org-string">    aside {</span>
+<span class="org-string">        float: inherit;</span>
+<span class="org-string">        width: 90%;</span>
+<span class="org-string">        border-top: 0.1em dashed var(--secondary-dim-color);</span>
+<span class="org-string">        border-bottom: 0.1em dashed var(--secondary-dim-color);</span>
+<span class="org-string">        font-size: 0.8em;</span>
+<span class="org-string">          }</span>
+<span class="org-string">}</span>
+
+<span class="org-string">footer, #postamble, #preamble {</span>
+<span class="org-string">    padding: 0.5em;</span>
+<span class="org-string">}</span>
+<span class="org-string">table {</span>
+<span class="org-string">    border-collapse: collapse;</span>
+<span class="org-string">    border-spacing: 0;</span>
+<span class="org-string">    empty-cells: show;</span>
+<span class="org-string">    border: 0.1em solid #444;</span>
+<span class="org-string">}</span>
+<span class="org-string">thead { font-family: sans-serif; }</span>
+<span class="org-string">th, td {</span>
+<span class="org-string">    padding: 0 0.3em;</span>
+<span class="org-string">    border: 0.01em solid #444;</span>
+<span class="org-string">}</span>
+<span class="org-string">img {</span>
+<span class="org-string">    max-width: 80vw;</span>
+<span class="org-string">    vertical-align: middle;</span>
+<span class="org-string">}</span>
+<span class="org-string">pre, .src {</span>
+<span class="org-string">    padding: 0.5em;</span>
+<span class="org-string">    border: 0.1em solid #444;</span>
+<span class="org-string">    white-space: pre-wrap;</span>
+<span class="org-string">    overflow-x: scroll;</span>
+<span class="org-string">    text-overflow: clip;</span>
+<span class="org-string">    scrollbar-width: none;</span>
+<span class="org-string">}</span>
+<span class="org-string">pre::-webkit-scrollbar, .src::-webkit-scrollbar {</span>
+<span class="org-string">    display: none;</span>
+<span class="org-string">}</span>
+
+
+<span class="org-string">dt {</span>
+<span class="org-string">    font-weight: normal;</span>
+<span class="org-string">    display: inline-block;</span>
+<span class="org-string">    border-bottom: 0.1rem dotted #444;</span>
+<span class="org-string">}</span>
+<span class="org-string">#text-index dt { border-bottom: none; }</span>
+<span class="org-string">h2, h3, h4, h5, h6, h7, h8, h9, h10 {</span>
+<span class="org-string">    display: block;</span>
+<span class="org-string">    font-family: sans-serif;</span>
+<span class="org-string">    margin: 0.2em auto 0.5em 0;</span>
+<span class="org-string">}</span>
+<span class="org-string">a {</span>
+<span class="org-string">    text-decoration: none;</span>
+<span class="org-string">    color: #880;</span>
+<span class="org-string">    display: inline;</span>
+<span class="org-string">    position: relative;</span>
+<span class="org-string">    border-bottom: 0.1rem dotted;</span>
+<span class="org-string">    line-height: 1.2;</span>
+<span class="org-string">    transition: border 0.3s;</span>
+<span class="org-string">}</span>
+<span class="org-string">a:hover {</span>
+<span class="org-string">    color: #aa2;</span>
+<span class="org-string">    outline-style: none;</span>
+<span class="org-string">    border-bottom: 0.1rem solid;</span>
+<span class="org-string">}</span>
+<span class="org-string">a:visited { color: #934; }</span>
+<span class="org-string">a:visited:hover { color: #b56; }</span>
+<span class="org-string">a:focus {</span>
+<span class="org-string">    outline-style: none;</span>
+<span class="org-string">    border-bottom: 0.1rem solid;</span>
+<span class="org-string">}</span>
+<span class="org-string">::selection { background-color: #777; color: #eee; }</span>
+<span class="org-string">a::selection { background-color: #ccc; }</span>
+<span class="org-string">.org-todo {</span>
+<span class="org-string">    background-color: #ddd;</span>
+<span class="org-string">    color: #333;</span>
+<span class="org-string">    font-size: .8rem;</span>
+<span class="org-string">    float: right;</span>
+<span class="org-string">}</span>
+<span class="org-string">.org-src-container + .example {</span>
+<span class="org-string">    margin-left: 8em;</span>
+<span class="org-string">}</span>
+<span class="org-string">a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):after{ </span>
+<span class="org-string">    content: \"^\";</span>
+<span class="org-string">    font-size: 0.5em;</span>
+<span class="org-string">    vertical-align: super;</span>
+<span class="org-string">}</span>
+<span class="org-string">a[href^=\"https://\"]:not([href*=\"emsenn.net\"]){ </span>
+<span class="org-string">    color: var(--external-link-color);</span>
+<span class="org-string">}</span>
+<span class="org-string">a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):hover{ </span>
+<span class="org-string">    color: var(--external-link-hover-color);</span>
+<span class="org-string">}</span>
+<span class="org-string">a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited{ </span>
+<span class="org-string">    color: var(--external-link-visited-color);</span>
+<span class="org-string">}</span>
+<span class="org-string">a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:hover{ </span>
+<span class="org-string">    color: var(--external-link-visited-hover-color);</span>
+<span class="org-string">}</span>
+<span class="org-string">label.org-src-name {</span>
+<span class="org-string">    margin: 0 0 0 3em;</span>
+<span class="org-string">    font-family: sans-serif;</span>
+<span class="org-string">    font-size: 1rem;</span>
+<span class="org-string">    line-height: 0;</span>
+<span class="org-string">}</span>
+<span class="org-string">.skip-to-content {</span>
+<span class="org-string">    opacity: 0;</span>
+<span class="org-string">    position: absolute;</span>
+<span class="org-string">    left: 0.2em;</span>
+<span class="org-string">}</span>
+<span class="org-string">.skip-to-content:focus{</span>
+<span class="org-string">    opacity: 1;</span>
+<span class="org-string">    background-color: var(--secondary-dim-color);</span>
+<span class="org-string">    color: var(--primary-color);</span>
+<span class="org-string">}</span>
+<span class="org-string">ul { max-width: 85%; }</span>
+<span class="org-string">&lt;/style&gt;"</span>))
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org44c2bc1" class="outline-5">
+<h5 id="org44c2bc1">Org-log</h5>
+<div class="outline-text-5" id="text-org44c2bc1">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 29: </span>The value of org-log-done</label><pre class="src src-text" id="org2490102">'time
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 30: </span>The value of org-log-into-drawer</label><pre class="src src-text" id="org71baeaf">'LOGBOOK
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 31: </span>The value of org-image-actual-width</label><pre class="src src-text" id="org408329a">'(400)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org764f0ed" class="outline-5">
+<h5 id="org764f0ed">Org-publish</h5>
+<div class="outline-text-5" id="text-org764f0ed">
+</div>
+<div id="outline-container-orgd3a164e" class="outline-6">
+<h6 id="orgd3a164e">Org-publish functions</h6>
+<div class="outline-text-6" id="text-orgd3a164e">
+</div>
+<div id="outline-container-org1d62a37" class="outline-7">
+<h7 id="org1d62a37">Format sitemap</h7>
+<div class="outline-text-7" id="text-org1d62a37">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 32: </span>Format the sitemap org-mode file generated by sitemap</label><pre class="src src-elisp" id="orgdcf7544"><span class="org-comment-delimiter">;; </span><span class="org-comment">from https://www.john2x.com/blog/blogging-with-orgmode.html</span>
+ (<span class="org-keyword">defun</span> <span class="org-function-name">ghe-org-publish-format-sitemap</span> (title sitemap)
+   (<span class="org-keyword">let</span> ((posts (cdr sitemap)))
+     (concat
+      (format <span class="org-string">"#+title: %s\n"</span> title)
+      <span class="org-string">"#+roam_tags: meta\n"</span>
+      (org-list-to-org (cons (car sitemap) posts)))))
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org51dbb97" class="outline-6">
+<h6 id="org51dbb97">Org-publish projects</h6>
+<div class="outline-text-6" id="text-org51dbb97">
+</div>
+<div id="outline-container-orga54b949" class="outline-7">
+<h7 id="orga54b949">Org-publish configuration</h7>
+<div class="outline-text-7" id="text-orga54b949">
+</div>
+<ul class="org-ul">
+<li><a id="org605323d"></a>CSS<br>
+<div class="outline-text-8" id="text-org605323d">
+<div class="org-src-container">
+<pre class="src src-css" id="org5b1b56b"><span class="org-builtin">@charset</span> \"UTF-8\";
+
+<span class="org-css-selector">:root</span> {
+    <span class="org-variable-name">--body-font</span>: sans-serif;
+    <span class="org-variable-name">--header-font</span>: sans-serif;
+    <span class="org-variable-name">--code-font</span>: monospace;
+    <span class="org-variable-name">--primary-color</span>: <span class="custom-17">#ffe</span>;
+    <span class="org-variable-name">--primary-dim-color</span>: <span class="custom-16">#eed</span>;
+    <span class="org-variable-name">--secondary-color</span>: <span class="custom-15">#312</span>;
+    <span class="org-variable-name">--secondary-dim-color</span>: <span class="custom-14">#756</span>;
+    <span class="org-variable-name">--link-color</span>: <span class="custom-13">#880</span>;
+    <span class="org-variable-name">--link-hover-color</span>: <span class="custom-12">#aa2</span>;
+    <span class="org-variable-name">--link-visited-color</span>: <span class="custom-11">#934</span>;
+    <span class="org-variable-name">--link-visited-hover-color</span>: <span class="custom-10">#b56</span>;
+    <span class="org-variable-name">--external-link-color</span>: <span class="custom-9">#008</span>;
+    <span class="org-variable-name">--external-link-hover-color</span>: <span class="custom-8">#60b</span>;
+    <span class="org-variable-name">--external-link-visited-color</span>: <span class="custom-7">#394</span>;
+    <span class="org-variable-name">--external-link-visited-hover-color</span>: <span class="custom-6">#5b6</span>;
+}
+<span class="org-builtin">@media</span>(prefers-color-scheme:dark){
+    <span class="org-css-selector">:root</span> {
+        <span class="org-variable-name">--body-font</span>: sans-serif;
+        <span class="org-variable-name">--header-font</span>: sans-serif;
+        <span class="org-variable-name">--code-font</span>: monospace;
+        <span class="org-variable-name">--primary-color</span>: <span class="custom-14">#756</span>;
+        <span class="org-variable-name">--primary-dim-color</span>: <span class="custom-15">#312</span>;
+        <span class="org-variable-name">--secondary-color</span>: <span class="custom-16">#eed</span>;
+        <span class="org-variable-name">--secondary-dim-color</span>: <span class="custom-17">#ffe</span>;
+        <span class="org-variable-name">--link-color</span>: <span class="custom-13">#880</span>;
+        <span class="org-variable-name">--link-hover-color</span>: <span class="custom-12">#aa2</span>;
+        <span class="org-variable-name">--link-visited-color</span>: <span class="custom-11">#934</span>;
+        <span class="org-variable-name">--link-visited-hover-color</span>: <span class="custom-10">#b56</span>;
+    }}
+<span class="org-css-selector">body </span>{
+    <span class="org-css-property">position</span>: relative;
+    <span class="org-css-property">min-height</span>: 100%;
+    <span class="org-css-property">background-color</span>: var(<span class="org-variable-name">--primary-color</span>);
+    <span class="org-css-property">color</span>: var(<span class="org-variable-name">--secondary-color</span>);
+    <span class="org-css-property">margin</span>: 0 auto;
+    <span class="org-css-property">font-family</span>: sans-serif;
+}
+<span class="org-css-selector">main, #content </span>{
+    <span class="org-css-property">background-color</span>: var(<span class="org-variable-name">--primary-dim-color</span>);
+    <span class="org-css-property">border-left</span>: 1.5em dashed var(<span class="org-variable-name">--primary-color</span>);
+    <span class="org-css-property">padding</span>: 1em;
+}
+<span class="org-css-selector">header </span>{
+    <span class="org-css-property">border-bottom</span>: 0.2em dashed var(<span class="org-variable-name">--secondary-dim-color</span>);
+}
+<span class="org-css-selector">h1 </span>{ <span class="org-css-property">font-size</span>: 2em; <span class="org-css-property">margin-bottom</span>: 0; }
+<span class="org-css-selector">h2 </span>{
+    <span class="org-css-property">border-bottom</span>: 0.1em dashed var(<span class="org-variable-name">--secondary-dim-color</span>);
+}
+<span class="org-css-selector">h2, h3, h4, h5, h6, p, .org-src-container </span>{
+    <span class="org-css-property">width</span>: 60%;
+}
+<span class="org-css-selector">aside </span>{
+    <span class="org-css-property">float</span>: right;
+    <span class="org-css-property">width</span>: 35%;
+}
+<span class="org-css-selector">aside p </span>{ <span class="org-css-property">width</span>: 100%; }
+<span class="org-builtin">@media</span> screen and (max-width:760px) {
+    <span class="org-css-selector">h2, h3, h4, h5, h6, p, .org-src-container </span>{
+        <span class="org-css-property">width</span>: 90%;
+    }
+    <span class="org-css-selector">aside </span>{
+        <span class="org-css-property">float</span>: inherit;
+        <span class="org-css-property">width</span>: 90%;
+        <span class="org-css-property">border-top</span>: 0.1em dashed var(<span class="org-variable-name">--secondary-dim-color</span>);
+        <span class="org-css-property">border-bottom</span>: 0.1em dashed var(<span class="org-variable-name">--secondary-dim-color</span>);
+        <span class="org-css-property">font-size</span>: 0.8em;
+          }
+}
+
+<span class="org-css-selector">footer, #postamble, #preamble </span>{
+    <span class="org-css-property">padding</span>: 0.5em;
+}
+<span class="org-css-selector">table </span>{
+    <span class="org-css-property">border-collapse</span>: collapse;
+    <span class="org-css-property">border-spacing</span>: 0;
+    <span class="org-css-property">empty-cells</span>: show;
+    <span class="org-css-property">border</span>: 0.1em solid <span class="custom-5">#444</span>;
+}
+<span class="org-css-selector">thead </span>{ <span class="org-css-property">font-family</span>: sans-serif; }
+<span class="org-css-selector">th, td </span>{
+    <span class="org-css-property">padding</span>: 0 0.3em;
+    <span class="org-css-property">border</span>: 0.01em solid <span class="custom-5">#444</span>;
+}
+<span class="org-css-selector">img </span>{
+    <span class="org-css-property">max-width</span>: 80vw;
+    <span class="org-css-property">vertical-align</span>: middle;
+}
+<span class="org-css-selector">pre, .src </span>{
+    <span class="org-css-property">padding</span>: 0.5em;
+    <span class="org-css-property">border</span>: 0.1em solid <span class="custom-5">#444</span>;
+    <span class="org-css-property">white-space</span>: pre-wrap;
+    <span class="org-css-property">overflow-x</span>: scroll;
+    <span class="org-css-property">text-overflow</span>: clip;
+    <span class="org-css-property">scrollbar-width</span>: none;
+}
+<span class="org-css-property">pre</span>::-webkit-scrollbar, .src::-webkit-scrollbar {
+    <span class="org-css-property">display</span>: none;
+}
+
+
+<span class="org-css-selector">dt </span>{
+    <span class="org-css-property">font-weight</span>: normal;
+    <span class="org-css-property">display</span>: inline-block;
+    <span class="org-css-property">border-bottom</span>: 0.1rem dotted <span class="custom-5">#444</span>;
+}
+<span class="org-css-selector">#text-index dt </span>{ <span class="org-css-property">border-bottom</span>: none; }
+<span class="org-css-selector">h2, h3, h4, h5, h6, h7, h8, h9, h10 </span>{
+    <span class="org-css-property">display</span>: block;
+    <span class="org-css-property">font-family</span>: sans-serif;
+    <span class="org-css-property">margin</span>: 0.2em auto 0.5em 0;
+}
+<span class="org-css-selector">a </span>{
+    <span class="org-css-property">text-decoration</span>: none;
+    <span class="org-css-property">color</span>: <span class="custom-13">#880</span>;
+    <span class="org-css-property">display</span>: inline;
+    <span class="org-css-property">position</span>: relative;
+    <span class="org-css-property">border-bottom</span>: 0.1rem dotted;
+    <span class="org-css-property">line-height</span>: 1.2;
+    <span class="org-css-property">transition</span>: border 0.3s;
+}
+<span class="org-css-selector">a:hover </span>{
+    <span class="org-css-property">color</span>: <span class="custom-12">#aa2</span>;
+    <span class="org-css-property">outline-style</span>: none;
+    <span class="org-css-property">border-bottom</span>: 0.1rem solid;
+}
+<span class="org-css-selector">a:visited </span>{ <span class="org-css-property">color</span>: <span class="custom-11">#934</span>; }
+<span class="org-css-selector">a:visited:hover </span>{ <span class="org-css-property">color</span>: <span class="custom-10">#b56</span>; }
+<span class="org-css-selector">a:focus </span>{
+    <span class="org-css-property">outline-style</span>: none;
+    <span class="org-css-property">border-bottom</span>: 0.1rem solid;
+}
+::selection { <span class="org-css-property">background-color</span>: <span class="custom-4">#777</span>; <span class="org-css-property">color</span>: <span class="custom-3">#eee</span>; }
+<span class="org-css-property">a</span>::selection { <span class="org-css-property">background-color</span>: <span class="custom-2">#ccc</span>; }
+<span class="org-css-selector">.org-todo </span>{
+    <span class="org-css-property">background-color</span>: <span class="custom-1">#ddd</span>;
+    <span class="org-css-property">color</span>: <span class="custom">#333</span>;
+    <span class="org-css-property">font-size</span>: .8rem;
+    <span class="org-css-property">float</span>: right;
+}
+<span class="org-css-selector">.org-src-container + .example </span>{
+    <span class="org-css-property">margin-left</span>: 8em;
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):after{ 
+    <span class="org-css-property">content</span>: \"^\";
+    <span class="org-css-property">font-size</span>: 0.5em;
+    <span class="org-css-property">vertical-align</span>: super;
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]){ 
+    <span class="org-css-property">color</span>: var(<span class="org-variable-name">--external-link-color</span>);
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):hover{ 
+    <span class="org-css-property">color</span>: var(<span class="org-variable-name">--external-link-hover-color</span>);
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited{ 
+    <span class="org-css-property">color</span>: var(<span class="org-variable-name">--external-link-visited-color</span>);
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:hover{ 
+    <span class="org-css-property">color</span>: var(<span class="org-variable-name">--external-link-visited-hover-color</span>);
+}
+<span class="org-css-selector">label.org-src-name </span>{
+    <span class="org-css-property">margin</span>: 0 0 0 3em;
+    <span class="org-css-property">font-family</span>: sans-serif;
+    <span class="org-css-property">font-size</span>: 1rem;
+    <span class="org-css-property">line-height</span>: 0;
+}
+<span class="org-css-selector">.skip-to-content </span>{
+    <span class="org-css-property">opacity</span>: 0;
+    <span class="org-css-property">position</span>: absolute;
+    <span class="org-css-property">left</span>: 0.2em;
+}
+<span class="org-css-selector">.skip-to-content:focus</span>{
+    <span class="org-css-property">opacity</span>: 1;
+    <span class="org-css-property">background-color</span>: var(<span class="org-variable-name">--secondary-dim-color</span>);
+    <span class="org-css-property">color</span>: var(<span class="org-variable-name">--primary-color</span>);
+}
+<span class="org-css-selector">ul </span>{ <span class="org-css-property">max-width</span>: 85%; }
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org52179d0"></a>Standard project configuration<br>
+<div class="outline-text-8" id="text-org52179d0">
+<p>
+Please be aware that this configuration <i>will <b>not</b></i> work on its own: it is missing critical variables.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 33: </span>Standard configuration variables for an Org-project</label><pre class="src src-elisp" id="orgeba2def"><span class="org-builtin">:base-extension</span> <span class="org-string">"org"</span>
+<span class="org-builtin">:publishing-function</span> org-html-publish-to-html
+<span class="org-builtin">:html-doctype</span> <span class="org-string">"html5"</span>
+<span class="org-builtin">:html-html5-fancy</span> t
+<span class="org-builtin">:html-container</span> <span class="org-string">"section"</span>
+<span class="org-builtin">:headline-levels</span> 6
+<span class="org-builtin">:html-divs</span> ((preamble <span class="org-string">"section"</span> <span class="org-string">"preamble"</span>)
+            (content <span class="org-string">"main"</span> <span class="org-string">"content"</span>)
+            (postamble <span class="org-string">"section"</span> <span class="org-string">"postamble"</span>))
+<span class="org-builtin">:publishing-function</span> org-html-publish-to-html
+<span class="org-builtin">:html-format-drawer-function</span> ghe-org-html-format-drawer
+<span class="org-builtin">:sitemap-function</span> ghe-org-publish-format-sitemap
+<span class="org-builtin">:html-head-include-scripts</span> nil
+<span class="org-builtin">:html-head-include-default-style</span> nil
+<span class="org-builtin">:html-head</span> ,ghe-org-html-head
+<span class="org-builtin">:exclude</span> ,(regexp-opt '(<span class="org-string">"README.org"</span> <span class="org-string">"PRIVATE"</span>))
+<span class="org-builtin">:auto-sitemap</span> t
+<span class="org-builtin">:with-footnotes</span> t
+<span class="org-builtin">:with-toc</span> nil
+<span class="org-builtin">:with-drawers</span> t
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org4d7df4f" class="outline-7">
+<h7 id="org4d7df4f">Personal</h7>
+<div class="outline-text-7" id="text-org4d7df4f">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 34: </span>The elisp for personal org-publish project</label><pre class="src src-elisp" id="org9da5a0d">(<span class="org-string">"personal"</span> <span class="org-builtin">:components</span> (<span class="org-string">"personal-daily-records"</span> <span class="org-string">"personal-records"</span>))
+</pre>
+</div>
+</div>
+<ul class="org-ul">
+<li><a id="orgab8f215"></a>Personal Records<br>
+<div class="outline-text-8" id="text-orgab8f215">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 35: </span>The variables configuring a website</label><pre class="src src-elisp" id="orgbc4dce7"><span class="org-builtin">:base-directory</span> <span class="org-string">"~/org/s/p"</span>
+<span class="org-builtin">:publishing-directory</span> <span class="org-string">"~/org/p/personal"</span>
+<span class="org-builtin">:html-preamble</span> ,ghe-org-html-base-preamble
+<span class="org-builtin">:sitemap-filename</span> <span class="org-string">"records.org"</span>
+<span class="org-builtin">:sitemap-sort-files</span> anti-chronologically
+<span class="org-builtin">:sitemap-title</span> <span class="org-string">"Records Index"</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orga27bf62"></a>Personal Daily Records<br>
+<div class="outline-text-8" id="text-orga27bf62">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 36: </span>The variables configuring a website</label><pre class="src src-elisp" id="org14a1035"><span class="org-builtin">:base-directory</span> <span class="org-string">"~/org/s/p/d"</span>
+<span class="org-builtin">:publishing-directory</span> <span class="org-string">"~/org/p/personal/d"</span>
+<span class="org-builtin">:html-preamble</span> ,ghe-org-html-dailies-preamble
+<span class="org-builtin">:sitemap-filename</span> <span class="org-string">"index.org"</span>
+<span class="org-builtin">:sitemap-sort-files</span> anti-chronologically
+<span class="org-builtin">:sitemap-title</span> <span class="org-string">"Daily Records Index"</span>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgedc470c" class="outline-5">
+<h5 id="orgedc470c">Org-roam</h5>
+<div class="outline-text-5" id="text-orgedc470c">
+</div>
+<div id="outline-container-org44fd0ef" class="outline-6">
+<h6 id="org44fd0ef">Org-roam configuration</h6>
+<div class="outline-text-6" id="text-org44fd0ef">
+</div>
+<div id="outline-container-orgc1e1f11" class="outline-7">
+<h7 id="orgc1e1f11">Org-roam directory</h7>
+<div class="outline-text-7" id="text-orgc1e1f11">
+<div class="org-src-container">
+<pre class="src src-text" id="org2575aaa">"~/org/s/p"
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga18d009" class="outline-7">
+<h7 id="orga18d009">Org-roam bindings</h7>
+<div class="outline-text-7" id="text-orga18d009">
+</div>
+<ul class="org-ul">
+<li><a id="org4244115"></a>Org-roam bindings for Org-roam-mode<br>
+<div class="outline-text-8" id="text-org4244115">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 37: </span>The bindings used when Org-roam-mode is active</label><pre class="src src-elisp" id="org720735a">(<span class="org-string">"&lt;f5&gt;"</span> . org-roam-dailies-capture-today)
+(<span class="org-string">"&lt;f9&gt;"</span> . org-roam-dailies-find-today)
+(<span class="org-string">"C-c n l"</span> . org-roam)
+(<span class="org-string">"C-c n f"</span> . org-roam-find-file)
+(<span class="org-string">"C-c n g"</span> . org-roam-graph)
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org9c5ee14"></a>Org-roam bindings for Org-mode<br>
+<div class="outline-text-8" id="text-org9c5ee14">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 38: </span>The bindings used when Org-roam-mode is active</label><pre class="src src-elisp" id="org1386b56">((<span class="org-string">"C-c n i"</span> . org-roam-insert)
+(<span class="org-string">"C-c n I"</span> . org-roam-insert-immediate))
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org2523093" class="outline-7">
+<h7 id="org2523093">Org-roam hooks</h7>
+<div class="outline-text-7" id="text-org2523093">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgfde3e0b">(after-init . org-roam-mode)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc5a96b2" class="outline-6">
+<h6 id="orgc5a96b2">Org-roam functions</h6>
+<div class="outline-text-6" id="text-orgc5a96b2">
+</div>
+<div id="outline-container-org687fbe3" class="outline-7">
+<h7 id="org687fbe3">Format backlinks list</h7>
+<div class="outline-text-7" id="text-org687fbe3">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 39: </span>Generate an Org-mode format list of backlinks for a given file</label><pre class="src src-elisp" id="org98b7901"><span class="org-comment-delimiter">;; </span><span class="org-comment">from doubleloop's commonplace wiki</span>
+(<span class="org-keyword">defun</span> <span class="org-function-name">ghe-org-roam-format-backlinks-list</span> (file)
+  (<span class="org-keyword">if</span> (org-roam--org-roam-file-p file)
+      (<span class="org-keyword">--reduce-from</span>
+       (concat acc
+               (format
+                <span class="org-string">"- [[file:%s][%s]]\n"</span>
+                (<span class="org-keyword">if</span> (string= (org-roam-dailies-directory--get-absolute-path)
+                             (file-name-directory file))
+                    (file-relative-name (car it))
+                  (file-relative-name (car it) org-roam-directory))
+                (org-roam-db--get-title (car it))))
+       <span class="org-string">""</span> (org-roam-db-query
+           [<span class="org-builtin">:select</span> [source]
+                    <span class="org-builtin">:from</span> links
+                    <span class="org-builtin">:where</span> (= dest $s1)] <span class="org-warning">file))</span>
+    <span class="org-string">""</span>))
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orge545e84" class="outline-6">
+<h6 id="orge545e84">Org-roam-capture</h6>
+<div class="outline-text-6" id="text-orge545e84">
+</div>
+<div id="outline-container-org13b0ecd" class="outline-7">
+<h7 id="org13b0ecd">Org-roam-capture templates</h7>
+<div class="outline-text-7" id="text-org13b0ecd">
+<ul class="org-ul">
+<li>Used tags:
+<ul class="org-ul">
+<li>General tags
+<ul class="org-ul">
+<li>meta</li>
+<li>term</li>
+<li>person</li>
+<li>daily-record</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga841271" class="outline-7">
+<h7 id="orga841271">Record</h7>
+<div class="outline-text-7" id="text-orga841271">
+<p>
+A <b><i>record</i></b> is the most basic type of information handled by Groundhog Emacs.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 40: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="orgb94aee5">record-0.1.2
+</pre>
+</div>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 41: </span>The Org-roam capture template for Record</label><pre class="src src-elisp" id="org39770f2">(<span class="org-string">"r"</span> <span class="org-string">"basic record"</span> plain
+ (<span class="org-keyword">function</span> org-roam--capture-get-point)
+ <span class="org-string">"%?\n"</span>
+ <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+ <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                <span class="org-string">"#+begin_head\n"</span>
+                <span class="org-string">"#+ghe_schema: "</span>
+                <span class="org-string">"record-0.1.2\n"</span>
+                <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                <span class="org-string">"#+date: %U\n"</span>
+                <span class="org-string">"#+end_head\n"</span>)
+ <span class="org-builtin">:unnarrowed</span> t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdc36e09" class="outline-7">
+<h7 id="orgdc36e09">Term</h7>
+<div class="outline-text-7" id="text-orgdc36e09">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 42: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org9000b3e">term-0.1.1
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 43: </span>blah</label><pre class="src src-elisp" id="org7daf6ca">(<span class="org-string">"t"</span> <span class="org-string">"term"</span> plain
+ (<span class="org-keyword">function</span> org-roam--capture-get-point)
+ <span class="org-string">"#+name: %^{SLUG}-definition-text\n#+begin_quote\n%?\n#+end_quote\n"</span>
+ <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+ <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                <span class="org-string">"#+begin_head\n"</span>
+                <span class="org-string">"#+ghe_schema: "</span>
+                <span class="org-string">"reference-0.1.1\n"</span>
+                <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                <span class="org-string">"#+date: %U\n"</span>
+                <span class="org-string">"#+roam_tags: term\n"</span>
+                <span class="org-string">"#+end_head\n"</span>)
+ <span class="org-builtin">:unnarrowed</span> t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org69c1376" class="outline-7">
+<h7 id="org69c1376">Reference</h7>
+<div class="outline-text-7" id="text-org69c1376">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 44: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org923f9fc">reference-0.1.1
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 45: </span>Org-roam capture template for reference records</label><pre class="src src-elisp" id="org5e9930d">(<span class="org-string">"R"</span> <span class="org-string">"reference"</span> plain
+ (<span class="org-keyword">function</span> org-roam--capture-get-point)
+ <span class="org-string">"#+roam_key: %^{SOURCE}\n#+end_head\n%?\n"</span>
+ <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+ <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                <span class="org-string">"#+begin_head\n"</span>
+                <span class="org-string">"#+ghe_schema: "</span>
+                <span class="org-string">"\n"</span>
+                <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                <span class="org-string">"#+date: %U\n"</span>
+                <span class="org-string">"#+roam_tags: term\n"</span>)
+ <span class="org-builtin">:unnarrowed</span> t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org65d4a56" class="outline-7">
+<h7 id="org65d4a56">Person</h7>
+<div class="outline-text-7" id="text-org65d4a56">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 46: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org7a9e3de">person-0.1.1
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 47: </span>Org-roam capture template for person records</label><pre class="src src-elisp" id="orgd7ebc45">(<span class="org-string">"p"</span> <span class="org-string">"person"</span> plain
+ (<span class="org-keyword">function</span> org-roam--capture-get-point)
+ <span class="org-string">"%?\n"</span>
+ <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+ <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                <span class="org-string">"#+begin_head\n"</span>
+                <span class="org-string">"#+ghe_schema: "</span>
+                <span class="org-string">"person-0.1.1\n"</span>
+                <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                <span class="org-string">"#+date: %U\n"</span>
+                <span class="org-string">"#+roam_tags: person\n"</span>
+                <span class="org-string">"#+end_head\n"</span>)
+ <span class="org-builtin">:unnarrowed</span> t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9e2ce15" class="outline-7">
+<h7 id="org9e2ce15">Teraum</h7>
+<div class="outline-text-7" id="text-org9e2ce15">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 48: </span>Org-roam capture template for Teraum records</label><pre class="src src-elisp" id="org4a93101">(<span class="org-string">"T"</span> <span class="org-string">"Teraum"</span>)
+</pre>
+</div>
+</div>
+<ul class="org-ul">
+<li><a id="org710a651"></a>Teraum record<br>
+<div class="outline-text-8" id="text-org710a651">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 49: </span>Org-roam capture-template for general Teraum records</label><pre class="src src-elisp" id="org9da53b0">(<span class="org-string">"Tt"</span> <span class="org-string">"General entry"</span>
+            plain (<span class="org-keyword">function</span> org-roam--capture-get-point)
+            <span class="org-string">"%?"</span>
+            <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+            <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                           <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                           <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                           <span class="org-string">"#+date: %U\n"</span>
+                           <span class="org-string">"#+roam_tags: Teraum"</span>)
+            <span class="org-builtin">:unnarrowed</span> t)
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org003af11"></a>Teraum person<br>
+<div class="outline-text-8" id="text-org003af11">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 50: </span>Org-roam capture template for a Teraum person record</label><pre class="src src-elisp" id="orgcfdbd58">(<span class="org-string">"Tp"</span> <span class="org-string">"Person"</span>
+            plain (<span class="org-keyword">function</span> org-roam--capture-get-point)
+            <span class="org-string">"%?\n\n- Species :: %^{SPECIES}\n- Age :: %^{AGE}\n- Pronouns :: %^{PRONOUNS|e/em/eir|she/her/hers|he/him/his|they/them/theirs}\n- Location :: %^{LOCATION}"</span>
+            <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+            <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                           <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                           <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                           <span class="org-string">"#+date: %U\n"</span>
+                           <span class="org-string">"#+roam_tags: Teraum\n\n"</span>)
+            <span class="org-builtin">:unnarrowed</span> t)
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org59bd4d9" class="outline-6">
+<h6 id="org59bd4d9">Org-roam-dailies</h6>
+<div class="outline-text-6" id="text-org59bd4d9">
+</div>
+<div id="outline-container-orga2ad3f9" class="outline-7">
+<h7 id="orga2ad3f9">Org-roam-dailies directory</h7>
+<div class="outline-text-7" id="text-orga2ad3f9">
+<div class="org-src-container">
+<pre class="src src-text" id="org5cef4c5">"d/"
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc58429e" class="outline-7">
+<h7 id="orgc58429e">Org-roam-dailies capture templates</h7>
+<div class="outline-text-7" id="text-orgc58429e">
+</div>
+<ul class="org-ul">
+<li><a id="orgdc2c644"></a>Known issues<br>
+<div class="outline-text-8" id="text-orgdc2c644">
+<ul class="org-ul">
+<li>Title isn't properly set in daily records</li>
+</ul>
+</div>
+</li>
+<li><a id="orge1632bc"></a>Activity<br>
+<div class="outline-text-8" id="text-orge1632bc">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 51: </span>The capture template for recording an Activity log</label><pre class="src src-elisp" id="org3899ea3">(<span class="org-string">"a"</span> <span class="org-string">"Activity entry"</span> entry
+                    #'org-roam-capture--get-point
+                    <span class="org-string">"* %U\n%?"</span>
+                    <span class="org-builtin">:file-name</span> <span class="org-string">"d/%&lt;%Y-%m-%d&gt;"</span>
+                    <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                                   <span class="org-string">"#+begin_head\n"</span>
+                                   <span class="org-string">"#+ghe_schema: daily-record-0.1.0\n"</span>
+                                   <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                                   <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                                   <span class="org-string">"#+date: %U\n"</span>
+                                   <span class="org-string">"#+roam_tags: daily-record"</span>
+                                   <span class="org-string">"#+end_head\n"</span>)
+                    <span class="org-builtin">:olp</span> (<span class="org-string">"Activity Log                                                     "</span>))
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org372a8c9"></a>Journal entry<br>
+<div class="outline-text-8" id="text-org372a8c9">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 52: </span>The capture template for recording a Journal entry</label><pre class="src src-elisp" id="orgdcfdec8">(<span class="org-string">"j"</span> <span class="org-string">"Journal entry"</span> entry
+                    #'org-roam-capture--get-point
+                    <span class="org-string">"* %U\n%?"</span>
+                    <span class="org-builtin">:file-name</span> <span class="org-string">"d/%&lt;%Y-%m-%d&gt;"</span>
+                    <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                                   <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                                   <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                                   <span class="org-string">"#+date: %U\n"</span>
+                                   <span class="org-string">"#+roam_tags: daily-record"</span>)
+<span class="org-builtin">:olp</span> (<span class="org-string">"Journal                                                          "</span>))
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orge61d947"></a>Media log entry<br>
+<div class="outline-text-8" id="text-orge61d947">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 53: </span>The capture template for recording a Media log entry</label><pre class="src src-elisp" id="orgc8043ee">
+(<span class="org-string">"m"</span> <span class="org-string">"Discovered media"</span> entry
+ #'org-roam-capture--get-point
+ <span class="org-string">"* DISCOVERED %^{AUTHOR}: \"%^{TITLE}\"\n  :LOGBOOK:\n  - Note taken on %U \\\\\n  %?\n  :END:\n- Source: %^{SOURCE}\n"</span>
+ <span class="org-builtin">:file-name</span> <span class="org-string">"d/%&lt;%Y-%m-%d&gt;"</span>
+ <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                <span class="org-string">"#+date: %U\n"</span>
+                <span class="org-string">"#+roam_tags: daily-record"</span>)
+ <span class="org-builtin">:olp</span> (<span class="org-string">"Media log                                                        "</span>))
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgb587613"></a>Weather observation<br>
+<div class="outline-text-8" id="text-orgb587613">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 54: </span>blah</label><pre class="src src-elisp" id="orga8fc71b">(<span class="org-string">"w"</span> <span class="org-string">"Weather observation"</span> entry
+                    #'org-roam-capture--get-point
+                    <span class="org-string">"* %U\n%?"</span>
+                    <span class="org-builtin">:file-name</span> <span class="org-string">"d/%&lt;%Y-%m-%d&gt;"</span>
+                    <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                                   <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                                   <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                                   <span class="org-string">"#+date: %U\n"</span>
+                                   <span class="org-string">"#+roam_tags: daily-record"</span>)
+                    <span class="org-builtin">:olp</span> (<span class="org-string">"Weather                                                          "</span>))
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgaf2d994"></a>Thoughts<br>
+<div class="outline-text-8" id="text-orgaf2d994">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 55: </span>blah</label><pre class="src src-elisp" id="org3744eb5">(<span class="org-string">"p"</span> <span class="org-string">"posting"</span> entry
+ #'org-roam-capture--get-point
+ <span class="org-string">"* %U\n%?"</span>
+ <span class="org-builtin">:file-name</span> <span class="org-string">"d/%&lt;%Y-%m-%d&gt;"</span>
+ <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                <span class="org-string">"#+date: %U\n"</span>
+                <span class="org-string">"#+roam_tags: daily-record"</span>)
+ <span class="org-builtin">:olp</span> (<span class="org-string">"Postings"</span>))
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org0949048" class="outline-7">
+<h7 id="org0949048">Org-roam-server</h7>
+<div class="outline-text-7" id="text-org0949048">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org6ab8bf3">(<span class="org-keyword">use-package</span> <span class="org-constant">org-roam-server</span> <span class="org-builtin">:straight</span> t)
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="outline-container-orgd9b3027" class="outline-2">
+<h2 id="orgd9b3027">Supplements</h2>
+<div class="outline-text-2" id="text-orgd9b3027">
+</div>
+<div id="outline-container-orgeee6462" class="outline-3">
+<h3 id="orgeee6462">Decisions</h3>
+<div class="outline-text-3" id="text-orgeee6462">
+<p>
+This section is intended to catalog the decisions made to guide the development of Groundhog Emacs. As the tool is in the very-earliest stages of development, right now decisions are made informally and entirely by emsenn.
+</p>
+</div>
+</div>
+<div id="outline-container-orgba76b5c" class="outline-3">
+<h3 id="orgba76b5c">Elisp Code Blocks</h3>
+<div class="outline-text-3" id="text-orgba76b5c">
+<p>
+The follow code blocks allow for functional use of select Elisp functions within the Org-babel system. They're used, for example, to build the init.el below out of tables in this Org-mode document. Since they're used in Org-mode documents for outputting Org-mode text, their names omit language declarations.
+</p>
+</div>
+<div id="outline-container-org617e318" class="outline-4">
+<h4 id="org617e318">Table to defvar</h4>
+<div class="outline-text-4" id="text-org617e318">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgf59696f">(ghe-org-table-to-defvar input)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgeb653fa" class="outline-4">
+<h4 id="orgeb653fa">Table to setq</h4>
+<div class="outline-text-4" id="text-orgeb653fa">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org2986ae7">(ghe-org-table-to-setq input)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb591d39" class="outline-4">
+<h4 id="orgb591d39">Clean HTML</h4>
+<div class="outline-text-4" id="text-orgb591d39">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org8e23aec"><span class="org-comment-delimiter">;;</span><span class="org-comment">(replace-regexp-in-string "\"" "\"" input)</span>
+(prin1-to-string input)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcd848bb" class="outline-3">
+<h3 id="orgcd848bb">Source Files</h3>
+<div class="outline-text-3" id="text-orgcd848bb">
+</div>
+<div id="outline-container-org6c15db2" class="outline-4">
+<h4 id="org6c15db2">bare-init.el</h4>
+<div class="outline-text-4" id="text-org6c15db2">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 56: </span>A simpler init file, just the basics to fix bugs and the UI</label><pre class="src src-elisp" id="org9fde031">&lt;&lt;emacs-lessthan-26-3-tls-fix-elisp&gt;&gt;
+&lt;&lt;isearch-occur-bugfix-elisp&gt;&gt;
+&lt;&lt;package-installation-elisp&gt;&gt;
+
+&lt;&lt;theme-configuration-elisp&gt;&gt;
+
+&lt;&lt;ui-configuration-elisp&gt;&gt;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org45c2d2d" class="outline-4">
+<h4 id="org45c2d2d">init.el</h4>
+<div class="outline-text-4" id="text-org45c2d2d">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgd4a418d">    (<span class="org-keyword">if</span> (<span class="org-keyword">and</span> (version&lt; emacs-version <span class="org-string">"26.3"</span>) (&gt;= libgnutls-version 30600))
+        (<span class="org-keyword">setq</span> gnutls-algorithm-priority <span class="org-string">"NORMAL:-VERS-TLS1.3"</span>))
+    (<span class="org-keyword">defadvice</span> <span class="org-function-name">isearch-occur</span> (after isearch-occur-fix activate)
+        <span class="org-doc">"Fix bug #20971: http://debbugs.gnu.org/cgi/bugreport.cgi?bug=20971"</span>
+        (<span class="org-keyword">setq</span> buffer-read-only nil))
+
+    (<span class="org-keyword">setq</span> user-mail-address <span class="org-string">"emsenn@emsenn.net"</span>)
+
+    (<span class="org-keyword">defvar</span> <span class="org-variable-name">straight-install-script-path</span>
+      <span class="org-string">"https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"</span>)
+
+    (<span class="org-keyword">defvar</span> <span class="org-variable-name">bootstrap-version</span>)
+    (<span class="org-keyword">let</span> ((bootstrap-file
+           (expand-file-name <span class="org-string">"straight/repos/straight.el/bootstrap.el"</span> user-emacs-directory))
+          (bootstrap-version 5))
+      (<span class="org-keyword">unless</span> (file-exists-p bootstrap-file)
+        (<span class="org-keyword">with-current-buffer</span>
+        (url-retrieve-synchronously straight-install-script-path
+         'silent 'inhibit-cookies)
+          (goto-char (point-max))
+          (eval-print-last-sexp)))
+      (load bootstrap-file nil 'nomessage))
+
+    (straight-use-package 'use-package)
+
+    (<span class="org-keyword">setq</span> make-backup-files nil)
+
+    (<span class="org-keyword">setq</span> initial-scratch-message <span class="org-string">";; landback"</span>)
+    (<span class="org-keyword">setq</span> inhibit-startup-message t)
+
+    (<span class="org-keyword">setq</span> inhibit-startup-screen t)
+
+    (<span class="org-keyword">use-package</span> <span class="org-constant">tao-theme</span> <span class="org-builtin">:straight</span> t
+      <span class="org-builtin">:config</span> (load-theme 'tao-yin t))
+
+
+      (<span class="org-keyword">setq</span> echo-keystrokes 0.1)
+    (menu-bar-mode 1)
+      (tool-bar-mode -1)
+      (show-paren-mode 1)
+      (<span class="org-keyword">setq</span> fill-column 68)
+      (<span class="org-keyword">setq</span> mouse-wheel-scroll-amount '(1 ((shift) .1)))
+      (<span class="org-keyword">setq</span> line-number-mode t)
+      (<span class="org-keyword">setq</span> column-number-mode t)
+      (<span class="org-keyword">setq-default</span> truncate-lines t)
+      (<span class="org-keyword">setq-default</span> line-spacing 1)
+      (<span class="org-keyword">setq</span> sentence-end-double-space nil)
+
+      (<span class="org-keyword">when</span> (fboundp 'windmove-default-keybindings)
+        (windmove-default-keybindings))
+
+      (global-visual-line-mode t)
+
+
+    (<span class="org-keyword">use-package</span> <span class="org-constant">htmlize</span> <span class="org-builtin">:straight</span> t)
+
+    (<span class="org-keyword">use-package</span> <span class="org-constant">ivy</span>
+       <span class="org-builtin">:straight</span> t
+       <span class="org-builtin">:diminish</span> (ivy-mode . <span class="org-string">""</span>)
+       <span class="org-builtin">:bind</span> ((<span class="org-string">"C-c C-r"</span> . ivy-resume))
+       <span class="org-builtin">:config</span> (ivy-mode 1)
+       (<span class="org-keyword">setq</span> ivy-use-virtual-buffers t)
+       (<span class="org-keyword">setq</span> ivy-height 12)
+       (<span class="org-keyword">setq</span> ivy-count-format <span class="org-string">"(%d/%d) "</span>)
+       (<span class="org-keyword">setq</span> ivy-initial-inputs-alist nil)
+       (<span class="org-keyword">setq</span> ivy-re-builders-alist
+         '((read-file-name-internal . ivy--regex-fuzzy)
+           (t . ivy--regex-ignore-order))))
+
+    (<span class="org-keyword">use-package</span> <span class="org-constant">magit</span> <span class="org-builtin">:straight</span> t)
+
+    (<span class="org-keyword">use-package</span>
+        org <span class="org-builtin">:straight</span> t
+        <span class="org-builtin">:config</span> (<span class="org-keyword">setq</span> org-directory <span class="org-string">"~/org"</span>)
+        (<span class="org-keyword">setq</span> org-agenda-files (list <span class="org-string">"~/org"</span>))
+        (<span class="org-keyword">setq</span> org-export-with-section-numbers nil)
+        (<span class="org-keyword">setq</span> org-export-with-smart-quotes nil)
+        (<span class="org-keyword">setq</span> org-export-with-toc nil)
+        (<span class="org-keyword">setq</span> org-html-htmlize-output-type 'css)
+        (<span class="org-keyword">setq</span> org-html-validation-link nil)
+        (<span class="org-keyword">setq</span> org-log-done 'time)
+        (<span class="org-keyword">setq</span> org-log-into-drawer 'LOGBOOK)
+        (<span class="org-keyword">setq</span> org-image-actual-width '(400))
+      <span class="org-comment-delimiter">;;  </span><span class="org-comment">(setq ghe-org-html-base-url )</span>
+        (<span class="org-keyword">setq</span> ghe-org-html-base-preamble
+            (concat <span class="org-string">"&lt;a href=\"#content\" class=\"skip-to-content\"&gt;skip to content&lt;/a&gt;"</span>
+                    <span class="org-string">"&lt;section class=\"nav\"&gt;&lt;strong&gt;Website navigation:&lt;/strong&gt; "</span>
+                    <span class="org-string">"&lt;a href=\"./index.html\"&gt;"</span>
+                    <span class="org-string">"homepage&lt;/a&gt; | "</span>
+                    <span class="org-string">"&lt;a href=\"./records.html\"&gt;"</span>
+                    <span class="org-string">"record index&lt;/a&gt; | "</span>
+                    <span class="org-string">"&lt;a href=\"./d/index.html\"&gt;"</span>
+                    <span class="org-string">"daily records"</span>
+                    <span class="org-string">"&lt;/a&gt;"</span>
+                    <span class="org-string">"&lt;p&gt;"</span>
+             <span class="org-string">"This record is part of my &lt;a href=\"./digital_garden.html\"&gt;digital garden&lt;/a&gt;, which was cultivated as a &lt;a href=\"./public_asset.html\"&gt;public asset&lt;/a&gt; with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from &lt;a href=\"./human.html\"&gt;humans&lt;/a&gt; like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"</span>
+                <span class="org-string">"&lt;/p&gt;"</span>
+             <span class="org-string">"&lt;details&gt;"</span>
+             <span class="org-string">"&lt;summary&gt;Click for tips on using this Website&lt;/summary&gt;"</span>
+             <span class="org-string">"&lt;p&gt;"</span>
+             <span class="org-string">"This digital garden is in its early days, but here's some useful things to know:&lt;/p&gt;"</span>
+             <span class="org-string">"&lt;ul&gt;"</span>
+             <span class="org-string">"&lt;li&gt;"</span>
+             <span class="org-string">"&lt;span style=\"color: var(--link-color)\"&gt;"</span>
+             <span class="org-string">"This color text&lt;/span&gt;"</span>
+             <span class="org-string">" is a link to a part of the garden you haven't been to. "</span>
+             <span class="org-string">"&lt;span style=\"color: var(--link-visited-color)\"&gt;"</span>
+             <span class="org-string">"This color text&lt;/span&gt;"</span>
+             <span class="org-string">" is a link to a part of the garden you &lt;em&gt;have&lt;/em&gt; been to. "</span>
+             <span class="org-string">"&lt;span style=\"color: var(--external-link-color)\"&gt;"</span>
+             <span class="org-string">"This color text&lt;/span&gt;"</span>
+             <span class="org-string">" is a link to a Webpage you haven't been to. "</span>
+             <span class="org-string">"&lt;span style=\"color: var(--external-link-visited-color)\"&gt;"</span>
+             <span class="org-string">"This color text&lt;/span&gt;"</span>
+             <span class="org-string">" is a link to a Webpage you &lt;em&gt;have&lt;/em&gt; been to. "</span>
+             <span class="org-string">"&lt;/li&gt;"</span>
+
+             <span class="org-string">"&lt;/ul&gt;"</span>
+             <span class="org-string">"&lt;/details&gt;"</span>
+             <span class="org-string">"&lt;/section&gt;"</span>))
+        (<span class="org-keyword">setq</span> ghe-org-html-dailies-preamble
+            (concat <span class="org-string">"&lt;a href=\"#content\" class=\"skip-to-content\"&gt;skip to content&lt;/a&gt;"</span>
+                    <span class="org-string">"&lt;section class=\"nav\"&gt;&lt;strong&gt;Website navigation:&lt;/strong&gt; "</span>
+                    <span class="org-string">"&lt;a href=\"../index.html\"&gt;"</span>
+                    <span class="org-string">"homepage&lt;/a&gt; | "</span>
+                    <span class="org-string">"&lt;a href=\"../records.html\"&gt;"</span>
+                    <span class="org-string">"record index&lt;/a&gt; | "</span>
+                    <span class="org-string">"&lt;a href=\"./index.html\"&gt;"</span>
+                    <span class="org-string">"daily records"</span>
+                   <span class="org-string">"&lt;/a&gt;"</span>
+                   <span class="org-string">"&lt;p&gt;"</span>
+                <span class="org-string">"This record is part of my &lt;a href=\"../digital_garden.html\"&gt;digital garden&lt;/a&gt;, which was cultivated as a &lt;a href=\"../public_asset.html\"&gt;public asset&lt;/a&gt; with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from &lt;a href=\"../human.html\"&gt;humans&lt;/a&gt; like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"</span>
+                   <span class="org-string">"&lt;/p&gt;"</span>
+             <span class="org-string">"&lt;details&gt;"</span>
+             <span class="org-string">"&lt;summary&gt;Click for tips on using this Website&lt;/summary&gt;"</span>
+             <span class="org-string">"&lt;p&gt;"</span>
+             <span class="org-string">"This digital garden is in its early days, but here's some useful things to know:&lt;/p&gt;"</span>
+             <span class="org-string">"&lt;ul&gt;"</span>
+             <span class="org-string">"&lt;li&gt;"</span>
+             <span class="org-string">"&lt;span style=\"color: var(--link-color)\"&gt;"</span>
+             <span class="org-string">"This color text&lt;/span&gt;"</span>
+             <span class="org-string">" is a link to a part of the garden you haven't been to. "</span>
+             <span class="org-string">"&lt;span style=\"color: var(--link-visited-color)\"&gt;"</span>
+             <span class="org-string">"This color text&lt;/span&gt;"</span>
+             <span class="org-string">" is a link to a part of the garden you &lt;em&gt;have&lt;/em&gt; been to. "</span>
+             <span class="org-string">"&lt;span style=\"color: var(--external-link-color)\"&gt;"</span>
+             <span class="org-string">"This color text&lt;/span&gt;"</span>
+             <span class="org-string">" is a link to a Webpage you haven't been to. "</span>
+             <span class="org-string">"&lt;span style=\"color: var(--external-link-visited-color)\"&gt;"</span>
+             <span class="org-string">"This color text&lt;/span&gt;"</span>
+             <span class="org-string">" is a link to a Webpage you &lt;em&gt;have&lt;/em&gt; been to. "</span>
+             <span class="org-string">"&lt;/li&gt;"</span>
+             <span class="org-string">"&lt;/ul&gt;"</span>
+             <span class="org-string">"&lt;/details&gt;"</span>
+                   <span class="org-string">"&lt;/section&gt;"</span>))
+           (<span class="org-keyword">setq</span> ghe-org-html-head
+                 (concat <span class="org-string">"&lt;style&gt;</span>
+<span class="org-string">        @charset \"UTF-8\";</span>
+
+<span class="org-string">        :root {</span>
+<span class="org-string">            --body-font: sans-serif;</span>
+<span class="org-string">            --header-font: sans-serif;</span>
+<span class="org-string">            --code-font: monospace;</span>
+<span class="org-string">            --primary-color: #ffe;</span>
+<span class="org-string">            --primary-dim-color: #eed;</span>
+<span class="org-string">            --secondary-color: #312;</span>
+<span class="org-string">            --secondary-dim-color: #756;</span>
+<span class="org-string">            --link-color: #880;</span>
+<span class="org-string">            --link-hover-color: #aa2;</span>
+<span class="org-string">            --link-visited-color: #934;</span>
+<span class="org-string">            --link-visited-hover-color: #b56;</span>
+<span class="org-string">            --external-link-color: #008;</span>
+<span class="org-string">            --external-link-hover-color: #60b;</span>
+<span class="org-string">            --external-link-visited-color: #394;</span>
+<span class="org-string">            --external-link-visited-hover-color: #5b6;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        @media(prefers-color-scheme:dark){</span>
+<span class="org-string">            :root {</span>
+<span class="org-string">                --body-font: sans-serif;</span>
+<span class="org-string">                --header-font: sans-serif;</span>
+<span class="org-string">                --code-font: monospace;</span>
+<span class="org-string">                --primary-color: #756;</span>
+<span class="org-string">                --primary-dim-color: #312;</span>
+<span class="org-string">                --secondary-color: #eed;</span>
+<span class="org-string">                --secondary-dim-color: #ffe;</span>
+<span class="org-string">                --link-color: #880;</span>
+<span class="org-string">                --link-hover-color: #aa2;</span>
+<span class="org-string">                --link-visited-color: #934;</span>
+<span class="org-string">                --link-visited-hover-color: #b56;</span>
+<span class="org-string">            }}</span>
+<span class="org-string">        body {</span>
+<span class="org-string">            position: relative;</span>
+<span class="org-string">            min-height: 100%;</span>
+<span class="org-string">            background-color: var(--primary-color);</span>
+<span class="org-string">            color: var(--secondary-color);</span>
+<span class="org-string">            margin: 0 auto;</span>
+<span class="org-string">            font-family: sans-serif;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        main, #content {</span>
+<span class="org-string">            background-color: var(--primary-dim-color);</span>
+<span class="org-string">            border-left: 1.5em dashed var(--primary-color);</span>
+<span class="org-string">            padding: 1em;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        header {</span>
+<span class="org-string">            border-bottom: 0.2em dashed var(--secondary-dim-color);</span>
+<span class="org-string">        }</span>
+<span class="org-string">        h1 { font-size: 2em; margin-bottom: 0; }</span>
+<span class="org-string">        h2 {</span>
+<span class="org-string">            border-bottom: 0.1em dashed var(--secondary-dim-color);</span>
+<span class="org-string">        }</span>
+<span class="org-string">        h2, h3, h4, h5, h6, p, .org-src-container {</span>
+<span class="org-string">            width: 60%;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        aside {</span>
+<span class="org-string">            float: right;</span>
+<span class="org-string">            width: 35%;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        aside p { width: 100%; }</span>
+<span class="org-string">        @media screen and (max-width:760px) {</span>
+<span class="org-string">            h2, h3, h4, h5, h6, p, .org-src-container {</span>
+<span class="org-string">                width: 90%;</span>
+<span class="org-string">            }</span>
+<span class="org-string">            aside {</span>
+<span class="org-string">                float: inherit;</span>
+<span class="org-string">                width: 90%;</span>
+<span class="org-string">                border-top: 0.1em dashed var(--secondary-dim-color);</span>
+<span class="org-string">                border-bottom: 0.1em dashed var(--secondary-dim-color);</span>
+<span class="org-string">                font-size: 0.8em;</span>
+<span class="org-string">                  }</span>
+<span class="org-string">        }</span>
+
+<span class="org-string">        footer, #postamble, #preamble {</span>
+<span class="org-string">            padding: 0.5em;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        table {</span>
+<span class="org-string">            border-collapse: collapse;</span>
+<span class="org-string">            border-spacing: 0;</span>
+<span class="org-string">            empty-cells: show;</span>
+<span class="org-string">            border: 0.1em solid #444;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        thead { font-family: sans-serif; }</span>
+<span class="org-string">        th, td {</span>
+<span class="org-string">            padding: 0 0.3em;</span>
+<span class="org-string">            border: 0.01em solid #444;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        img {</span>
+<span class="org-string">            max-width: 80vw;</span>
+<span class="org-string">            vertical-align: middle;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        pre, .src {</span>
+<span class="org-string">            padding: 0.5em;</span>
+<span class="org-string">            border: 0.1em solid #444;</span>
+<span class="org-string">            white-space: pre-wrap;</span>
+<span class="org-string">            overflow-x: scroll;</span>
+<span class="org-string">            text-overflow: clip;</span>
+<span class="org-string">            scrollbar-width: none;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        pre::-webkit-scrollbar, .src::-webkit-scrollbar {</span>
+<span class="org-string">            display: none;</span>
+<span class="org-string">        }</span>
+
+
+<span class="org-string">        dt {</span>
+<span class="org-string">            font-weight: normal;</span>
+<span class="org-string">            display: inline-block;</span>
+<span class="org-string">            border-bottom: 0.1rem dotted #444;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        #text-index dt { border-bottom: none; }</span>
+<span class="org-string">        h2, h3, h4, h5, h6, h7, h8, h9, h10 {</span>
+<span class="org-string">            display: block;</span>
+<span class="org-string">            font-family: sans-serif;</span>
+<span class="org-string">            margin: 0.2em auto 0.5em 0;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        a {</span>
+<span class="org-string">            text-decoration: none;</span>
+<span class="org-string">            color: #880;</span>
+<span class="org-string">            display: inline;</span>
+<span class="org-string">            position: relative;</span>
+<span class="org-string">            border-bottom: 0.1rem dotted;</span>
+<span class="org-string">            line-height: 1.2;</span>
+<span class="org-string">            transition: border 0.3s;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        a:hover {</span>
+<span class="org-string">            color: #aa2;</span>
+<span class="org-string">            outline-style: none;</span>
+<span class="org-string">            border-bottom: 0.1rem solid;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        a:visited { color: #934; }</span>
+<span class="org-string">        a:visited:hover { color: #b56; }</span>
+<span class="org-string">        a:focus {</span>
+<span class="org-string">            outline-style: none;</span>
+<span class="org-string">            border-bottom: 0.1rem solid;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        ::selection { background-color: #777; color: #eee; }</span>
+<span class="org-string">        a::selection { background-color: #ccc; }</span>
+<span class="org-string">        .org-todo {</span>
+<span class="org-string">            background-color: #ddd;</span>
+<span class="org-string">            color: #333;</span>
+<span class="org-string">            font-size: .8rem;</span>
+<span class="org-string">            float: right;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        .org-src-container + .example {</span>
+<span class="org-string">            margin-left: 8em;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):after{ </span>
+<span class="org-string">            content: \"^\";</span>
+<span class="org-string">            font-size: 0.5em;</span>
+<span class="org-string">            vertical-align: super;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        a[href^=\"https://\"]:not([href*=\"emsenn.net\"]){ </span>
+<span class="org-string">            color: var(--external-link-color);</span>
+<span class="org-string">        }</span>
+<span class="org-string">        a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):hover{ </span>
+<span class="org-string">            color: var(--external-link-hover-color);</span>
+<span class="org-string">        }</span>
+<span class="org-string">        a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited{ </span>
+<span class="org-string">            color: var(--external-link-visited-color);</span>
+<span class="org-string">        }</span>
+<span class="org-string">        a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:hover{ </span>
+<span class="org-string">            color: var(--external-link-visited-hover-color);</span>
+<span class="org-string">        }</span>
+<span class="org-string">        label.org-src-name {</span>
+<span class="org-string">            margin: 0 0 0 3em;</span>
+<span class="org-string">            font-family: sans-serif;</span>
+<span class="org-string">            font-size: 1rem;</span>
+<span class="org-string">            line-height: 0;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        .skip-to-content {</span>
+<span class="org-string">            opacity: 0;</span>
+<span class="org-string">            position: absolute;</span>
+<span class="org-string">            left: 0.2em;</span>
+<span class="org-string">        }</span>
+<span class="org-string">        .skip-to-content:focus{</span>
+<span class="org-string">            opacity: 1;</span>
+<span class="org-string">            background-color: var(--secondary-dim-color);</span>
+<span class="org-string">            color: var(--primary-color);</span>
+<span class="org-string">        }</span>
+<span class="org-string">        ul { max-width: 85%; }</span>
+<span class="org-string">        &lt;/style&gt;"</span>))
+
+        (org-babel-do-load-languages 'org-babel-load-languages
+                                      '((shell . t)))
+
+        (<span class="org-keyword">defun</span> <span class="org-function-name">ghe-org-table-to-defvar</span> (table)
+          (string-join 
+              (mapcar
+               (<span class="org-keyword">lambda</span> (item)
+                 (print (concat <span class="org-string">"(defvar "</span>
+                                (car item)
+                                <span class="org-string">" \""</span>
+                                (car (cdr item))
+                                <span class="org-string">"\" \""</span>
+                                (car (cdr (cdr item)))
+                                <span class="org-string">"\")\n"</span>)))
+                 table)))
+        (<span class="org-keyword">defun</span> <span class="org-function-name">ghe-org-table-to-setq</span> (table)
+          (string-join 
+              (mapcar
+               (<span class="org-keyword">lambda</span> (item)
+                 (print (concat <span class="org-string">"(setq "</span>
+                                (car item)
+                                <span class="org-string">" "</span>
+                                (car (cdr item))
+                                <span class="org-string">")\n"</span>)))
+                 table)))
+        (<span class="org-keyword">defun</span> <span class="org-function-name">ghe-org-capture-capture-at-point</span> ()
+           <span class="org-doc">"Insert an org capture template at point."</span>
+           (<span class="org-keyword">interactive</span>)
+           (org-capture 0))
+        (<span class="org-keyword">defun</span> <span class="org-function-name">ghe-org-export-preprocessor</span> (backend)
+          (<span class="org-keyword">let</span> ((links (ghe-org-roam-format-backlinks-list (buffer-file-name))))
+            (<span class="org-keyword">unless</span> (string= links <span class="org-string">""</span>)
+              (<span class="org-keyword">save-excursion</span>
+                (goto-char (point-max))
+                (insert (concat <span class="org-string">"\n** Backlinks\n"</span>) links)))))
+        (<span class="org-keyword">defun</span> <span class="org-function-name">ghe-org-html-format-drawer</span> (name contents)
+          (format <span class="org-string">"&lt;section class=\"org-drawer\"&gt; %s &lt;/section&gt;"</span> contents))
+        <span class="org-comment-delimiter">;; </span><span class="org-comment">from https://www.john2x.com/blog/blogging-with-orgmode.html</span>
+         (<span class="org-keyword">defun</span> <span class="org-function-name">ghe-org-publish-format-sitemap</span> (title sitemap)
+           (<span class="org-keyword">let</span> ((posts (cdr sitemap)))
+             (concat
+              (format <span class="org-string">"#+title: %s\n"</span> title)
+              <span class="org-string">"#+roam_tags: meta\n"</span>
+              (org-list-to-org (cons (car sitemap) posts)))))
+        (<span class="org-keyword">setq</span> org-capture-templates
+              `(
+                (<span class="org-string">"s"</span> <span class="org-string">"Capture source code block"</span>)
+                (<span class="org-string">"se"</span> <span class="org-string">"Elisp code block"</span>
+                             plain (clock)
+                             ,(concat <span class="org-string">"#+name: %^{NAME}-elisp\n"</span>
+                                      <span class="org-string">"#+caption: %^{CAPTION}\n"</span>
+                                    <span class="org-string">"#+begin_src elisp %^{HEADER-ARGS}\n"</span>
+                                    <span class="org-string">"%?\n"</span>
+                                    <span class="org-string">"#+end_src\n"</span>))
+                ))
+        (<span class="org-keyword">setq</span> org-publish-project-alist
+              `(
+                (<span class="org-string">"personal"</span> <span class="org-builtin">:components</span> (<span class="org-string">"personal-daily-records"</span> <span class="org-string">"personal-records"</span>))
+                (<span class="org-string">"personal-records"</span>
+                 <span class="org-builtin">:base-extension</span> <span class="org-string">"org"</span>
+                 <span class="org-builtin">:publishing-function</span> org-html-publish-to-html
+                 <span class="org-builtin">:html-doctype</span> <span class="org-string">"html5"</span>
+                 <span class="org-builtin">:html-html5-fancy</span> t
+                 <span class="org-builtin">:html-container</span> <span class="org-string">"section"</span>
+                 <span class="org-builtin">:headline-levels</span> 6
+                 <span class="org-builtin">:html-divs</span> ((preamble <span class="org-string">"section"</span> <span class="org-string">"preamble"</span>)
+                            (content <span class="org-string">"main"</span> <span class="org-string">"content"</span>)
+                            (postamble <span class="org-string">"section"</span> <span class="org-string">"postamble"</span>))
+                 <span class="org-builtin">:publishing-function</span> org-html-publish-to-html
+                 <span class="org-builtin">:html-format-drawer-function</span> ghe-org-html-format-drawer
+                 <span class="org-builtin">:sitemap-function</span> ghe-org-publish-format-sitemap
+                 <span class="org-builtin">:html-head-include-scripts</span> nil
+                 <span class="org-builtin">:html-head-include-default-style</span> nil
+                 <span class="org-builtin">:html-head</span> ,ghe-org-html-head
+                 <span class="org-builtin">:exclude</span> ,(regexp-opt '(<span class="org-string">"README.org"</span> <span class="org-string">"PRIVATE"</span>))
+                 <span class="org-builtin">:auto-sitemap</span> t
+                 <span class="org-builtin">:with-footnotes</span> t
+                 <span class="org-builtin">:with-toc</span> nil
+                 <span class="org-builtin">:with-drawers</span> t
+                 <span class="org-builtin">:base-directory</span> <span class="org-string">"~/org/s/p"</span>
+                 <span class="org-builtin">:publishing-directory</span> <span class="org-string">"~/org/p/personal"</span>
+                 <span class="org-builtin">:html-preamble</span> ,ghe-org-html-base-preamble
+                 <span class="org-builtin">:sitemap-filename</span> <span class="org-string">"records.org"</span>
+                 <span class="org-builtin">:sitemap-sort-files</span> anti-chronologically
+                 <span class="org-builtin">:sitemap-title</span> <span class="org-string">"Records Index"</span>)
+                (<span class="org-string">"personal-daily-records"</span>
+                 <span class="org-builtin">:base-extension</span> <span class="org-string">"org"</span>
+                 <span class="org-builtin">:publishing-function</span> org-html-publish-to-html
+                 <span class="org-builtin">:html-doctype</span> <span class="org-string">"html5"</span>
+                 <span class="org-builtin">:html-html5-fancy</span> t
+                 <span class="org-builtin">:html-container</span> <span class="org-string">"section"</span>
+                 <span class="org-builtin">:headline-levels</span> 6
+                 <span class="org-builtin">:html-divs</span> ((preamble <span class="org-string">"section"</span> <span class="org-string">"preamble"</span>)
+                            (content <span class="org-string">"main"</span> <span class="org-string">"content"</span>)
+                            (postamble <span class="org-string">"section"</span> <span class="org-string">"postamble"</span>))
+                 <span class="org-builtin">:publishing-function</span> org-html-publish-to-html
+                 <span class="org-builtin">:html-format-drawer-function</span> ghe-org-html-format-drawer
+                 <span class="org-builtin">:sitemap-function</span> ghe-org-publish-format-sitemap
+                 <span class="org-builtin">:html-head-include-scripts</span> nil
+                 <span class="org-builtin">:html-head-include-default-style</span> nil
+                 <span class="org-builtin">:html-head</span> ,ghe-org-html-head
+                 <span class="org-builtin">:exclude</span> ,(regexp-opt '(<span class="org-string">"README.org"</span> <span class="org-string">"PRIVATE"</span>))
+                 <span class="org-builtin">:auto-sitemap</span> t
+                 <span class="org-builtin">:with-footnotes</span> t
+                 <span class="org-builtin">:with-toc</span> nil
+                 <span class="org-builtin">:with-drawers</span> t
+                 <span class="org-builtin">:base-directory</span> <span class="org-string">"~/org/s/p/d"</span>
+                 <span class="org-builtin">:publishing-directory</span> <span class="org-string">"~/org/p/personal/d"</span>
+                 <span class="org-builtin">:html-preamble</span> ,ghe-org-html-dailies-preamble
+                 <span class="org-builtin">:sitemap-filename</span> <span class="org-string">"index.org"</span>
+                 <span class="org-builtin">:sitemap-sort-files</span> anti-chronologically
+                 <span class="org-builtin">:sitemap-title</span> <span class="org-string">"Daily Records Index"</span>)))
+        <span class="org-builtin">:hook</span> 
+               (org-export-before-processing . ghe-org-export-preprocessor)
+
+        <span class="org-builtin">:bind</span> (
+               (<span class="org-string">"C-c l"</span> . org-store-link)
+                   (<span class="org-string">"C-c a"</span> . org-agenda)
+                   (<span class="org-string">"C-c c"</span> . org-capture)
+                   (<span class="org-string">"C-c t"</span> . org-toggle-link-display)
+                   (<span class="org-string">"C-c C-q"</span> . counsel-org-tag)
+                   (<span class="org-string">"&lt;f8&gt;"</span> . ghe-org-capture-capture-at-point)
+               ))
+
+    (<span class="org-keyword">use-package</span> <span class="org-constant">org-attach-screenshot</span> <span class="org-builtin">:straight</span> t
+       <span class="org-builtin">:config</span> (<span class="org-keyword">setq</span>
+            org-attach-screenshot-command-line <span class="org-string">"spectacle -rbno $f"</span>))
+
+    (<span class="org-keyword">use-package</span>
+        org-roam <span class="org-builtin">:straight</span> t
+        <span class="org-builtin">:config</span> (<span class="org-keyword">setq</span>
+                 org-roam-directory <span class="org-string">"~/org/s/p"</span>
+                 org-roam-dailies-directory <span class="org-string">"d/"</span>)
+        <span class="org-comment-delimiter">;; </span><span class="org-comment">from doubleloop's commonplace wiki</span>
+        (<span class="org-keyword">defun</span> <span class="org-function-name">ghe-org-roam-format-backlinks-list</span> (file)
+          (<span class="org-keyword">if</span> (org-roam--org-roam-file-p file)
+              (<span class="org-keyword">--reduce-from</span>
+               (concat acc
+                       (format
+                        <span class="org-string">"- [[file:%s][%s]]\n"</span>
+                        (<span class="org-keyword">if</span> (string= (org-roam-dailies-directory--get-absolute-path)
+                                     (file-name-directory file))
+                            (file-relative-name (car it))
+                          (file-relative-name (car it) org-roam-directory))
+                        (org-roam-db--get-title (car it))))
+               <span class="org-string">""</span> (org-roam-db-query
+                   [<span class="org-builtin">:select</span> [source]
+                            <span class="org-builtin">:from</span> links
+                            <span class="org-builtin">:where</span> (= dest $s1)] <span class="org-warning">file))</span>
+            <span class="org-string">""</span>))
+        (<span class="org-keyword">setq</span> org-roam-capture-templates
+              `(
+                (<span class="org-string">"r"</span> <span class="org-string">"basic record"</span> plain
+                 (<span class="org-keyword">function</span> org-roam--capture-get-point)
+                 <span class="org-string">"%?\n"</span>
+                 <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+                 <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                                <span class="org-string">"#+begin_head\n"</span>
+                                <span class="org-string">"#+ghe_schema: "</span>
+                                <span class="org-string">"record-0.1.2\n"</span>
+                                <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                                <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                                <span class="org-string">"#+date: %U\n"</span>
+                                <span class="org-string">"#+end_head\n"</span>)
+                 <span class="org-builtin">:unnarrowed</span> t)
+                (<span class="org-string">"t"</span> <span class="org-string">"term"</span> plain
+                 (<span class="org-keyword">function</span> org-roam--capture-get-point)
+                 <span class="org-string">"#+name: %^{SLUG}-definition-text\n#+begin_quote\n%?\n#+end_quote\n"</span>
+                 <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+                 <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                                <span class="org-string">"#+begin_head\n"</span>
+                                <span class="org-string">"#+ghe_schema: "</span>
+                                <span class="org-string">"reference-0.1.1\n"</span>
+                                <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                                <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                                <span class="org-string">"#+date: %U\n"</span>
+                                <span class="org-string">"#+roam_tags: term\n"</span>
+                                <span class="org-string">"#+end_head\n"</span>)
+                 <span class="org-builtin">:unnarrowed</span> t)
+                (<span class="org-string">"R"</span> <span class="org-string">"reference"</span> plain
+                 (<span class="org-keyword">function</span> org-roam--capture-get-point)
+                 <span class="org-string">"#+roam_key: %^{SOURCE}\n#+end_head\n%?\n"</span>
+                 <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+                 <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                                <span class="org-string">"#+begin_head\n"</span>
+                                <span class="org-string">"#+ghe_schema: "</span>
+                                <span class="org-string">"\n"</span>
+                                <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                                <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                                <span class="org-string">"#+date: %U\n"</span>
+                                <span class="org-string">"#+roam_tags: term\n"</span>)
+                 <span class="org-builtin">:unnarrowed</span> t)
+                (<span class="org-string">"p"</span> <span class="org-string">"person"</span> plain
+                 (<span class="org-keyword">function</span> org-roam--capture-get-point)
+                 <span class="org-string">"%?\n"</span>
+                 <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+                 <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                                <span class="org-string">"#+begin_head\n"</span>
+                                <span class="org-string">"#+ghe_schema: "</span>
+                                <span class="org-string">"person-0.1.1\n"</span>
+                                <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                                <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                                <span class="org-string">"#+date: %U\n"</span>
+                                <span class="org-string">"#+roam_tags: person\n"</span>
+                                <span class="org-string">"#+end_head\n"</span>)
+                 <span class="org-builtin">:unnarrowed</span> t)
+                (<span class="org-string">"T"</span> <span class="org-string">"Teraum"</span>)
+                (<span class="org-string">"Tt"</span> <span class="org-string">"General entry"</span>
+                            plain (<span class="org-keyword">function</span> org-roam--capture-get-point)
+                            <span class="org-string">"%?"</span>
+                            <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+                            <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                                           <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                                           <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                                           <span class="org-string">"#+date: %U\n"</span>
+                                           <span class="org-string">"#+roam_tags: Teraum"</span>)
+                            <span class="org-builtin">:unnarrowed</span> t)
+                (<span class="org-string">"Tp"</span> <span class="org-string">"Person"</span>
+                            plain (<span class="org-keyword">function</span> org-roam--capture-get-point)
+                            <span class="org-string">"%?\n\n- Species :: %^{SPECIES}\n- Age :: %^{AGE}\n- Pronouns :: %^{PRONOUNS|e/em/eir|she/her/hers|he/him/his|they/them/theirs}\n- Location :: %^{LOCATION}"</span>
+                            <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+                            <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                                           <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                                           <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                                           <span class="org-string">"#+date: %U\n"</span>
+                                           <span class="org-string">"#+roam_tags: Teraum\n\n"</span>)
+                            <span class="org-builtin">:unnarrowed</span> t)))
+        (<span class="org-keyword">setq</span> org-roam-dailies-capture-templates
+              `(
+                (<span class="org-string">"a"</span> <span class="org-string">"Activity entry"</span> entry
+                                    #'org-roam-capture--get-point
+                                    <span class="org-string">"* %U\n%?"</span>
+                                    <span class="org-builtin">:file-name</span> <span class="org-string">"d/%&lt;%Y-%m-%d&gt;"</span>
+                                    <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                                                   <span class="org-string">"#+begin_head\n"</span>
+                                                   <span class="org-string">"#+ghe_schema: daily-record-0.1.0\n"</span>
+                                                   <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                                                   <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                                                   <span class="org-string">"#+date: %U\n"</span>
+                                                   <span class="org-string">"#+roam_tags: daily-record"</span>
+                                                   <span class="org-string">"#+end_head\n"</span>)
+                                    <span class="org-builtin">:olp</span> (<span class="org-string">"Activity Log                                                     "</span>))
+                (<span class="org-string">"j"</span> <span class="org-string">"Journal entry"</span> entry
+                                    #'org-roam-capture--get-point
+                                    <span class="org-string">"* %U\n%?"</span>
+                                    <span class="org-builtin">:file-name</span> <span class="org-string">"d/%&lt;%Y-%m-%d&gt;"</span>
+                                    <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                                                   <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                                                   <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                                                   <span class="org-string">"#+date: %U\n"</span>
+                                                   <span class="org-string">"#+roam_tags: daily-record"</span>)
+                <span class="org-builtin">:olp</span> (<span class="org-string">"Journal                                                          "</span>))
+
+                (<span class="org-string">"m"</span> <span class="org-string">"Discovered media"</span> entry
+                 #'org-roam-capture--get-point
+                 <span class="org-string">"* DISCOVERED %^{AUTHOR}: \"%^{TITLE}\"\n  :LOGBOOK:\n  - Note taken on %U \\\\\n  %?\n  :END:\n- Source: %^{SOURCE}\n"</span>
+                 <span class="org-builtin">:file-name</span> <span class="org-string">"d/%&lt;%Y-%m-%d&gt;"</span>
+                 <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                                <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                                <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                                <span class="org-string">"#+date: %U\n"</span>
+                                <span class="org-string">"#+roam_tags: daily-record"</span>)
+                 <span class="org-builtin">:olp</span> (<span class="org-string">"Media log                                                        "</span>))
+                (<span class="org-string">"w"</span> <span class="org-string">"Weather observation"</span> entry
+                                    #'org-roam-capture--get-point
+                                    <span class="org-string">"* %U\n%?"</span>
+                                    <span class="org-builtin">:file-name</span> <span class="org-string">"d/%&lt;%Y-%m-%d&gt;"</span>
+                                    <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                                                   <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                                                   <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                                                   <span class="org-string">"#+date: %U\n"</span>
+                                                   <span class="org-string">"#+roam_tags: daily-record"</span>)
+                                    <span class="org-builtin">:olp</span> (<span class="org-string">"Weather                                                          "</span>))
+                (<span class="org-string">"p"</span> <span class="org-string">"posting"</span> entry
+                 #'org-roam-capture--get-point
+                 <span class="org-string">"* %U\n%?"</span>
+                 <span class="org-builtin">:file-name</span> <span class="org-string">"d/%&lt;%Y-%m-%d&gt;"</span>
+                 <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                                <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                                <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                                <span class="org-string">"#+date: %U\n"</span>
+                                <span class="org-string">"#+roam_tags: daily-record"</span>)
+                 <span class="org-builtin">:olp</span> (<span class="org-string">"Postings"</span>))))
+<span class="org-builtin">:hook</span> (after-init . org-roam-mode)
+        <span class="org-builtin">:bind</span> (
+               (<span class="org-string">"&lt;f5&gt;"</span> . org-roam-dailies-capture-today)
+               (<span class="org-string">"&lt;f9&gt;"</span> . org-roam-dailies-find-today)
+               (<span class="org-string">"C-c n l"</span> . org-roam)
+               (<span class="org-string">"C-c n f"</span> . org-roam-find-file)
+               (<span class="org-string">"C-c n g"</span> . org-roam-graph)
+               ((<span class="org-string">"C-c n i"</span> . org-roam-insert)
+               (<span class="org-string">"C-c n I"</span> . org-roam-insert-immediate))))
+
+     (<span class="org-keyword">use-package</span> <span class="org-constant">org-roam-server</span> <span class="org-builtin">:straight</span> t)
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgba69201" class="outline-4">
+<h4 id="orgba69201">style.css</h4>
+</div>
+</div>
+<div id="outline-container-org81654f9" class="outline-3">
+<h3 id="org81654f9">Backlinks</h3>
+<div class="outline-text-3" id="text-org81654f9">
+<ul class="org-ul">
+<li><a href="index.html">emsenn's digital garden</a></li>
+<li><a href="records.html">Records Index</a></li>
+<li><a href="d/2020-12-22.html">2020-12-22</a></li>
 </ul>
 </div>
 </div>
@@ -198,7 +2475,7 @@
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-18 Fri 14:06</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-22 Tue 22:34</p>
+<p class="date">Created: 2020-12-23 Wed 16:03</p>
 </section>
 </body>
 </html>

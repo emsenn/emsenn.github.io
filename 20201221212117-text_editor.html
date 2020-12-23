@@ -1,173 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-22 Tue 22:34 -->
+<!-- 2020-12-23 Wed 16:03 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>text editor</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="emsenn">
 <style>
-						  body {
-						      position: relative;
-						      background-color: #ddc;
-						      color: #413;
-						      font-family: serif;
-						      margin: 0 auto;
-						      min-height: 100%;
-						      font-size: 0.8em;
-						      font-family: sans-serif;
-						  }
-						  main, #content {
-						     width: 75vw;
-						     max-width: 60em;
-						     background-color: #eed;
-						     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-						     margin: 0.5em auto;
-						     padding: 1em;
-						  }
-						  header {
-						     margin-bottom: 2em;
-						     padding-bottom: 0.5em;
-						     border-bottom: 0.2em dotted #444;
-						  }
+	@charset "UTF-8";
 	
-						  h1 { margin: 0.2em 0 0.2em 0; font-size: 3.2em; }
+	:root {
+	    --body-font: sans-serif;
+	    --header-font: sans-serif;
+	    --code-font: monospace;
+	    --primary-color: #ffe;
+	    --primary-dim-color: #eed;
+	    --secondary-color: #312;
+	    --secondary-dim-color: #756;
+	    --link-color: #880;
+	    --link-hover-color: #aa2;
+	    --link-visited-color: #934;
+	    --link-visited-hover-color: #b56;
+	    --external-link-color: #008;
+	    --external-link-hover-color: #60b;
+	    --external-link-visited-color: #394;
+	    --external-link-visited-hover-color: #5b6;
+	}
+	@media(prefers-color-scheme:dark){
+	    :root {
+		--body-font: sans-serif;
+		--header-font: sans-serif;
+		--code-font: monospace;
+		--primary-color: #756;
+		--primary-dim-color: #312;
+		--secondary-color: #eed;
+		--secondary-dim-color: #ffe;
+		--link-color: #880;
+		--link-hover-color: #aa2;
+		--link-visited-color: #934;
+		--link-visited-hover-color: #b56;
+	    }}
+	body {
+	    position: relative;
+	    min-height: 100%;
+	    background-color: var(--primary-color);
+	    color: var(--secondary-color);
+	    margin: 0 auto;
+	    font-family: sans-serif;
+	}
+	main, #content {
+	    background-color: var(--primary-dim-color);
+	    border-left: 1.5em dashed var(--primary-color);
+	    padding: 1em;
+	}
+	header {
+	    border-bottom: 0.2em dashed var(--secondary-dim-color);
+	}
+	h1 { font-size: 2em; margin-bottom: 0; }
+	h2 {
+	    border-bottom: 0.1em dashed var(--secondary-dim-color);
+	}
+	h2, h3, h4, h5, h6, p, .org-src-container {
+	    width: 60%;
+	}
+	aside {
+	    float: right;
+	    width: 35%;
+	}
+	aside p { width: 100%; }
+	@media screen and (max-width:760px) {
+	    h2, h3, h4, h5, h6, p, .org-src-container {
+		width: 90%;
+	    }
+	    aside {
+		float: inherit;
+		width: 90%;
+		border-top: 0.1em dashed var(--secondary-dim-color);
+		border-bottom: 0.1em dashed var(--secondary-dim-color);
+		font-size: 0.8em;
+		  }
+	}
 	
-						  footer, #postamble, #preamble {
-						      width: 75vw;
-						      max-width: 45em;
-						      margin: 0.5em auto;
-					    padding: 0.5em;
-						      overflow: hidden;
-						  }
-						  table {
-						     border-collapse: collapse;
-						     border-spacing: 0;
-						     empty-cells: show;
-						     border: 0.1em solid #444;
-						     }
-						     thead { font-family: sans-serif; }
-						     th, td {
-						     padding: 0 0.3em;
-						     border: 0.01em solid #444;
-						     }
-						     img {
-						     max-width: 80vw;
-						     vertical-align: middle;
-						     }
-						     pre, .src {
-						     padding: 0.5em;
-						     border: 0.1em solid #444;
-						     white-space: pre-wrap;
-						     overflow-x: scroll;
-						     text-overflow: clip;
-						     scrollbar-width: none;
-						     }
-						     pre::-webkit-scrollbar, .src::-webkit-scrollbar {
-				    display: none;
-				  }
-						     dt {
-						     font-weight: normal;
-						     display: inline-block;
-						     border-bottom: 0.1rem dotted #444;
-						     }
-						     #text-index dt { border-bottom: none; }
-						     h2, h3, h4, h5, h6, h7, h8, h9, h10 {
-						     display: block;
-						     font-family: sans-serif;
-						     margin: 0.2em auto 0.5em 0;
-						     }
-						     h2 { text-align: left; font-size: 2em;}
-						     h3 {
-						     font-size: 1.8em;
-						     }
-						     h4 {
-						     font-size: 1.6em;
-						     }
-						     h5 {
-						     font-size: 1.4em;
-						     margin: 0.5em 0 0.2em 10%;
-						     }
-						     h6 {
-						     font-size: 1.2em;
-						     margin: 0.5em 0 0.2em 30%;
-						     }
-						     a {
-						     text-decoration: none;
-						     color: #880;
-						     display: inline;
-						     position: relative;
-						     border-bottom: 0.1rem dotted;
-						     line-height: 1.2;
-						     transition: border 0.3s;
-						     }
-						     a:hover {
-						     color: #aa2;
-						     outline-style: none;
-						     border-bottom: 0.1rem solid;
-						     }
-						     a:visited { color: #934; }
-						     a:visited:hover { color: #b56; }
-						     a:focus {
-						     outline-style: none;
-						     border-bottom: 0.1rem solid;
-						     }
-						     ::selection { background-color: #777; color: #eee; }
-						     a::selection { background-color: #ccc; }
-						     .org-todo {
-						     background-color: #ddd;
-						     color: #333;
-						    font-size: .8rem;
-						    float: right;
-						    }
-						    .org-src-container + .example {
-						    margin-left: 8em;
-						    }
-						    a[href^="https://"]:not([href*="emsenn.net"]):after{ 
-			    content: "^";
-		  font-size: 0.5em;
-	vertical-align: super;
-			}			    label.org-src-name {
-						    margin: 0 0 0 3em;
-						    font-family: sans-serif;
-						    font-size: 1rem;
-						    line-height: 0;
-						    }
-						    .skip-to-content {
-						    opacity: 0;
-						    position: absolute;
-						    left: 0.2em;
-						    }
-						    .skip-to-content:focus{
-						    opacity:1
-						    }
-						    ul { max-width: 85%; }
+	footer, #postamble, #preamble {
+	    padding: 0.5em;
+	}
+	table {
+	    border-collapse: collapse;
+	    border-spacing: 0;
+	    empty-cells: show;
+	    border: 0.1em solid #444;
+	}
+	thead { font-family: sans-serif; }
+	th, td {
+	    padding: 0 0.3em;
+	    border: 0.01em solid #444;
+	}
+	img {
+	    max-width: 80vw;
+	    vertical-align: middle;
+	}
+	pre, .src {
+	    padding: 0.5em;
+	    border: 0.1em solid #444;
+	    white-space: pre-wrap;
+	    overflow-x: scroll;
+	    text-overflow: clip;
+	    scrollbar-width: none;
+	}
+	pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+	    display: none;
+	}
 	
+	
+	dt {
+	    font-weight: normal;
+	    display: inline-block;
+	    border-bottom: 0.1rem dotted #444;
+	}
+	#text-index dt { border-bottom: none; }
+	h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+	    display: block;
+	    font-family: sans-serif;
+	    margin: 0.2em auto 0.5em 0;
+	}
+	a {
+	    text-decoration: none;
+	    color: #880;
+	    display: inline;
+	    position: relative;
+	    border-bottom: 0.1rem dotted;
+	    line-height: 1.2;
+	    transition: border 0.3s;
+	}
+	a:hover {
+	    color: #aa2;
+	    outline-style: none;
+	    border-bottom: 0.1rem solid;
+	}
+	a:visited { color: #934; }
+	a:visited:hover { color: #b56; }
+	a:focus {
+	    outline-style: none;
+	    border-bottom: 0.1rem solid;
+	}
+	::selection { background-color: #777; color: #eee; }
+	a::selection { background-color: #ccc; }
+	.org-todo {
+	    background-color: #ddd;
+	    color: #333;
+	    font-size: .8rem;
+	    float: right;
+	}
+	.org-src-container + .example {
+	    margin-left: 8em;
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):after{ 
+	    content: "^";
+	    font-size: 0.5em;
+	    vertical-align: super;
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]){ 
+	    color: var(--external-link-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+	    color: var(--external-link-hover-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):visited{ 
+	    color: var(--external-link-visited-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+	    color: var(--external-link-visited-hover-color);
+	}
+	label.org-src-name {
+	    margin: 0 0 0 3em;
+	    font-family: sans-serif;
+	    font-size: 1rem;
+	    line-height: 0;
+	}
+	.skip-to-content {
+	    opacity: 0;
+	    position: absolute;
+	    left: 0.2em;
+	}
+	.skip-to-content:focus{
+	    opacity: 1;
+	    background-color: var(--secondary-dim-color);
+	    color: var(--primary-color);
+	}
+	ul { max-width: 85%; }
 	</style>
 </head>
 <body>
 <section id="preamble" class="status">
-<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./records.html">record index</a> | <a href="./d/index.html">daily records</a><p>This record is part of my <a href="./digital_garden.html">digital garden</a>, which was cultivated as a <a href="./public_asset.html">public asset</a> with <a href="https://ko-fi.com/emsenn">support</a> from <a href="./human.html">humans</a> like you. <strong><em>Thank you!</em></strong></p></section>
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./records.html">record index</a> | <a href="./d/index.html">daily records</a><p>This record is part of my <a href="./digital_garden.html">digital garden</a>, which was cultivated as a <a href="./public_asset.html">public asset</a> with <a href="https://ko-fi.com/emsenn">support</a> from <a href="./human.html">humans</a> like you. <strong><em>Thank you!</em></strong></p><details><summary>Click for tips on using this Website</summary><p>This digital garden is in its early days, but here's some useful things to know:</p><ul><li><span style="color: var(--link-color)">This color text</span> is a link to a part of the garden you haven't been to. <span style="color: var(--link-visited-color)">This color text</span> is a link to a part of the garden you <em>have</em> been to. <span style="color: var(--external-link-color)">This color text</span> is a link to a Webpage you haven't been to. <span style="color: var(--external-link-visited-color)">This color text</span> is a link to a Webpage you <em>have</em> been to. </li></ul></details></section>
 </section>
 <main id="content">
 <header>
 <h1 class="title">text editor</h1>
-</header><div class="head" id="org737125d">
+</header><div class="head" id="orgd55bbf9">
 
 </div>
 
 <p>
 #+begin<sub>quote</sub>
-A <b><i>text editor</i></b> is a <a href=20201216102929-software.html>software</a> used to work with <a href=20201221212323-plain_text.html>plain text</a>.
+A <b><i>text editor</i></b> is a <a href="20201216102929-software.html">software</a> used to work with <a href="20201221212323-plain_text.html">plain text</a>.
 </p>
 
-<section id="outline-container-org8f9914f" class="outline-2">
-<h2 id="org8f9914f">Backlinks</h2>
-<div class="outline-text-2" id="text-org8f9914f">
+<section id="outline-container-orgba91edd" class="outline-2">
+<h2 id="orgba91edd">Backlinks</h2>
+<div class="outline-text-2" id="text-orgba91edd">
 <ul class="org-ul">
-<li><a href=20201215150436-org_mode.html>Org-mode</a></li>
-<li><a href=records.html>Records Index</a></li>
+<li><a href="emacs.html">Emacs</a></li>
+<li><a href="records.html">Records Index</a></li>
+<li><a href="org_mode.html">Org-mode</a></li>
 </ul>
 </div>
 </section>
@@ -175,7 +221,7 @@ A <b><i>text editor</i></b> is a <a href=20201216102929-software.html>software</
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-21 Mon 21:21</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-22 Tue 22:34</p>
+<p class="date">Created: 2020-12-23 Wed 16:03</p>
 </section>
 </body>
 </html>
