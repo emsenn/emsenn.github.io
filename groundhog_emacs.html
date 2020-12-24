@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-24 Thu 17:17 -->
+<!-- 2020-12-24 Thu 17:34 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Groundhog Emacs</title>
@@ -55,7 +55,7 @@
 	    padding: 1em;
 	}
 	header {
-	    border-bottom: 0.5em dotted var(--secondary-dim-color);
+	    border-bottom: 0.8em dotted var(--secondary-dim-color);
 	}
 	h1 { font-size: 2em; margin-bottom: 0; }
 	h2 {
@@ -172,6 +172,7 @@
 	a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
 	    color: var(--external-link-visited-hover-color);
 	}
+	blockquote { border: 0.1em dotted var(--secondary-dim-color); }
 	label.org-src-name {
 	    margin: 0 0 0 3em;
 	    font-family: sans-serif;
@@ -193,15 +194,15 @@
 </head>
 <body>
 <section id="preamble" class="status">
-<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./records.html">record index</a> | <a href="./d/index.html">daily records</a><p>This record is part of my <a href="./digital_garden.html">digital garden</a>, which was cultivated as a <a href="./public_asset.html">public asset</a> with <a href="https://ko-fi.com/emsenn">support</a> from <a href="./human.html">humans</a> like you. <strong><em>Thank you!</em></strong></p><details><summary>Click for tips on using this Website</summary><p>This digital garden is in its early days, but here's some useful things to know:</p><ul><li><span style="color: var(--link-color)">This color text</span> is a link to a part of the garden you haven't been to. <span style="color: var(--link-visited-color)">This color text</span> is a link to a part of the garden you <em>have</em> been to. <span style="color: var(--external-link-color)">This color text</span> is a link to a Webpage you haven't been to. <span style="color: var(--external-link-visited-color)">This color text</span> is a link to a Webpage you <em>have</em> been to. </li></ul></details></section>
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./records.html">record index</a> | <a href="./d/index.html">daily records</a><p>This record was cultivated as a <a href="./public_asset.html">public asset</a> with <a href="https://ko-fi.com/emsenn">support</a> from <a href="./human.html">humans</a> like you. <strong><em>Thank you!</em></strong></p><details><summary>Click for tips on using this Website</summary><p>This digital garden is in its early days, but here's some useful things to know:</p><ul><li><span style="color: var(--link-color)">This color text</span> is a link to a part of the garden you haven't been to. <span style="color: var(--link-visited-color)">This color text</span> is a link to a part of the garden you <em>have</em> been to. <span style="color: var(--external-link-color)">This color text</span> is a link to a Webpage you haven't been to. <span style="color: var(--external-link-visited-color)">This color text</span> is a link to a Webpage you <em>have</em> been to. </li></ul></details></section>
 </section>
 <main id="content">
 <header>
 <h1 class="title">Groundhog Emacs</h1>
-</header><div class="head" id="org93a5362">
+</header><div class="head" id="org627a80b">
 
 </div>
-<summary id="org2cdef81">
+<summary id="org323a096">
 <p>
 <b><i>Groundhog Emacs</i></b> is a <a href="20201215154153-tool.html">tool</a> for <a href="20201218102824-groundhog_person.html">Groundhog people</a> doing <a href="20201216101922-information_management.html">information management</a> using a <a href="20201217094215-computer.html">computer</a>.
 </p>
@@ -847,15 +848,15 @@ Put the bugfix to ivy-mode not autostarting in the scratch message, with instruc
 <h7 id="orga90c541">Capture source code block</h7>
 <div class="outline-text-7" id="text-orga90c541">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 17: </span>The capture template for capturing source blocks</label><pre class="src src-elisp" id="orga9f3513">("s" "Capture source code block")
+<label class="org-src-name"><span class="listing-number">Listing 17: </span>The capture template for capturing source blocks</label><pre class="src src-elisp" id="orge51858b">("s" "Capture source code block")
 </pre>
 </div>
 </div>
 <ul class="org-ul">
-<li><a id="org0e526db"></a>Capture Elisp source block<br>
-<div class="outline-text-8" id="text-org0e526db">
+<li><a id="orga5a6640"></a>Capture Elisp source block<br>
+<div class="outline-text-8" id="text-orga5a6640">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 18: </span>Capture an Elisp code block</label><pre class="src src-elisp" id="orgf11497c">("se" "Elisp code block"
+<label class="org-src-name"><span class="listing-number">Listing 18: </span>Capture an Elisp code block</label><pre class="src src-elisp" id="orgcf655f0">("se" "Elisp code block"
 	     plain (clock)
 	     ,(concat "#+name: %^{NAME}-elisp\n"
 		      "#+caption: %^{CAPTION}\n"
@@ -872,15 +873,15 @@ Put the bugfix to ivy-mode not autostarting in the scratch message, with instruc
 <h7 id="org61fd8b6">Capture inclusion</h7>
 <div class="outline-text-7" id="text-org61fd8b6">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 19: </span>The capture template for capturing source blocks</label><pre class="src src-elisp" id="orge51858b">("s" "Capture source code block")
+<label class="org-src-name"><span class="listing-number">Listing 19: </span>The capture template for capturing source blocks</label><pre class="src src-elisp" id="orgba54c9a">("s" "Capture source code block")
 </pre>
 </div>
 </div>
 <ul class="org-ul">
-<li><a id="orga5a6640"></a>Capture Elisp source block<br>
-<div class="outline-text-8" id="text-orga5a6640">
+<li><a id="org6288d78"></a>Capture Elisp source block<br>
+<div class="outline-text-8" id="text-org6288d78">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 20: </span>Capture an Elisp code block</label><pre class="src src-elisp" id="orgcf655f0">("i" "Org-mode inclusion"
+<label class="org-src-name"><span class="listing-number">Listing 20: </span>Capture an Elisp code block</label><pre class="src src-elisp" id="org3d863b2">("i" "Org-mode inclusion"
  plain (clock)
  "#+include: \"%^{INCLUSION}\" %^{OPTIONS}")
 </pre>
@@ -1052,7 +1053,7 @@ Changed from <code>'css</code> to <code>'nil</code> to avoid the following error
 	    "daily records"
 	    "&lt;/a&gt;"
 	    "&lt;p&gt;"
-     "This record is part of my &lt;a href=\"./digital_garden.html\"&gt;digital garden&lt;/a&gt;, which was cultivated as a &lt;a href=\"./public_asset.html\"&gt;public asset&lt;/a&gt; with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from &lt;a href=\"./human.html\"&gt;humans&lt;/a&gt; like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
+     "This record was cultivated as a &lt;a href=\"./public_asset.html\"&gt;public asset&lt;/a&gt; with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from &lt;a href=\"./human.html\"&gt;humans&lt;/a&gt; like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
 	"&lt;/p&gt;"
      "&lt;details&gt;"
      "&lt;summary&gt;Click for tips on using this Website&lt;/summary&gt;"
@@ -1095,7 +1096,7 @@ Changed from <code>'css</code> to <code>'nil</code> to avoid the following error
 	    "daily records"
 	   "&lt;/a&gt;"
 	   "&lt;p&gt;"
-	"This record is part of my &lt;a href=\"../digital_garden.html\"&gt;digital garden&lt;/a&gt;, which was cultivated as a &lt;a href=\"../public_asset.html\"&gt;public asset&lt;/a&gt; with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from &lt;a href=\"../human.html\"&gt;humans&lt;/a&gt; like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
+	"This record was cultivated as a &lt;a href=\"../public_asset.html\"&gt;public asset&lt;/a&gt; with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from &lt;a href=\"../human.html\"&gt;humans&lt;/a&gt; like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
 	   "&lt;/p&gt;"
      "&lt;details&gt;"
      "&lt;summary&gt;Click for tips on using this Website&lt;/summary&gt;"
@@ -1296,6 +1297,7 @@ a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited{
 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:hover{ 
     color: var(--external-link-visited-hover-color);
 }
+blockquote { border: 0.1em dotted var(--secondary-dim-color); }
 label.org-src-name {
     margin: 0 0 0 3em;
     font-family: sans-serif;
@@ -1540,6 +1542,7 @@ a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited{
 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:hover{ 
     color: var(--external-link-visited-hover-color);
 }
+blockquote { border: 0.1em dotted var(--secondary-dim-color); }
 label.org-src-name {
     margin: 0 0 0 3em;
     font-family: sans-serif;
@@ -2217,7 +2220,7 @@ The follow code blocks allow for functional use of select Elisp functions within
 		    "daily records"
 		    "&lt;/a&gt;"
 		    "&lt;p&gt;"
-	     "This record is part of my &lt;a href=\"./digital_garden.html\"&gt;digital garden&lt;/a&gt;, which was cultivated as a &lt;a href=\"./public_asset.html\"&gt;public asset&lt;/a&gt; with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from &lt;a href=\"./human.html\"&gt;humans&lt;/a&gt; like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
+	     "This record was cultivated as a &lt;a href=\"./public_asset.html\"&gt;public asset&lt;/a&gt; with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from &lt;a href=\"./human.html\"&gt;humans&lt;/a&gt; like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
 		"&lt;/p&gt;"
 	     "&lt;details&gt;"
 	     "&lt;summary&gt;Click for tips on using this Website&lt;/summary&gt;"
@@ -2253,7 +2256,7 @@ The follow code blocks allow for functional use of select Elisp functions within
 		    "daily records"
 		   "&lt;/a&gt;"
 		   "&lt;p&gt;"
-		"This record is part of my &lt;a href=\"../digital_garden.html\"&gt;digital garden&lt;/a&gt;, which was cultivated as a &lt;a href=\"../public_asset.html\"&gt;public asset&lt;/a&gt; with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from &lt;a href=\"../human.html\"&gt;humans&lt;/a&gt; like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
+		"This record was cultivated as a &lt;a href=\"../public_asset.html\"&gt;public asset&lt;/a&gt; with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from &lt;a href=\"../human.html\"&gt;humans&lt;/a&gt; like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
 		   "&lt;/p&gt;"
 	     "&lt;details&gt;"
 	     "&lt;summary&gt;Click for tips on using this Website&lt;/summary&gt;"
@@ -2443,6 +2446,7 @@ The follow code blocks allow for functional use of select Elisp functions within
 	a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:hover{ 
 	    color: var(--external-link-visited-hover-color);
 	}
+	blockquote { border: 0.1em dotted var(--secondary-dim-color); }
 	label.org-src-name {
 	    margin: 0 0 0 3em;
 	    font-family: sans-serif;
@@ -2814,7 +2818,7 @@ The follow code blocks allow for functional use of select Elisp functions within
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-18 Fri 14:06</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-24 Thu 17:17</p>
+<p class="date">Created: 2020-12-24 Thu 17:34</p>
 </section>
 </body>
 </html>
