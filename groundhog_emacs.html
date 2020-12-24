@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-23 Wed 21:18 -->
+<!-- 2020-12-24 Thu 08:44 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Groundhog Emacs</title>
@@ -198,10 +198,10 @@
 <main id="content">
 <header>
 <h1 class="title">Groundhog Emacs</h1>
-</header><div class="head" id="orge93b6ea">
+</header><div class="head" id="orgfc88d8e">
 
 </div>
-<summary id="org60be377">
+<summary id="org2fec0c5">
 <p>
 <b><i>Groundhog Emacs</i></b> is a <a href="20201215154153-tool.html">tool</a> for <a href="20201218102824-groundhog_person.html">Groundhog people</a> doing <a href="20201216101922-information_management.html">information management</a> using a <a href="20201217094215-computer.html">computer</a>.
 </p>
@@ -712,7 +712,7 @@ Changed the backlinks to be two (<code>**</code>) headlines into the file. With 
 <div class="outline-text-6" id="text-org51fccf3">
 <section class="org-drawer"> <ul class="org-ul">
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-23 Wed 17:27] </span></span> <br>
-Useful resource, also proved by <a href="20201219112531-jeremy_friesen.html">Jeremy Friesen</a>: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines#Other_Semantic_HTML_elements_used_in_Sectioning">https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines#Other_Semantic_HTML_elements_used_in_Sectioning</a></li>
+Useful resource, also provided by <a href="20201219112531-jeremy_friesen.html">Jeremy Friesen</a>: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines#Other_Semantic_HTML_elements_used_in_Sectioning">Semantic HTML elements used in Sectioning</a></li>
 <li><p>
 Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-23 Wed 17:20] </span></span> <br>
 Here's a helpful guideline for how to nest the page elements I'm aiming for, provided by <a href="20201219112531-jeremy_friesen.html">Jeremy Friesen</a>:
@@ -855,7 +855,7 @@ This does kinda highlight that I still need to write out a <a href="202012161035
             <span class="org-string">"homepage&lt;/a&gt; | "</span>
             <span class="org-string">"&lt;a href=\"../records.html\"&gt;"</span>
             <span class="org-string">"record index&lt;/a&gt; | "</span>
-            <span class="org-string">"&lt;a href=\"./index.html\"&gt;"</span>
+            <span class="org-string">"&lt;a href=\"../d/index.html\"&gt;"</span>
             <span class="org-string">"daily records"</span>
            <span class="org-string">"&lt;/a&gt;"</span>
            <span class="org-string">"&lt;p&gt;"</span>
@@ -912,8 +912,8 @@ This does kinda highlight that I still need to write out a <a href="202012161035
 <span class="org-string">    --link-visited-hover-color: #b56;</span>
 <span class="org-string">    --external-link-color: #008;</span>
 <span class="org-string">    --external-link-hover-color: #60b;</span>
-<span class="org-string">    --external-link-visited-color: #394;</span>
-<span class="org-string">    --external-link-visited-hover-color: #5b6;</span>
+<span class="org-string">    --external-link-visited-color: #172;</span>
+<span class="org-string">    --external-link-visited-hover-color: #394;</span>
 <span class="org-string">}</span>
 <span class="org-string">@media(prefers-color-scheme:dark){</span>
 <span class="org-string">    :root {</span>
@@ -1156,8 +1156,8 @@ This does kinda highlight that I still need to write out a <a href="202012161035
     <span class="org-variable-name">--link-visited-hover-color</span>: <span class="custom-10">#b56</span>;
     <span class="org-variable-name">--external-link-color</span>: <span class="custom-9">#008</span>;
     <span class="org-variable-name">--external-link-hover-color</span>: <span class="custom-8">#60b</span>;
-    <span class="org-variable-name">--external-link-visited-color</span>: <span class="custom-7">#394</span>;
-    <span class="org-variable-name">--external-link-visited-hover-color</span>: <span class="custom-6">#5b6</span>;
+    <span class="org-variable-name">--external-link-visited-color</span>: <span class="custom-7">#172</span>;
+    <span class="org-variable-name">--external-link-visited-hover-color</span>: <span class="custom-6">#394</span>;
 }
 <span class="org-builtin">@media</span>(prefers-color-scheme:dark){
     <span class="org-css-selector">:root</span> {
@@ -1533,23 +1533,23 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 41: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="orgb94aee5">record-0.1.2
+<label class="org-src-name"><span class="listing-number">Listing 41: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="orgb94aee5">record-0.1.3
 </pre>
 </div>
 
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 42: </span>The Org-roam capture template for Record</label><pre class="src src-elisp" id="org39770f2">(<span class="org-string">"r"</span> <span class="org-string">"basic record"</span> plain
  (<span class="org-keyword">function</span> org-roam--capture-get-point)
- <span class="org-string">"%?\n"</span>
- <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+ <span class="org-string">"#+name: definition\n%?\n\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"</span>
+ <span class="org-builtin">:file-name</span> <span class="org-string">"${slug}"</span>
  <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
                 <span class="org-string">"#+begin_head\n"</span>
                 <span class="org-string">"#+ghe_schema: "</span>
-                <span class="org-string">"record-0.1.2\n"</span>
+                <span class="org-string">"record-0.1.3\n"</span>
                 <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
                 <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
                 <span class="org-string">"#+date: %U\n"</span>
-                <span class="org-string">"#+end_head\n"</span>)
+                <span class="org-string">"#+end_head\n\n"</span>)
  <span class="org-builtin">:unnarrowed</span> t)
 </pre>
 </div>
@@ -1559,23 +1559,23 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <h7 id="orgdc36e09">Term</h7>
 <div class="outline-text-7" id="text-orgdc36e09">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 43: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org9000b3e">term-0.1.1
+<label class="org-src-name"><span class="listing-number">Listing 43: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org9000b3e">term-0.1.2
 </pre>
 </div>
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 44: </span>blah</label><pre class="src src-elisp" id="org7daf6ca">(<span class="org-string">"t"</span> <span class="org-string">"term"</span> plain
  (<span class="org-keyword">function</span> org-roam--capture-get-point)
- <span class="org-string">"#+name: %^{SLUG}-definition-text\n#+begin_quote\n%?\n#+end_quote\n"</span>
- <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+ <span class="org-string">"#+name: definition\n%?\n\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"</span>
+ <span class="org-builtin">:file-name</span> <span class="org-string">"${slug}"</span>
  <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
                 <span class="org-string">"#+begin_head\n"</span>
                 <span class="org-string">"#+ghe_schema: "</span>
-                <span class="org-string">"reference-0.1.1\n"</span>
+                <span class="org-string">"reference-0.1.2\n"</span>
                 <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
                 <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
                 <span class="org-string">"#+date: %U\n"</span>
                 <span class="org-string">"#+roam_tags: term\n"</span>
-                <span class="org-string">"#+end_head\n"</span>)
+                <span class="org-string">"#+end_head\n\n"</span>)
  <span class="org-builtin">:unnarrowed</span> t)
 </pre>
 </div>
@@ -1585,14 +1585,14 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <h7 id="org69c1376">Reference</h7>
 <div class="outline-text-7" id="text-org69c1376">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 45: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org923f9fc">reference-0.1.1
+<label class="org-src-name"><span class="listing-number">Listing 45: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org923f9fc">reference-0.1.2
 </pre>
 </div>
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 46: </span>Org-roam capture template for reference records</label><pre class="src src-elisp" id="org5e9930d">(<span class="org-string">"R"</span> <span class="org-string">"reference"</span> plain
  (<span class="org-keyword">function</span> org-roam--capture-get-point)
- <span class="org-string">"#+roam_key: %^{SOURCE}\n#+end_head\n%?\n"</span>
- <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+ <span class="org-string">"#+roam_key: %^{SOURCE}\n#+end_head\n\n#+name: definition\n%?\n\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"</span>
+ <span class="org-builtin">:file-name</span> <span class="org-string">"${slug}"</span>
  <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
                 <span class="org-string">"#+begin_head\n"</span>
                 <span class="org-string">"#+ghe_schema: "</span>
@@ -1610,18 +1610,18 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <h7 id="org65d4a56">Person</h7>
 <div class="outline-text-7" id="text-org65d4a56">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 47: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org7a9e3de">person-0.1.1
+<label class="org-src-name"><span class="listing-number">Listing 47: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org7a9e3de">person-0.1.2
 </pre>
 </div>
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 48: </span>Org-roam capture template for person records</label><pre class="src src-elisp" id="orgd7ebc45">(<span class="org-string">"p"</span> <span class="org-string">"person"</span> plain
  (<span class="org-keyword">function</span> org-roam--capture-get-point)
- <span class="org-string">"%?\n"</span>
- <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+ <span class="org-string">"#+name: definition\n%?\n\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"</span>
+ <span class="org-builtin">:file-name</span> <span class="org-string">"${slug}"</span>
  <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
                 <span class="org-string">"#+begin_head\n"</span>
                 <span class="org-string">"#+ghe_schema: "</span>
-                <span class="org-string">"person-0.1.1\n"</span>
+                <span class="org-string">"person-0.1.2\n"</span>
                 <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
                 <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
                 <span class="org-string">"#+date: %U\n"</span>
@@ -1646,14 +1646,14 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 50: </span>Org-roam capture-template for general Teraum records</label><pre class="src src-elisp" id="org9da53b0">(<span class="org-string">"Tt"</span> <span class="org-string">"General entry"</span>
             plain (<span class="org-keyword">function</span> org-roam--capture-get-point)
-            <span class="org-string">"%?"</span>
-            <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
-            <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
-                           <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
-                           <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
-                           <span class="org-string">"#+date: %U\n"</span>
-                           <span class="org-string">"#+roam_tags: Teraum"</span>)
-            <span class="org-builtin">:unnarrowed</span> t)
+   <span class="org-string">"#+name: definition\n%?\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"</span>
+   <span class="org-builtin">:file-name</span> <span class="org-string">"teraum/${slug}"</span>
+   <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                  <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                  <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                  <span class="org-string">"#+date: %U\n"</span>
+                  <span class="org-string">"#+roam_tags: Teraum"</span>)
+   <span class="org-builtin">:unnarrowed</span> t)
 </pre>
 </div>
 </div>
@@ -2008,7 +2008,7 @@ The follow code blocks allow for functional use of select Elisp functions within
                     <span class="org-string">"homepage&lt;/a&gt; | "</span>
                     <span class="org-string">"&lt;a href=\"../records.html\"&gt;"</span>
                     <span class="org-string">"record index&lt;/a&gt; | "</span>
-                    <span class="org-string">"&lt;a href=\"./index.html\"&gt;"</span>
+                    <span class="org-string">"&lt;a href=\"../d/index.html\"&gt;"</span>
                     <span class="org-string">"daily records"</span>
                    <span class="org-string">"&lt;/a&gt;"</span>
                    <span class="org-string">"&lt;p&gt;"</span>
@@ -2054,8 +2054,8 @@ The follow code blocks allow for functional use of select Elisp functions within
 <span class="org-string">            --link-visited-hover-color: #b56;</span>
 <span class="org-string">            --external-link-color: #008;</span>
 <span class="org-string">            --external-link-hover-color: #60b;</span>
-<span class="org-string">            --external-link-visited-color: #394;</span>
-<span class="org-string">            --external-link-visited-hover-color: #5b6;</span>
+<span class="org-string">            --external-link-visited-color: #172;</span>
+<span class="org-string">            --external-link-visited-hover-color: #394;</span>
 <span class="org-string">        }</span>
 <span class="org-string">        @media(prefers-color-scheme:dark){</span>
 <span class="org-string">            :root {</span>
@@ -2407,35 +2407,35 @@ The follow code blocks allow for functional use of select Elisp functions within
               `(
                 (<span class="org-string">"r"</span> <span class="org-string">"basic record"</span> plain
                  (<span class="org-keyword">function</span> org-roam--capture-get-point)
-                 <span class="org-string">"%?\n"</span>
-                 <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+                 <span class="org-string">"#+name: definition\n%?\n\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"</span>
+                 <span class="org-builtin">:file-name</span> <span class="org-string">"${slug}"</span>
                  <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
                                 <span class="org-string">"#+begin_head\n"</span>
                                 <span class="org-string">"#+ghe_schema: "</span>
-                                <span class="org-string">"record-0.1.2\n"</span>
+                                <span class="org-string">"record-0.1.3\n"</span>
                                 <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
                                 <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
                                 <span class="org-string">"#+date: %U\n"</span>
-                                <span class="org-string">"#+end_head\n"</span>)
+                                <span class="org-string">"#+end_head\n\n"</span>)
                  <span class="org-builtin">:unnarrowed</span> t)
                 (<span class="org-string">"t"</span> <span class="org-string">"term"</span> plain
                  (<span class="org-keyword">function</span> org-roam--capture-get-point)
-                 <span class="org-string">"#+name: %^{SLUG}-definition-text\n#+begin_quote\n%?\n#+end_quote\n"</span>
-                 <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+                 <span class="org-string">"#+name: definition\n%?\n\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"</span>
+                 <span class="org-builtin">:file-name</span> <span class="org-string">"${slug}"</span>
                  <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
                                 <span class="org-string">"#+begin_head\n"</span>
                                 <span class="org-string">"#+ghe_schema: "</span>
-                                <span class="org-string">"reference-0.1.1\n"</span>
+                                <span class="org-string">"reference-0.1.2\n"</span>
                                 <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
                                 <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
                                 <span class="org-string">"#+date: %U\n"</span>
                                 <span class="org-string">"#+roam_tags: term\n"</span>
-                                <span class="org-string">"#+end_head\n"</span>)
+                                <span class="org-string">"#+end_head\n\n"</span>)
                  <span class="org-builtin">:unnarrowed</span> t)
                 (<span class="org-string">"R"</span> <span class="org-string">"reference"</span> plain
                  (<span class="org-keyword">function</span> org-roam--capture-get-point)
-                 <span class="org-string">"#+roam_key: %^{SOURCE}\n#+end_head\n%?\n"</span>
-                 <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+                 <span class="org-string">"#+roam_key: %^{SOURCE}\n#+end_head\n\n#+name: definition\n%?\n\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"</span>
+                 <span class="org-builtin">:file-name</span> <span class="org-string">"${slug}"</span>
                  <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
                                 <span class="org-string">"#+begin_head\n"</span>
                                 <span class="org-string">"#+ghe_schema: "</span>
@@ -2447,12 +2447,12 @@ The follow code blocks allow for functional use of select Elisp functions within
                  <span class="org-builtin">:unnarrowed</span> t)
                 (<span class="org-string">"p"</span> <span class="org-string">"person"</span> plain
                  (<span class="org-keyword">function</span> org-roam--capture-get-point)
-                 <span class="org-string">"%?\n"</span>
-                 <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
+                 <span class="org-string">"#+name: definition\n%?\n\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"</span>
+                 <span class="org-builtin">:file-name</span> <span class="org-string">"${slug}"</span>
                  <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
                                 <span class="org-string">"#+begin_head\n"</span>
                                 <span class="org-string">"#+ghe_schema: "</span>
-                                <span class="org-string">"person-0.1.1\n"</span>
+                                <span class="org-string">"person-0.1.2\n"</span>
                                 <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
                                 <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
                                 <span class="org-string">"#+date: %U\n"</span>
@@ -2462,14 +2462,14 @@ The follow code blocks allow for functional use of select Elisp functions within
                 (<span class="org-string">"T"</span> <span class="org-string">"Teraum"</span>)
                 (<span class="org-string">"Tt"</span> <span class="org-string">"General entry"</span>
                             plain (<span class="org-keyword">function</span> org-roam--capture-get-point)
-                            <span class="org-string">"%?"</span>
-                            <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
-                            <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
-                                           <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
-                                           <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
-                                           <span class="org-string">"#+date: %U\n"</span>
-                                           <span class="org-string">"#+roam_tags: Teraum"</span>)
-                            <span class="org-builtin">:unnarrowed</span> t)
+                   <span class="org-string">"#+name: definition\n%?\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"</span>
+                   <span class="org-builtin">:file-name</span> <span class="org-string">"teraum/${slug}"</span>
+                   <span class="org-builtin">:head</span> ,(concat <span class="org-string">"#+title: ${title}\n"</span>
+                                  <span class="org-string">"#+author: "</span> (user-full-name) <span class="org-string">"\n"</span>
+                                  <span class="org-string">"#+email: "</span> user-mail-address <span class="org-string">"\n"</span>
+                                  <span class="org-string">"#+date: %U\n"</span>
+                                  <span class="org-string">"#+roam_tags: Teraum"</span>)
+                   <span class="org-builtin">:unnarrowed</span> t)
                 (<span class="org-string">"Tp"</span> <span class="org-string">"Person"</span>
                             plain (<span class="org-keyword">function</span> org-roam--capture-get-point)
                             <span class="org-string">"%?\n\n- Species :: %^{SPECIES}\n- Age :: %^{AGE}\n- Pronouns :: %^{PRONOUNS|e/em/eir|she/her/hers|he/him/his|they/them/theirs}\n- Location :: %^{LOCATION}"</span>
@@ -2573,7 +2573,7 @@ The follow code blocks allow for functional use of select Elisp functions within
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-18 Fri 14:06</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-23 Wed 21:18</p>
+<p class="date">Created: 2020-12-24 Thu 08:44</p>
 </section>
 </body>
 </html>
