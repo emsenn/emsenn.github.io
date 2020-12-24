@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2020-12-24 Thu 17:21 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2020-12-24</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+	@charset "UTF-8";
+	
+	:root {
+	    --body-font: sans-serif;
+	    --header-font: sans-serif;
+	    --code-font: monospace;
+	    --primary-color: #ffe;
+	    --primary-dim-color: #eed;
+	    --secondary-color: #312;
+	    --secondary-dim-color: #756;
+	    --link-color: #880;
+	    --link-hover-color: #aa2;
+	    --link-visited-color: #934;
+	    --link-visited-hover-color: #b56;
+	    --external-link-color: #008;
+	    --external-link-hover-color: #60b;
+	    --external-link-visited-color: #172;
+	    --external-link-visited-hover-color: #394;
+	}
+	@media(prefers-color-scheme:dark){
+	    :root {
+		--body-font: sans-serif;
+		--header-font: sans-serif;
+		--code-font: monospace;
+		--primary-color: #756;
+		--primary-dim-color: #312;
+		--secondary-color: #eed;
+		--secondary-dim-color: #ffe;
+		--link-color: #880;
+		--link-hover-color: #aa2;
+		--link-visited-color: #934;
+		--link-visited-hover-color: #b56;
+	    }}
+	body {
+	    position: relative;
+	    min-height: 100%;
+	    background-color: var(--primary-color);
+	    color: var(--secondary-color);
+	    margin: 0 auto;
+	    font-family: sans-serif;
+	}
+	main, #content {
+	    background-color: var(--primary-dim-color);
+	    border-left: 1.5em dotted var(--primary-color);
+	    padding: 1em;
+	}
+	header {
+	    border-bottom: 0.5em dotted var(--secondary-dim-color);
+	}
+	h1 { font-size: 2em; margin-bottom: 0; }
+	h2 {
+	    border-bottom: 0.3em dotted var(--secondary-dim-color);
+	}
+	h2, h3, h4, h5, h6, p, .org-src-container {
+	    width: 60%;
+	}
+	aside {
+	    float: right;
+	    width: 35%;
+	}
+	aside p { width: 100%; }
+	@media screen and (max-width:760px) {
+	    h2, h3, h4, h5, h6, p, .org-src-container {
+		width: 90%;
+	    }
+	    aside {
+		float: inherit;
+		width: 90%;
+		border-top: 0.2em dotted var(--secondary-dim-color);
+		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+		font-size: 0.8em;
+		  }
+	}
+	
+	footer, #postamble, #preamble {
+	    padding: 0.5em;
+	}
+	table {
+	    border-collapse: collapse;
+	    border-spacing: 0;
+	    empty-cells: show;
+	    border: 0.1em solid #444;
+	}
+	thead { font-family: sans-serif; }
+	th, td {
+	    padding: 0 0.3em;
+	    border: 0.01em solid #444;
+	}
+	img {
+	    max-width: 80vw;
+	    vertical-align: middle;
+	}
+	pre, .src {
+	    padding: 0.5em;
+	    border: 0.1em solid #444;
+	    white-space: pre-wrap;
+	    overflow-x: scroll;
+	    text-overflow: clip;
+	    scrollbar-width: none;
+	}
+	pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+	    display: none;
+	}
+	
+	
+	dt {
+	    font-weight: normal;
+	    display: inline-block;
+	    border-bottom: 0.1rem dotted #444;
+	}
+	#text-index dt { border-bottom: none; }
+	h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+	    display: block;
+	    font-family: sans-serif;
+	    margin: 0.2em auto 0.5em 0;
+	}
+	a {
+	    text-decoration: none;
+	    color: #880;
+	    display: inline;
+	    position: relative;
+	    border-bottom: 0.1rem dotted;
+	    line-height: 1.2;
+	    transition: border 0.3s;
+	}
+	a:hover {
+	    color: #aa2;
+	    outline-style: none;
+	    border-bottom: 0.1rem solid;
+	}
+	a:visited { color: #934; }
+	a:visited:hover { color: #b56; }
+	a:focus {
+	    outline-style: none;
+	    border-bottom: 0.1rem solid;
+	}
+	::selection { background-color: #777; color: #eee; }
+	a::selection { background-color: #ccc; }
+	.org-todo {
+	    background-color: #ddd;
+	    color: #333;
+	    font-size: .8rem;
+	    float: right;
+	}
+	.org-src-container + .example {
+	    margin-left: 8em;
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):after{ 
+	    content: "^";
+	    font-size: 0.5em;
+	    vertical-align: super;
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]){ 
+	    color: var(--external-link-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+	    color: var(--external-link-hover-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):visited{ 
+	    color: var(--external-link-visited-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+	    color: var(--external-link-visited-hover-color);
+	}
+	label.org-src-name {
+	    margin: 0 0 0 3em;
+	    font-family: sans-serif;
+	    font-size: 1rem;
+	    line-height: 0;
+	}
+	.skip-to-content {
+	    opacity: 0;
+	    position: absolute;
+	    left: 0.2em;
+	}
+	.skip-to-content:focus{
+	    opacity: 1;
+	    background-color: var(--secondary-dim-color);
+	    color: var(--primary-color);
+	}
+	ul { max-width: 85%; }
+	</style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="../index.html">homepage</a> | <a href="../records.html">record index</a> | <a href="../d/index.html">daily records</a><p>This record is part of my <a href="../digital_garden.html">digital garden</a>, which was cultivated as a <a href="../public_asset.html">public asset</a> with <a href="https://ko-fi.com/emsenn">support</a> from <a href="../human.html">humans</a> like you. <strong><em>Thank you!</em></strong></p><details><summary>Click for tips on using this Website</summary><p>This digital garden is in its early days, but here's some useful things to know:</p><ul><li><span style="color: var(--link-color)">This color text</span> is a link to a part of the garden you haven't been to. <span style="color: var(--link-visited-color)">This color text</span> is a link to a part of the garden you <em>have</em> been to. <span style="color: var(--external-link-color)">This color text</span> is a link to a Webpage you haven't been to. <span style="color: var(--external-link-visited-color)">This color text</span> is a link to a Webpage you <em>have</em> been to. </li></ul></details></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">2020-12-24</h1>
+</header><section id="outline-container-org53c8444" class="outline-2">
+<h2 id="org53c8444">Postings</h2>
+</section>
+<section id="outline-container-orgc57fe06" class="outline-2">
+<h2 id="orgc57fe06">News log</h2>
+<div class="outline-text-2" id="text-orgc57fe06">
+</div>
+<div id="outline-container-orgf2249f6" class="outline-3">
+<h3 id="orgf2249f6">Teacher in Saskatchewan scolds student for wearing ribbon skirt on "Formal Day"</h3>
+<div class="outline-text-3" id="text-orgf2249f6">
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://www.aptnnews.ca/national-news/indigenous-ribbon-skirt-education/">https://www.aptnnews.ca/national-news/indigenous-ribbon-skirt-education/</a></dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-orgb0d86ef" class="outline-3">
+<h3 id="orgb0d86ef">Department of Hawaiian Home Lands to build casino to fix cash problems</h3>
+<div class="outline-text-3" id="text-orgb0d86ef">
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://www.propublica.org/article/hawaiis-big-fix-to-its-housing-shortage-for-native-hawaiians-a-casino">https://www.propublica.org/article/hawaiis-big-fix-to-its-housing-shortage-for-native-hawaiians-a-casino</a></dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-org0e2b5a9" class="outline-3">
+<h3 id="org0e2b5a9">Emerging archaelogical craft reveals wider ancient food trade networks</h3>
+<div class="outline-text-3" id="text-org0e2b5a9">
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://www.en.uni-muenchen.de/news/newsarchiv/2020/stockhammer_spices.html">https://www.en.uni-muenchen.de/news/newsarchiv/2020/stockhammer_spices.html</a></dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-orga602893" class="outline-3">
+<h3 id="orga602893">Leech Lake Band to have homelands returned</h3>
+<div class="outline-text-3" id="text-orga602893">
+<p>
+:LOGBOOK:
+</p>
+<ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-24 Thu 15:02] </span></span> <br>
+Legislation that called for the <a href="../chippewa_national_forest.html">Chippewa National Forest</a> to transfer 11,760 acres to the <a href="../department_of_interior.html">Department of Interior</a> to be held in trust for the <a href="../leech_lake_band.html">Leech Lake band</a> has become law.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc7b79c9" class="outline-3">
+<h3 id="orgc7b79c9">Black Yield Institute founder Eric Jackson writes about ending food apartheid</h3>
+<div class="outline-text-3" id="text-orgc7b79c9">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-24 Thu 11:53] </span></span> <br>
+The <a href="../black_yield_institute.html">Black Yield Institute</a>'s founder Eric Jackson wrote this lovely piece about working against <a href="../food_apartheid.html">food apartheid</a>.</li>
+</ul>
+ </section>
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://largerthanyourself.com/discover/eric-jackson">https://largerthanyourself.com/discover/eric-jackson</a></dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-org4a586c0" class="outline-3">
+<h3 id="org4a586c0">Dr. Paul Farmer writes about clinical nihilism and medical deserts</h3>
+<div class="outline-text-3" id="text-org4a586c0">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-24 Thu 12:09] </span></span> <br>
+A really good interview from The Nation with Dr. <a href="../paul_farmer.html">Paul Farmer</a> about <a href="../food_apartheid.html">food apartheid</a> and <a href="../clinical_nihilism.html">clinical nihilism</a>.</li>
+</ul>
+ </section>
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://www.thenation.com/article/culture/paul-farmer-fever-feuds-interview/">https://www.thenation.com/article/culture/paul-farmer-fever-feuds-interview/</a></dd>
+</dl>
+</div>
+</div>
+</section>
+<section id="outline-container-org694adae" class="outline-2">
+<h2 id="org694adae">Reposts</h2>
+<div class="outline-text-2" id="text-org694adae">
+</div>
+<div id="outline-container-org22dfed4" class="outline-4">
+<h4 id="org22dfed4"><a href="https://toot.cat/@dredmorbius/105433620277119530">https://toot.cat/@dredmorbius/105433620277119530</a></h4>
+<div class="outline-text-4" id="text-org22dfed4">
+<section class="org-drawer"> <ul class="org-ul">
+<li><p>
+Note take on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-24 Thu 11:25] </span></span> <br>
+I think the problems here are going to be very <a href="../20201222104523-culture.html">cultural</a> as well: the <a href="../settler_colonial_mindset.html">settler-colonial mindset</a> really encourages people to view the world as a single resource: <a href="../money.html">money</a>, which the "smart" <a href="../20201218193509-colonials.html">colonials</a> know represents <a href="../energy.html">energy</a>. This <a href="../flatness.html">flatness</a> facilitates their <a href="../bureaucracy.html">bureaucracy</a>, but makes it really hard for them to see the world as it is. (As <a href="../dredmorbius.html">@dredmorbius</a> says, in a way.) What's interesting is that colonials aren't even really that good at seeing energy, see their reliance on <a href="../invisible_labour.html">invisible labour</a>.
+</p>
+<aside id="org50b1686">
+<p>
+<b><i>Invisible labour</i></b> is <a href="../work.html">work</a> performed within the <a href="../20201216101437-contemporary_kyriarchy.html">contemporary settler-colonial kyriarchy</a> that is not recognized by the <a href="../economic.html">economic</a> or <a href="../bureaucracy.html">bureaucractic</a> systems in place.
+</p>
+</aside></li>
+</ul>
+ </section>
+
+<blockquote>
+<p>
+[W]e're consuming <a href="../petroleum.html">petroleum</a> and <a href="../natural_gas.html">natural gas</a> at 5 million times their rate of formation.  In about 200 years we'll have drawn down an inheritance accumulated over 400 million years… As cheap energy is presumed for all economic productiion functions, and cost accounting ignores natural capital, this is a tremendous bias at the very core of all market pricing mechanisms.  The system is based on a lie.
+</p>
+</blockquote>
+</div>
+</div>
+</section>
+<section id="outline-container-org0a74b8b" class="outline-2">
+<h2 id="org0a74b8b">Activity Log</h2>
+<div class="outline-text-2" id="text-org0a74b8b">
+</div>
+<div id="outline-container-org2d664ae" class="outline-3">
+<h3 id="org2d664ae">Backlinks</h3>
+<div class="outline-text-3" id="text-org2d664ae">
+<ul class="org-ul">
+<li><a href="index.html">Daily Records Index</a></li>
+<li><a href="../records.html">Records Index</a></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2020-12-24 Thu 11:17</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2020-12-24 Thu 17:21</p>
+</section>
+</body>
+</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-24 Thu 08:44 -->
+<!-- 2020-12-24 Thu 17:20 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BindingGenerations.net</title>
@@ -24,8 +24,8 @@
 	    --link-visited-hover-color: #b56;
 	    --external-link-color: #008;
 	    --external-link-hover-color: #60b;
-	    --external-link-visited-color: #394;
-	    --external-link-visited-hover-color: #5b6;
+	    --external-link-visited-color: #172;
+	    --external-link-visited-hover-color: #394;
 	}
 	@media(prefers-color-scheme:dark){
 	    :root {
@@ -51,15 +51,15 @@
 	}
 	main, #content {
 	    background-color: var(--primary-dim-color);
-	    border-left: 1.5em dashed var(--primary-color);
+	    border-left: 1.5em dotted var(--primary-color);
 	    padding: 1em;
 	}
 	header {
-	    border-bottom: 0.2em dashed var(--secondary-dim-color);
+	    border-bottom: 0.5em dotted var(--secondary-dim-color);
 	}
 	h1 { font-size: 2em; margin-bottom: 0; }
 	h2 {
-	    border-bottom: 0.1em dashed var(--secondary-dim-color);
+	    border-bottom: 0.3em dotted var(--secondary-dim-color);
 	}
 	h2, h3, h4, h5, h6, p, .org-src-container {
 	    width: 60%;
@@ -76,8 +76,8 @@
 	    aside {
 		float: inherit;
 		width: 90%;
-		border-top: 0.1em dashed var(--secondary-dim-color);
-		border-bottom: 0.1em dashed var(--secondary-dim-color);
+		border-top: 0.2em dotted var(--secondary-dim-color);
+		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
 		font-size: 0.8em;
 		  }
 	}
@@ -217,8 +217,8 @@ The relevant section of the manual, <a href="https://www.gnu.org/software/emacs/
 </p>
 
 <div class="org-src-container">
-<pre class="src src-elisp">((nil . ((org-roam-directory . <span class="org-string">"."</span>)
-       (org-roam-db-location . <span class="org-string">"./org-roam.db"</span>))))
+<pre class="src src-elisp">((nil . ((org-roam-directory . ".")
+       (org-roam-db-location . "./org-roam.db"))))
 </pre>
 </div>
 
@@ -239,25 +239,25 @@ Let's start with a simple projects list and see how that looks, exported:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-elisp">(<span class="org-keyword">setq</span> org-publish-project-alist
-      `((<span class="org-string">"bindinggenerations"</span>
-         <span class="org-builtin">:base-directory</span> <span class="org-string">"~/org/edavis/roam"</span>
-         <span class="org-builtin">:base-extension</span> <span class="org-string">"org"</span>
-         <span class="org-builtin">:publishing-directory</span> <span class="org-string">"~/org/edavis/public"</span>
-         <span class="org-builtin">:publishing-function</span> org-html-publish-to-html
-         <span class="org-builtin">:recursive</span> t
-         <span class="org-builtin">:headline-levels</span> 4
-         <span class="org-builtin">:with-toc</span> nil
-         <span class="org-builtin">:html-doctype</span> <span class="org-string">"html5"</span>
-         <span class="org-builtin">:html-html5-fancy</span> t
-         <span class="org-builtin">:html-head-include-scripts</span> nil
-         <span class="org-builtin">:html-head-include-default-style</span> nil
-         <span class="org-builtin">:html-container</span> <span class="org-string">"section"</span>
-         <span class="org-builtin">:htmlized-source</span> nil
-         <span class="org-builtin">:auto-sitemap</span> t
-         <span class="org-builtin">:sitemap-title</span> <span class="org-string">"Notes"</span>
-         <span class="org-builtin">:sitemap-sort-files</span> anti-chronologically
-         <span class="org-builtin">:sitemap-filename</span> <span class="org-string">"notes.org"</span>)))
+<pre class="src src-elisp">(setq org-publish-project-alist
+      `(("bindinggenerations"
+	 :base-directory "~/org/edavis/roam"
+	 :base-extension "org"
+	 :publishing-directory "~/org/edavis/public"
+	 :publishing-function org-html-publish-to-html
+	 :recursive t
+	 :headline-levels 4
+	 :with-toc nil
+	 :html-doctype "html5"
+	 :html-html5-fancy t
+	 :html-head-include-scripts nil
+	 :html-head-include-default-style nil
+	 :html-container "section"
+	 :htmlized-source nil
+	 :auto-sitemap t
+	 :sitemap-title "Notes"
+	 :sitemap-sort-files anti-chronologically
+	 :sitemap-filename "notes.org")))
 </pre>
 </div>
 
@@ -270,9 +270,9 @@ I think I can accomplish the former by tweaking <code>.dir-locals.el</code>
 </p>
 
 <div class="org-src-container">
-<pre class="src src-elisp">((nil . ((org-roam-directory . <span class="org-string">"."</span>)
-         (org-roam-db-location . <span class="org-string">"./org-roam.db"</span>)
-         (user-full-name <span class="org-string">"Esther Davis"</span>))))
+<pre class="src src-elisp">((nil . ((org-roam-directory . ".")
+	 (org-roam-db-location . "./org-roam.db")
+	 (user-full-name "Esther Davis"))))
 </pre>
 </div>
 
@@ -290,19 +290,19 @@ That worked, okay. Tabling the "wrong author" problem for now, since it'll get r
 </p>
 
 <div class="org-src-container">
-<pre class="src src-elisp">(<span class="org-keyword">setq</span> org-roam-capture-templates
-      `((<span class="org-string">"b"</span> <span class="org-string">"Binding Generations records"</span>)
-        (<span class="org-string">"bn"</span> <span class="org-string">"General note"</span>
-         plain (<span class="org-keyword">function</span> org-roam--capture-get-point)
-         <span class="org-string">"%?"</span>
-         <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
-         <span class="org-builtin">:head</span> <span class="org-string">"#+title: ${title}\n#+author: Esther Davis\n#+email: edavis@bindinggenerations.net\n"</span>
-         <span class="org-builtin">:unnarrowed</span> t)
-        (<span class="org-string">"bb"</span> <span class="org-string">"Bibliographical entry"</span>
-         plain (<span class="org-keyword">function</span> org-roam--capture-get-point)
-         <span class="org-string">"#+title: %^{AUTHOR}: \"%^{TITLE}\"\n#+author: Esther Davis\n#+email: edavis@bindinggenerations.net\n%?"</span>
-         <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-%{slug}"</span>
-         <span class="org-builtin">:unnarrowed</span> t)))
+<pre class="src src-elisp">(setq org-roam-capture-templates
+      `(("b" "Binding Generations records")
+	("bn" "General note"
+	 plain (function org-roam--capture-get-point)
+	 "%?"
+	 :file-name "%&lt;%Y%m%d%H%M%S&gt;-${slug}"
+	 :head "#+title: ${title}\n#+author: Esther Davis\n#+email: edavis@bindinggenerations.net\n"
+	 :unnarrowed t)
+	("bb" "Bibliographical entry"
+	 plain (function org-roam--capture-get-point)
+	 "#+title: %^{AUTHOR}: \"%^{TITLE}\"\n#+author: Esther Davis\n#+email: edavis@bindinggenerations.net\n%?"
+	 :file-name "%&lt;%Y%m%d%H%M%S&gt;-%{slug}"
+	 :unnarrowed t)))
 </pre>
 </div>
 
@@ -311,21 +311,21 @@ The above all seems to work, and the only thing I really need these pages to hav
 </p>
 
 <div class="org-src-container">
-<pre class="src src-elisp">(<span class="org-keyword">defun</span> <span class="org-function-name">commonplace/org-roam--backlinks-list</span> (file)
-  (<span class="org-keyword">if</span> (org-roam--org-roam-file-p file)
-      (<span class="org-keyword">--reduce-from</span>
-       (concat acc (format <span class="org-string">"- [[file:%s][%s]]\n"</span>
-                           (file-relative-name (car it) org-roam-directory)
-                           (org-roam-db--get-title (car it))))
-       <span class="org-string">""</span> (org-roam-db-query [<span class="org-builtin">:select</span> [source] <span class="org-builtin">:from</span> links <span class="org-builtin">:where</span> (= dest $s1)] file))
-    <span class="org-string">""</span>))
+<pre class="src src-elisp">(defun commonplace/org-roam--backlinks-list (file)
+  (if (org-roam--org-roam-file-p file)
+      (--reduce-from
+       (concat acc (format "- [[file:%s][%s]]\n"
+			   (file-relative-name (car it) org-roam-directory)
+			   (org-roam-db--get-title (car it))))
+       "" (org-roam-db-query [:select [source] :from links :where (= dest $s1)] file))
+    ""))
 
-(<span class="org-keyword">defun</span> <span class="org-function-name">commonplace/org-export-preprocessor</span> (backend)
-  (<span class="org-keyword">let</span> ((links (commonplace/org-roam--backlinks-list (buffer-file-name))))
-    (<span class="org-keyword">unless</span> (string= links <span class="org-string">""</span>)
-      (<span class="org-keyword">save-excursion</span>
-        (goto-char (point-max))
-        (insert (concat <span class="org-string">"\n* Backlinks\n"</span>) links)))))
+(defun commonplace/org-export-preprocessor (backend)
+  (let ((links (commonplace/org-roam--backlinks-list (buffer-file-name))))
+    (unless (string= links "")
+      (save-excursion
+	(goto-char (point-max))
+	(insert (concat "\n* Backlinks\n") links)))))
 
 (add-hook 'org-export-before-processing-hook 'commonplace/org-export-preprocessor)
 </pre>
@@ -355,7 +355,7 @@ But before I can really get further in those problems, I need to figure out how 
 </main>
 <section id="postamble" class="status">
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-24 Thu 08:44</p>
+<p class="date">Created: 2020-12-24 Thu 17:20</p>
 </section>
 </body>
 </html>

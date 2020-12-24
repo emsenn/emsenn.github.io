@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-24 Thu 08:45 -->
+<!-- 2020-12-24 Thu 17:21 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2020-12-22</title>
@@ -24,8 +24,8 @@
 	    --link-visited-hover-color: #b56;
 	    --external-link-color: #008;
 	    --external-link-hover-color: #60b;
-	    --external-link-visited-color: #394;
-	    --external-link-visited-hover-color: #5b6;
+	    --external-link-visited-color: #172;
+	    --external-link-visited-hover-color: #394;
 	}
 	@media(prefers-color-scheme:dark){
 	    :root {
@@ -51,15 +51,15 @@
 	}
 	main, #content {
 	    background-color: var(--primary-dim-color);
-	    border-left: 1.5em dashed var(--primary-color);
+	    border-left: 1.5em dotted var(--primary-color);
 	    padding: 1em;
 	}
 	header {
-	    border-bottom: 0.2em dashed var(--secondary-dim-color);
+	    border-bottom: 0.5em dotted var(--secondary-dim-color);
 	}
 	h1 { font-size: 2em; margin-bottom: 0; }
 	h2 {
-	    border-bottom: 0.1em dashed var(--secondary-dim-color);
+	    border-bottom: 0.3em dotted var(--secondary-dim-color);
 	}
 	h2, h3, h4, h5, h6, p, .org-src-container {
 	    width: 60%;
@@ -76,8 +76,8 @@
 	    aside {
 		float: inherit;
 		width: 90%;
-		border-top: 0.1em dashed var(--secondary-dim-color);
-		border-bottom: 0.1em dashed var(--secondary-dim-color);
+		border-top: 0.2em dotted var(--secondary-dim-color);
+		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
 		font-size: 0.8em;
 		  }
 	}
@@ -198,10 +198,10 @@
 <main id="content">
 <header>
 <h1 class="title">2020-12-22</h1>
-</header><div class="head" id="orgffedfc4">
+</header><div class="head" id="orgad1568d">
 
 </div>
-<summary id="org7e288e4">
+<summary id="orgc1796ad">
 <p>
 This is my personal record for <span class="timestamp-wrapper"><span class="timestamp">[2020-12-22 Tue]</span></span>. If you are viewing this record outside of its original environment, please be aware it maybe be heavily redacted.
 </p>
@@ -234,10 +234,10 @@ This is my personal record for <span class="timestamp-wrapper"><span class="time
 <h3 id="orgbcbce0b"><span class="timestamp-wrapper"><span class="timestamp">[2020-12-22 Tue 10:21]</span></span></h3>
 <div class="outline-text-3" id="text-orgbcbce0b">
 <p>
-I know I've said this like, five days in a row, but I think I'm finally coming out of the weeds, with regards to transitioning back to the <a href="../emacs.html">Emacs</a> and <a href="../20201219134812-org_ecosystem.html">Org ecosystem</a> for my <a href="../20201216101922-information_management.html">information management</a> and <a href="../20201222102319-web_performance.html">Web performance</a>. I've got <a href="../20201216154325-org_roam_capture_templates.html">Org-roam capture templates</a> and <a href="../20201217210024-org_roam_daily_capture_templates.html">Org-roam daily capture templates</a> set up for easily creating both <a href="../20201222102711-permanent_note.html">permanent</a> and <a href="../20201222102950-fleeting_notes.html">fleeting notes</a> as <a href="../20201217220539-record.html">records</a>, and a way to (simply, and with a lot of lost <a href="../20201216103303-meta_data.html">context</a>) publish those records as a <a href="../website.html">Website</a>.
+I know I've said this like, five days in a row, but I think I'm finally coming out of the weeds, with regards to transitioning back to the <a href="../emacs.html">Emacs</a> and <a href="../20201219134812-org_ecosystem.html">Org ecosystem</a> for my <a href="../20201216101922-information_management.html">information management</a> and <a href="../20201222102319-web_performance.html">Web performance</a>. I've got <a href="../20201216154325-org_roam_capture_templates.html">Org-roam capture templates</a> and <a href="../20201217210024-org_roam_daily_capture_templates.html">Org-roam daily capture templates</a> set up for easily creating both <a href="../20201222102711-permanent_note.html">permanent</a> and <a href="../20201222102950-fleeting_notes.html">fleeting notes</a> as <a href="../record.html">records</a>, and a way to (simply, and with a lot of lost <a href="../20201216103303-meta_data.html">context</a>) publish those records as a <a href="../website.html">Website</a>.
 </p>
 
-<aside id="org6863730">
+<aside id="orgff37b81">
 <p>
 <b><i>Emacs</i></b> is a <a href="../20201221212117-text_editor.html">text editor</a> that allows for a lot of customization.
 </p>
@@ -296,10 +296,10 @@ In the <a href="../org_mode.html">Org-mode</a> manual it's well documented that 
 
 
 <div class="org-src-container">
-<pre class="src src-org" id="org00406b8"><span class="org-org-meta-line">#+name: demonstration-code-block-1</span>
-<span class="org-org-block-begin-line">#+begin_src elisp</span>
-<span class="org-org-block">(print </span><span class="org-org-block"><span class="org-string">"practice gratitude"</span></span><span class="org-org-block">)</span>
-<span class="org-org-block-end-line">#+end_src</span>
+<pre class="src src-org" id="org00406b8">#+name: demonstration-code-block-1
+#+begin_src elisp
+(print "practice gratitude")
+#+end_src
 </pre>
 </div>
 
@@ -329,10 +329,10 @@ That, behind the scenes, looks like this:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-org" id="orgbdd227f"><span class="org-org-meta-line">#+name: working-with-alpha </span>
-<span class="org-org-block-begin-line">#+begin_src elisp :var alpha=alpha-paragraph :results raw :wrap quote</span>
-<span class="org-org-block">  (print alpha)</span>
-<span class="org-org-block-end-line">#+end_src</span>
+<pre class="src src-org" id="orgbdd227f">#+name: working-with-alpha 
+#+begin_src elisp :var alpha=alpha-paragraph :results raw :wrap quote
+  (print alpha)
+#+end_src
 </pre>
 </div>
 
@@ -362,18 +362,18 @@ As requested by <a href="../20201217095150-benjamin_slade.html">Benjamin Slade</
 </p>
 
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-meta-line">#+name: alpha-paragraph</span>
-  What I didn't find documented anyplace is that you can name quote blocks, and also just <span class="org-italic">/ordinary paragraphs/</span>.
+<pre class="src src-org">#+name: alpha-paragraph
+  What I didn't find documented anyplace is that you can name quote blocks, and also just /ordinary paragraphs/.
 
-<span class="org-org-meta-line">#+name: demonstration-code-block-1</span>
-<span class="org-org-block-begin-line">#+begin_src elisp</span>
-<span class="org-org-block">(print </span><span class="org-org-block"><span class="org-string">"practice gratitude"</span></span><span class="org-org-block">)</span>
-<span class="org-org-block-end-line">#+end_src</span>
+#+name: demonstration-code-block-1
+#+begin_src elisp
+(print "practice gratitude")
+#+end_src
 
-<span class="org-org-meta-line">#+name: working-with-alpha </span>
-<span class="org-org-block-begin-line">#+begin_src elisp :var alpha=alpha-paragraph :results raw :wrap quote</span>
-<span class="org-org-block">  (print alpha)</span>
-<span class="org-org-block-end-line">#+end_src</span>
+#+name: working-with-alpha 
+#+begin_src elisp :var alpha=alpha-paragraph :results raw :wrap quote
+  (print alpha)
+#+end_src
 </pre>
 </div>
 
@@ -382,10 +382,10 @@ Put this in an empty Org-mode buffer and press <code>C-c C-c</code> over the las
 </p>
 
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-meta-line">#+RESULTS: working-with-alpha</span>
-<span class="org-org-block-begin-line">#+begin_quote</span>
-  What I didn't find documented anyplace is that you can name quote blocks, and also just <span class="org-italic">/ordinary paragraphs/</span>.
-<span class="org-org-block-end-line">#+end_quote</span>
+<pre class="src src-org">#+RESULTS: working-with-alpha
+#+begin_quote
+  What I didn't find documented anyplace is that you can name quote blocks, and also just /ordinary paragraphs/.
+#+end_quote
 </pre>
 </div>
 </div>
@@ -411,7 +411,7 @@ Put this in an empty Org-mode buffer and press <code>C-c C-c</code> over the las
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-22 Tue 09:50</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-24 Thu 08:45</p>
+<p class="date">Created: 2020-12-24 Thu 17:21</p>
 </section>
 </body>
 </html>
