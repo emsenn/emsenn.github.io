@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-23 Wed 20:17 -->
+<!-- 2020-12-23 Wed 21:18 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Groundhog Emacs</title>
@@ -198,10 +198,10 @@
 <main id="content">
 <header>
 <h1 class="title">Groundhog Emacs</h1>
-</header><div class="head" id="orgc9a482e">
+</header><div class="head" id="orge93b6ea">
 
 </div>
-<summary id="org68174ad">
+<summary id="org60be377">
 <p>
 <b><i>Groundhog Emacs</i></b> is a <a href="20201215154153-tool.html">tool</a> for <a href="20201218102824-groundhog_person.html">Groundhog people</a> doing <a href="20201216101922-information_management.html">information management</a> using a <a href="20201217094215-computer.html">computer</a>.
 </p>
@@ -1363,7 +1363,7 @@ Please be aware that this configuration <i>will <b>not</b></i> work on its own: 
 <h7 id="org4d7df4f">Personal</h7>
 <div class="outline-text-7" id="text-org4d7df4f">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 34: </span>The elisp for personal org-publish project</label><pre class="src src-elisp" id="org9da5a0d">(<span class="org-string">"personal"</span> <span class="org-builtin">:components</span> (<span class="org-string">"personal-records"</span> <span class="org-string">"personal-daily-records"</span>))
+<label class="org-src-name"><span class="listing-number">Listing 34: </span>The elisp for personal org-publish project</label><pre class="src src-elisp" id="org9da5a0d">(<span class="org-string">"personal"</span> <span class="org-builtin">:components</span> (<span class="org-string">"personal-records"</span> <span class="org-string">"personal-daily-records"</span> <span class="org-string">"teraum"</span>))
 </pre>
 </div>
 </div>
@@ -1390,6 +1390,19 @@ Please be aware that this configuration <i>will <b>not</b></i> work on its own: 
 <span class="org-builtin">:sitemap-filename</span> <span class="org-string">"index.org"</span>
 <span class="org-builtin">:sitemap-sort-files</span> anti-chronologically
 <span class="org-builtin">:sitemap-title</span> <span class="org-string">"Daily Records Index"</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org8a53bd8"></a>Teraum Records<br>
+<div class="outline-text-8" id="text-org8a53bd8">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 37: </span>The variables configuring a website</label><pre class="src src-elisp" id="org0c273f4"><span class="org-builtin">:base-directory</span> <span class="org-string">"~/org/s/p/teraum"</span>
+<span class="org-builtin">:publishing-directory</span> <span class="org-string">"~/org/p/personal/teraum"</span>
+<span class="org-builtin">:html-preamble</span> ,ghe-org-html-dailies-preamble
+<span class="org-builtin">:sitemap-filename</span> <span class="org-string">"index.org"</span>
+<span class="org-builtin">:sitemap-sort-files</span> anti-chronologically
+<span class="org-builtin">:sitemap-title</span> <span class="org-string">"Teraum Index"</span>
 </pre>
 </div>
 </div>
@@ -1423,7 +1436,7 @@ Please be aware that this configuration <i>will <b>not</b></i> work on its own: 
 <li><a id="org4244115"></a>Org-roam bindings for Org-roam-mode<br>
 <div class="outline-text-8" id="text-org4244115">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 37: </span>The bindings used when Org-roam-mode is active</label><pre class="src src-elisp" id="org720735a">(<span class="org-string">"&lt;f5&gt;"</span> . org-roam-dailies-capture-today)
+<label class="org-src-name"><span class="listing-number">Listing 38: </span>The bindings used when Org-roam-mode is active</label><pre class="src src-elisp" id="org720735a">(<span class="org-string">"&lt;f5&gt;"</span> . org-roam-dailies-capture-today)
 (<span class="org-string">"&lt;f9&gt;"</span> . org-roam-dailies-find-today)
 (<span class="org-string">"C-c n l"</span> . org-roam)
 (<span class="org-string">"C-c n f"</span> . org-roam-find-file)
@@ -1435,7 +1448,7 @@ Please be aware that this configuration <i>will <b>not</b></i> work on its own: 
 <li><a id="org9c5ee14"></a>Org-roam bindings for Org-mode<br>
 <div class="outline-text-8" id="text-org9c5ee14">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 38: </span>The bindings used when Org-roam-mode is active</label><pre class="src src-elisp" id="org1386b56">((<span class="org-string">"C-c n i"</span> . org-roam-insert)
+<label class="org-src-name"><span class="listing-number">Listing 39: </span>The bindings used when Org-roam-mode is active</label><pre class="src src-elisp" id="org1386b56">((<span class="org-string">"C-c n i"</span> . org-roam-insert)
 (<span class="org-string">"C-c n I"</span> . org-roam-insert-immediate))
 </pre>
 </div>
@@ -1460,16 +1473,23 @@ Please be aware that this configuration <i>will <b>not</b></i> work on its own: 
 <div id="outline-container-org687fbe3" class="outline-7">
 <h7 id="org687fbe3">Format backlinks list</h7>
 <div class="outline-text-7" id="text-org687fbe3">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-23 Wed 21:16] </span></span> <br>
+Came back to add the <a href="20201218212733-teraum.html">Teraum</a> subdirectory to the list of ones that mean "this is a subdirectory." Such a hacky way of doing this; took maybe 10 minutes for me to figure out why <a href="20201216201354-backlink.html">backlinks</a> on the <a href="html.html">HTML</a> export of Teraum pages were broken!</li>
+</ul>
+ </section>
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 39: </span>Generate an Org-mode format list of backlinks for a given file</label><pre class="src src-elisp" id="org98b7901"><span class="org-comment-delimiter">;; </span><span class="org-comment">from doubleloop's commonplace wiki</span>
+<label class="org-src-name"><span class="listing-number">Listing 40: </span>Generate an Org-mode format list of backlinks for a given file</label><pre class="src src-elisp" id="org98b7901"><span class="org-comment-delimiter">;; </span><span class="org-comment">from doubleloop's commonplace wiki</span>
 (<span class="org-keyword">defun</span> <span class="org-function-name">ghe-org-roam-format-backlinks-list</span> (file)
   (<span class="org-keyword">if</span> (org-roam--org-roam-file-p file)
       (<span class="org-keyword">--reduce-from</span>
        (concat acc
                (format
                 <span class="org-string">"- [[file:%s][%s]]\n"</span>
-                (<span class="org-keyword">if</span> (string= (org-roam-dailies-directory--get-absolute-path)
-                             (file-name-directory file))
+                (<span class="org-keyword">if</span> (<span class="org-keyword">or</span> (string= (org-roam-dailies-directory--get-absolute-path)
+                                 (file-name-directory file))
+                        (string= <span class="org-string">"/home/emsenn/org/s/p/teraum/"</span>
+                                 (file-name-directory file)))
                     (file-relative-name (car it))
                   (file-relative-name (car it) org-roam-directory))
                 (org-roam-db--get-title (car it))))
@@ -1513,12 +1533,12 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 40: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="orgb94aee5">record-0.1.2
+<label class="org-src-name"><span class="listing-number">Listing 41: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="orgb94aee5">record-0.1.2
 </pre>
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 41: </span>The Org-roam capture template for Record</label><pre class="src src-elisp" id="org39770f2">(<span class="org-string">"r"</span> <span class="org-string">"basic record"</span> plain
+<label class="org-src-name"><span class="listing-number">Listing 42: </span>The Org-roam capture template for Record</label><pre class="src src-elisp" id="org39770f2">(<span class="org-string">"r"</span> <span class="org-string">"basic record"</span> plain
  (<span class="org-keyword">function</span> org-roam--capture-get-point)
  <span class="org-string">"%?\n"</span>
  <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
@@ -1539,11 +1559,11 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <h7 id="orgdc36e09">Term</h7>
 <div class="outline-text-7" id="text-orgdc36e09">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 42: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org9000b3e">term-0.1.1
+<label class="org-src-name"><span class="listing-number">Listing 43: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org9000b3e">term-0.1.1
 </pre>
 </div>
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 43: </span>blah</label><pre class="src src-elisp" id="org7daf6ca">(<span class="org-string">"t"</span> <span class="org-string">"term"</span> plain
+<label class="org-src-name"><span class="listing-number">Listing 44: </span>blah</label><pre class="src src-elisp" id="org7daf6ca">(<span class="org-string">"t"</span> <span class="org-string">"term"</span> plain
  (<span class="org-keyword">function</span> org-roam--capture-get-point)
  <span class="org-string">"#+name: %^{SLUG}-definition-text\n#+begin_quote\n%?\n#+end_quote\n"</span>
  <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
@@ -1565,11 +1585,11 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <h7 id="org69c1376">Reference</h7>
 <div class="outline-text-7" id="text-org69c1376">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 44: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org923f9fc">reference-0.1.1
+<label class="org-src-name"><span class="listing-number">Listing 45: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org923f9fc">reference-0.1.1
 </pre>
 </div>
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 45: </span>Org-roam capture template for reference records</label><pre class="src src-elisp" id="org5e9930d">(<span class="org-string">"R"</span> <span class="org-string">"reference"</span> plain
+<label class="org-src-name"><span class="listing-number">Listing 46: </span>Org-roam capture template for reference records</label><pre class="src src-elisp" id="org5e9930d">(<span class="org-string">"R"</span> <span class="org-string">"reference"</span> plain
  (<span class="org-keyword">function</span> org-roam--capture-get-point)
  <span class="org-string">"#+roam_key: %^{SOURCE}\n#+end_head\n%?\n"</span>
  <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
@@ -1590,11 +1610,11 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <h7 id="org65d4a56">Person</h7>
 <div class="outline-text-7" id="text-org65d4a56">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 46: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org7a9e3de">person-0.1.1
+<label class="org-src-name"><span class="listing-number">Listing 47: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org7a9e3de">person-0.1.1
 </pre>
 </div>
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 47: </span>Org-roam capture template for person records</label><pre class="src src-elisp" id="orgd7ebc45">(<span class="org-string">"p"</span> <span class="org-string">"person"</span> plain
+<label class="org-src-name"><span class="listing-number">Listing 48: </span>Org-roam capture template for person records</label><pre class="src src-elisp" id="orgd7ebc45">(<span class="org-string">"p"</span> <span class="org-string">"person"</span> plain
  (<span class="org-keyword">function</span> org-roam--capture-get-point)
  <span class="org-string">"%?\n"</span>
  <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
@@ -1616,7 +1636,7 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <h7 id="org9e2ce15">Teraum</h7>
 <div class="outline-text-7" id="text-org9e2ce15">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 48: </span>Org-roam capture template for Teraum records</label><pre class="src src-elisp" id="org4a93101">(<span class="org-string">"T"</span> <span class="org-string">"Teraum"</span>)
+<label class="org-src-name"><span class="listing-number">Listing 49: </span>Org-roam capture template for Teraum records</label><pre class="src src-elisp" id="org4a93101">(<span class="org-string">"T"</span> <span class="org-string">"Teraum"</span>)
 </pre>
 </div>
 </div>
@@ -1624,7 +1644,7 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <li><a id="org710a651"></a>Teraum record<br>
 <div class="outline-text-8" id="text-org710a651">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 49: </span>Org-roam capture-template for general Teraum records</label><pre class="src src-elisp" id="org9da53b0">(<span class="org-string">"Tt"</span> <span class="org-string">"General entry"</span>
+<label class="org-src-name"><span class="listing-number">Listing 50: </span>Org-roam capture-template for general Teraum records</label><pre class="src src-elisp" id="org9da53b0">(<span class="org-string">"Tt"</span> <span class="org-string">"General entry"</span>
             plain (<span class="org-keyword">function</span> org-roam--capture-get-point)
             <span class="org-string">"%?"</span>
             <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
@@ -1641,7 +1661,7 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <li><a id="org003af11"></a>Teraum person<br>
 <div class="outline-text-8" id="text-org003af11">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 50: </span>Org-roam capture template for a Teraum person record</label><pre class="src src-elisp" id="orgcfdbd58">(<span class="org-string">"Tp"</span> <span class="org-string">"Person"</span>
+<label class="org-src-name"><span class="listing-number">Listing 51: </span>Org-roam capture template for a Teraum person record</label><pre class="src src-elisp" id="orgcfdbd58">(<span class="org-string">"Tp"</span> <span class="org-string">"Person"</span>
             plain (<span class="org-keyword">function</span> org-roam--capture-get-point)
             <span class="org-string">"%?\n\n- Species :: %^{SPECIES}\n- Age :: %^{AGE}\n- Pronouns :: %^{PRONOUNS|e/em/eir|she/her/hers|he/him/his|they/them/theirs}\n- Location :: %^{LOCATION}"</span>
             <span class="org-builtin">:file-name</span> <span class="org-string">"%&lt;%Y%m%d%H%M%S&gt;-${slug}"</span>
@@ -1686,7 +1706,7 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <li><a id="orge1632bc"></a>Activity<br>
 <div class="outline-text-8" id="text-orge1632bc">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 51: </span>The capture template for recording an Activity log</label><pre class="src src-elisp" id="org3899ea3">(<span class="org-string">"a"</span> <span class="org-string">"Activity entry"</span> entry
+<label class="org-src-name"><span class="listing-number">Listing 52: </span>The capture template for recording an Activity log</label><pre class="src src-elisp" id="org3899ea3">(<span class="org-string">"a"</span> <span class="org-string">"Activity entry"</span> entry
                     #'org-roam-capture--get-point
                     <span class="org-string">"* %U\n%?"</span>
                     <span class="org-builtin">:file-name</span> <span class="org-string">"d/%&lt;%Y-%m-%d&gt;"</span>
@@ -1706,7 +1726,7 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <li><a id="org372a8c9"></a>Journal entry<br>
 <div class="outline-text-8" id="text-org372a8c9">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 52: </span>The capture template for recording a Journal entry</label><pre class="src src-elisp" id="orgdcfdec8">(<span class="org-string">"j"</span> <span class="org-string">"Journal entry"</span> entry
+<label class="org-src-name"><span class="listing-number">Listing 53: </span>The capture template for recording a Journal entry</label><pre class="src src-elisp" id="orgdcfdec8">(<span class="org-string">"j"</span> <span class="org-string">"Journal entry"</span> entry
                     #'org-roam-capture--get-point
                     <span class="org-string">"* %U\n%?"</span>
                     <span class="org-builtin">:file-name</span> <span class="org-string">"d/%&lt;%Y-%m-%d&gt;"</span>
@@ -1723,7 +1743,7 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <li><a id="orge61d947"></a>Media log entry<br>
 <div class="outline-text-8" id="text-orge61d947">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 53: </span>The capture template for recording a Media log entry</label><pre class="src src-elisp" id="orgc8043ee">
+<label class="org-src-name"><span class="listing-number">Listing 54: </span>The capture template for recording a Media log entry</label><pre class="src src-elisp" id="orgc8043ee">
 (<span class="org-string">"m"</span> <span class="org-string">"Discovered media"</span> entry
  #'org-roam-capture--get-point
  <span class="org-string">"* DISCOVERED %^{AUTHOR}: \"%^{TITLE}\"\n  :LOGBOOK:\n  - Note taken on %U \\\\\n  %?\n  :END:\n- Source: %^{SOURCE}\n"</span>
@@ -1741,7 +1761,7 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <li><a id="orgb587613"></a>Weather observation<br>
 <div class="outline-text-8" id="text-orgb587613">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 54: </span>blah</label><pre class="src src-elisp" id="orga8fc71b">(<span class="org-string">"w"</span> <span class="org-string">"Weather observation"</span> entry
+<label class="org-src-name"><span class="listing-number">Listing 55: </span>blah</label><pre class="src src-elisp" id="orga8fc71b">(<span class="org-string">"w"</span> <span class="org-string">"Weather observation"</span> entry
                     #'org-roam-capture--get-point
                     <span class="org-string">"* %U\n%?"</span>
                     <span class="org-builtin">:file-name</span> <span class="org-string">"d/%&lt;%Y-%m-%d&gt;"</span>
@@ -1758,7 +1778,7 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <li><a id="orgaf2d994"></a>Thoughts<br>
 <div class="outline-text-8" id="text-orgaf2d994">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 55: </span>blah</label><pre class="src src-elisp" id="org3744eb5">(<span class="org-string">"p"</span> <span class="org-string">"posting"</span> entry
+<label class="org-src-name"><span class="listing-number">Listing 56: </span>blah</label><pre class="src src-elisp" id="org3744eb5">(<span class="org-string">"p"</span> <span class="org-string">"posting"</span> entry
  #'org-roam-capture--get-point
  <span class="org-string">"* %U\n%?"</span>
  <span class="org-builtin">:file-name</span> <span class="org-string">"d/%&lt;%Y-%m-%d&gt;"</span>
@@ -1846,7 +1866,7 @@ The follow code blocks allow for functional use of select Elisp functions within
 <h4 id="org6c15db2">bare-init.el</h4>
 <div class="outline-text-4" id="text-org6c15db2">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 56: </span>A simpler init file, just the basics to fix bugs and the UI</label><pre class="src src-elisp" id="org9fde031">&lt;&lt;emacs-lessthan-26-3-tls-fix-elisp&gt;&gt;
+<label class="org-src-name"><span class="listing-number">Listing 57: </span>A simpler init file, just the basics to fix bugs and the UI</label><pre class="src src-elisp" id="org9fde031">&lt;&lt;emacs-lessthan-26-3-tls-fix-elisp&gt;&gt;
 &lt;&lt;isearch-occur-bugfix-elisp&gt;&gt;
 &lt;&lt;package-installation-elisp&gt;&gt;
 
@@ -2258,7 +2278,7 @@ The follow code blocks allow for functional use of select Elisp functions within
                 ))
         (<span class="org-keyword">setq</span> org-publish-project-alist
               `(
-                (<span class="org-string">"personal"</span> <span class="org-builtin">:components</span> (<span class="org-string">"personal-records"</span> <span class="org-string">"personal-daily-records"</span>))
+                (<span class="org-string">"personal"</span> <span class="org-builtin">:components</span> (<span class="org-string">"personal-records"</span> <span class="org-string">"personal-daily-records"</span> <span class="org-string">"teraum"</span>))
                 (<span class="org-string">"personal-records"</span>
                  <span class="org-builtin">:base-extension</span> <span class="org-string">"org"</span>
                  <span class="org-builtin">:publishing-function</span> org-html-publish-to-html
@@ -2314,7 +2334,35 @@ The follow code blocks allow for functional use of select Elisp functions within
                  <span class="org-builtin">:html-preamble</span> ,ghe-org-html-dailies-preamble
                  <span class="org-builtin">:sitemap-filename</span> <span class="org-string">"index.org"</span>
                  <span class="org-builtin">:sitemap-sort-files</span> anti-chronologically
-                 <span class="org-builtin">:sitemap-title</span> <span class="org-string">"Daily Records Index"</span>)))
+                 <span class="org-builtin">:sitemap-title</span> <span class="org-string">"Daily Records Index"</span>)
+                (<span class="org-string">"teraum"</span>
+                 <span class="org-builtin">:base-extension</span> <span class="org-string">"org"</span>
+                 <span class="org-builtin">:publishing-function</span> org-html-publish-to-html
+                 <span class="org-builtin">:html-doctype</span> <span class="org-string">"html5"</span>
+                 <span class="org-builtin">:html-html5-fancy</span> t
+                 <span class="org-builtin">:html-container</span> <span class="org-string">"section"</span>
+                 <span class="org-builtin">:headline-levels</span> 6
+                 <span class="org-builtin">:recursive</span> t
+                 <span class="org-builtin">:html-divs</span> ((preamble <span class="org-string">"section"</span> <span class="org-string">"preamble"</span>)
+                            (content <span class="org-string">"main"</span> <span class="org-string">"content"</span>)
+                            (postamble <span class="org-string">"section"</span> <span class="org-string">"postamble"</span>))
+                 <span class="org-builtin">:publishing-function</span> org-html-publish-to-html
+                 <span class="org-builtin">:html-format-drawer-function</span> ghe-org-html-format-drawer
+                 <span class="org-builtin">:sitemap-function</span> ghe-org-publish-format-sitemap
+                 <span class="org-builtin">:html-head-include-scripts</span> nil
+                 <span class="org-builtin">:html-head-include-default-style</span> nil
+                 <span class="org-builtin">:html-head</span> ,ghe-org-html-head
+                 <span class="org-builtin">:exclude</span> ,(regexp-opt '(<span class="org-string">"README.org"</span> <span class="org-string">"PRIVATE"</span>))
+                 <span class="org-builtin">:auto-sitemap</span> t
+                 <span class="org-builtin">:with-footnotes</span> t
+                 <span class="org-builtin">:with-toc</span> nil
+                 <span class="org-builtin">:with-drawers</span> t
+                 <span class="org-builtin">:base-directory</span> <span class="org-string">"~/org/s/p/teraum"</span>
+                 <span class="org-builtin">:publishing-directory</span> <span class="org-string">"~/org/p/personal/teraum"</span>
+                 <span class="org-builtin">:html-preamble</span> ,ghe-org-html-dailies-preamble
+                 <span class="org-builtin">:sitemap-filename</span> <span class="org-string">"index.org"</span>
+                 <span class="org-builtin">:sitemap-sort-files</span> anti-chronologically
+                 <span class="org-builtin">:sitemap-title</span> <span class="org-string">"Teraum Index"</span>)))
         <span class="org-builtin">:hook</span> 
                (org-export-before-processing . ghe-org-export-preprocessor)
 
@@ -2343,8 +2391,10 @@ The follow code blocks allow for functional use of select Elisp functions within
                (concat acc
                        (format
                         <span class="org-string">"- [[file:%s][%s]]\n"</span>
-                        (<span class="org-keyword">if</span> (string= (org-roam-dailies-directory--get-absolute-path)
-                                     (file-name-directory file))
+                        (<span class="org-keyword">if</span> (<span class="org-keyword">or</span> (string= (org-roam-dailies-directory--get-absolute-path)
+                                         (file-name-directory file))
+                                (string= <span class="org-string">"/home/emsenn/org/s/p/teraum/"</span>
+                                         (file-name-directory file)))
                             (file-relative-name (car it))
                           (file-relative-name (car it) org-roam-directory))
                         (org-roam-db--get-title (car it))))
@@ -2513,8 +2563,8 @@ The follow code blocks allow for functional use of select Elisp functions within
 <ul class="org-ul">
 <li><a href="index.html">emsenn's digital garden</a></li>
 <li><a href="d/2020-12-22.html">2020-12-22</a></li>
-<li><a href="records.html">Records Index</a></li>
 <li><a href="d/2020-12-23.html">2020-12-23</a></li>
+<li><a href="records.html">Records Index</a></li>
 </ul>
 </div>
 </div>
@@ -2523,7 +2573,7 @@ The follow code blocks allow for functional use of select Elisp functions within
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-18 Fri 14:06</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-23 Wed 20:17</p>
+<p class="date">Created: 2020-12-23 Wed 21:18</p>
 </section>
 </body>
 </html>
