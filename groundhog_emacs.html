@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-23 Wed 16:03 -->
+<!-- 2020-12-23 Wed 20:14 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Groundhog Emacs</title>
@@ -198,12 +198,12 @@
 <main id="content">
 <header>
 <h1 class="title">Groundhog Emacs</h1>
-</header><div class="head" id="orge5d2c14">
+</header><div class="head" id="org00659d4">
 
 </div>
-<summary id="orga2eb31f">
+<summary id="org4a8e370">
 <p>
-<b><i>Groundhog Emacs</i></b> is a <a href="20201215154153-tool.html">tool</a> for <a href="20201218102824-groundhog_person.html">Groundhog people</a> doing <a href="20201216101922-information_management.html">information management</a> using a <a href="20201217094215-computer.html">computer</a>.
+<b><i>Groundhog Emacs</i></b> is a <a href=20201215154153-tool.html>tool</a> for <a href=20201218102824-groundhog_person.html>Groundhog people</a> doing <a href=20201216101922-information_management.html>information management</a> using a <a href=20201217094215-computer.html>computer</a>.
 </p>
 </summary>
 <nav id="table-of-contents">
@@ -692,7 +692,7 @@
 <div class="outline-text-7" id="text-org664acd6">
 <section class="org-drawer"> <ul class="org-ul">
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-22 Tue 16:21] </span></span> <br>
-Changed the backlinks to be two (<code>**</code>) headlines into the file. With the new <a href="20201216103556-schema.html">schema</a> for <a href="20201217220539-record.html">records</a>, that'll put it under the <code>* Supplements</code> header.</li>
+Changed the backlinks to be two (<code>**</code>) headlines into the file. With the new <a href=20201216103556-schema.html>schema</a> for <a href=20201217220539-record.html>records</a>, that'll put it under the <code>* Supplements</code> header.</li>
 </ul>
  </section>
 <div class="org-src-container">
@@ -710,6 +710,50 @@ Changed the backlinks to be two (<code>**</code>) headlines into the file. With 
 <div id="outline-container-org51fccf3" class="outline-6">
 <h6 id="org51fccf3">HTML export</h6>
 <div class="outline-text-6" id="text-org51fccf3">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-23 Wed 17:27] </span></span> <br>
+Useful resource, also proved by <a href=20201219112531-jeremy_friesen.html>Jeremy Friesen</a>: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines#Other_Semantic_HTML_elements_used_in_Sectioning">https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines#Other_Semantic_HTML_elements_used_in_Sectioning</a></li>
+<li><p>
+Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-23 Wed 17:20] </span></span> <br>
+Here's a helpful guideline for how to nest the page elements I'm aiming for, provided by <a href=20201219112531-jeremy_friesen.html>Jeremy Friesen</a>:
+</p>
+
+<p>
+body
+</p>
+<ul class="org-ul">
+<li>header (preamble)
+<ul class="org-ul">
+<li>nav (site nav)</li>
+</ul></li>
+<li>main
+<ul class="org-ul">
+<li>article
+<ul class="org-ul">
+<li>header
+<ul class="org-ul">
+<li>section (definition)</li>
+<li>nav (toc)</li>
+</ul></li>
+<li>section (content)
+<ul class="org-ul">
+<li>sections</li>
+</ul></li>
+<li>footer (supplements)
+<ul class="org-ul">
+<li>index</li>
+<li>backlinks</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>footer (postamble)</li>
+</ul>
+
+<p>
+This does kinda highlight that I still need to write out a <a href=20201216103556-schema.html>schema</a> for <a href=20201217220539-record.html>records</a>, and how that schema maps into a <a href=20201219131009-groundhog_records.html>Groundhog record</a>.
+</p></li>
+</ul>
+ </section>
 </div>
 <div id="outline-container-orgbc3b32e" class="outline-7">
 <h7 id="orgbc3b32e">HTML export functions</h7>
@@ -1294,6 +1338,7 @@ Please be aware that this configuration <i>will <b>not</b></i> work on its own: 
 <span class="org-builtin">:html-html5-fancy</span> t
 <span class="org-builtin">:html-container</span> <span class="org-string">"section"</span>
 <span class="org-builtin">:headline-levels</span> 6
+<span class="org-builtin">:recursive</span> t
 <span class="org-builtin">:html-divs</span> ((preamble <span class="org-string">"section"</span> <span class="org-string">"preamble"</span>)
             (content <span class="org-string">"main"</span> <span class="org-string">"content"</span>)
             (postamble <span class="org-string">"section"</span> <span class="org-string">"postamble"</span>))
@@ -1318,7 +1363,7 @@ Please be aware that this configuration <i>will <b>not</b></i> work on its own: 
 <h7 id="org4d7df4f">Personal</h7>
 <div class="outline-text-7" id="text-org4d7df4f">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 34: </span>The elisp for personal org-publish project</label><pre class="src src-elisp" id="org9da5a0d">(<span class="org-string">"personal"</span> <span class="org-builtin">:components</span> (<span class="org-string">"personal-daily-records"</span> <span class="org-string">"personal-records"</span>))
+<label class="org-src-name"><span class="listing-number">Listing 34: </span>The elisp for personal org-publish project</label><pre class="src src-elisp" id="org9da5a0d">(<span class="org-string">"personal"</span> <span class="org-builtin">:components</span> (<span class="org-string">"personal-records"</span> <span class="org-string">"personal-daily-records"</span>))
 </pre>
 </div>
 </div>
@@ -2213,7 +2258,7 @@ The follow code blocks allow for functional use of select Elisp functions within
                 ))
         (<span class="org-keyword">setq</span> org-publish-project-alist
               `(
-                (<span class="org-string">"personal"</span> <span class="org-builtin">:components</span> (<span class="org-string">"personal-daily-records"</span> <span class="org-string">"personal-records"</span>))
+                (<span class="org-string">"personal"</span> <span class="org-builtin">:components</span> (<span class="org-string">"personal-records"</span> <span class="org-string">"personal-daily-records"</span>))
                 (<span class="org-string">"personal-records"</span>
                  <span class="org-builtin">:base-extension</span> <span class="org-string">"org"</span>
                  <span class="org-builtin">:publishing-function</span> org-html-publish-to-html
@@ -2221,6 +2266,7 @@ The follow code blocks allow for functional use of select Elisp functions within
                  <span class="org-builtin">:html-html5-fancy</span> t
                  <span class="org-builtin">:html-container</span> <span class="org-string">"section"</span>
                  <span class="org-builtin">:headline-levels</span> 6
+                 <span class="org-builtin">:recursive</span> t
                  <span class="org-builtin">:html-divs</span> ((preamble <span class="org-string">"section"</span> <span class="org-string">"preamble"</span>)
                             (content <span class="org-string">"main"</span> <span class="org-string">"content"</span>)
                             (postamble <span class="org-string">"section"</span> <span class="org-string">"postamble"</span>))
@@ -2248,6 +2294,7 @@ The follow code blocks allow for functional use of select Elisp functions within
                  <span class="org-builtin">:html-html5-fancy</span> t
                  <span class="org-builtin">:html-container</span> <span class="org-string">"section"</span>
                  <span class="org-builtin">:headline-levels</span> 6
+                 <span class="org-builtin">:recursive</span> t
                  <span class="org-builtin">:html-divs</span> ((preamble <span class="org-string">"section"</span> <span class="org-string">"preamble"</span>)
                             (content <span class="org-string">"main"</span> <span class="org-string">"content"</span>)
                             (postamble <span class="org-string">"section"</span> <span class="org-string">"postamble"</span>))
@@ -2464,9 +2511,9 @@ The follow code blocks allow for functional use of select Elisp functions within
 <h3 id="org81654f9">Backlinks</h3>
 <div class="outline-text-3" id="text-org81654f9">
 <ul class="org-ul">
-<li><a href="index.html">emsenn's digital garden</a></li>
-<li><a href="records.html">Records Index</a></li>
-<li><a href="d/2020-12-22.html">2020-12-22</a></li>
+<li><a href=index.html>emsenn's digital garden</a></li>
+<li><a href=d/2020-12-22.html>2020-12-22</a></li>
+<li><a href=records.html>Records Index</a></li>
 </ul>
 </div>
 </div>
@@ -2475,7 +2522,7 @@ The follow code blocks allow for functional use of select Elisp functions within
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-18 Fri 14:06</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-23 Wed 16:03</p>
+<p class="date">Created: 2020-12-23 Wed 20:14</p>
 </section>
 </body>
 </html>
