@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-24 Thu 17:20 -->
+<!-- 2020-12-24 Thu 22:32 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Records Index</title>
@@ -55,7 +55,7 @@
 	    padding: 1em;
 	}
 	header {
-	    border-bottom: 0.5em dotted var(--secondary-dim-color);
+	    border-bottom: 0.8em dotted var(--secondary-dim-color);
 	}
 	h1 { font-size: 2em; margin-bottom: 0; }
 	h2 {
@@ -124,7 +124,7 @@
 	    font-family: sans-serif;
 	    margin: 0.2em auto 0.5em 0;
 	}
-	a {
+	a, .link {
 	    text-decoration: none;
 	    color: #880;
 	    display: inline;
@@ -138,7 +138,7 @@
 	    outline-style: none;
 	    border-bottom: 0.1rem solid;
 	}
-	a:visited { color: #934; }
+	a:visited, .visited-link { color: #934; }
 	a:visited:hover { color: #b56; }
 	a:focus {
 	    outline-style: none;
@@ -155,22 +155,26 @@
 	.org-src-container + .example {
 	    margin-left: 8em;
 	}
-	a[href^="https://"]:not([href*="emsenn.net"]):after{ 
+	a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
 	    content: "^";
 	    font-size: 0.5em;
 	    vertical-align: super;
 	}
-	a[href^="https://"]:not([href*="emsenn.net"]){ 
+	a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
 	    color: var(--external-link-color);
 	}
 	a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
 	    color: var(--external-link-hover-color);
 	}
-	a[href^="https://"]:not([href*="emsenn.net"]):visited{ 
+	a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
 	    color: var(--external-link-visited-color);
 	}
 	a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
 	    color: var(--external-link-visited-hover-color);
+	}
+	blockquote {
+	    border: 0.1em dashed var(--secondary-dim-color);
+	    padding-left: 0.2em;
 	}
 	label.org-src-name {
 	    margin: 0 0 0 3em;
@@ -193,12 +197,14 @@
 </head>
 <body>
 <section id="preamble" class="status">
-<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./records.html">record index</a> | <a href="./d/index.html">daily records</a><p>This record is part of my <a href="./digital_garden.html">digital garden</a>, which was cultivated as a <a href="./public_asset.html">public asset</a> with <a href="https://ko-fi.com/emsenn">support</a> from <a href="./human.html">humans</a> like you. <strong><em>Thank you!</em></strong></p><details><summary>Click for tips on using this Website</summary><p>This digital garden is in its early days, but here's some useful things to know:</p><ul><li><span style="color: var(--link-color)">This color text</span> is a link to a part of the garden you haven't been to. <span style="color: var(--link-visited-color)">This color text</span> is a link to a part of the garden you <em>have</em> been to. <span style="color: var(--external-link-color)">This color text</span> is a link to a Webpage you haven't been to. <span style="color: var(--external-link-visited-color)">This color text</span> is a link to a Webpage you <em>have</em> been to. </li></ul></details></section>
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./records.html">record index</a> | <a href="./d/index.html">daily records</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Webpage.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="./record.html">records</a> with more <a href="./information.html">information</a> about both of those concepts.) On the <a href="./Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="./emsenn.html">emsenn</a>, to share some of my <a href="./knowledge.html">knowledge</a> with <a href="./person.html">people</a> on the <a href="Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="./record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="./permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="./backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
 </section>
 <main id="content">
 <header>
 <h1 class="title">Records Index</h1>
 </header><ul class="org-ul">
+<li><a href="hypertext.html">hypertext</a></li>
+<li><a href="banana.html">banana</a></li>
 <li><a href="lake_superior.html">Lake Superior</a></li>
 <li><a href="chippewa_national_forest.html">Chippewa National Forest</a></li>
 <li><a href="department_of_interior.html">Department of theInterior</a></li>
@@ -361,6 +367,8 @@
 <li><a href="20201221171125-belief.html">belief</a></li>
 <li><a href="20201221170941-assumptions.html">assumption</a></li>
 <li><a href="20201221170651-decisions.html">decision</a></li>
+<li><a href="information.html">information</a></li>
+<li><a href="emsenn.html">emsenn</a></li>
 <li><a href="index.html">emsenn's digital garden</a></li>
 <li><a href="20201215164859-rhizome_writing.html">rhizomatous writing</a></li>
 <li><a href="20201221130747-theruran.html">@theruran</a></li>
@@ -478,14 +486,14 @@
 <li><a href="20201218104408-alex_schroeder.html">Alex Schroeder</a></li>
 <li><a href="20201218104350-elisp.html">Elisp</a></li>
 <li><a href="20201218104311-file.html">file</a></li>
+<li><a href="permission.html">permission</a></li>
 <li><a href="20201218104123-computer_servers.html">computer server</a></li>
-<li><a href="20201218104139-permission.html">permission</a></li>
 <li><a href="20201218104003-computer_user.html">computer user</a></li>
 <li><a href="20201218103935-home_directory.html">home directory</a></li>
 <li><a href="20201218102810-groundhog_emacsen.html">Groundhog Emacsen</a></li>
 <li><a href="20201218102824-groundhog_person.html">Groundhog person</a></li>
 <li><a href="20201218102113-game_host.html">game host</a></li>
-<li><a href="20201216101549-person.html">person</a></li>
+<li><a href="person.html">person</a></li>
 <li><a href="20201218101909-game.html">game</a></li>
 <li><a href="20201218101940-communicating.html">communication</a></li>
 <li><a href="20201218101811-first_person_shooters.html">first-person shooter</a></li>
@@ -524,11 +532,10 @@
 <li><a href="20201216150628-org_publish.html">Org-publish</a></li>
 <li><a href="20201216203623-information_management_systems.html">information management tools</a></li>
 <li><a href="20201216203307-daily_notes.html">daily notes</a></li>
-<li><a href="20201216201354-backlink.html">backlink</a></li>
+<li><a href="backlink.html">backlink</a></li>
 <li><a href="20201216195540-org_roam_dailies.html">Org-roam dailies</a></li>
 <li><a href="20201216192108-web_server.html">Web server</a></li>
 <li><a href="20201216190014-database.html">database</a></li>
-<li><a href="20201216170857-emsenn.html">emsenn</a></li>
 <li><a href="20201216165122-bibtex.html">BibTex</a></li>
 <li><a href="20201216164842-org_mode_projects.html">Org-mode projects</a></li>
 <li><a href="20201216162844-emacsen.html">Emacsen</a></li>
@@ -546,7 +553,6 @@
 <li><a href="20201216101711-cognition.html">cognition</a></li>
 <li><a href="20201216101732-computers.html">computers</a></li>
 <li><a href="20201216102929-software.html">software</a></li>
-<li><a href="20201216103251-information.html">information</a></li>
 <li><a href="20201216102707-language.html">language</a></li>
 <li><a href="20201216101507-kyriarchy.html">kyriarchy</a></li>
 <li><a href="20201216102650-reality.html">reality</a></li>
@@ -573,8 +579,8 @@
 <li><a href="note_taking.html">note-taking</a></li>
 <li><a href="jethro_kuan_how_to_take_smart_notes_with_org_mode.html">Jethro Kuan: "How To Take Smart Notes with Org-mode"</a></li>
 <li><a href="20201215152033-http.html">HTTP</a></li>
-<li><a href="20201215152107-web.html">Web</a></li>
 <li><a href="20201215152125-internet.html">Internet</a></li>
+<li><a href="web.html">Web</a></li>
 <li><a href="html.html">HTML</a></li>
 <li><a href="writing.html">writing</a></li>
 <li><a href="website.html">Website</a></li>
@@ -623,7 +629,7 @@
 </main>
 <section id="postamble" class="status">
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-24 Thu 17:20</p>
+<p class="date">Created: 2020-12-24 Thu 22:32</p>
 </section>
 </body>
 </html>

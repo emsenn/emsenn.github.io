@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-24 Thu 17:17 -->
+<!-- 2020-12-24 Thu 22:32 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>United States of America</title>
@@ -55,7 +55,7 @@
 	    padding: 1em;
 	}
 	header {
-	    border-bottom: 0.5em dotted var(--secondary-dim-color);
+	    border-bottom: 0.8em dotted var(--secondary-dim-color);
 	}
 	h1 { font-size: 2em; margin-bottom: 0; }
 	h2 {
@@ -124,7 +124,7 @@
 	    font-family: sans-serif;
 	    margin: 0.2em auto 0.5em 0;
 	}
-	a {
+	a, .link {
 	    text-decoration: none;
 	    color: #880;
 	    display: inline;
@@ -138,7 +138,7 @@
 	    outline-style: none;
 	    border-bottom: 0.1rem solid;
 	}
-	a:visited { color: #934; }
+	a:visited, .visited-link { color: #934; }
 	a:visited:hover { color: #b56; }
 	a:focus {
 	    outline-style: none;
@@ -155,22 +155,26 @@
 	.org-src-container + .example {
 	    margin-left: 8em;
 	}
-	a[href^="https://"]:not([href*="emsenn.net"]):after{ 
+	a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
 	    content: "^";
 	    font-size: 0.5em;
 	    vertical-align: super;
 	}
-	a[href^="https://"]:not([href*="emsenn.net"]){ 
+	a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
 	    color: var(--external-link-color);
 	}
 	a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
 	    color: var(--external-link-hover-color);
 	}
-	a[href^="https://"]:not([href*="emsenn.net"]):visited{ 
+	a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
 	    color: var(--external-link-visited-color);
 	}
 	a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
 	    color: var(--external-link-visited-hover-color);
+	}
+	blockquote {
+	    border: 0.1em dashed var(--secondary-dim-color);
+	    padding-left: 0.2em;
 	}
 	label.org-src-name {
 	    margin: 0 0 0 3em;
@@ -193,12 +197,12 @@
 </head>
 <body>
 <section id="preamble" class="status">
-<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./records.html">record index</a> | <a href="./d/index.html">daily records</a><p>This record is part of my <a href="./digital_garden.html">digital garden</a>, which was cultivated as a <a href="./public_asset.html">public asset</a> with <a href="https://ko-fi.com/emsenn">support</a> from <a href="./human.html">humans</a> like you. <strong><em>Thank you!</em></strong></p><details><summary>Click for tips on using this Website</summary><p>This digital garden is in its early days, but here's some useful things to know:</p><ul><li><span style="color: var(--link-color)">This color text</span> is a link to a part of the garden you haven't been to. <span style="color: var(--link-visited-color)">This color text</span> is a link to a part of the garden you <em>have</em> been to. <span style="color: var(--external-link-color)">This color text</span> is a link to a Webpage you haven't been to. <span style="color: var(--external-link-visited-color)">This color text</span> is a link to a Webpage you <em>have</em> been to. </li></ul></details></section>
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./records.html">record index</a> | <a href="./d/index.html">daily records</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Webpage.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="./record.html">records</a> with more <a href="./information.html">information</a> about both of those concepts.) On the <a href="./Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="./emsenn.html">emsenn</a>, to share some of my <a href="./knowledge.html">knowledge</a> with <a href="./person.html">people</a> on the <a href="Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="./record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="./permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="./backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
 </section>
 <main id="content">
 <header>
 <h1 class="title">United States of America</h1>
-</header><div class="head" id="org5697ba9">
+</header><div class="head" id="orgf8be427">
 
 </div>
 
@@ -207,8 +211,8 @@
 <div class="outline-text-2" id="text-orgf254ac3">
 <ul class="org-ul">
 <li><a href="20201221174456-richard_feynman.html">Richard Feynman</a></li>
-<li><a href="records.html">Records Index</a></li>
 <li><a href="department_of_interior.html">Department of the Interior</a></li>
+<li><a href="records.html">Records Index</a></li>
 </ul>
 </div>
 </section>
@@ -216,7 +220,7 @@
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-21 Mon 21:28</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-24 Thu 17:17</p>
+<p class="date">Created: 2020-12-24 Thu 22:32</p>
 </section>
 </body>
 </html>
