@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-24 Thu 22:35 -->
+<!-- 2020-12-25 Fri 20:37 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Groundhog Emacs</title>
@@ -202,12 +202,12 @@
 <main id="content">
 <header>
 <h1 class="title">Groundhog Emacs</h1>
-</header><div class="head" id="orgedcef7a">
+</header><div class="head" id="org7b8c203">
 
 </div>
-<summary id="org39173d1">
+<summary id="org17a157f">
 <p>
-<b><i>Groundhog Emacs</i></b> is a <a href="20201215154153-tool.html">tool</a> for <a href="20201218102824-groundhog_person.html">Groundhog people</a> doing <a href="20201216101922-information_management.html">information management</a> using a <a href="20201217094215-computer.html">computer</a>.
+<b><i>Groundhog Emacs</i></b> is my name for my <a href="20201216162844-emacsen.html">Emacsen</a>: my primary <a href="20201215154153-tool.html">tool</a> for doing <a href="20201216101922-information_management.html">information management</a> using a <a href="20201217094215-computer.html">computer</a>.
 </p>
 </summary>
 <nav id="table-of-contents">
@@ -227,7 +227,7 @@
 <li><a href="#orgeee6462">Decisions</a></li>
 <li><a href="#orgba76b5c">Elisp Code Blocks</a></li>
 <li><a href="#orgcd848bb">Source Files</a></li>
-<li><a href="#org81654f9">Backlinks</a></li>
+<li><a href="#backlinks">Backlinks</a></li>
 </ul>
 </li>
 </ul>
@@ -875,15 +875,15 @@ Put the bugfix to ivy-mode not autostarting in the scratch message, with instruc
 <h7 id="orga90c541">Capture source code block</h7>
 <div class="outline-text-7" id="text-orga90c541">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 17: </span>The capture template for capturing source blocks</label><pre class="src src-elisp" id="org20dde60">("s" "Capture source code block")
+<label class="org-src-name"><span class="listing-number">Listing 17: </span>The capture template for capturing source blocks</label><pre class="src src-elisp" id="orgb5afe02">("s" "Capture source code block")
 </pre>
 </div>
 </div>
 <ul class="org-ul">
-<li><a id="org3c6e324"></a>Capture Elisp source block<br>
-<div class="outline-text-8" id="text-org3c6e324">
+<li><a id="org9571e6f"></a>Capture Elisp source block<br>
+<div class="outline-text-8" id="text-org9571e6f">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 18: </span>Capture an Elisp code block</label><pre class="src src-elisp" id="org6cc3a92">("se" "Elisp code block"
+<label class="org-src-name"><span class="listing-number">Listing 18: </span>Capture an Elisp code block</label><pre class="src src-elisp" id="orgc9f378c">("se" "Elisp code block"
 	     plain (clock)
 	     ,(concat "#+name: %^{NAME}-elisp\n"
 		      "#+caption: %^{CAPTION}\n"
@@ -900,15 +900,15 @@ Put the bugfix to ivy-mode not autostarting in the scratch message, with instruc
 <h7 id="org61fd8b6">Capture inclusion</h7>
 <div class="outline-text-7" id="text-org61fd8b6">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 19: </span>The capture template for capturing source blocks</label><pre class="src src-elisp" id="orgbe776fd">("s" "Capture source code block")
+<label class="org-src-name"><span class="listing-number">Listing 19: </span>The capture template for capturing source blocks</label><pre class="src src-elisp" id="orgbb6e467">("s" "Capture source code block")
 </pre>
 </div>
 </div>
 <ul class="org-ul">
-<li><a id="org56f8a7d"></a>Capture Elisp source block<br>
-<div class="outline-text-8" id="text-org56f8a7d">
+<li><a id="org807388f"></a>Capture Elisp source block<br>
+<div class="outline-text-8" id="text-org807388f">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 20: </span>Capture an Elisp code block</label><pre class="src src-elisp" id="org5593b99">("i" "Org-mode inclusion"
+<label class="org-src-name"><span class="listing-number">Listing 20: </span>Capture an Elisp code block</label><pre class="src src-elisp" id="orgc3c1f2b">("i" "Org-mode inclusion"
  plain (clock)
  "#+include: \"%^{INCLUSION}\" %^{OPTIONS}")
 </pre>
@@ -948,6 +948,8 @@ Put the bugfix to ivy-mode not autostarting in the scratch message, with instruc
 <h7 id="org664acd6"><span class="todo PLANNING">PLANNING</span> Preprocessor</h7>
 <div class="outline-text-7" id="text-org664acd6">
 <section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-25 Fri 17:10] </span></span> <br>
+Set the resultant subtree to have a <code>CUSTOM_ID</code> property of <code>backlinks</code></li>
 <li>State "PLANNING"   from              <span class="timestamp-wrapper"><span class="timestamp">[2020-12-24 Thu 11:15] </span></span> <br>
 I'd like to change this to remove duplicate backlink references. In exports, there's no context provided <i>around</i> backlink-links, and the links point to the file, not a headline, so there's no reason to have doubles.</li>
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-22 Tue 16:21] </span></span> <br>
@@ -960,7 +962,7 @@ Changed the backlinks to be two (<code>**</code>) headlines into the file. With 
     (unless (string= links "")
       (save-excursion
 	(goto-char (point-max))
-	(insert (concat "\n** Backlinks\n") links)))))
+	(insert (concat "\n** Backlinks\n   :PROPERTIES:\n   :CUSTOM_ID:   backlinks\n   :END:\n") links)))))
 </pre>
 </div>
 </div>
@@ -1452,6 +1454,9 @@ ul { max-width: 85%; }
    (let ((posts (cdr sitemap)))
      (concat
       (format "#+title: %s\n" title)
+      "#+author: emsenn\n"
+      "#+email: emsenn@emsenn.net\n"
+      (format "#+date: %s\n" (format-time-string "[%Y-%m-%d %a %H:%M:%S]" (current-time)))
       "#+roam_tags: meta\n"
       (org-list-to-org (cons (car sitemap) posts)))))
 </pre>
@@ -1459,6 +1464,8 @@ ul { max-width: 85%; }
 </div>
 </div>
 </div>
+
+
 <div id="outline-container-org51dbb97" class="outline-6">
 <h6 id="org51dbb97">Org-publish projects</h6>
 <div class="outline-text-6" id="text-org51dbb97">
@@ -1860,30 +1867,54 @@ Came back to add the <a href="20201218212733-teraum.html">Teraum</a> subdirector
 </div>
 </div>
 
-<div id="outline-container-orga841271" class="outline-7">
-<h7 id="orga841271">Record</h7>
-<div class="outline-text-7" id="text-orga841271">
-<p>
-A <b><i>record</i></b> is the most basic type of information handled by Groundhog Emacs.
-</p>
-
+<div id="outline-container-org0f17600" class="outline-7">
+<h7 id="org0f17600">Immediate</h7>
+<div class="outline-text-7" id="text-org0f17600">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-25 Fri 16:59] </span></span> <br>
+I don't know where to put this but I was frustrated that <code>org-roam-insert-immediate</code> wasn't doing what I wanted, using this first capture template, but I figured it out! gotta set <code>org-roam-capture-immediate-template</code> <a href="https://github.com/org-roam/org-roam/issues/813">https://github.com/org-roam/org-roam/issues/813</a></li>
+</ul>
+ </section>
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 43: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="orgb94aee5">record-0.1.3
-</pre>
-</div>
-
-<div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 44: </span>The Org-roam capture template for Record</label><pre class="src src-elisp" id="org39770f2">("r" "basic record" plain
+<label class="org-src-name"><span class="listing-number">Listing 43: </span>The Org-roam capture template for Record</label><pre class="src src-elisp" id="orgf79b164">`("r" "record" plain
  (function org-roam--capture-get-point)
- "#+name: definition\n%?\n\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
+ "#+name: definition\n*/[[file:${slug}.org][${title}]]/* is a record I generated automatically, by referring to this term from another record. Try checking the [[#record-history][record's history]] and [[#backlinks][backlinks]] for more information.\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n   :END:\n"
  :file-name "${slug}"
  :head ,(concat "#+title: ${title}\n"
 		"#+begin_head\n"
 		"#+ghe_schema: "
-		"record-0.1.3\n"
+		"reference-0.1.2\n"
 		"#+author: " (user-full-name) "\n"
 		"#+email: " user-mail-address "\n"
 		"#+date: %U\n"
+		"#+roam_tags: term\n"
+		"#+end_head\n\n")
+ :unnarrowed t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga841271" class="outline-7">
+<h7 id="orga841271">Record</h7>
+<div class="outline-text-7" id="text-orga841271">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-25 Fri 16:59] </span></span> <br>
+I don't know where to put this but I was frustrated that <code>org-roam-insert-immediate</code> wasn't doing what I wanted, using this first capture template, but I figured it out! gotta set <code>org-roam-capture-immediate-template</code> <a href="https://github.com/org-roam/org-roam/issues/813">https://github.com/org-roam/org-roam/issues/813</a></li>
+</ul>
+ </section>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 44: </span>The Org-roam capture template for Record</label><pre class="src src-elisp" id="org39770f2">("r" "record" plain
+ (function org-roam--capture-get-point)
+ "#+name: definition\n*/[[file:${slug}.org][${title}]]/* is a record for something I haven't defined yet. Try checking the [[#record-history][record's history]] and [[#backlinks][backlinks]] for more information.\n#+toc: headlines 2\n* Introduction\n   This record is some of what I (emsenn) know about */${title}/*. You may use it without limits or promises.\n* ${title}\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n     %?\n   :END:\n"
+ :file-name "${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"reference-0.1.2\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: term\n"
 		"#+end_head\n\n")
  :unnarrowed t)
 </pre>
@@ -1894,18 +1925,18 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <h7 id="orgdc36e09">Term</h7>
 <div class="outline-text-7" id="text-orgdc36e09">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 45: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org9000b3e">term-0.1.2
+<label class="org-src-name"><span class="listing-number">Listing 45: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org9000b3e">term-0.1.3
 </pre>
 </div>
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 46: </span>blah</label><pre class="src src-elisp" id="org7daf6ca">("t" "term" plain
  (function org-roam--capture-get-point)
- "#+name: definition\n%?\n\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
+ "#+name: definition\n*/[[file:${slug}.org][${title}]]/* is a term I haven't defined yet. Try checking the [[#record-history][record's history]] for more information.\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
  :file-name "${slug}"
  :head ,(concat "#+title: ${title}\n"
 		"#+begin_head\n"
 		"#+ghe_schema: "
-		"reference-0.1.2\n"
+		"term-0.1.3\n"
 		"#+author: " (user-full-name) "\n"
 		"#+email: " user-mail-address "\n"
 		"#+date: %U\n"
@@ -1926,7 +1957,7 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 48: </span>Org-roam capture template for reference records</label><pre class="src src-elisp" id="org5e9930d">("R" "reference" plain
  (function org-roam--capture-get-point)
- "#+roam_key: %^{SOURCE}\n#+end_head\n\n#+name: definition\n%?\n\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
+ "#+roam_key: %^{SOURCE}\n#+end_head\n\n#+name: definition\n%?\n\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
  :file-name "${slug}"
  :head ,(concat "#+title: ${title}\n"
 		"#+begin_head\n"
@@ -1951,7 +1982,7 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 50: </span>Org-roam capture template for person records</label><pre class="src src-elisp" id="orgd7ebc45">("p" "person" plain
  (function org-roam--capture-get-point)
- "#+name: definition\n%?\n\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
+ "#+name: definition\n%?\n\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
  :file-name "${slug}"
  :head ,(concat "#+title: ${title}\n"
 		"#+begin_head\n"
@@ -1976,36 +2007,30 @@ A <b><i>record</i></b> is the most basic type of information handled by Groundho
 </div>
 </div>
 <ul class="org-ul">
-<li><a id="org710a651"></a>Teraum record<br>
-<div class="outline-text-8" id="text-org710a651">
-<div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 52: </span>Org-roam capture-template for general Teraum records</label><pre class="src src-elisp" id="org9da53b0">("Tt" "General entry"
-	    plain (function org-roam--capture-get-point)
-   "#+name: definition\n%?\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
-   :file-name "teraum/${slug}"
-   :head ,(concat "#+title: ${title}\n"
-		  "#+author: " (user-full-name) "\n"
-		  "#+email: " user-mail-address "\n"
-		  "#+date: %U\n"
-		  "#+roam_tags: Teraum")
-   :unnarrowed t)
-</pre>
+<li><a id="orgcd0df8f"></a>Teraum teraum<br>
+<div class="outline-text-8" id="text-orgcd0df8f">
+<div class="text" id="org38992b5">
+<p>
+0.1.1
+</p>
+
 </div>
-</div>
-</li>
-<li><a id="org003af11"></a>Teraum person<br>
-<div class="outline-text-8" id="text-org003af11">
+
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 53: </span>Org-roam capture template for a Teraum person record</label><pre class="src src-elisp" id="orgcfdbd58">("Tp" "Person"
-	    plain (function org-roam--capture-get-point)
-	    "%?\n\n- Species :: %^{SPECIES}\n- Age :: %^{AGE}\n- Pronouns :: %^{PRONOUNS|e/em/eir|she/her/hers|he/him/his|they/them/theirs}\n- Location :: %^{LOCATION}"
-	    :file-name "%&lt;%Y%m%d%H%M%S&gt;-${slug}"
-	    :head ,(concat "#+title: ${title}\n"
-			   "#+author: " (user-full-name) "\n"
-			   "#+email: " user-mail-address "\n"
-			   "#+date: %U\n"
-			   "#+roam_tags: Teraum\n\n")
-	    :unnarrowed t)
+<label class="org-src-name"><span class="listing-number">Listing 52: </span>Org-roam capture-template for general Teraum records</label><pre class="src src-elisp" id="org9da53b0">("t" "term" plain
+ (function org-roam--capture-get-point)
+ "#+name: definition\n*/[[file:${slug}.org][${title}]]/* is a term I haven't defined yet. Try checking the [[#record-history][record's history]] for more information.\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+ :file-name "teraum/${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum term\n"
+		"#+end_head\n\n")
+ :unnarrowed t)
 </pre>
 </div>
 </div>
@@ -2046,7 +2071,7 @@ Fix missing newline in the template header</li>
 </ul>
  </section>
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 54: </span>The capture template for recording an Activity log</label><pre class="src src-elisp" id="org3899ea3">("a" "Activity entry" entry
+<label class="org-src-name"><span class="listing-number">Listing 53: </span>The capture template for recording an Activity log</label><pre class="src src-elisp" id="org3899ea3">("a" "Activity entry" entry
 		    #'org-roam-capture--get-point
 		    "* %U\n%?"
 		    :file-name "d/%&lt;%Y-%m-%d&gt;"
@@ -2058,7 +2083,7 @@ Fix missing newline in the template header</li>
 				   "#+date: %U\n"
 				   "#+roam_tags: daily-record\n"
 				   "#+end_head\n")
-		    :olp ("Activity Log                                                     "))
+		    :olp ("Activity Log                                                     :noexport:"))
 </pre>
 </div>
 </div>
@@ -2066,16 +2091,16 @@ Fix missing newline in the template header</li>
 <li><a id="org372a8c9"></a>Journal entry<br>
 <div class="outline-text-8" id="text-org372a8c9">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 55: </span>The capture template for recording a Journal entry</label><pre class="src src-elisp" id="orgdcfdec8">("j" "Journal entry" entry
+<label class="org-src-name"><span class="listing-number">Listing 54: </span>The capture template for recording a Journal entry</label><pre class="src src-elisp" id="orgdcfdec8">("j" "Journal entry" entry
 		    #'org-roam-capture--get-point
-		    "* %U\n%?"
+		    "* %U\n  %?"
 		    :file-name "d/%&lt;%Y-%m-%d&gt;"
 		    :head ,(concat "#+title: ${title}\n"
 				   "#+author: " (user-full-name) "\n"
 				   "#+email: " user-mail-address "\n"
 				   "#+date: %U\n"
 				   "#+roam_tags: daily-record")
-:olp ("Journal                                                          "))
+:olp ("Journal                                                          :noexport:"))
 </pre>
 </div>
 </div>
@@ -2083,7 +2108,7 @@ Fix missing newline in the template header</li>
 <li><a id="orge61d947"></a>Media log entry<br>
 <div class="outline-text-8" id="text-orge61d947">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 56: </span>The capture template for recording a Media log entry</label><pre class="src src-elisp" id="orgc8043ee">
+<label class="org-src-name"><span class="listing-number">Listing 55: </span>The capture template for recording a Media log entry</label><pre class="src src-elisp" id="orgc8043ee">
 ("m" "Discovered media" entry
  #'org-roam-capture--get-point
  "* DISCOVERED %^{AUTHOR}: \"%^{TITLE}\"\n  :LOGBOOK:\n  - Note taken on %U \\\\\n  %?\n  :END:\n- Source: %^{SOURCE}\n"
@@ -2101,7 +2126,7 @@ Fix missing newline in the template header</li>
 <li><a id="orgb587613"></a>Weather observation<br>
 <div class="outline-text-8" id="text-orgb587613">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 57: </span>blah</label><pre class="src src-elisp" id="orga8fc71b">("w" "Weather observation" entry
+<label class="org-src-name"><span class="listing-number">Listing 56: </span>blah</label><pre class="src src-elisp" id="orga8fc71b">("w" "Weather observation" entry
 		    #'org-roam-capture--get-point
 		    "* %U\n%?"
 		    :file-name "d/%&lt;%Y-%m-%d&gt;"
@@ -2118,7 +2143,7 @@ Fix missing newline in the template header</li>
 <li><a id="orgaf2d994"></a>Thoughts<br>
 <div class="outline-text-8" id="text-orgaf2d994">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 58: </span>blah</label><pre class="src src-elisp" id="org3744eb5">("p" "posting" entry
+<label class="org-src-name"><span class="listing-number">Listing 57: </span>blah</label><pre class="src src-elisp" id="org3744eb5">("p" "posting" entry
  #'org-roam-capture--get-point
  "* %U\n%?"
  :file-name "d/%&lt;%Y-%m-%d&gt;"
@@ -2143,6 +2168,16 @@ Fix missing newline in the template header</li>
 </pre>
 </div>
 </div>
+</div>
+</div>
+<div id="outline-container-orgb572354" class="outline-6">
+<h6 id="orgb572354">Org-roam tags</h6>
+<div class="outline-text-6" id="text-orgb572354">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-25 Fri 15:43] </span></span> <br>
+It would be nice if I could somehow flag records by how long it's been since I manually flagged them as "well-structured and complete." Or otherwise mark like, my&#x2026; opinion of the record's contemporariness and completeness? I'm not sure</li>
+</ul>
+ </section>
 </div>
 </div>
 </div>
@@ -2206,7 +2241,7 @@ The follow code blocks allow for functional use of select Elisp functions within
 <h4 id="org6c15db2">bare-init.el</h4>
 <div class="outline-text-4" id="text-org6c15db2">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 59: </span>A simpler init file, just the basics to fix bugs and the UI</label><pre class="src src-elisp" id="org9fde031">&lt;&lt;emacs-lessthan-26-3-tls-fix-elisp&gt;&gt;
+<label class="org-src-name"><span class="listing-number">Listing 58: </span>A simpler init file, just the basics to fix bugs and the UI</label><pre class="src src-elisp" id="org9fde031">&lt;&lt;emacs-lessthan-26-3-tls-fix-elisp&gt;&gt;
 &lt;&lt;isearch-occur-bugfix-elisp&gt;&gt;
 &lt;&lt;package-installation-elisp&gt;&gt;
 
@@ -2662,7 +2697,7 @@ The follow code blocks allow for functional use of select Elisp functions within
 	    (unless (string= links "")
 	      (save-excursion
 		(goto-char (point-max))
-		(insert (concat "\n** Backlinks\n") links)))))
+		(insert (concat "\n** Backlinks\n   :PROPERTIES:\n   :CUSTOM_ID:   backlinks\n   :END:\n") links)))))
 	(defun ghe-org-html-format-drawer (name contents)
 	  (format "&lt;section class=\"org-drawer\"&gt; %s &lt;/section&gt;" contents))
 	;; from https://www.john2x.com/blog/blogging-with-orgmode.html
@@ -2670,6 +2705,9 @@ The follow code blocks allow for functional use of select Elisp functions within
 	   (let ((posts (cdr sitemap)))
 	     (concat
 	      (format "#+title: %s\n" title)
+	      "#+author: emsenn\n"
+	      "#+email: emsenn@emsenn.net\n"
+	      (format "#+date: %s\n" (format-time-string "[%Y-%m-%d %a %H:%M:%S]" (current-time)))
 	      "#+roam_tags: meta\n"
 	      (org-list-to-org (cons (car sitemap) posts)))))
 	(setq org-capture-templates
@@ -2810,24 +2848,27 @@ The follow code blocks allow for functional use of select Elisp functions within
 			    :from links
 			    :where (= dest $s1)] file))
 	    ""))
+	(setq org-roam-capture-immediate-template
+	  (backquote 
+	  ("r" "record" plain
+	   (function org-roam--capture-get-point)
+	   "#+name: definition\n*/[[file:${slug}.org][${title}]]/* is a record for something I haven't defined yet. Try checking the [[#record-history][record's history]] and [[#backlinks][backlinks]] for more information.\n#+toc: headlines 2\n* Introduction\n   This record is some of what I (emsenn) know about */${title}/*. You may use it without limits or promises.\n* ${title}\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n     %?\n   :END:\n"
+	   :file-name "${slug}"
+	   :head ,(concat "#+title: ${title}\n"
+			"#+begin_head\n"
+			"#+ghe_schema: "
+			"reference-0.1.2\n"
+			"#+author: " (user-full-name) "\n"
+			"#+email: " user-mail-address "\n"
+			"#+date: %U\n"
+			"#+roam_tags: term\n"
+			"#+end_head\n\n")
+	   :unnarrowed t)))
 	(setq org-roam-capture-templates
 	      `(
-		("r" "basic record" plain
+		("r" "record" plain
 		 (function org-roam--capture-get-point)
-		 "#+name: definition\n%?\n\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
-		 :file-name "${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"record-0.1.3\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		("t" "term" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: definition\n%?\n\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
+		 "#+name: definition\n*/[[file:${slug}.org][${title}]]/* is a record for something I haven't defined yet. Try checking the [[#record-history][record's history]] and [[#backlinks][backlinks]] for more information.\n#+toc: headlines 2\n* Introduction\n   This record is some of what I (emsenn) know about */${title}/*. You may use it without limits or promises.\n* ${title}\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n     %?\n   :END:\n"
 		 :file-name "${slug}"
 		 :head ,(concat "#+title: ${title}\n"
 				"#+begin_head\n"
@@ -2839,9 +2880,23 @@ The follow code blocks allow for functional use of select Elisp functions within
 				"#+roam_tags: term\n"
 				"#+end_head\n\n")
 		 :unnarrowed t)
+		("t" "term" plain
+		 (function org-roam--capture-get-point)
+		 "#+name: definition\n*/[[file:${slug}.org][${title}]]/* is a term I haven't defined yet. Try checking the [[#record-history][record's history]] for more information.\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+		 :file-name "${slug}"
+		 :head ,(concat "#+title: ${title}\n"
+				"#+begin_head\n"
+				"#+ghe_schema: "
+				"term-0.1.3\n"
+				"#+author: " (user-full-name) "\n"
+				"#+email: " user-mail-address "\n"
+				"#+date: %U\n"
+				"#+roam_tags: term\n"
+				"#+end_head\n\n")
+		 :unnarrowed t)
 		("R" "reference" plain
 		 (function org-roam--capture-get-point)
-		 "#+roam_key: %^{SOURCE}\n#+end_head\n\n#+name: definition\n%?\n\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
+		 "#+roam_key: %^{SOURCE}\n#+end_head\n\n#+name: definition\n%?\n\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
 		 :file-name "${slug}"
 		 :head ,(concat "#+title: ${title}\n"
 				"#+begin_head\n"
@@ -2854,7 +2909,7 @@ The follow code blocks allow for functional use of select Elisp functions within
 		 :unnarrowed t)
 		("p" "person" plain
 		 (function org-roam--capture-get-point)
-		 "#+name: definition\n%?\n\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
+		 "#+name: definition\n%?\n\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
 		 :file-name "${slug}"
 		 :head ,(concat "#+title: ${title}\n"
 				"#+begin_head\n"
@@ -2867,26 +2922,21 @@ The follow code blocks allow for functional use of select Elisp functions within
 				"#+end_head\n")
 		 :unnarrowed t)
 		("T" "Teraum")
-		("Tt" "General entry"
-			    plain (function org-roam--capture-get-point)
-		   "#+name: definition\n%?\n#toc: headlines 2\n* Intrododuction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
-		   :file-name "teraum/${slug}"
-		   :head ,(concat "#+title: ${title}\n"
-				  "#+author: " (user-full-name) "\n"
-				  "#+email: " user-mail-address "\n"
-				  "#+date: %U\n"
-				  "#+roam_tags: Teraum")
-		   :unnarrowed t)
-		("Tp" "Person"
-			    plain (function org-roam--capture-get-point)
-			    "%?\n\n- Species :: %^{SPECIES}\n- Age :: %^{AGE}\n- Pronouns :: %^{PRONOUNS|e/em/eir|she/her/hers|he/him/his|they/them/theirs}\n- Location :: %^{LOCATION}"
-			    :file-name "%&lt;%Y%m%d%H%M%S&gt;-${slug}"
-			    :head ,(concat "#+title: ${title}\n"
-					   "#+author: " (user-full-name) "\n"
-					   "#+email: " user-mail-address "\n"
-					   "#+date: %U\n"
-					   "#+roam_tags: Teraum\n\n")
-			    :unnarrowed t)))
+		("t" "term" plain
+		 (function org-roam--capture-get-point)
+		 "#+name: definition\n*/[[file:${slug}.org][${title}]]/* is a term I haven't defined yet. Try checking the [[#record-history][record's history]] for more information.\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+		 :file-name "teraum/${slug}"
+		 :head ,(concat "#+title: ${title}\n"
+				"#+begin_head\n"
+				"#+ghe_schema: "
+				"\n"
+				"#+author: " (user-full-name) "\n"
+				"#+email: " user-mail-address "\n"
+				"#+date: %U\n"
+				"#+roam_tags: Teraum term\n"
+				"#+end_head\n\n")
+		 :unnarrowed t)
+		))
 	(setq org-roam-dailies-capture-templates
 	      `(
 		("a" "Activity entry" entry
@@ -2901,17 +2951,17 @@ The follow code blocks allow for functional use of select Elisp functions within
 						   "#+date: %U\n"
 						   "#+roam_tags: daily-record\n"
 						   "#+end_head\n")
-				    :olp ("Activity Log                                                     "))
+				    :olp ("Activity Log                                                     :noexport:"))
 		("j" "Journal entry" entry
 				    #'org-roam-capture--get-point
-				    "* %U\n%?"
+				    "* %U\n  %?"
 				    :file-name "d/%&lt;%Y-%m-%d&gt;"
 				    :head ,(concat "#+title: ${title}\n"
 						   "#+author: " (user-full-name) "\n"
 						   "#+email: " user-mail-address "\n"
 						   "#+date: %U\n"
 						   "#+roam_tags: daily-record")
-		:olp ("Journal                                                          "))
+		:olp ("Journal                                                          :noexport:"))
 
 		("m" "Discovered media" entry
 		 #'org-roam-capture--get-point
@@ -2964,13 +3014,15 @@ The follow code blocks allow for functional use of select Elisp functions within
 <h4 id="orgba69201">style.css</h4>
 </div>
 </div>
-<div id="outline-container-org81654f9" class="outline-3">
-<h3 id="org81654f9">Backlinks</h3>
-<div class="outline-text-3" id="text-org81654f9">
+<div id="outline-container-backlinks" class="outline-3">
+<h3 id="backlinks">Backlinks</h3>
+<div class="outline-text-3" id="text-backlinks">
 <ul class="org-ul">
 <li><a href="d/2020-12-22.html">2020-12-22</a></li>
 <li><a href="d/2020-12-23.html">2020-12-23</a></li>
 <li><a href="index.html">emsenn's digital garden</a></li>
+<li><a href="records.html">Records Index</a></li>
+<li><a href="d/2020-12-25.html">2020-12-25</a></li>
 </ul>
 </div>
 </div>
@@ -2979,7 +3031,7 @@ The follow code blocks allow for functional use of select Elisp functions within
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-18 Fri 14:06</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-24 Thu 22:35</p>
+<p class="date">Created: 2020-12-25 Fri 20:37</p>
 </section>
 </body>
 </html>
