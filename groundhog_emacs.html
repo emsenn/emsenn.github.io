@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-26 Sat 12:18 -->
+<!-- 2020-12-29 Tue 11:06 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Groundhog Emacs</title>
@@ -202,10 +202,10 @@
 <main id="content">
 <header>
 <h1 class="title">Groundhog Emacs</h1>
-</header><div class="head" id="org587a18f">
+</header><div class="head" id="org3b18d36">
 
 </div>
-<summary id="org149a9a9">
+<summary id="org39addf1">
 <p>
 <b><i>Groundhog Emacs</i></b> is my name for my <a href="20201216162844-emacsen.html">Emacsen</a>: my primary <a href="tool.html">tool</a> for doing <a href="information_management.html">information management</a> using a <a href="20201217094215-computer.html">computer</a>.
 </p>
@@ -875,15 +875,15 @@ Put the bugfix to ivy-mode not autostarting in the scratch message, with instruc
 <h7 id="orga90c541">Capture source code block</h7>
 <div class="outline-text-7" id="text-orga90c541">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 17: </span>The capture template for capturing source blocks</label><pre class="src src-elisp" id="org2c3ac76">("s" "Capture source code block")
+<label class="org-src-name"><span class="listing-number">Listing 17: </span>The capture template for capturing source blocks</label><pre class="src src-elisp" id="org1a84848">("s" "Capture source code block")
 </pre>
 </div>
 </div>
 <ul class="org-ul">
-<li><a id="org4432372"></a>Capture Elisp source block<br>
-<div class="outline-text-8" id="text-org4432372">
+<li><a id="org0726eaa"></a>Capture Elisp source block<br>
+<div class="outline-text-8" id="text-org0726eaa">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 18: </span>Capture an Elisp code block</label><pre class="src src-elisp" id="org5bd4943">("se" "Elisp code block"
+<label class="org-src-name"><span class="listing-number">Listing 18: </span>Capture an Elisp code block</label><pre class="src src-elisp" id="orgdb7d183">("se" "Elisp code block"
 	     plain (clock)
 	     ,(concat "#+name: %^{NAME}-elisp\n"
 		      "#+caption: %^{CAPTION}\n"
@@ -900,15 +900,15 @@ Put the bugfix to ivy-mode not autostarting in the scratch message, with instruc
 <h7 id="org61fd8b6">Capture inclusion</h7>
 <div class="outline-text-7" id="text-org61fd8b6">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 19: </span>The capture template for capturing source blocks</label><pre class="src src-elisp" id="org612a995">("s" "Capture source code block")
+<label class="org-src-name"><span class="listing-number">Listing 19: </span>The capture template for capturing source blocks</label><pre class="src src-elisp" id="org3a6826a">("s" "Capture source code block")
 </pre>
 </div>
 </div>
 <ul class="org-ul">
-<li><a id="orgc6cf7e5"></a>Capture Elisp source block<br>
-<div class="outline-text-8" id="text-orgc6cf7e5">
+<li><a id="org923aa5b"></a>Capture Elisp source block<br>
+<div class="outline-text-8" id="text-org923aa5b">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 20: </span>Capture an Elisp code block</label><pre class="src src-elisp" id="orgde3e144">("i" "Org-mode inclusion"
+<label class="org-src-name"><span class="listing-number">Listing 20: </span>Capture an Elisp code block</label><pre class="src src-elisp" id="orgabbcefc">("i" "Org-mode inclusion"
  plain (clock)
  "#+include: \"%^{INCLUSION}\" %^{OPTIONS}")
 </pre>
@@ -1865,15 +1865,16 @@ Came back to add the <a href="20201218212733-teraum.html">Teraum</a> subdirector
 </ul></li>
 </ul>
 </div>
-</div>
 
-<div id="outline-container-org0f17600" class="outline-7">
-<h7 id="org0f17600">Immediate</h7>
-<div class="outline-text-7" id="text-org0f17600">
+<ul class="org-ul">
+<li><a id="org0f17600"></a>Immediate<br>
+<div class="outline-text-8" id="text-org0f17600">
 <section class="org-drawer"> <ul class="org-ul">
-<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-25 Fri 16:59] </span></span> <br>
-I don't know where to put this but I was frustrated that <code>org-roam-insert-immediate</code> wasn't doing what I wanted, using this first capture template, but I figured it out! gotta set <code>org-roam-capture-immediate-template</code> <a href="https://github.com/org-roam/org-roam/issues/813">https://github.com/org-roam/org-roam/issues/813</a></li>
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-25 Fri 16:59] </span></span> <br></li>
 </ul>
+<p>
+I don't know where to put this but I was frustrated that <code>org-roam-insert-immediate</code> wasn't doing what I wanted, using this first capture template, but I figured it out! gotta set <code>org-roam-capture-immediate-template</code> <a href="https://github.com/org-roam/org-roam/issues/813">https://github.com/org-roam/org-roam/issues/813</a>
+</p>
  </section>
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 43: </span>The Org-roam capture template for Record</label><pre class="src src-elisp" id="orgf79b164">`("r" "record" plain
@@ -1893,14 +1894,15 @@ I don't know where to put this but I was frustrated that <code>org-roam-insert-i
 </pre>
 </div>
 </div>
-</div>
-<div id="outline-container-orga841271" class="outline-7">
-<h7 id="orga841271">Record</h7>
-<div class="outline-text-7" id="text-orga841271">
+</li>
+<li><a id="orga841271"></a>Record<br>
+<div class="outline-text-8" id="text-orga841271">
 <section class="org-drawer"> <ul class="org-ul">
-<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-25 Fri 16:59] </span></span> <br>
-I don't know where to put this but I was frustrated that <code>org-roam-insert-immediate</code> wasn't doing what I wanted, using this first capture template, but I figured it out! gotta set <code>org-roam-capture-immediate-template</code> <a href="https://github.com/org-roam/org-roam/issues/813">https://github.com/org-roam/org-roam/issues/813</a></li>
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-25 Fri 16:59] </span></span> <br></li>
 </ul>
+<p>
+I don't know where to put this but I was frustrated that <code>org-roam-insert-immediate</code> wasn't doing what I wanted, using this first capture template, but I figured it out! gotta set <code>org-roam-capture-immediate-template</code> <a href="https://github.com/org-roam/org-roam/issues/813">https://github.com/org-roam/org-roam/issues/813</a>
+</p>
  </section>
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 44: </span>The Org-roam capture template for Record</label><pre class="src src-elisp" id="org39770f2">("r" "record" plain
@@ -1920,10 +1922,9 @@ I don't know where to put this but I was frustrated that <code>org-roam-insert-i
 </pre>
 </div>
 </div>
-</div>
-<div id="outline-container-orgdc36e09" class="outline-7">
-<h7 id="orgdc36e09">Term</h7>
-<div class="outline-text-7" id="text-orgdc36e09">
+</li>
+<li><a id="orgdc36e09"></a>Term<br>
+<div class="outline-text-8" id="text-orgdc36e09">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 45: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org9000b3e">term-0.1.3
 </pre>
@@ -1946,10 +1947,9 @@ I don't know where to put this but I was frustrated that <code>org-roam-insert-i
 </pre>
 </div>
 </div>
-</div>
-<div id="outline-container-org69c1376" class="outline-7">
-<h7 id="org69c1376">Reference</h7>
-<div class="outline-text-7" id="text-org69c1376">
+</li>
+<li><a id="org69c1376"></a>Reference<br>
+<div class="outline-text-8" id="text-org69c1376">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 47: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org923f9fc">reference-0.1.2
 </pre>
@@ -1971,10 +1971,9 @@ I don't know where to put this but I was frustrated that <code>org-roam-insert-i
 </pre>
 </div>
 </div>
-</div>
-<div id="outline-container-org65d4a56" class="outline-7">
-<h7 id="org65d4a56">Person</h7>
-<div class="outline-text-7" id="text-org65d4a56">
+</li>
+<li><a id="org65d4a56"></a>Person<br>
+<div class="outline-text-8" id="text-org65d4a56">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 49: </span>The currently active version of the <code>record</code> schema.</label><pre class="src src-text" id="org7a9e3de">person-0.1.2
 </pre>
@@ -1997,10 +1996,9 @@ I don't know where to put this but I was frustrated that <code>org-roam-insert-i
 </pre>
 </div>
 </div>
-</div>
-<div id="outline-container-org9e2ce15" class="outline-7">
-<h7 id="org9e2ce15">Teraum</h7>
-<div class="outline-text-7" id="text-org9e2ce15">
+</li>
+<li><a id="org9e2ce15"></a>Teraum<br>
+<div class="outline-text-8" id="text-org9e2ce15">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 51: </span>Org-roam capture template for Teraum records</label><pre class="src src-elisp" id="org4a93101">("T" "Teraum")
 </pre>
@@ -2008,7 +2006,7 @@ I don't know where to put this but I was frustrated that <code>org-roam-insert-i
 </div>
 <ul class="org-ul">
 <li><a id="orgcd0df8f"></a>Teraum teraum<br>
-<div class="outline-text-8" id="text-orgcd0df8f">
+<div class="outline-text-9" id="text-orgcd0df8f">
 <div class="text" id="org38992b5">
 <p>
 0.1.1
@@ -2034,6 +2032,8 @@ I don't know where to put this but I was frustrated that <code>org-roam-insert-i
 </pre>
 </div>
 </div>
+</li>
+</ul>
 </li>
 </ul>
 </div>
@@ -2063,6 +2063,29 @@ I don't know where to put this but I was frustrated that <code>org-roam-insert-i
 </ul>
 </div>
 </li>
+<li><a id="orga2b5bf0"></a>Shared template<br>
+<div class="outline-text-8" id="text-orga2b5bf0">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 53: </span>The configuration shared between different Org-roam dailies capture templates.</label><pre class="src src-elisp" id="org9ee73e8">:file-name "d/%&lt;%Y-%m-%d&gt;"
+:head ,(concat "#+title: ${title}\n"
+	       "#+ghe_schema: daily-record-0.1.1\n"
+	       "#+author: " (user-full-name) "\n"
+	       "#+email: " user-mail-address "\n"
+	       "#+date: %U\n"
+	       "#+roam_tags: daily-record\n\n"
+	       "#+name: definition\n"
+	       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
+	       "#+toc: headlines 2\n\n"
+	       "* Activity Log                                                     :noexport:\n\n"
+	       "* Journal                                                          :noexport:\n\n"
+	       "* Weather observations\n\n"
+	       "* Postings\n\n"
+	       "* Media log\n\n"
+	       "* Reposts\n\n")
+</pre>
+</div>
+</div>
+</li>
 <li><a id="orge1632bc"></a>Activity<br>
 <div class="outline-text-8" id="text-orge1632bc">
 <section class="org-drawer"> <ul class="org-ul">
@@ -2071,19 +2094,26 @@ Fix missing newline in the template header</li>
 </ul>
  </section>
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 53: </span>The capture template for recording an Activity log</label><pre class="src src-elisp" id="org3899ea3">("a" "Activity entry" entry
-		    #'org-roam-capture--get-point
-		    "* %U\n%?"
-		    :file-name "d/%&lt;%Y-%m-%d&gt;"
-		    :head ,(concat "#+title: ${title}\n"
-				   "#+begin_head\n"
-				   "#+ghe_schema: daily-record-0.1.0\n"
-				   "#+author: " (user-full-name) "\n"
-				   "#+email: " user-mail-address "\n"
-				   "#+date: %U\n"
-				   "#+roam_tags: daily-record\n"
-				   "#+end_head\n")
-		    :olp ("Activity Log                                                     :noexport:"))
+<label class="org-src-name"><span class="listing-number">Listing 54: </span>The capture template for recording an Activity log</label><pre class="src src-elisp" id="org3899ea3">("a" "Activity entry" entry
+ #'org-roam-capture--get-point
+ "* %U\n  %?"
+ :file-name "d/%&lt;%Y-%m-%d&gt;"
+ :head ,(concat "#+title: ${title}\n"
+	       "#+ghe_schema: daily-record-0.1.1\n"
+	       "#+author: " (user-full-name) "\n"
+	       "#+email: " user-mail-address "\n"
+	       "#+date: %U\n"
+	       "#+roam_tags: daily-record\n\n"
+	       "#+name: definition\n"
+	       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
+	       "#+toc: headlines 2\n\n"
+	       "* Activity Log                                                     :noexport:\n\n"
+	       "* Journal                                                          :noexport:\n\n"
+	       "* Weather observations\n\n"
+	       "* Postings\n\n"
+	       "* Media log\n\n"
+	       "* Reposts\n\n")
+ :olp ("Activity Log"))
 </pre>
 </div>
 </div>
@@ -2091,16 +2121,26 @@ Fix missing newline in the template header</li>
 <li><a id="org372a8c9"></a>Journal entry<br>
 <div class="outline-text-8" id="text-org372a8c9">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 54: </span>The capture template for recording a Journal entry</label><pre class="src src-elisp" id="orgdcfdec8">("j" "Journal entry" entry
-		    #'org-roam-capture--get-point
-		    "* %U\n  %?"
-		    :file-name "d/%&lt;%Y-%m-%d&gt;"
-		    :head ,(concat "#+title: ${title}\n"
-				   "#+author: " (user-full-name) "\n"
-				   "#+email: " user-mail-address "\n"
-				   "#+date: %U\n"
-				   "#+roam_tags: daily-record")
-:olp ("Journal                                                          :noexport:"))
+<label class="org-src-name"><span class="listing-number">Listing 55: </span>The capture template for recording a Journal entry</label><pre class="src src-elisp" id="orgdcfdec8">("j" "Journal entry" entry
+ #'org-roam-capture--get-point
+ "* %U\n  %?"
+ :file-name "d/%&lt;%Y-%m-%d&gt;"
+ :head ,(concat "#+title: ${title}\n"
+	       "#+ghe_schema: daily-record-0.1.1\n"
+	       "#+author: " (user-full-name) "\n"
+	       "#+email: " user-mail-address "\n"
+	       "#+date: %U\n"
+	       "#+roam_tags: daily-record\n\n"
+	       "#+name: definition\n"
+	       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
+	       "#+toc: headlines 2\n\n"
+	       "* Activity Log                                                     :noexport:\n\n"
+	       "* Journal                                                          :noexport:\n\n"
+	       "* Weather observations\n\n"
+	       "* Postings\n\n"
+	       "* Media log\n\n"
+	       "* Reposts\n\n")
+ :olp ("Journal"))
 </pre>
 </div>
 </div>
@@ -2108,17 +2148,32 @@ Fix missing newline in the template header</li>
 <li><a id="orge61d947"></a>Media log entry<br>
 <div class="outline-text-8" id="text-orge61d947">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 55: </span>The capture template for recording a Media log entry</label><pre class="src src-elisp" id="orgc8043ee">
-("m" "Discovered media" entry
+<label class="org-src-name"><span class="listing-number">Listing 56: </span>The capture template for recording a Media log entry</label><pre class="src src-elisp" id="orgc8043ee">
+("m" "Found media" entry
  #'org-roam-capture--get-point
- "* DISCOVERED %^{AUTHOR}: \"%^{TITLE}\"\n  :LOGBOOK:\n  - Note taken on %U \\\\\n  %?\n  :END:\n- Source: %^{SOURCE}\n"
+ ,(concat "* FOUND %^{AUTHOR}: \"%^{TITLE}\"\n"
+	  "   :LOGBOOK:\n"
+	  "   - Note taken on %U \\\\\n"
+	  "   %?\n"
+	  "   :END:\n"
+	  "   - Source: %^{SOURCE}\n")
  :file-name "d/%&lt;%Y-%m-%d&gt;"
  :head ,(concat "#+title: ${title}\n"
-		"#+author: " (user-full-name) "\n"
-		"#+email: " user-mail-address "\n"
-		"#+date: %U\n"
-		"#+roam_tags: daily-record")
- :olp ("Media log                                                        "))
+	       "#+ghe_schema: daily-record-0.1.1\n"
+	       "#+author: " (user-full-name) "\n"
+	       "#+email: " user-mail-address "\n"
+	       "#+date: %U\n"
+	       "#+roam_tags: daily-record\n\n"
+	       "#+name: definition\n"
+	       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
+	       "#+toc: headlines 2\n\n"
+	       "* Activity Log                                                     :noexport:\n\n"
+	       "* Journal                                                          :noexport:\n\n"
+	       "* Weather observations\n\n"
+	       "* Postings\n\n"
+	       "* Media log\n\n"
+	       "* Reposts\n\n")
+ :olp ("Media log"))
 </pre>
 </div>
 </div>
@@ -2126,24 +2181,34 @@ Fix missing newline in the template header</li>
 <li><a id="orgb587613"></a>Weather observation<br>
 <div class="outline-text-8" id="text-orgb587613">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 56: </span>blah</label><pre class="src src-elisp" id="orga8fc71b">("w" "Weather observation" entry
-		    #'org-roam-capture--get-point
-		    "* %U\n%?"
-		    :file-name "d/%&lt;%Y-%m-%d&gt;"
-		    :head ,(concat "#+title: ${title}\n"
-				   "#+author: " (user-full-name) "\n"
-				   "#+email: " user-mail-address "\n"
-				   "#+date: %U\n"
-				   "#+roam_tags: daily-record")
-		    :olp ("Weather                                                          "))
+<label class="org-src-name"><span class="listing-number">Listing 57: </span>blah</label><pre class="src src-elisp" id="orga8fc71b">("w" "Weather observation" entry
+ #'org-roam-capture--get-point
+ "** %U\n%?"
+ :file-name "d/%&lt;%Y-%m-%d&gt;"
+ :head ,(concat "#+title: ${title}\n"
+	       "#+ghe_schema: daily-record-0.1.1\n"
+	       "#+author: " (user-full-name) "\n"
+	       "#+email: " user-mail-address "\n"
+	       "#+date: %U\n"
+	       "#+roam_tags: daily-record\n\n"
+	       "#+name: definition\n"
+	       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
+	       "#+toc: headlines 2\n\n"
+	       "* Activity Log                                                     :noexport:\n\n"
+	       "* Journal                                                          :noexport:\n\n"
+	       "* Weather observations\n\n"
+	       "* Postings\n\n"
+	       "* Media log\n\n"
+	       "* Reposts\n\n")
+ :olp ("Weather"))
 </pre>
 </div>
 </div>
 </li>
-<li><a id="orgaf2d994"></a>Thoughts<br>
-<div class="outline-text-8" id="text-orgaf2d994">
+<li><a id="org77a94a1"></a>Postings<br>
+<div class="outline-text-8" id="text-org77a94a1">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 57: </span>blah</label><pre class="src src-elisp" id="org3744eb5">("p" "posting" entry
+<label class="org-src-name"><span class="listing-number">Listing 58: </span>blah</label><pre class="src src-elisp" id="org49fbc61">("p" "posting" entry
  #'org-roam-capture--get-point
  "* %U\n%?"
  :file-name "d/%&lt;%Y-%m-%d&gt;"
@@ -2241,7 +2306,7 @@ The follow code blocks allow for functional use of select Elisp functions within
 <h4 id="org6c15db2">bare-init.el</h4>
 <div class="outline-text-4" id="text-org6c15db2">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 58: </span>A simpler init file, just the basics to fix bugs and the UI</label><pre class="src src-elisp" id="org9fde031">&lt;&lt;emacs-lessthan-26-3-tls-fix-elisp&gt;&gt;
+<label class="org-src-name"><span class="listing-number">Listing 59: </span>A simpler init file, just the basics to fix bugs and the UI</label><pre class="src src-elisp" id="org9fde031">&lt;&lt;emacs-lessthan-26-3-tls-fix-elisp&gt;&gt;
 &lt;&lt;isearch-occur-bugfix-elisp&gt;&gt;
 &lt;&lt;package-installation-elisp&gt;&gt;
 
@@ -2940,49 +3005,91 @@ The follow code blocks allow for functional use of select Elisp functions within
 	(setq org-roam-dailies-capture-templates
 	      `(
 		("a" "Activity entry" entry
-				    #'org-roam-capture--get-point
-				    "* %U\n%?"
-				    :file-name "d/%&lt;%Y-%m-%d&gt;"
-				    :head ,(concat "#+title: ${title}\n"
-						   "#+begin_head\n"
-						   "#+ghe_schema: daily-record-0.1.0\n"
-						   "#+author: " (user-full-name) "\n"
-						   "#+email: " user-mail-address "\n"
-						   "#+date: %U\n"
-						   "#+roam_tags: daily-record\n"
-						   "#+end_head\n")
-				    :olp ("Activity Log                                                     :noexport:"))
-		("j" "Journal entry" entry
-				    #'org-roam-capture--get-point
-				    "* %U\n  %?"
-				    :file-name "d/%&lt;%Y-%m-%d&gt;"
-				    :head ,(concat "#+title: ${title}\n"
-						   "#+author: " (user-full-name) "\n"
-						   "#+email: " user-mail-address "\n"
-						   "#+date: %U\n"
-						   "#+roam_tags: daily-record")
-		:olp ("Journal                                                          :noexport:"))
-
-		("m" "Discovered media" entry
 		 #'org-roam-capture--get-point
-		 "* DISCOVERED %^{AUTHOR}: \"%^{TITLE}\"\n  :LOGBOOK:\n  - Note taken on %U \\\\\n  %?\n  :END:\n- Source: %^{SOURCE}\n"
+		 "* %U\n  %?"
 		 :file-name "d/%&lt;%Y-%m-%d&gt;"
 		 :head ,(concat "#+title: ${title}\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: daily-record")
-		 :olp ("Media log                                                        "))
+			       "#+ghe_schema: daily-record-0.1.1\n"
+			       "#+author: " (user-full-name) "\n"
+			       "#+email: " user-mail-address "\n"
+			       "#+date: %U\n"
+			       "#+roam_tags: daily-record\n\n"
+			       "#+name: definition\n"
+			       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
+			       "#+toc: headlines 2\n\n"
+			       "* Activity Log                                                     :noexport:\n\n"
+			       "* Journal                                                          :noexport:\n\n"
+			       "* Weather observations\n\n"
+			       "* Postings\n\n"
+			       "* Media log\n\n"
+			       "* Reposts\n\n")
+		 :olp ("Activity Log"))
+		("j" "Journal entry" entry
+		 #'org-roam-capture--get-point
+		 "* %U\n  %?"
+		 :file-name "d/%&lt;%Y-%m-%d&gt;"
+		 :head ,(concat "#+title: ${title}\n"
+			       "#+ghe_schema: daily-record-0.1.1\n"
+			       "#+author: " (user-full-name) "\n"
+			       "#+email: " user-mail-address "\n"
+			       "#+date: %U\n"
+			       "#+roam_tags: daily-record\n\n"
+			       "#+name: definition\n"
+			       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
+			       "#+toc: headlines 2\n\n"
+			       "* Activity Log                                                     :noexport:\n\n"
+			       "* Journal                                                          :noexport:\n\n"
+			       "* Weather observations\n\n"
+			       "* Postings\n\n"
+			       "* Media log\n\n"
+			       "* Reposts\n\n")
+		 :olp ("Journal"))
+
+		("m" "Found media" entry
+		 #'org-roam-capture--get-point
+		 ,(concat "* FOUND %^{AUTHOR}: \"%^{TITLE}\"\n"
+			  "   :LOGBOOK:\n"
+			  "   - Note taken on %U \\\\\n"
+			  "   %?\n"
+			  "   :END:\n"
+			  "   - Source: %^{SOURCE}\n")
+		 :file-name "d/%&lt;%Y-%m-%d&gt;"
+		 :head ,(concat "#+title: ${title}\n"
+			       "#+ghe_schema: daily-record-0.1.1\n"
+			       "#+author: " (user-full-name) "\n"
+			       "#+email: " user-mail-address "\n"
+			       "#+date: %U\n"
+			       "#+roam_tags: daily-record\n\n"
+			       "#+name: definition\n"
+			       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
+			       "#+toc: headlines 2\n\n"
+			       "* Activity Log                                                     :noexport:\n\n"
+			       "* Journal                                                          :noexport:\n\n"
+			       "* Weather observations\n\n"
+			       "* Postings\n\n"
+			       "* Media log\n\n"
+			       "* Reposts\n\n")
+		 :olp ("Media log"))
 		("w" "Weather observation" entry
-				    #'org-roam-capture--get-point
-				    "* %U\n%?"
-				    :file-name "d/%&lt;%Y-%m-%d&gt;"
-				    :head ,(concat "#+title: ${title}\n"
-						   "#+author: " (user-full-name) "\n"
-						   "#+email: " user-mail-address "\n"
-						   "#+date: %U\n"
-						   "#+roam_tags: daily-record")
-				    :olp ("Weather                                                          "))
+		 #'org-roam-capture--get-point
+		 "** %U\n%?"
+		 :file-name "d/%&lt;%Y-%m-%d&gt;"
+		 :head ,(concat "#+title: ${title}\n"
+			       "#+ghe_schema: daily-record-0.1.1\n"
+			       "#+author: " (user-full-name) "\n"
+			       "#+email: " user-mail-address "\n"
+			       "#+date: %U\n"
+			       "#+roam_tags: daily-record\n\n"
+			       "#+name: definition\n"
+			       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
+			       "#+toc: headlines 2\n\n"
+			       "* Activity Log                                                     :noexport:\n\n"
+			       "* Journal                                                          :noexport:\n\n"
+			       "* Weather observations\n\n"
+			       "* Postings\n\n"
+			       "* Media log\n\n"
+			       "* Reposts\n\n")
+		 :olp ("Weather"))
 		("p" "posting" entry
 		 #'org-roam-capture--get-point
 		 "* %U\n%?"
@@ -3020,27 +3127,29 @@ The follow code blocks allow for functional use of select Elisp functions within
 <ul class="org-ul">
 <li><a href="index.html">emsenn's digital garden</a></li>
 <li><a href="d/2020-12-25.html">2020-12-25</a></li>
+<li><a href="note.html">note</a></li>
+<li><a href="d/2020-12-16.html">2020-12-16</a></li>
+<li><a href="d/2020-12-16.html">2020-12-16</a></li>
+<li><a href="d/2020-12-16.html">2020-12-16</a></li>
+<li><a href="d/2020-12-17.html">2020-12-17</a></li>
+<li><a href="d/2020-12-17.html">2020-12-17</a></li>
+<li><a href="groundhog_emacsen.html">Groundhog Emacsen</a></li>
 <li><a href="d/2020-12-23.html">2020-12-23</a></li>
 <li><a href="groundhog_record.html">Groundhog record</a></li>
-<li><a href="20201218212733-teraum.html">Teraum</a></li>
-<li><a href="d/2020-12-21.html">2020-12-21</a></li>
+<li><a href="teraum.html">Teraum</a></li>
 <li><a href="d/2020-12-19.html">2020-12-19</a></li>
-<li><a href="d/2020-12-22.html">2020-12-22</a></li>
-<li><a href="d/2020-12-22.html">2020-12-22</a></li>
-<li><a href="d/2020-12-22.html">2020-12-22</a></li>
-<li><a href="20201218102810-groundhog_emacsen.html">Groundhog Emacsen</a></li>
-<li><a href="d/2020-12-18.html">2020-12-18</a></li>
-<li><a href="d/2020-12-18.html">2020-12-18</a></li>
-<li><a href="d/2020-12-18.html">2020-12-18</a></li>
-<li><a href="d/2020-12-18.html">2020-12-18</a></li>
-<li><a href="d/2020-12-18.html">2020-12-18</a></li>
 <li><a href="d/2020-12-20.html">2020-12-20</a></li>
-<li><a href="d/2020-12-17.html">2020-12-17</a></li>
-<li><a href="d/2020-12-17.html">2020-12-17</a></li>
-<li><a href="d/2020-12-16.html">2020-12-16</a></li>
-<li><a href="d/2020-12-16.html">2020-12-16</a></li>
-<li><a href="d/2020-12-16.html">2020-12-16</a></li>
-<li><a href="note.html">note</a></li>
+<li><a href="d/2020-12-21.html">2020-12-21</a></li>
+<li><a href="d/2020-12-22.html">2020-12-22</a></li>
+<li><a href="d/2020-12-22.html">2020-12-22</a></li>
+<li><a href="d/2020-12-22.html">2020-12-22</a></li>
+<li><a href="d/2020-12-18.html">2020-12-18</a></li>
+<li><a href="d/2020-12-18.html">2020-12-18</a></li>
+<li><a href="d/2020-12-18.html">2020-12-18</a></li>
+<li><a href="d/2020-12-18.html">2020-12-18</a></li>
+<li><a href="d/2020-12-18.html">2020-12-18</a></li>
+<li><a href="d/2020-12-28.html">2020-12-28</a></li>
+<li><a href="d/2020-12-28.html">2020-12-28</a></li>
 <li><a href="records.html">Records Index</a></li>
 </ul>
 </div>
@@ -3050,7 +3159,7 @@ The follow code blocks allow for functional use of select Elisp functions within
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-18 Fri 14:06</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-26 Sat 12:18</p>
+<p class="date">Created: 2020-12-29 Tue 11:06</p>
 </section>
 </body>
 </html>

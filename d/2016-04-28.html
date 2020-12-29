@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2020-12-29 Tue 11:15 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2014-10-29</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+	@charset "UTF-8";
+	
+	:root {
+	    --body-font: sans-serif;
+	    --header-font: sans-serif;
+	    --code-font: monospace;
+	    --primary-color: #ffe;
+	    --primary-dim-color: #eed;
+	    --secondary-color: #312;
+	    --secondary-dim-color: #756;
+	    --link-color: #880;
+	    --link-hover-color: #aa2;
+	    --link-visited-color: #934;
+	    --link-visited-hover-color: #b56;
+	    --external-link-color: #008;
+	    --external-link-hover-color: #60b;
+	    --external-link-visited-color: #172;
+	    --external-link-visited-hover-color: #394;
+	}
+	@media(prefers-color-scheme:dark){
+	    :root {
+		--body-font: sans-serif;
+		--header-font: sans-serif;
+		--code-font: monospace;
+		--primary-color: #756;
+		--primary-dim-color: #312;
+		--secondary-color: #eed;
+		--secondary-dim-color: #ffe;
+		--link-color: #880;
+		--link-hover-color: #aa2;
+		--link-visited-color: #934;
+		--link-visited-hover-color: #b56;
+	    }}
+	body {
+	    position: relative;
+	    min-height: 100%;
+	    background-color: var(--primary-color);
+	    color: var(--secondary-color);
+	    margin: 0 auto;
+	    font-family: sans-serif;
+	}
+	main, #content {
+	    background-color: var(--primary-dim-color);
+	    border-left: 1.5em dotted var(--primary-color);
+	    padding: 1em;
+	}
+	header {
+	    border-bottom: 0.8em dotted var(--secondary-dim-color);
+	}
+	h1 { font-size: 2em; margin-bottom: 0; }
+	h2 {
+	    border-bottom: 0.3em dotted var(--secondary-dim-color);
+	}
+	h2, h3, h4, h5, h6, p, .org-src-container {
+	    width: 60%;
+	}
+	aside {
+	    float: right;
+	    width: 35%;
+	}
+	aside p { width: 100%; }
+	@media screen and (max-width:760px) {
+	    h2, h3, h4, h5, h6, p, .org-src-container {
+		width: 90%;
+	    }
+	    aside {
+		float: inherit;
+		width: 90%;
+		border-top: 0.2em dotted var(--secondary-dim-color);
+		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+		font-size: 0.8em;
+		  }
+	}
+	
+	footer, #postamble, #preamble {
+	    padding: 0.5em;
+	}
+	table {
+	    border-collapse: collapse;
+	    border-spacing: 0;
+	    empty-cells: show;
+	    border: 0.1em solid #444;
+	}
+	thead { font-family: sans-serif; }
+	th, td {
+	    padding: 0 0.3em;
+	    border: 0.01em solid #444;
+	}
+	img {
+	    max-width: 80vw;
+	    vertical-align: middle;
+	}
+	pre, .src {
+	    padding: 0.5em;
+	    border: 0.1em solid #444;
+	    white-space: pre-wrap;
+	    overflow-x: scroll;
+	    text-overflow: clip;
+	    scrollbar-width: none;
+	}
+	pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+	    display: none;
+	}
+	
+	
+	dt {
+	    font-weight: normal;
+	    display: inline-block;
+	    border-bottom: 0.1rem dotted #444;
+	}
+	#text-index dt { border-bottom: none; }
+	h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+	    display: block;
+	    font-family: sans-serif;
+	    margin: 0.2em auto 0.5em 0;
+	}
+	a, .link {
+	    text-decoration: none;
+	    color: #880;
+	    display: inline;
+	    position: relative;
+	    border-bottom: 0.1rem dotted;
+	    line-height: 1.2;
+	    transition: border 0.3s;
+	}
+	a:hover {
+	    color: #aa2;
+	    outline-style: none;
+	    border-bottom: 0.1rem solid;
+	}
+	a:visited, .visited-link { color: #934; }
+	a:visited:hover { color: #b56; }
+	a:focus {
+	    outline-style: none;
+	    border-bottom: 0.1rem solid;
+	}
+	::selection { background-color: #777; color: #eee; }
+	a::selection { background-color: #ccc; }
+	.org-todo {
+	    background-color: #ddd;
+	    color: #333;
+	    font-size: .8rem;
+	    float: right;
+	}
+	.org-src-container + .example {
+	    margin-left: 8em;
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+	    content: "^";
+	    font-size: 0.5em;
+	    vertical-align: super;
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+	    color: var(--external-link-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+	    color: var(--external-link-hover-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+	    color: var(--external-link-visited-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+	    color: var(--external-link-visited-hover-color);
+	}
+	blockquote {
+	    border: 0.1em dashed var(--secondary-dim-color);
+	    padding-left: 0.2em;
+	}
+	label.org-src-name {
+	    margin: 0 0 0 3em;
+	    font-family: sans-serif;
+	    font-size: 1rem;
+	    line-height: 0;
+	}
+	.skip-to-content {
+	    opacity: 0;
+	    position: absolute;
+	    left: 0.2em;
+	}
+	.skip-to-content:focus{
+	    opacity: 1;
+	    background-color: var(--secondary-dim-color);
+	    color: var(--primary-color);
+	}
+	ul { max-width: 85%; }
+	</style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="../index.html">homepage</a> | <a href="../records.html">record index</a> | <a href="../d/index.html">daily records</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="../record.html">records</a> with more <a href="../information.html">information</a> about both of those concepts.) On the <a href="../Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="../emsenn.html">emsenn</a>, to share some of my <a href="../knowledge.html">knowledge</a> with <a href="../person.html">people</a> on the <a href="../Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="../record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="../permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="../backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">2014-10-29</h1>
+</header><p>
+This is some of what I (emsenn) experienced and wrote on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-27 Sun]</span></span>.
+</p>
+
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org1f1305a">Postings</a>
+<ul>
+<li><a href="#orgc7de83e">Bernie Sanders still can't win</a></li>
+</ul>
+</li>
+<li><a href="#org485e5d6">Supplements</a>
+<ul>
+<li><a href="#org380cacd">Record history</a></li>
+<li><a href="#backlinks">Backlinks</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-org1f1305a" class="outline-2">
+<h2 id="org1f1305a">Postings</h2>
+<div class="outline-text-2" id="text-org1f1305a">
+</div>
+<div id="outline-container-orgc7de83e" class="outline-3">
+<h3 id="orgc7de83e">Bernie Sanders still can't win</h3>
+<div class="outline-text-3" id="text-orgc7de83e">
+<p>
+I was asked, "I keep hearing that <a href="../bernie_sanders.html">Bernie</a> can still win, and that he's the only one who can beat <a href="../donald_j_trump.html">Donald J. Trump</a> in a <a href="../general_election.html">general election</a>. What's your take on that?"
+</p>
+
+<p>
+Bernie’s “lead” in the general comes only from the <a href="../bernieorbust.html">#BernieOrBust</a> movement, which based on demographics aren’t incredibly likely to <a href="../vote.html">vote</a> in the general anyway.
+</p>
+
+<p>
+Your argument for why your candidate is more likely to win is because your candidate has supporters who would throw the election to Trump if he doesn’t get the nomination.
+</p>
+
+<p>
+That’s like me saying “Jonathan, I want you to decide whether we’re having <a href="../fish.html">fish</a> or <a href="../steak.html">steak</a> for dinner – but if you pick steak, I’m going to force you to eat <a href="../gravel.html">gravel</a> instead.” It might get you to pick steak, or you may stick with your choice of fish and see if you’re really the sort of person who will force folks to eat gravel – and if you are, well, I’m sure glad I didn’t pick you to make my dinner.
+</p>
+
+<p>
+Regarding his tendency to <a href="../poll.html">poll</a> better against <a href="../republican_party.html">Republicans</a> than <a href="../hillary_clinton.html">Clinton</a>… that’s true, but if you account for the amount of <a href="../press.html">press</a> coverage toward each, and past elections and how press there has worked, it seems as though Sander’s strength comes from the fact he hasn’t been attacked by Republicans yet.
+</p>
+
+<p>
+Further complicating things, the Right’s internal math says Clinton is more likely to win – and has their own <a href="../nevertrump.html">#NeverTrump</a> movement that says they’ll vote for Clinton over Trump (not Sanders though.)
+</p>
+
+<p>
+So you’ve got Sanders predicted to win by some <a href="../democratic_party.html">Democrats</a>, but only because he hasn’t been slammed by Republicans AND because his supporters are willing to throw the election if he doesn’t get the nomination, and Clinton predicted to win by most Democrats and most Republicans, and there’s no more dirt to throw on her – the odds there’s some hidden scandal around her is real slim, while from a moderate/independent perspective, the amount of untouched scandal around Sanders is absurd.
+</p>
+
+<p>
+On top of all of that, you’re saying that Sanders will wait to pitch <a href="../superdelegate.html">superdelegates</a> until the <a href="../democratic_national_convention.html">convention</a> is closer, which may be true for him and his campaign… but isn’t true for many of his supporters. I’m, as you may know, tight with lots of political folk on both side of the aisle – I actually had dinner with an <a href="../ex_officio_delegate.html">ex officio delegate</a> a few nights ago, and he’s actually disconnected his <a href="../home_phone.html">home phone</a> because of the steady stream of <a href="../threat.html">threats</a> he gets to vote for Sanders. Same for the other delegates I know in <a href="../north_carolina.html">this state</a> (bar one, who’s known for being more to the left.)
+</p>
+
+<p>
+So you’re counting on Sanders’ campaign being able to go up to people who have been harassed for months and going “If you don’t vote for me, the harassment won’t stop, and we’ll let Republicans take control of the country.”
+</p>
+
+<p>
+And do you know what tends not to work very well on public officials? Vaguely threatening coercion when it’s happening under incredible public scrutiny.
+</p>
+
+<p>
+Put simply, the only strength Sanders can put forward to secure the nomination is the ability of his supporters to rally together and threaten low-level public officials.
+</p>
+
+<p>
+You’re relying on people who, at this point, personally dislike him for what they have done to the party they have worked to grow and strengthen for years, if not decades, to suddenly cave into the same threats they’ve been hearing for months now. It’s not going to happen.
+</p>
+</div>
+</div>
+</section>
+
+<section id="outline-container-org485e5d6" class="outline-2">
+<h2 id="org485e5d6">Supplements</h2>
+<div class="outline-text-2" id="text-org485e5d6">
+</div>
+<div id="outline-container-org380cacd" class="outline-3">
+<h3 id="org380cacd">Record history</h3>
+<div class="outline-text-3" id="text-org380cacd">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-28 Mon 18:26] </span></span> <br>
+Imported from Wordpress</li>
+</ul>
+ </section>
+</div>
+</div>
+
+<div id="outline-container-backlinks" class="outline-3">
+<h3 id="backlinks">Backlinks</h3>
+<div class="outline-text-3" id="text-backlinks">
+<ul class="org-ul">
+<li><a href="../bernie_sanders.html">Bernie Sanders</a></li>
+<li><a href="../donald_j_trump.html">Donald J. Trump</a></li>
+<li><a href="../general_election.html">general election</a></li>
+<li><a href="../bernieorbust.html">#BernieOrBust</a></li>
+<li><a href="../vote.html">vote</a></li>
+<li><a href="../steak.html">steak</a></li>
+<li><a href="../gravel.html">gravel</a></li>
+<li><a href="../republican_party.html">Republican Party</a></li>
+<li><a href="../hillary_clinton.html">Hillary Clinton</a></li>
+<li><a href="../poll.html">poll</a></li>
+<li><a href="../press.html">press</a></li>
+<li><a href="../nevertrump.html">#NeverTrump</a></li>
+<li><a href="../democratic_party.html">Democratic Party</a></li>
+<li><a href="../superdelegate.html">superdelegate</a></li>
+<li><a href="../democratic_national_convention.html">Democratic National Convention</a></li>
+<li><a href="../ex_officio_delegate.html">ex officio delegate</a></li>
+<li><a href="../home_phone.html">home phone</a></li>
+<li><a href="../threat.html">threat</a></li>
+<li><a href="../north_carolina.html">North Carolina</a></li>
+<li><a href="../records.html">Records Index</a></li>
+<li><a href="index.html">Daily Records Index</a></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2014-10-29 Wed 08:06</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2020-12-29 Tue 11:15</p>
+</section>
+</body>
+</html>
