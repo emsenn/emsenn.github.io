@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2020-12-30 Wed 10:54 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2020-12-30</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+	@charset "UTF-8";
+	
+	:root {
+	    --body-font: sans-serif;
+	    --header-font: sans-serif;
+	    --code-font: monospace;
+	    --primary-color: #ffe;
+	    --primary-dim-color: #eed;
+	    --secondary-color: #312;
+	    --secondary-dim-color: #756;
+	    --link-color: #880;
+	    --link-hover-color: #aa2;
+	    --link-visited-color: #934;
+	    --link-visited-hover-color: #b56;
+	    --external-link-color: #008;
+	    --external-link-hover-color: #60b;
+	    --external-link-visited-color: #172;
+	    --external-link-visited-hover-color: #394;
+	}
+	@media(prefers-color-scheme:dark){
+	    :root {
+		--body-font: sans-serif;
+		--header-font: sans-serif;
+		--code-font: monospace;
+		--primary-color: #756;
+		--primary-dim-color: #312;
+		--secondary-color: #eed;
+		--secondary-dim-color: #ffe;
+		--link-color: #880;
+		--link-hover-color: #aa2;
+		--link-visited-color: #934;
+		--link-visited-hover-color: #b56;
+	    }}
+	body {
+	    position: relative;
+	    min-height: 100%;
+	    background-color: var(--primary-color);
+	    color: var(--secondary-color);
+	    margin: 0 auto;
+	    font-family: sans-serif;
+	}
+	main, #content {
+	    background-color: var(--primary-dim-color);
+	    border-left: 1.5em dotted var(--primary-color);
+	    padding: 1em;
+	}
+	header {
+	    border-bottom: 0.8em dotted var(--secondary-dim-color);
+	}
+	h1 { font-size: 2em; margin-bottom: 0; }
+	h2 {
+	    border-bottom: 0.3em dotted var(--secondary-dim-color);
+	}
+	h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+	    width: 60%;
+	}
+	aside {
+	    float: right;
+	    width: 35%;
+	}
+	aside p { width: 100%; }
+	@media screen and (max-width:760px) {
+	    h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+		width: 90%;
+	    }
+	    aside {
+		float: inherit;
+		width: 90%;
+		border-top: 0.2em dotted var(--secondary-dim-color);
+		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+		font-size: 0.8em;
+		  }
+	}
+	
+	footer, #postamble, #preamble {
+	    padding: 0.5em;
+	}
+	table {
+	    border-collapse: collapse;
+	    border-spacing: 0;
+	    empty-cells: show;
+	    border: 0.1em solid #444;
+	}
+	thead { font-family: sans-serif; }
+	th, td {
+	    padding: 0 0.3em;
+	    border: 0.01em solid #444;
+	}
+	img {
+	    max-width: 80vw;
+	    vertical-align: middle;
+	}
+	pre, .src {
+	    padding: 0.5em;
+	    border: 0.1em solid #444;
+	    white-space: pre-wrap;
+	    overflow-x: scroll;
+	    text-overflow: clip;
+	    scrollbar-width: none;
+	}
+	pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+	    display: none;
+	}
+	
+	
+	dt {
+	    font-weight: normal;
+	    display: inline-block;
+	    border-bottom: 0.1rem dotted #444;
+	}
+	#text-index dt { border-bottom: none; }
+	h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+	    display: block;
+	    font-family: sans-serif;
+	    margin: 0.2em auto 0.5em 0;
+	}
+	a, .link {
+	    text-decoration: none;
+	    color: #880;
+	    display: inline;
+	    position: relative;
+	    border-bottom: 0.1rem dotted;
+	    line-height: 1.2;
+	    transition: border 0.3s;
+	}
+	a:hover {
+	    color: #aa2;
+	    outline-style: none;
+	    border-bottom: 0.1rem solid;
+	}
+	a:visited, .visited-link { color: #934; }
+	a:visited:hover { color: #b56; }
+	a:focus {
+	    outline-style: none;
+	    border-bottom: 0.1rem solid;
+	}
+	::selection { background-color: #777; color: #eee; }
+	a::selection { background-color: #ccc; }
+	.org-todo {
+	    background-color: #ddd;
+	    color: #333;
+	    font-size: .8rem;
+	    float: right;
+	}
+	.org-src-container + .example {
+	    margin-left: 8em;
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+	    content: "^";
+	    font-size: 0.5em;
+	    vertical-align: super;
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+	    color: var(--external-link-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+	    color: var(--external-link-hover-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+	    color: var(--external-link-visited-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+	    color: var(--external-link-visited-hover-color);
+	}
+	blockquote {
+	    border: 0.1em dashed var(--secondary-dim-color);
+	    padding-left: 0.2em;
+	}
+	label.org-src-name {
+	    margin: 0 0 0 3em;
+	    font-family: sans-serif;
+	    font-size: 1rem;
+	    line-height: 0;
+	}
+	.skip-to-content {
+	    opacity: 0;
+	    position: absolute;
+	    left: 0.2em;
+	}
+	.skip-to-content:focus{
+	    opacity: 1;
+	    background-color: var(--secondary-dim-color);
+	    color: var(--primary-color);
+	}
+	ul { max-width: 85%; }
+	</style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="../index.html">homepage</a> | <a href="../d/index.html">daily records</a> | <a href="../concepts_index.html">concepts</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="../record.html">records</a> with more <a href="../information.html">information</a> about both of those concepts.) On the <a href="../Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="../emsenn.html">emsenn</a>, to share some of my <a href="../knowledge.html">knowledge</a> with <a href="../person.html">people</a> on the <a href="../Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="../record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="../permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="../backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">2020-12-30</h1>
+</header><p>
+This is some of what I (emsenn) experienced and wrote on on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-30 Wed]</span></span>.
+</p>
+
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org3f9dea5">Weather observations</a></li>
+<li><a href="#org8414152">Postings</a>
+<ul>
+<li><a href="#orgca07551">Looking at structure editing and movement in Org-mode</a></li>
+</ul>
+</li>
+<li><a href="#orgd1bf193">Media log</a></li>
+<li><a href="#orgb6c5b30">Reposts</a>
+<ul>
+<li><a href="#backlinks">Backlinks</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-org3f9dea5" class="outline-2">
+<h2 id="org3f9dea5">Weather observations</h2>
+</section>
+
+<section id="outline-container-org8414152" class="outline-2">
+<h2 id="org8414152">Postings</h2>
+<div class="outline-text-2" id="text-org8414152">
+</div>
+<div id="outline-container-orgca07551" class="outline-3">
+<h3 id="orgca07551">Looking at structure editing and movement in Org-mode</h3>
+<div class="outline-text-3" id="text-orgca07551">
+<p>
+<a href="../phil_hagelberg.html">Phil Hagelberg</a> announced the currently-scheduled speakers for this year's <a href="../fennelconf.html">FennelConf</a>, and the thing he's going to be talking about is <a href="../structure_editing.html">structure editing</a>. It's something I've been thinking about, ever since reading through <a href="../stepan_parunashvili.html">Stepan Parunashvili</a>'s <a href="../stepan_parunashvili_an_intuition_for_lisp_syntax.html">"An Intuition for Lisp Syntax"</a>, where at the end they talk about how <a href="../programming_languages.html">programming languages</a> in the <a href="../lisp.html">LISP</a> family easily facilitate working with the code as a structure. (I also saw, somewhere on the <a href="../20201222103740-fediverse.html">Fediverse</a>, someone post a demonstration video of an <a href="../ide.html">IDE</a> they're developing that <i>only</i> allows for structure editing.
+</p>
+
+<p>
+It's gotten me thinking that I'm not that familiar with <i>structure editing</i> and movement within <a href="../org_mode.html">Org-mode</a>. <i>(I also, at present, don't have any sort of structure stuff set up in <a href="../groundhog_emacs.html">Groundhog Emacs</a> for working with</i> LISP <i>code either, but I'm also not really working intensively with any</i> LISPs <i>right now, either.)</i>
+</p>
+
+<p>
+So, while I wait on things this morning, I figured I'd take a look at the the Org-mode manual's <a href="https://orgmode.org/manual/Document-Structure.html#Document-Structure">chapter on document structure</a>. 
+</p>
+
+<p>
+One thing I've learned just now is there's a setting to help catch "invisible edits." From the documentation on <code>org-catch-invisible-edits</code>: "Check if in invisible region before inserting or deleting a character."
+</p>
+
+<p>
+I've set it to <code>show-and-error</code> for now, since that seems to be a good way to learn where the feature will speak up, but I'll probably toggle it it just "show" later; I tend to be pretty aware when I'm at my keyboard.
+</p>
+
+<p>
+The next section in the chapter is about structure movement, an important step in structure editing. In order to help learn the Org-mode structure movement keystrokes, I'm writing a table in the new <a href="../org_mode_structure_editing.html">Org-mode structure editing</a> record I've created.
+</p>
+
+<p>
+<i>(Why am I duplicating material in a manual I have locally? It's not just for the memorization aid of re-writing it, but that's a part! It's also because then this catalog slowly grows into documentation not of Emacs as a tool, but of my relationship with Emacs. Only the keystrokes I use myself tend to get documented here, so it's less of a reference for Emacs users and more a reference for people who want to understand</i> my <i>use of Emacs.)</i>
+</p>
+
+<p>
+#+foo 
+</p>
+<table id="org5fd059e">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key sequence</th>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c C-n</code></td>
+<td class="org-left"><code>(org-next-visible-heading)</code></td>
+<td class="org-left">Go to <b>next</b> heading</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-p</code></td>
+<td class="org-left"><code>(org-previous-visible-heading)</code></td>
+<td class="org-left">Go to <b>previous</b> heading</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-f</code></td>
+<td class="org-left"><code>(org-forward-heading-same-level)</code></td>
+<td class="org-left">Go <b>forward</b> a heading at current depth</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-b</code></td>
+<td class="org-left"><code>(org-backward-heading-same-level)</code></td>
+<td class="org-left">Go <b>backward</b> a heading at current depth</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-u</code></td>
+<td class="org-left"><code>(outline-up-heading)</code></td>
+<td class="org-left">Go <b>up</b> to the parent depth's headline</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+So, looking at that table, and using my own language around this information management, I would say that the above keystrokes are for performing movement between entries in a record. That leaves a big part of structure movement unaccounted for: movement between records. For that, I use Org-roam&#x2026; which looking at it, I pretty much just use one keystroke there.
+</p>
+
+<table id="org2771759">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key sequence</th>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c n f</code></td>
+<td class="org-left"><code>(org-roam-find-file)</code></td>
+<td class="org-left">Open a record by searching titles</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Which means there's a part of my structure movement I'm not yet addressing, and I can tell what it is: hyperlinks. <i>(I'm not sure if this is strictly "structure" movement at this point; is moving to the definition of a function by hotkey structure movement?)</i>
+</p>
+
+<table id="org9ec074f">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key sequence</th>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c C-o</code></td>
+<td class="org-left"><code>(org-open-at-point)</code></td>
+<td class="org-left"><b>Open</b> the link under point</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-x C-n</code></td>
+<td class="org-left"><code>(org-next-link)</code></td>
+<td class="org-left">Move to the <b>next</b> link in the buffer</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-x C-p</code></td>
+<td class="org-left"><code>(org-previous-link)</code></td>
+<td class="org-left">Move to the <b>previous</b> link in the buffer</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Hmm. In looking at the manual's <a href="https://orgmode.org/manual/Handling-Links.html">chapter on handling links</a>, I'm realizing that I'm actually using <i>yet another</i> Org subsystem here, which seems to be called "Org-mark." Org-mark seems to be used to save locations within different Org-mode files, and move between them. It's what the link handling system uses to handle a lot of its movement, so I guess I'll make up a little record for it.
+</p>
+
+<table id="orga0a79a6">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key sequence</th>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c %</code></td>
+<td class="org-left"><code>(org-mark-ring-push)</code></td>
+<td class="org-left">Adds the current position to the Org-mark "ring"</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c &amp;</code></td>
+<td class="org-left"><code>(org-mark-ring-goto)</code></td>
+<td class="org-left">Go back to a position recorded on the Org-mark "ring". (Use repeatedly to keep going back.)</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Let me put these together and see what I'm missing, if anything.
+</p>
+
+<aside id="orgce8ac51">
+<p>
+
+</p>
+
+<p>
+Here's how I merged the tables: First, I wrote a list of all the table's names:
+</p>
+
+<ul class="org-ul">
+<li>org-roam-structure-movement-key-sequences-table</li>
+<li>org-mode-structure-movement-key-sequences-table</li>
+<li>org-mode-links-structure-movement-key-sequences-table</li>
+<li>org-mark-structure-movement-key-sequences-table</li>
+</ul>
+
+
+<p>
+And now a little Elisp to merge the tables, followed by the tables:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(mapcan #'org-babel-ref-resolve (mapcar (lambda (item) (car item)) tables))
+</pre>
+</div>
+</aside>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key sequence</th>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c n f</code></td>
+<td class="org-left"><code>(org-roam-find-file)</code></td>
+<td class="org-left">Open a record by searching titles</td>
+</tr>
+
+<tr>
+<td class="org-left">Key sequence</td>
+<td class="org-left">Command</td>
+<td class="org-left">Description</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c C-n</code></td>
+<td class="org-left"><code>(org-next-visible-heading)</code></td>
+<td class="org-left">Go to <b>next</b> heading</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-p</code></td>
+<td class="org-left"><code>(org-previous-visible-heading)</code></td>
+<td class="org-left">Go to <b>previous</b> heading</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-f</code></td>
+<td class="org-left"><code>(org-forward-heading-same-level)</code></td>
+<td class="org-left">Go <b>forward</b> a heading at current depth</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-b</code></td>
+<td class="org-left"><code>(org-backward-heading-same-level)</code></td>
+<td class="org-left">Go <b>backward</b> a heading at current depth</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-u</code></td>
+<td class="org-left"><code>(outline-up-heading)</code></td>
+<td class="org-left">Go <b>up</b> to the parent depth's headline</td>
+</tr>
+
+<tr>
+<td class="org-left">Key sequence</td>
+<td class="org-left">Command</td>
+<td class="org-left">Description</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c C-o</code></td>
+<td class="org-left"><code>(org-open-at-point)</code></td>
+<td class="org-left"><b>Open</b> the link under point</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-x C-n</code></td>
+<td class="org-left"><code>(org-next-link)</code></td>
+<td class="org-left">Move to the <b>next</b> link in the buffer</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-x C-p</code></td>
+<td class="org-left"><code>(org-previous-link)</code></td>
+<td class="org-left">Move to the <b>previous</b> link in the buffer</td>
+</tr>
+
+<tr>
+<td class="org-left">Key sequence</td>
+<td class="org-left">Command</td>
+<td class="org-left">Description</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c %</code></td>
+<td class="org-left"><code>(org-mark-ring-push)</code></td>
+<td class="org-left">Adds the current position to the Org-mark "ring"</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c &amp;</code></td>
+<td class="org-left"><code>(org-mark-ring-goto)</code></td>
+<td class="org-left">Go back to a position recorded on the Org-mark "ring". (Use repeatedly to keep going back.)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+
+<section id="outline-container-orgd1bf193" class="outline-2">
+<h2 id="orgd1bf193">Media log</h2>
+</section>
+
+<section id="outline-container-orgb6c5b30" class="outline-2">
+<h2 id="orgb6c5b30">Reposts</h2>
+<div class="outline-text-2" id="text-orgb6c5b30">
+</div>
+<div id="outline-container-backlinks" class="outline-3">
+<h3 id="backlinks">Backlinks</h3>
+<div class="outline-text-3" id="text-backlinks">
+<ul class="org-ul">
+<li><a href="../structure_editing.html">structure editing</a></li>
+<li><a href="../stepan_parunashvili_an_intuition_for_lisp_syntax.html">Stepan Parunashvili: "An Intuition for Lisp Syntax"</a></li>
+<li><a href="../ide.html">IDE</a></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2020-12-30 Wed 09:37</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2020-12-30 Wed 10:54</p>
+</section>
+</body>
+</html>
