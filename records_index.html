@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2020-12-29 Tue 20:45 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Records Index</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+	@charset "UTF-8";
+	
+	:root {
+	    --body-font: sans-serif;
+	    --header-font: sans-serif;
+	    --code-font: monospace;
+	    --primary-color: #ffe;
+	    --primary-dim-color: #eed;
+	    --secondary-color: #312;
+	    --secondary-dim-color: #756;
+	    --link-color: #880;
+	    --link-hover-color: #aa2;
+	    --link-visited-color: #934;
+	    --link-visited-hover-color: #b56;
+	    --external-link-color: #008;
+	    --external-link-hover-color: #60b;
+	    --external-link-visited-color: #172;
+	    --external-link-visited-hover-color: #394;
+	}
+	@media(prefers-color-scheme:dark){
+	    :root {
+		--body-font: sans-serif;
+		--header-font: sans-serif;
+		--code-font: monospace;
+		--primary-color: #756;
+		--primary-dim-color: #312;
+		--secondary-color: #eed;
+		--secondary-dim-color: #ffe;
+		--link-color: #880;
+		--link-hover-color: #aa2;
+		--link-visited-color: #934;
+		--link-visited-hover-color: #b56;
+	    }}
+	body {
+	    position: relative;
+	    min-height: 100%;
+	    background-color: var(--primary-color);
+	    color: var(--secondary-color);
+	    margin: 0 auto;
+	    font-family: sans-serif;
+	}
+	main, #content {
+	    background-color: var(--primary-dim-color);
+	    border-left: 1.5em dotted var(--primary-color);
+	    padding: 1em;
+	}
+	header {
+	    border-bottom: 0.8em dotted var(--secondary-dim-color);
+	}
+	h1 { font-size: 2em; margin-bottom: 0; }
+	h2 {
+	    border-bottom: 0.3em dotted var(--secondary-dim-color);
+	}
+	h2, h3, h4, h5, h6, p, .org-src-container {
+	    width: 60%;
+	}
+	aside {
+	    float: right;
+	    width: 35%;
+	}
+	aside p { width: 100%; }
+	@media screen and (max-width:760px) {
+	    h2, h3, h4, h5, h6, p, .org-src-container {
+		width: 90%;
+	    }
+	    aside {
+		float: inherit;
+		width: 90%;
+		border-top: 0.2em dotted var(--secondary-dim-color);
+		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+		font-size: 0.8em;
+		  }
+	}
+	
+	footer, #postamble, #preamble {
+	    padding: 0.5em;
+	}
+	table {
+	    border-collapse: collapse;
+	    border-spacing: 0;
+	    empty-cells: show;
+	    border: 0.1em solid #444;
+	}
+	thead { font-family: sans-serif; }
+	th, td {
+	    padding: 0 0.3em;
+	    border: 0.01em solid #444;
+	}
+	img {
+	    max-width: 80vw;
+	    vertical-align: middle;
+	}
+	pre, .src {
+	    padding: 0.5em;
+	    border: 0.1em solid #444;
+	    white-space: pre-wrap;
+	    overflow-x: scroll;
+	    text-overflow: clip;
+	    scrollbar-width: none;
+	}
+	pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+	    display: none;
+	}
+	
+	
+	dt {
+	    font-weight: normal;
+	    display: inline-block;
+	    border-bottom: 0.1rem dotted #444;
+	}
+	#text-index dt { border-bottom: none; }
+	h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+	    display: block;
+	    font-family: sans-serif;
+	    margin: 0.2em auto 0.5em 0;
+	}
+	a, .link {
+	    text-decoration: none;
+	    color: #880;
+	    display: inline;
+	    position: relative;
+	    border-bottom: 0.1rem dotted;
+	    line-height: 1.2;
+	    transition: border 0.3s;
+	}
+	a:hover {
+	    color: #aa2;
+	    outline-style: none;
+	    border-bottom: 0.1rem solid;
+	}
+	a:visited, .visited-link { color: #934; }
+	a:visited:hover { color: #b56; }
+	a:focus {
+	    outline-style: none;
+	    border-bottom: 0.1rem solid;
+	}
+	::selection { background-color: #777; color: #eee; }
+	a::selection { background-color: #ccc; }
+	.org-todo {
+	    background-color: #ddd;
+	    color: #333;
+	    font-size: .8rem;
+	    float: right;
+	}
+	.org-src-container + .example {
+	    margin-left: 8em;
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+	    content: "^";
+	    font-size: 0.5em;
+	    vertical-align: super;
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+	    color: var(--external-link-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+	    color: var(--external-link-hover-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+	    color: var(--external-link-visited-color);
+	}
+	a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+	    color: var(--external-link-visited-hover-color);
+	}
+	blockquote {
+	    border: 0.1em dashed var(--secondary-dim-color);
+	    padding-left: 0.2em;
+	}
+	label.org-src-name {
+	    margin: 0 0 0 3em;
+	    font-family: sans-serif;
+	    font-size: 1rem;
+	    line-height: 0;
+	}
+	.skip-to-content {
+	    opacity: 0;
+	    position: absolute;
+	    left: 0.2em;
+	}
+	.skip-to-content:focus{
+	    opacity: 1;
+	    background-color: var(--secondary-dim-color);
+	    color: var(--primary-color);
+	}
+	ul { max-width: 85%; }
+	</style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./d/index.html">daily records</a> | <a href="./concepts_index.html">concepts</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="./record.html">records</a> with more <a href="./information.html">information</a> about both of those concepts.) On the <a href="./Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="./emsenn.html">emsenn</a>, to share some of my <a href="./knowledge.html">knowledge</a> with <a href="./person.html">people</a> on the <a href="Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="./record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="./permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="./backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">Records Index</h1>
+</header><ul class="org-ul">
+<li><a href="no_not_even_for_a_picture.html">"No, not even for a picture"</a></li>
+<li><a href="bernieorbust.html">#BernieOrBust</a></li>
+<li><a href="nevertrump.html">#NeverTrump</a></li>
+<li><a href="404.html">404</a></li>
+<li><a href="dredmorbius.html">@dredmorbius</a></li>
+<li><a href="jessmahler.html">@jessmahler</a></li>
+<li><a href="jude.html">@jude</a></li>
+<li><a href="lostsioux.html">@lostsioux</a></li>
+<li><a href="theruran.html">@theruran</a></li>
+<li><a href="abraham_lincoln.html">Abraham Lincoln</a></li>
+<li><a href="20201222103800-activitypub.html">ActivityPub</a></li>
+<li><a href="andrew_ragland.html">Andrew Ragland</a></li>
+<li><a href="anishinaabe.html">Anishinaabe</a></li>
+<li><a href="20201222211055-anthony_gramuglia.html">Anthony Gramuglia</a></li>
+<li><a href="20201223184726-arathel.html">Arathel</a></li>
+<li><a href="argentina.html">Argentina</a></li>
+<li><a href="baltimore_maryland.html">Baltimore, Maryland</a></li>
+<li><a href="benjamin_slade.html">Benjamin Slade</a></li>
+<li><a href="bernie_sanders.html">Bernie Sanders</a></li>
+<li><a href="bibtex.html">BibTex</a></li>
+<li><a href="bindinggenerations_net.html">BindingGenerations.net</a></li>
+<li><a href="black_yield_institute.html">Black Yield Institute</a></li>
+<li><a href="brave_old_world.html">Brave Old World</a></li>
+<li><a href="covid_19.html">COVID-19</a></li>
+<li><a href="20201222210441-covid_19_eviction_moritorium.html">COVID-19 eviction moritorium</a></li>
+<li><a href="20201223152115-css_grids.html">CSS grids</a></li>
+<li><a href="20201222131554-carrboro_north_carolina.html">Carrboro, North Carolina</a></li>
+<li><a href="css.html">Cascading Style Sheets</a></li>
+<li><a href="20201222131416-chapel_hill_north_carolina.html">Chapel Hill, North Carolina</a></li>
+<li><a href="charles_keil.html">Charles Keil</a></li>
+<li><a href="charles_keil_dear_gretas.html">Charles Keil: "dear gretas"</a></li>
+<li><a href="chiapas_support_commitee.html">Chiapas Support Committee</a></li>
+<li><a href="mike_sack.html">Chief Mike Sack</a></li>
+<li><a href="chippewa_national_forest.html">Chippewa National Forest</a></li>
+<li><a href="20201222143054-christmas.html">Christmas</a></li>
+<li><a href="collaboration.html">Collaboration</a></li>
+<li><a href="commonplace_wiki.html">Commonplace wiki</a></li>
+<li><a href="concepts_index.html">Concepts Index</a></li>
+<li><a href="cornish.html">Cornwall</a></li>
+<li><a href="cottenboro_gaz.html">Cottenboro Groundhog Autonomous Zone</a></li>
+<li><a href="20201222205134-cyberpunk_2077.html">Cyberpunk 2077</a></li>
+<li><a href="dakota_38.html">Dakota 38</a></li>
+<li><a href="days_daze.html">Days &amp; Daze</a></li>
+<li><a href="days_and_daze_rogue_taxidermy.html">Days &amp; Daze: "Rogue Taxidermy"</a></li>
+<li><a href="democratic_national_convention.html">Democratic National Convention</a></li>
+<li><a href="democratic_party.html">Democratic Party</a></li>
+<li><a href="dennis_schep.html">Dennis Schep</a></li>
+<li><a href="freeing_space.html">Dennis Schep: "Freeing space: building worlds outside of state and capital"</a></li>
+<li><a href="department_of_interior.html">Department of the Interior</a></li>
+<li><a href="donald_j_trump.html">Donald J. Trump</a></li>
+<li><a href="doubleloop_how_i_publish_my_org_roam_wiki_with_org_publish.html">Doubleloop: "How I publish my org-roam wiki with org-publish"</a></li>
+<li><a href="earth.html">Earth</a></li>
+<li><a href="20201222211810-earth_s_atmosphere.html">Earth's atmosphere</a></li>
+<li><a href="20201223151946-edward_tufte.html">Edward Tufte</a></li>
+<li><a href="elisp.html">Elisp</a></li>
+<li><a href="elisp_variable.html">Elisp variable</a></li>
+<li><a href="emacs.html">Emacs</a></li>
+<li><a href="emacs_buffer.html">Emacs buffer</a></li>
+<li><a href="emacs_configuration.html">Emacs configuration</a></li>
+<li><a href="emacs_minibuffer.html">Emacs minibuffer</a></li>
+<li><a href="emacs_package.html">Emacs package</a></li>
+<li><a href="emacs_scratch_buffer.html">Emacs scratch buffer</a></li>
+<li><a href="emacs_startup_screen.html">Emacs startup screen</a></li>
+<li><a href="emacs_theme.html">Emacs theme</a></li>
+<li><a href="emacsen.html">Emacsen</a></li>
+<li><a href="england.html">England</a></li>
+<li><a href="english.html">English</a></li>
+<li><a href="eno_river.html">Eno River</a></li>
+<li><a href="20201222164952-erin_horakova.html">Erin Horáková</a></li>
+<li><a href="esther_davis.html">Esther Davis</a></li>
+<li><a href="europe.html">Europe</a></li>
+<li><a href="facebook.html">Facebook</a></li>
+<li><a href="20201222103740-fediverse.html">Fediverse</a></li>
+<li><a href="fred_hebert.html">Fred Hebert</a></li>
+<li><a href="20201222214819-free_software.html">Free Software</a></li>
+<li><a href="french.html">French</a></li>
+<li><a href="20201223173457-game.html">GAME</a></li>
+<li><a href="gnu_community.html">GNU community</a></li>
+<li><a href="gui.html">GUI</a></li>
+<li><a href="git.html">Git</a></li>
+<li><a href="great_lakes.html">Great Lakes</a></li>
+<li><a href="20201223175624-great_wars.html">Great Wars</a></li>
+<li><a href="20201223173656-green_delta.html">Green Delta</a></li>
+<li><a href="grey_zone.html">Grey Zone</a></li>
+<li><a href="groundhog.html">Groundhog</a></li>
+<li><a href="groundhog_autonomous_zone.html">Groundhog Autonomous Zone</a></li>
+<li><a href="groundhog_emacs.html">Groundhog Emacs</a></li>
+<li><a href="groundhog_emacsen.html">Groundhog Emacsen</a></li>
+<li><a href="groundhog_person.html">Groundhog person</a></li>
+<li><a href="groundhog_record.html">Groundhog record</a></li>
+<li><a href="html.html">HTML</a></li>
+<li><a href="20201222155749-html_404.html">HTML 404</a></li>
+<li><a href="body.html">HTML body tag</a></li>
+<li><a href="html_document.html">HTML document</a></li>
+<li><a href="http.html">HTTP</a></li>
+<li><a href="20201222155841-http_server.html">HTTP server</a></li>
+<li><a href="hank_adams.html">Hank Adams</a></li>
+<li><a href="hashup.html">HashUp</a></li>
+<li><a href="haw_river.html">Haw River</a></li>
+<li><a href="20201222163911-high_country_news.html">High Country News</a></li>
+<li><a href="hillary_clinton.html">Hillary Clinton</a></li>
+<li><a href="homo_sapien.html">Homo sapien</a></li>
+<li><a href="humo_ludens_collaborans.html">Humo ludens collaborans</a></li>
+<li><a href="isis.html">ISIS</a></li>
+<li><a href="ikmu.html">Ikmu</a></li>
+<li><a href="20201222210618-in_search_of.html">In Search Of</a></li>
+<li><a href="ihs.html">Indian Health Service</a></li>
+<li><a href="indigenous.html">Indigenous</a></li>
+<li><a href="ils.html">Information and Library Sciences</a></li>
+<li><a href="internet.html">Internet</a></li>
+<li><a href="20201223085853-inuk.html">Inuk</a></li>
+<li><a href="israel.html">Israel</a></li>
+<li><a href="20201223084723-it_s_going_down.html">It's Going Down</a></li>
+<li><a href="itazipco.html">Itazípčo</a></li>
+<li><a href="ivy.html">Ivy</a></li>
+<li><a href="jeremy_friesen.html">Jeremy Friesen</a></li>
+<li><a href="jethro_kuan.html">Jethro Kuan</a></li>
+<li><a href="jethro_kuan_how_to_take_smart_notes_with_org_mode.html">Jethro Kuan: "How To Take Smart Notes with Org-mode"</a></li>
+<li><a href="joel_hooks.html">Joel Hooks</a></li>
+<li><a href="20201223085839-jonathan_henoche.html">Jonathan Henoche</a></li>
+<li><a href="kanban.html">Kanban</a></li>
+<li><a href="kanban_card.html">Kanban card</a></li>
+<li><a href="larp.html">LARP</a></li>
+<li><a href="lisp.html">LISP</a></li>
+<li><a href="20201223090038-labrador.html">Labrador</a></li>
+<li><a href="lake_superior.html">Lake Superior</a></li>
+<li><a href="20201222205636-lakota.html">Lakota</a></li>
+<li><a href="lakota_stories.html">Lakota stories</a></li>
+<li><a href="land_back_water_back_medicine_back_ceremony_back.html">Land back, water back, medicine back, ceremony back</a></li>
+<li><a href="last_geomancer.html">Last Geomancer</a></li>
+<li><a href="late_middle_english.html">Late Middle English</a></li>
+<li><a href="ledger_cli.html">Ledger-CLI</a></li>
+<li><a href="leech_lake_band.html">Leech Lake band</a></li>
+<li><a href="20201223175136-lexandra_terr.html">Lexandra Terr</a></li>
+<li><a href="20201222205533-lucas_brown_eyes.html">Lucas Brown eyes</a></li>
+<li><a href="mud.html">MUD</a></li>
+<li><a href="makha_sa.html">Makȟá Šá</a></li>
+<li><a href="20201222131448-manning_drive_power_plant.html">Manning Drive Power Plant</a></li>
+<li><a href="mi_kmaq_lobster_dispute.html">Mi'kmaq Lobster Dispute</a></li>
+<li><a href="20201223165936-michael_warren_lucas.html">Michael Warren Lucas</a></li>
+<li><a href="20201222212054-michel_degraff.html">Michel DeGraff</a></li>
+<li><a href="minnesota_chippewa_tribe.html">Minnesota Chippewa Tribe</a></li>
+<li><a href="muslim.html">Muslim</a></li>
+<li><a href="native_american.html">Native American</a></li>
+<li><a href="20201222103314-neil_mather.html">Neil Mather</a></li>
+<li><a href="north_carolina.html">North Carolina</a></li>
+<li><a href="ojibwe.html">Ojibwe</a></li>
+<li><a href="20201222131344-open_infrastructure_map.html">Open Infrastructure Map</a></li>
+<li><a href="20201222215026-open_source_software.html">Open-Source Software</a></li>
+<li><a href="org_ecosystem.html">Org ecosystem</a></li>
+<li><a href="org_mode.html">Org-mode</a></li>
+<li><a href="org_mode_inclusion.html">Org-mode INCLUDE</a></li>
+<li><a href="org_mode_todo_item.html">Org-mode TODO item</a></li>
+<li><a href="org_mode_todo_keyword.html">Org-mode TODO keyword</a></li>
+<li><a href="org_mode_website.html">Org-mode Website</a></li>
+<li><a href="org_mode_application.html">Org-mode application</a></li>
+<li><a href="org_mode_capture_templates.html">Org-mode capture templates</a></li>
+<li><a href="org_mode_source_block.html">Org-mode code-block</a></li>
+<li><a href="org_mode_format.html">Org-mode format</a></li>
+<li><a href="org_mode_project_index.html">Org-mode project index</a></li>
+<li><a href="org_mode_projects.html">Org-mode projects</a></li>
+<li><a href="org_mode_subtree.html">Org-mode subtree</a></li>
+<li><a href="org_publish.html">Org-publish</a></li>
+<li><a href="org_roam.html">Org-roam</a></li>
+<li><a href="org_roam_discourse.html">Org-roam Discourse</a></li>
+<li><a href="org_roam_website.html">Org-roam Website</a></li>
+<li><a href="org_roam_capture_template.html">Org-roam capture templates</a></li>
+<li><a href="org_roam_dailies.html">Org-roam dailies</a></li>
+<li><a href="org_roam_daily_capture_templates.html">Org-roam daily capture templates</a></li>
+<li><a href="org_roam_database.html">Org-roam database</a></li>
+<li><a href="org_roam_directory.html">Org-roam directory</a></li>
+<li><a href="org_roam_manual.html">Org-roam manual</a></li>
+<li><a href="org_roam_records.html">Org-roam records</a></li>
+<li><a href="org_roam_tags.html">Org-roam tag</a></li>
+<li><a href="organization_for_economic_cooperation_and_development.html">Organization for Economic Cooperation and Development</a></li>
+<li><a href="pdf.html">PDF</a></li>
+<li><a href="paul_farmer.html">Paul Farmer</a></li>
+<li><a href="phil_hagelberg.html">Phil Hagelberg</a></li>
+<li><a href="pine_ridge_reservation.html">Pine Ridge Reservation</a></li>
+<li><a href="poet.html">Poet</a></li>
+<li><a href="portland.html">Portland, Oregon</a></li>
+<li><a href="20201223083845-proud_boys.html">Proud Boys</a></li>
+<li><a href="phahiyapi.html">Pȟahíyapi</a></li>
+<li><a href="racket.html">Racket</a></li>
+<li><a href="racket_community.html">Racket community</a></li>
+<li><a href="republican_party.html">Republican Party</a></li>
+<li><a href="richard_feynman.html">Richard Feynman</a></li>
+<li><a href="roam_research.html">Roam Research</a></li>
+<li><a href="robin_wall_kimmerer_braiding_sweetgrass.html">Robin Wall-Kimmerer: "Braiding Sweetgrass"</a></li>
+<li><a href="rosebud_reservation.html">Rosebud Reservation</a></li>
+<li><a href="sqlite.html">SQLite</a></li>
+<li><a href="shakori_eno.html">Shakori-Eno</a></li>
+<li><a href="shalabh_chaturvedi.html">Shalabh Chaturvedi</a></li>
+<li><a href="shalabh_chaturvedi_systems_not_programs.html">Shalabh Chaturvedi: "Systems, not Programs"</a></li>
+<li><a href="20201223173444-sherwyn_county.html">Sherwyn County</a></li>
+<li><a href="sipekne_katik.html">Sipekne'katik</a></li>
+<li><a href="small_arms_survey.html">Small Arms Survey</a></li>
+<li><a href="20201223085801-st_johns_newfoundland_canada.html">St. Johns, Newfoundland, Canada</a></li>
+<li><a href="switzerland.html">Switzerland</a></li>
+<li><a href="syria.html">Syria</a></li>
+<li><a href="teraum.html">Teraum</a></li>
+<li><a href="20201223194319-teraum_mud.html">Teraum MUD</a></li>
+<li><a href="turtle_island.html">Turtle Island</a></li>
+<li><a href="uk.html">UK</a></li>
+<li><a href="un_office_of_drug_and_crime.html">UN Office of Drug and Crime</a></li>
+<li><a href="utf_8.html">UTF-8</a></li>
+<li><a href="american.html">United States of America</a></li>
+<li><a href="20201222131640-unc_ch.html">University of North Carolina at Chapel Hill</a></li>
+<li><a href="weaver_st.html">Weaver St.</a></li>
+<li><a href="web.html">Web</a></li>
+<li><a href="20201222160133-web_browser.html">Web browser</a></li>
+<li><a href="web_development_trend.html">Web development trend</a></li>
+<li><a href="web_server.html">Web server</a></li>
+<li><a href="20201222212039-web_workshop.html">Web workshop</a></li>
+<li><a href="webgaz.html">WebGAZ</a></li>
+<li><a href="website.html">Website</a></li>
+<li><a href="windows_10.html">Windows 10</a></li>
+<li><a href="20201222104247-wordpress.html">Wordpress</a></li>
+<li><a href="zettelkasten_method.html">Zettelkasten method</a></li>
+<li><a href="anarchism.html">anarchism</a></li>
+<li><a href="animal.html">animal</a></li>
+<li><a href="anthropology.html">anthropology</a></li>
+<li><a href="20201222205557-anti_native_racism.html">anti-Native racism</a></li>
+<li><a href="20201223084742-antifa.html">antifa</a></li>
+<li><a href="art.html">art</a></li>
+<li><a href="artifact.html">artifact</a></li>
+<li><a href="asset_management.html">asset management</a></li>
+<li><a href="associative_array.html">associative array</a></li>
+<li><a href="assumption.html">assumption</a></li>
+<li><a href="automating.html">automation</a></li>
+<li><a href="backlink.html">backlink</a></li>
+<li><a href="banana.html">banana</a></li>
+<li><a href="20201222210855-basket_splint.html">basket splint</a></li>
+<li><a href="20201222210907-baskets.html">baskets</a></li>
+<li><a href="belief.html">belief</a></li>
+<li><a href="better_defaults_el.html">better-defaults.el</a></li>
+<li><a href="bootstrapping.html">bootstrap</a></li>
+<li><a href="bulletin_board.html">bulletin board</a></li>
+<li><a href="bureaucracy.html">bureaucracy</a></li>
+<li><a href="capabilities.html">capability</a></li>
+<li><a href="cat.html">cat</a></li>
+<li><a href="20201223090012-charges.html">charges</a></li>
+<li><a href="city.html">city</a></li>
+<li><a href="clinical_nihilism.html">clinical nihilism</a></li>
+<li><a href="coffee.html">coffee</a></li>
+<li><a href="cognition.html">cognition</a></li>
+<li><a href="colonialism.html">colonialism</a></li>
+<li><a href="colonial.html">colonials</a></li>
+<li><a href="colonization.html">colonization</a></li>
+<li><a href="comedy.html">comedy</a></li>
+<li><a href="communication.html">communication</a></li>
+<li><a href="community.html">community</a></li>
+<li><a href="computer.html">computer</a></li>
+<li><a href="computer_atuomation.html">computer automation</a></li>
+<li><a href="computer_game.html">computer game</a></li>
+<li><a href="computer_server.html">computer server</a></li>
+<li><a href="computer_string.html">computer string</a></li>
+<li><a href="computer_user.html">computer user</a></li>
+<li><a href="computer_scientists.html">computer-scientists</a></li>
+<li><a href="computers.html">computers</a></li>
+<li><a href="contemporary_kyriarchy.html">contemporary settler-colonial kyriarchy</a></li>
+<li><a href="conviction.html">conviction</a></li>
+<li><a href="craft.html">craft</a></li>
+<li><a href="crime.html">crime</a></li>
+<li><a href="20201223090120-criminal_negligence.html">criminal negligence</a></li>
+<li><a href="20201222104437-cross_cultural_communication.html">cross-cultural communication</a></li>
+<li><a href="20201222104523-culture.html">culture</a></li>
+<li><a href="culture_building.html">culture-building</a></li>
+<li><a href="daily_notes.html">daily notes</a></li>
+<li><a href="daily_record.html">daily record</a></li>
+<li><a href="data.html">data</a></li>
+<li><a href="database.html">database</a></li>
+<li><a href="20201223090130-death.html">death</a></li>
+<li><a href="decision.html">decision</a></li>
+<li><a href="decolonization.html">decolonization</a></li>
+<li><a href="20201223162524-dice.html">dice</a></li>
+<li><a href="digital_garden.html">digital garden</a></li>
+<li><a href="discovery_mechanism.html">discovery mechanism</a></li>
+<li><a href="20201222205647-dog.html">dog</a></li>
+<li><a href="20201222205620-dog_park.html">dog park</a></li>
+<li><a href="20201223173401-drinks.html">drinks</a></li>
+<li><a href="economic.html">economics</a></li>
+<li><a href="20201223200809-ecosystem.html">ecosystem</a></li>
+<li><a href="edaphologiculture.html">edaphologiculture</a></li>
+<li><a href="20201222161416-email.html">email</a></li>
+<li><a href="emsenn.html">emsenn</a></li>
+<li><a href="index.html">emsenn's records catalog</a></li>
+<li><a href="emsenn_net.html">emsenn.net</a></li>
+<li><a href="endogeneity.html">endogeneity</a></li>
+<li><a href="energy.html">energy</a></li>
+<li><a href="environment.html">environment</a></li>
+<li><a href="20201222131839-environmental_racism_lawsuit_against_unc_ch.html">environmental racism lawsuit against UNC-CH</a></li>
+<li><a href="epistemology.html">epistemology</a></li>
+<li><a href="20201222211531-ethnobotany.html">ethnobotany</a></li>
+<li><a href="ex_officio_delegate.html">ex officio delegate</a></li>
+<li><a href="20201222142814-mask.html">face-mask</a></li>
+<li><a href="fantasy.html">fantasy</a></li>
+<li><a href="fantasy_serial.html">fantasy serial</a></li>
+<li><a href="fantasy_world.html">fantasy world</a></li>
+<li><a href="20201222165105-fiction.html">fiction</a></li>
+<li><a href="file.html">file</a></li>
+<li><a href="20201223090017-first_degree_murder.html">first-degree murder</a></li>
+<li><a href="first_person_shooters.html">first-person shooter</a></li>
+<li><a href="fish.html">fish</a></li>
+<li><a href="fishing.html">fishing</a></li>
+<li><a href="flatness.html">flatness</a></li>
+<li><a href="20201222102950-fleeting_notes.html">fleeting notes</a></li>
+<li><a href="folk_punk.html">folk-punk</a></li>
+<li><a href="food.html">food</a></li>
+<li><a href="food_apartheid.html">food apartheid</a></li>
+<li><a href="for_profit_web_service.html">for-profit Web service</a></li>
+<li><a href="for_profit_software.html">for-profit software</a></li>
+<li><a href="formal_language.html">formal language</a></li>
+<li><a href="freshwater_lakes.html">freshwater lakes</a></li>
+<li><a href="freshwater_resevoirs.html">freshwater resevoirs</a></li>
+<li><a href="functional_programming.html">functional programming</a></li>
+<li><a href="futurist.html">futurism</a></li>
+<li><a href="game.html">game</a></li>
+<li><a href="game_host.html">game host</a></li>
+<li><a href="20201222205223-gaming_culture.html">gaming culture</a></li>
+<li><a href="general_election.html">general election</a></li>
+<li><a href="generation.html">generation</a></li>
+<li><a href="genetic_sequencing.html">genetic-sequencing</a></li>
+<li><a href="genocide.html">genocide</a></li>
+<li><a href="gift.html">gift</a></li>
+<li><a href="git_repository.html">git repository</a></li>
+<li><a href="gravel.html">gravel</a></li>
+<li><a href="growth.html">growth</a></li>
+<li><a href="gun.html">gun</a></li>
+<li><a href="gun_control.html">gun control</a></li>
+<li><a href="gurty_pudding.html">gurty pudding</a></li>
+<li><a href="hacker.html">hacker</a></li>
+<li><a href="health.html">health</a></li>
+<li><a href="healthcare.html">healthcare</a></li>
+<li><a href="home_directory.html">home directory</a></li>
+<li><a href="home_phone.html">home phone</a></li>
+<li><a href="homelessness.html">homelessness</a></li>
+<li><a href="homicide.html">homicide</a></li>
+<li><a href="house.html">house</a></li>
+<li><a href="human.html">human</a></li>
+<li><a href="hunting.html">hunting</a></li>
+<li><a href="hypertext.html">hypertext</a></li>
+<li><a href="image_macro.html">image macro</a></li>
+<li><a href="20201222210523-imagination.html">imagination</a></li>
+<li><a href="indigenize.html">indigenize</a></li>
+<li><a href="indigenous2.html">indigenous</a></li>
+<li><a href="information.html">information</a></li>
+<li><a href="information_management.html">information management</a></li>
+<li><a href="information_management_system.html">information management tools</a></li>
+<li><a href="information_scientists.html">information-scientists</a></li>
+<li><a href="20201223173316-inn.html">inn</a></li>
+<li><a href="integers.html">integer</a></li>
+<li><a href="invisible_labour.html">invisible labour</a></li>
+<li><a href="knowledge.html">knowledge</a></li>
+<li><a href="kyriarchy.html">kyriarchy</a></li>
+<li><a href="kyritus.html">kyritus</a></li>
+<li><a href="kyritus_redistribution.html">kyritus redistribution</a></li>
+<li><a href="labor.html">labor</a></li>
+<li><a href="land.html">land</a></li>
+<li><a href="language.html">language</a></li>
+<li><a href="learning.html">learning</a></li>
+<li><a href="lexicon.html">lexicon</a></li>
+<li><a href="library_science.html">library-science</a></li>
+<li><a href="20201222214851-license.html">license</a></li>
+<li><a href="life.html">life</a></li>
+<li><a href="lists.html">lists</a></li>
+<li><a href="literate_programming.html">literate programming</a></li>
+<li><a href="20201222104622-live_streaming.html">live-stream</a></li>
+<li><a href="20201223173421-lodgings.html">lodgings</a></li>
+<li><a href="magic.html">magic</a></li>
+<li><a href="20201223200606-mailing_list.html">mailing list</a></li>
+<li><a href="20201223090109-manslaughter.html">manslaughter</a></li>
+<li><a href="markets.html">markets</a></li>
+<li><a href="means_of_survival.html">means of survival</a></li>
+<li><a href="medical_apartheid.html">medical apartheid</a></li>
+<li><a href="medicine.html">medicine</a></li>
+<li><a href="memory.html">memory</a></li>
+<li><a href="mention.html">mention</a></li>
+<li><a href="20201222103831-message.html">message</a></li>
+<li><a href="meta.html">meta</a></li>
+<li><a href="meta_data.html">meta-data</a></li>
+<li><a href="metaphor.html">metaphors</a></li>
+<li><a href="money.html">money</a></li>
+<li><a href="moon.html">moon</a></li>
+<li><a href="mound.html">mound</a></li>
+<li><a href="natural_gas.html">natural gas</a></li>
+<li><a href="neo_pioneer.html">neo-pioneer</a></li>
+<li><a href="note.html">note</a></li>
+<li><a href="note_taking.html">note-taking</a></li>
+<li><a href="20201222102739-note_taking_systems.html">note-taking systems</a></li>
+<li><a href="numbers.html">number</a></li>
+<li><a href="oats.html">oat</a></li>
+<li><a href="offal.html">offal</a></li>
+<li><a href="ontological_databse.html">ontological databse</a></li>
+<li><a href="package_manager.html">package manager</a></li>
+<li><a href="pen_and_paper.html">pen and paper</a></li>
+<li><a href="20201223083833-pepper_spray.html">pepper-spray</a></li>
+<li><a href="web_performance.html">performing on the Web</a></li>
+<li><a href="20201222102711-permanent_note.html">permanent note</a></li>
+<li><a href="permission.html">permission</a></li>
+<li><a href="person.html">person</a></li>
+<li><a href="20201222161832-person_record.html">person record</a></li>
+<li><a href="personal_records.html">personal records</a></li>
+<li><a href="petroleum.html">petroleum</a></li>
+<li><a href="photography.html">photography</a></li>
+<li><a href="physics.html">physics</a></li>
+<li><a href="pork.html">pig</a></li>
+<li><a href="plain_text.html">plain text</a></li>
+<li><a href="planet.html">planet</a></li>
+<li><a href="20201223083826-police.html">police</a></li>
+<li><a href="20201223085903-police_custody.html">police custody</a></li>
+<li><a href="20201223084853-police_dog.html">police dog</a></li>
+<li><a href="poll.html">poll</a></li>
+<li><a href="post_colonial.html">post-colonial</a></li>
+<li><a href="20201222104010-posting.html">posting</a></li>
+<li><a href="prefix_notation.html">prefix notation</a></li>
+<li><a href="prescription.html">prescription</a></li>
+<li><a href="press.html">press</a></li>
+<li><a href="profit.html">profit</a></li>
+<li><a href="programming.html">programming</a></li>
+<li><a href="programming_languages.html">programming language</a></li>
+<li><a href="projects.html">projects</a></li>
+<li><a href="prose.html">prose</a></li>
+<li><a href="20201222142933-trouble_recognizing_faces.html">prosopagnosia</a></li>
+<li><a href="public_asset.html">public asset</a></li>
+<li><a href="pudding.html">pudding</a></li>
+<li><a href="r_antrhopology.html">r/Anthropology</a></li>
+<li><a href="20201222164306-race.html">race</a></li>
+<li><a href="20201222164244-racial_supremacists.html">racial supremacists</a></li>
+<li><a href="20201222205729-racism.html">racism</a></li>
+<li><a href="20201222211749-rainforests.html">rainforests</a></li>
+<li><a href="rainstorms.html">rainstorms</a></li>
+<li><a href="reality.html">reality</a></li>
+<li><a href="record.html">record</a></li>
+<li><a href="record_catalog.html">record catalog</a></li>
+<li><a href="record_type.html">record type</a></li>
+<li><a href="records_catalog.html">records catalog</a></li>
+<li><a href="refugee.html">refugee</a></li>
+<li><a href="20201222210926-relationships.html">relationships</a></li>
+<li><a href="rendering.html">rendering</a></li>
+<li><a href="resource_scarcity.html">resource scarcity</a></li>
+<li><a href="resources.html">resources</a></li>
+<li><a href="rhizome_writing.html">rhizomatous writing</a></li>
+<li><a href="river.html">river</a></li>
+<li><a href="role-playing-game.html">role-playing game</a></li>
+<li><a href="role_playing_game_play_session.html">role-playing game play session</a></li>
+<li><a href="role_playing_game_session_primer.html">role-playing game session primer</a></li>
+<li><a href="20201223162408-role_playing_game_system.html">role-playing game system</a></li>
+<li><a href="role_playing_live_play_podcast.html">role-playing live-play podcast</a></li>
+<li><a href="schema.html">schema</a></li>
+<li><a href="20201222165043-science_fiction.html">science-fiction</a></li>
+<li><a href="20201222165018-science_fiction_culture.html">science-fiction culture</a></li>
+<li><a href="seed.html">seed</a></li>
+<li><a href="serialization.html">serialization</a></li>
+<li><a href="settler_colonial_mindset.html">settler-colonial mindset</a></li>
+<li><a href="settler_colonialism.html">settler-colonialism</a></li>
+<li><a href="settler_colony.html">settler-colony</a></li>
+<li><a href="sheep.html">sheep</a></li>
+<li><a href="20201223170521-short_story.html">short story</a></li>
+<li><a href="software.html">software</a></li>
+<li><a href="soil.html">soil</a></li>
+<li><a href="space.html">space</a></li>
+<li><a href="spam.html">spam</a></li>
+<li><a href="star.html">star</a></li>
+<li><a href="state.html">state</a></li>
+<li><a href="state_military.html">state military</a></li>
+<li><a href="statistics.html">statistics</a></li>
+<li><a href="steak.html">steak</a></li>
+<li><a href="20201222165127-narrative.html">story</a></li>
+<li><a href="storytelling.html">storytelling</a></li>
+<li><a href="straight_el.html">straight.el</a></li>
+<li><a href="study.html">study</a></li>
+<li><a href="superdelegate.html">superdelegate</a></li>
+<li><a href="supremacy.html">supremacy</a></li>
+<li><a href="20201222164435-survival.html">survival</a></li>
+<li><a href="tabletop_role_playing_games.html">tabletop role-playing games</a></li>
+<li><a href="tasks.html">tasks</a></li>
+<li><a href="tech_stack.html">tech stack</a></li>
+<li><a href="technical_debt.html">technical debt</a></li>
+<li><a href="telephone.html">telephone</a></li>
+<li><a href="text_completion.html">text completion</a></li>
+<li><a href="text_editor.html">text editor</a></li>
+<li><a href="text_encoding.html">text encoding</a></li>
+<li><a href="text_formatting.html">text-formatting</a></li>
+<li><a href="the_web_is_the_new_telephone_system.html">the-web-is-the-new-telephone-system</a></li>
+<li><a href="theoretical_physics.html">theoretical physics</a></li>
+<li><a href="threat.html">threat</a></li>
+<li><a href="time.html">time</a></li>
+<li><a href="tool.html">tool</a></li>
+<li><a href="topsoil.html">topsoil</a></li>
+<li><a href="traditional_territory.html">traditional territory</a></li>
+<li><a href="tragedy.html">tragedy</a></li>
+<li><a href="20201222205122-transphobia.html">transphobia</a></li>
+<li><a href="trash.html">trash</a></li>
+<li><a href="20201223090006-trial.html">trial</a></li>
+<li><a href="truth.html">truth</a></li>
+<li><a href="universe.html">universe</a></li>
+<li><a href="use_package.html">use-package</a></li>
+<li><a href="user_interface.html">user interface</a></li>
+<li><a href="violence.html">violence</a></li>
+<li><a href="vote.html">vote</a></li>
+<li><a href="warrior.html">warrior</a></li>
+<li><a href="water.html">water</a></li>
+<li><a href="20201222170501-ways_of_living.html">way of life</a></li>
+<li><a href="whiteness.html">whiteness</a></li>
+<li><a href="winter.html">winter</a></li>
+<li><a href="wolf.html">wolf</a></li>
+<li><a href="work.html">work</a></li>
+<li><a href="world.html">world</a></li>
+<li><a href="world_building.html">world-building</a></li>
+<li><a href="writing.html">writing</a></li>
+<li>d
+<ul class="org-ul">
+<li><a href="d/2016-04-28.html">2014-10-29</a></li>
+<li><a href="d/2014-10-29.html">2014-10-29</a></li>
+<li><a href="d/2015-11-16.html">2015-11-16</a></li>
+<li><a href="d/2020-03-03.html">2020-03-03</a></li>
+<li><a href="d/2020-07-11.html">2020-07-11</a></li>
+<li><a href="d/2020-07-15.html">2020-07-15</a></li>
+<li><a href="d/2020-12-09.html">2020-12-09</a></li>
+<li><a href="d/2020-12-10.html">2020-12-10</a></li>
+<li><a href="d/2020-12-12.html">2020-12-12</a></li>
+<li><a href="d/2020-12-13.html">2020-12-13</a></li>
+<li><a href="d/2020-12-15.html">2020-12-15</a></li>
+<li><a href="d/2020-12-16.html">2020-12-16</a></li>
+<li><a href="d/2020-12-17.html">2020-12-17</a></li>
+<li><a href="d/2020-12-18.html">2020-12-18</a></li>
+<li><a href="d/2020-12-19.html">2020-12-19</a></li>
+<li><a href="d/2020-12-20.html">2020-12-20</a></li>
+<li><a href="d/2020-12-21.html">2020-12-21</a></li>
+<li><a href="d/2020-12-22.html">2020-12-22</a></li>
+<li><a href="d/2020-12-23.html">2020-12-23</a></li>
+<li><a href="d/2020-12-24.html">2020-12-24</a></li>
+<li><a href="d/2020-12-25.html">2020-12-25</a></li>
+<li><a href="d/2020-12-26.html">2020-12-26</a></li>
+<li><a href="d/2020-12-27.html">2020-12-27</a></li>
+<li><a href="d/2020-12-28.html">2020-12-28</a></li>
+<li><a href="d/2020-12-29.html">2020-12-29</a></li>
+<li><a href="d/index.html">Daily Records Index</a></li>
+</ul></li>
+<li>teraum
+<ul class="org-ul">
+<li><a href="teraum/ack.html">Ack</a></li>
+<li><a href="teraum/arathel_county.html">Arathel County</a></li>
+<li><a href="teraum/arathel_ack_road.html">Arathel-Ack road</a></li>
+<li><a href="teraum/bellybrush.html">Bellybrush</a></li>
+<li><a href="teraum/caer_pled.html">Caer Pled</a></li>
+<li><a href="teraum/central_plains.html">Central Plains</a></li>
+<li><a href="teraum/crossed_candles_inn.html">Crossed Candles Inn</a></li>
+<li><a href="teraum/farsteppes.html">Farsteppes</a></li>
+<li><a href="teraum/pled.html">Pled</a></li>
+<li><a href="teraum/pled_county.html">Pled County</a></li>
+<li><a href="teraum/index.html">Teraum Index</a></li>
+<li><a href="teraum/worldkeep.html">Worldkeep</a></li>
+<li><a href="teraum/worldkeepers.html">Worldkeepers</a></li>
+<li><a href="teraum/gods.html">gods</a></li>
+<li><a href="teraum/multiverse.html">multiverse</a></li>
+<li><a href="teraum/mundane.html">mundane</a></li>
+</ul></li>
+</ul>
+
+<section id="outline-container-backlinks" class="outline-2">
+<h2 id="backlinks">Backlinks</h2>
+<div class="outline-text-2" id="text-backlinks">
+<ul class="org-ul">
+<li><a href="d/2020-12-29.html">2020-12-29</a></li>
+<li><a href="index.html">emsenn's records catalog</a></li>
+<li><a href="concepts_index.html">Concepts Index</a></li>
+</ul>
+</div>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2020-12-29 Tue 15:51</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2020-12-29 Tue 20:45</p>
+</section>
+</body>
+</html>
