@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-30 Wed 10:54 -->
+<!-- 2020-12-30 Wed 12:13 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2020-12-30</title>
@@ -265,9 +265,7 @@ The next section in the chapter is about structure movement, an important step i
 <i>(Why am I duplicating material in a manual I have locally? It's not just for the memorization aid of re-writing it, but that's a part! It's also because then this catalog slowly grows into documentation not of Emacs as a tool, but of my relationship with Emacs. Only the keystrokes I use myself tend to get documented here, so it's less of a reference for Emacs users and more a reference for people who want to understand</i> my <i>use of Emacs.)</i>
 </p>
 
-<p>
-#+foo 
-</p>
+
 <table id="org5fd059e">
 
 
@@ -286,6 +284,12 @@ The next section in the chapter is about structure movement, an important step i
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="org-left"><code>C-UP</code></td>
+<td class="org-left"><code>(org-backward-paragraph)</code></td>
+<td class="org-left">Go to the previous paragraph</td>
+</tr>
+
 <tr>
 <td class="org-left"><code>C-c C-n</code></td>
 <td class="org-left"><code>(org-next-visible-heading)</code></td>
@@ -419,6 +423,12 @@ Hmm. In looking at the manual's <a href="https://orgmode.org/manual/Handling-Lin
 </tr>
 
 <tr>
+<td class="org-left"><code>C-c @</code></td>
+<td class="org-left"><code>(org-mark-subtree)</code></td>
+<td class="org-left">Adds the current entry to the Org-mark "ring". (Use repeatedly to add subsequent entries.)</td>
+</tr>
+
+<tr>
 <td class="org-left"><code>C-c &amp;</code></td>
 <td class="org-left"><code>(org-mark-ring-goto)</code></td>
 <td class="org-left">Go back to a position recorded on the Org-mark "ring". (Use repeatedly to keep going back.)</td>
@@ -430,7 +440,7 @@ Hmm. In looking at the manual's <a href="https://orgmode.org/manual/Handling-Lin
 Let me put these together and see what I'm missing, if anything.
 </p>
 
-<aside id="orgce8ac51">
+<aside id="orge2ede3e">
 <p>
 
 </p>
@@ -488,6 +498,12 @@ And now a little Elisp to merge the tables, followed by the tables:
 </tr>
 </tbody>
 <tbody>
+<tr>
+<td class="org-left"><code>C-UP</code></td>
+<td class="org-left"><code>(org-backward-paragraph)</code></td>
+<td class="org-left">Go to the previous paragraph</td>
+</tr>
+
 <tr>
 <td class="org-left"><code>C-c C-n</code></td>
 <td class="org-left"><code>(org-next-visible-heading)</code></td>
@@ -557,12 +573,525 @@ And now a little Elisp to merge the tables, followed by the tables:
 </tr>
 
 <tr>
+<td class="org-left"><code>C-c @</code></td>
+<td class="org-left"><code>(org-mark-subtree)</code></td>
+<td class="org-left">Adds the current entry to the Org-mark "ring". (Use repeatedly to add subsequent entries.)</td>
+</tr>
+
+<tr>
 <td class="org-left"><code>C-c &amp;</code></td>
 <td class="org-left"><code>(org-mark-ring-goto)</code></td>
 <td class="org-left">Go back to a position recorded on the Org-mark "ring". (Use repeatedly to keep going back.)</td>
 </tr>
 </tbody>
 </table>
+
+<p>
+That's actually a pretty comprehensive look at how I move around the structure of my records. Next, I'll look at how I edit that structure, and then take a look at <i>structure linking</i>, and <i>structure inclusion</i>, two other things I do often that aren't (I think) strictly under "editing."
+</p>
+
+<p>
+So, to talk about structure editing, I need to lay out my understanding and vocabulary around the structure of my records. (I say "my records" rather than "Org-mode files" because my records use a combination of Org-mode, Org-roam, my own code, and all of it comes from my way of thinking about recordkeeping.
+</p>
+
+<p>
+Each record, a file on the disk, contains quite a bit: some meta-data that comes at the beginning of the files, and then one or more entries, each of which might contain many elements, from lists to code blocks to paragraphs.
+</p>
+
+<p>
+Here's the table for generalized structure editing:
+</p>
+
+<table id="org72a65a7">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key sequence</th>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>M-RET</code></td>
+<td class="org-left"><code>(org-meta-return)</code></td>
+<td class="org-left">Insert a new heading, item, or row.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-RET</code></td>
+<td class="org-left"><code>(org-insert-heading-respect-content)</code></td>
+<td class="org-left">Insert a new heading at the end of this entry.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-u C-u M-RET</code></td>
+<td class="org-left"><code>(org-meta-return)</code></td>
+<td class="org-left">Insert a new heading at the end of this entry's parent.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-S-RET</code></td>
+<td class="org-left"><code>(org-insert-todo-heading)</code></td>
+<td class="org-left">Insert a new task entry at point.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-S-RET</code></td>
+<td class="org-left"><code>(org-insert-todo-heading-respect-content)</code></td>
+<td class="org-left">Insert a new task at thhe end of this entry.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-LEFT</code></td>
+<td class="org-left"><code>(org-do-promote)</code></td>
+<td class="org-left">Raise a headline to the parent level.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-RIGHT</code></td>
+<td class="org-left"><code>(org-do-demote)</code></td>
+<td class="org-left">Lower  a headline to the child level.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-UP</code></td>
+<td class="org-left"><code>(org-move-subtree-up)</code></td>
+<td class="org-left">Move entry up within its current level.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-DOWN</code></td>
+<td class="org-left"><code>(org-move-subtree-down)</code></td>
+<td class="org-left">Move entry down within its current level.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-x C-w</code></td>
+<td class="org-left"><code>(org-cut-subtree)</code></td>
+<td class="org-left">Remove an entry from the buffer and place it in the kill "ring"</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-x C-w</code></td>
+<td class="org-left"><code>(org-copy-subtree</code></td>
+<td class="org-left">Place a copy of the entry in the kill "ring"</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-x C-y</code></td>
+<td class="org-left"><code>(org-paste-subtree)</code></td>
+<td class="org-left">Places an entry from the kill "ring" into the current parent entry</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-w</code></td>
+<td class="org-left"><code>(org-refile)</code></td>
+<td class="org-left">Provides an interface for moving an entry to a new location</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c ^</code></td>
+<td class="org-left"><code>(org-sort)</code></td>
+<td class="org-left">Sort all entries within a parent.</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+But there's also quite a bit for working with elements within entries, such as lists:
+</p>
+
+<table id="org286fc3b">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key sequence</th>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>S-UP</code></td>
+<td class="org-left"><code>(org-shiftup)</code></td>
+<td class="org-left">Move to the previous item</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>S-DOWN</code></td>
+<td class="org-left"><code>(org-shiftdown)</code></td>
+<td class="org-left">Move to the next item</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-UP</code></td>
+<td class="org-left"><code>(org-metaup)</code></td>
+<td class="org-left">Move the current item up</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-DOWN</code></td>
+<td class="org-left"><code>(org-metadown)</code></td>
+<td class="org-left">Move the current item down</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-LEFT</code></td>
+<td class="org-left"><code>(org-metaleft)</code></td>
+<td class="org-left">Increase the identation of the current item</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-RIGHT</code></td>
+<td class="org-left"><code>(org-metaright)</code></td>
+<td class="org-left">Decrease the indentation of the current item</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-S-LEFT</code></td>
+<td class="org-left"><code>(org-shiftmetaleft)</code></td>
+<td class="org-left">Increase the indentation of the current item and its children</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-S-RIGHT</code></td>
+<td class="org-left"><code>(org-shiftmetaright)</code></td>
+<td class="org-left">Decrease the indentation of the current item and its children</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-c</code></td>
+<td class="org-left"><code>(org-ctrl-c-ctrl-c)</code></td>
+<td class="org-left">Reflow list and complete current item, if it has a checkbox</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+There's also <a href="../org_mode_drawer.html">Org-mode drawers</a>, which I don't use too much right now.
+</p>
+
+<table id="org90be067">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key sequences</th>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c C-x d</code></td>
+<td class="org-left"><code>(org-insert-drawer)</code></td>
+<td class="org-left">Ask for the name of a drawer and insert it, or wrap the region (if there is one) in that drawer.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-z</code></td>
+<td class="org-left"><code>(org-add-note)</code></td>
+<td class="org-left">Adds a new timestamped note to the current entry's <code>LOGBOOK</code> drawer, making one if there isn't one.</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+There's one part of structure editing I won't cover here, which is my use of <a href="../org_mode_capture_templates.html">Org-mode capture templates</a> to insert <a href="../org_mode_blocks.html">Org-mode blocks</a>. Those templates change often; I'll wait until I can write the code to have that system self-document.
+</p>
+
+<p>
+I mentioned links earlier, but now I realize I only use two keystrokes to work with them. Still worth recording:
+</p>
+
+<table id="orgb7a0f1e">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key sequence</th>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c C-l</code></td>
+<td class="org-left"><code>(org-insert-link)</code></td>
+<td class="org-left">Pulls up the interface to insert a link (either typed or selected from the link "ring", or edit the link under point</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c l</code></td>
+<td class="org-left"><code>(org-store-link)</code></td>
+<td class="org-left">Saves a link in in the link "ring"</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Another important tool in my structure editing method is <a href="../org_mode_inclusion.html">Org-mode inclusion</a>. At the moment I type these out by hand, but I plan on adding some capture templates to make it a little easier. The Org-mode manual's <a href="https://orgmode.org/manual/Include-Files.html">chapter on inclusion</a> is worth reading. All the tables in this posting actually exist in the records for the various concepts, e.g. the links table above comes from the <a href="../org_mode_links.html">Org-mode links</a> record.
+</p>
+
+
+<aside id="org61c0ffe">
+<p>
+
+</p>
+
+<p>
+Here's another list of table names, this time the ones used in structure editing:
+</p>
+
+<ul class="org-ul">
+<li>org-mode-structure-editing-key-sequences-table</li>
+<li>org-lists-structure-editing-key-sequences-table</li>
+<li>org-mode-drawers-structure-editing-key-sequences-table</li>
+<li>org-mode-links-structure-editing-key-sequences-table</li>
+</ul>
+
+<p>
+I'll run it through the same Elisp as above to generate a new merged table
+</p>
+</aside>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key sequence</th>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>M-RET</code></td>
+<td class="org-left"><code>(org-meta-return)</code></td>
+<td class="org-left">Insert a new heading, item, or row.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-RET</code></td>
+<td class="org-left"><code>(org-insert-heading-respect-content)</code></td>
+<td class="org-left">Insert a new heading at the end of this entry.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-u C-u M-RET</code></td>
+<td class="org-left"><code>(org-meta-return)</code></td>
+<td class="org-left">Insert a new heading at the end of this entry's parent.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-S-RET</code></td>
+<td class="org-left"><code>(org-insert-todo-heading)</code></td>
+<td class="org-left">Insert a new task entry at point.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-S-RET</code></td>
+<td class="org-left"><code>(org-insert-todo-heading-respect-content)</code></td>
+<td class="org-left">Insert a new task at thhe end of this entry.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-LEFT</code></td>
+<td class="org-left"><code>(org-do-promote)</code></td>
+<td class="org-left">Raise a headline to the parent level.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-RIGHT</code></td>
+<td class="org-left"><code>(org-do-demote)</code></td>
+<td class="org-left">Lower  a headline to the child level.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-UP</code></td>
+<td class="org-left"><code>(org-move-subtree-up)</code></td>
+<td class="org-left">Move entry up within its current level.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-DOWN</code></td>
+<td class="org-left"><code>(org-move-subtree-down)</code></td>
+<td class="org-left">Move entry down within its current level.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-x C-w</code></td>
+<td class="org-left"><code>(org-cut-subtree)</code></td>
+<td class="org-left">Remove an entry from the buffer and place it in the kill "ring"</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-x C-w</code></td>
+<td class="org-left"><code>(org-copy-subtree</code></td>
+<td class="org-left">Place a copy of the entry in the kill "ring"</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-x C-y</code></td>
+<td class="org-left"><code>(org-paste-subtree)</code></td>
+<td class="org-left">Places an entry from the kill "ring" into the current parent entry</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-w</code></td>
+<td class="org-left"><code>(org-refile)</code></td>
+<td class="org-left">Provides an interface for moving an entry to a new location</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c ^</code></td>
+<td class="org-left"><code>(org-sort)</code></td>
+<td class="org-left">Sort all entries within a parent.</td>
+</tr>
+
+<tr>
+<td class="org-left">Key sequence</td>
+<td class="org-left">Command</td>
+<td class="org-left">Description</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>S-UP</code></td>
+<td class="org-left"><code>(org-shiftup)</code></td>
+<td class="org-left">Move to the previous item</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>S-DOWN</code></td>
+<td class="org-left"><code>(org-shiftdown)</code></td>
+<td class="org-left">Move to the next item</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-UP</code></td>
+<td class="org-left"><code>(org-metaup)</code></td>
+<td class="org-left">Move the current item up</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-DOWN</code></td>
+<td class="org-left"><code>(org-metadown)</code></td>
+<td class="org-left">Move the current item down</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-LEFT</code></td>
+<td class="org-left"><code>(org-metaleft)</code></td>
+<td class="org-left">Increase the identation of the current item</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-RIGHT</code></td>
+<td class="org-left"><code>(org-metaright)</code></td>
+<td class="org-left">Decrease the indentation of the current item</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-S-LEFT</code></td>
+<td class="org-left"><code>(org-shiftmetaleft)</code></td>
+<td class="org-left">Increase the indentation of the current item and its children</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-S-RIGHT</code></td>
+<td class="org-left"><code>(org-shiftmetaright)</code></td>
+<td class="org-left">Decrease the indentation of the current item and its children</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-c</code></td>
+<td class="org-left"><code>(org-ctrl-c-ctrl-c)</code></td>
+<td class="org-left">Reflow list and complete current item, if it has a checkbox</td>
+</tr>
+
+<tr>
+<td class="org-left">Key sequences</td>
+<td class="org-left">Command</td>
+<td class="org-left">Description</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c C-x d</code></td>
+<td class="org-left"><code>(org-insert-drawer)</code></td>
+<td class="org-left">Ask for the name of a drawer and insert it, or wrap the region (if there is one) in that drawer.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-z</code></td>
+<td class="org-left"><code>(org-add-note)</code></td>
+<td class="org-left">Adds a new timestamped note to the current entry's <code>LOGBOOK</code> drawer, making one if there isn't one.</td>
+</tr>
+
+<tr>
+<td class="org-left">Key sequence</td>
+<td class="org-left">Command</td>
+<td class="org-left">Description</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c C-l</code></td>
+<td class="org-left"><code>(org-insert-link)</code></td>
+<td class="org-left">Pulls up the interface to insert a link (either typed or selected from the link "ring", or edit the link under point</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c l</code></td>
+<td class="org-left"><code>(org-store-link)</code></td>
+<td class="org-left">Saves a link in in the link "ring"</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+I went into this feeling like I didn't really do much structure editing and had a very manual approach to making Org-mode files, when I knew there's a <i>lot</i> of possibility for <a href="../automating.html">automation</a>. I realize now, I just have been doing some things with keystrokes without even realizing that I was doing it, because (for the most part) the keystrokes are easier than the thing, and it's not any more difficult to remember "alt-enter" than "a new line with the same number of asterisks as the previous one." By viewing both as just a means to a headline (and the headline, ultimately, as just a means to titling an entry, in my own conception of the information,) I guess I don't always view things as automatic forms of manual actions, but just a different means to an end. 
+</p>
 </div>
 </div>
 </section>
@@ -580,9 +1109,14 @@ And now a little Elisp to merge the tables, followed by the tables:
 <h3 id="backlinks">Backlinks</h3>
 <div class="outline-text-3" id="text-backlinks">
 <ul class="org-ul">
+<li><a href="../ide.html">IDE</a></li>
+<li><a href="../records_index.html">Records Index</a></li>
+<li><a href="index.html">Daily Records Index</a></li>
+<li><a href="../org_mode_blocks.html">Org-mode blocks</a></li>
+<li><a href="../org_mode_inclusion.html">Org-mode INCLUDE</a></li>
+<li><a href="../fennelconf.html">FennelConf</a></li>
 <li><a href="../structure_editing.html">structure editing</a></li>
 <li><a href="../stepan_parunashvili_an_intuition_for_lisp_syntax.html">Stepan Parunashvili: "An Intuition for Lisp Syntax"</a></li>
-<li><a href="../ide.html">IDE</a></li>
 </ul>
 </div>
 </div>
@@ -591,7 +1125,7 @@ And now a little Elisp to merge the tables, followed by the tables:
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-30 Wed 09:37</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-30 Wed 10:54</p>
+<p class="date">Created: 2020-12-30 Wed 12:13</p>
 </section>
 </body>
 </html>
