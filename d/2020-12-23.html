@@ -1,199 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-30 Wed 15:54 -->
+<!-- 2021-01-07 Thu 13:44 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2020-12-23</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="emsenn">
 <style>
-	@charset "UTF-8";
-	
-	:root {
-	    --body-font: sans-serif;
-	    --header-font: sans-serif;
-	    --code-font: monospace;
-	    --primary-color: #ffe;
-	    --primary-dim-color: #eed;
-	    --secondary-color: #312;
-	    --secondary-dim-color: #756;
-	    --link-color: #880;
-	    --link-hover-color: #aa2;
-	    --link-visited-color: #934;
-	    --link-visited-hover-color: #b56;
-	    --external-link-color: #008;
-	    --external-link-hover-color: #60b;
-	    --external-link-visited-color: #172;
-	    --external-link-visited-hover-color: #394;
-	}
-	@media(prefers-color-scheme:dark){
-	    :root {
-		--body-font: sans-serif;
-		--header-font: sans-serif;
-		--code-font: monospace;
-		--primary-color: #756;
-		--primary-dim-color: #312;
-		--secondary-color: #eed;
-		--secondary-dim-color: #ffe;
-		--link-color: #880;
-		--link-hover-color: #aa2;
-		--link-visited-color: #934;
-		--link-visited-hover-color: #b56;
-	    }}
-	body {
-	    position: relative;
-	    min-height: 100%;
-	    background-color: var(--primary-color);
-	    color: var(--secondary-color);
-	    margin: 0 auto;
-	    font-family: sans-serif;
-	}
-	main, #content {
-	    background-color: var(--primary-dim-color);
-	    border-left: 1.5em dotted var(--primary-color);
-	    padding: 1em;
-	}
-	header {
-	    border-bottom: 0.8em dotted var(--secondary-dim-color);
-	}
-	h1 { font-size: 2em; margin-bottom: 0; }
-	h2 {
-	    border-bottom: 0.3em dotted var(--secondary-dim-color);
-	}
-	h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
-	    width: 60%;
-	}
-	aside {
-	    float: right;
-	    width: 35%;
-	}
-	aside p { width: 100%; }
-	@media screen and (max-width:760px) {
-	    h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
-		width: 90%;
-	    }
-	    aside {
-		float: inherit;
-		width: 90%;
-		border-top: 0.2em dotted var(--secondary-dim-color);
-		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
-		font-size: 0.8em;
-		  }
-	}
-	
-	footer, #postamble, #preamble {
-	    padding: 0.5em;
-	}
-	table {
-	    border-collapse: collapse;
-	    border-spacing: 0;
-	    empty-cells: show;
-	    border: 0.1em solid #444;
-	}
-	thead { font-family: sans-serif; }
-	th, td {
-	    padding: 0 0.3em;
-	    border: 0.01em solid #444;
-	}
-	img {
-	    max-width: 80vw;
-	    vertical-align: middle;
-	}
-	pre, .src {
-	    padding: 0.5em;
-	    border: 0.1em solid #444;
-	    white-space: pre-wrap;
-	    overflow-x: scroll;
-	    text-overflow: clip;
-	    scrollbar-width: none;
-	}
-	pre::-webkit-scrollbar, .src::-webkit-scrollbar {
-	    display: none;
-	}
-	
-	
-	dt {
-	    font-weight: normal;
-	    display: inline-block;
-	    border-bottom: 0.1rem dotted #444;
-	}
-	#text-index dt { border-bottom: none; }
-	h2, h3, h4, h5, h6, h7, h8, h9, h10 {
-	    display: block;
-	    font-family: sans-serif;
-	    margin: 0.2em auto 0.5em 0;
-	}
-	a, .link {
-	    text-decoration: none;
-	    color: #880;
-	    display: inline;
-	    position: relative;
-	    border-bottom: 0.1rem dotted;
-	    line-height: 1.2;
-	    transition: border 0.3s;
-	}
-	a:hover {
-	    color: #aa2;
-	    outline-style: none;
-	    border-bottom: 0.1rem solid;
-	}
-	a:visited, .visited-link { color: #934; }
-	a:visited:hover { color: #b56; }
-	a:focus {
-	    outline-style: none;
-	    border-bottom: 0.1rem solid;
-	}
-	::selection { background-color: #777; color: #eee; }
-	a::selection { background-color: #ccc; }
-	.org-todo {
-	    background-color: #ddd;
-	    color: #333;
-	    font-size: .8rem;
-	    float: right;
-	}
-	.org-src-container + .example {
-	    margin-left: 8em;
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
-	    content: "^";
-	    font-size: 0.5em;
-	    vertical-align: super;
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
-	    color: var(--external-link-color);
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
-	    color: var(--external-link-hover-color);
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
-	    color: var(--external-link-visited-color);
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
-	    color: var(--external-link-visited-hover-color);
-	}
-	blockquote {
-	    border: 0.1em dashed var(--secondary-dim-color);
-	    padding-left: 0.2em;
-	}
-	label.org-src-name {
-	    margin: 0 0 0 3em;
-	    font-family: sans-serif;
-	    font-size: 1rem;
-	    line-height: 0;
-	}
-	.skip-to-content {
-	    opacity: 0;
-	    position: absolute;
-	    left: 0.2em;
-	}
-	.skip-to-content:focus{
-	    opacity: 1;
-	    background-color: var(--secondary-dim-color);
-	    color: var(--primary-color);
-	}
-	ul { max-width: 85%; }
-	</style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
 </head>
 <body>
 <section id="preamble" class="status">
@@ -202,7 +202,7 @@
 <main id="content">
 <header>
 <h1 class="title">2020-12-23</h1>
-</header><summary id="org8f3f3e2">
+</header><summary id="org363d539">
 <p>
 This is my personal record for <span class="timestamp-wrapper"><span class="timestamp">[2020-12-22 Tue]</span></span>. If you are viewing this record outside of its original environment, please be aware it maybe be heavily redacted.
 </p>
@@ -236,7 +236,7 @@ This is my personal record for <span class="timestamp-wrapper"><span class="time
 <div class="outline-text-3" id="text-orge841f57">
 <section class="org-drawer"> <ul class="org-ul">
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-23 Wed 20:05] </span></span> <br>
-<a href="../benjamin_slade.html">Benjamin Slade</a> just forwarded this new <a href="../20201223200606-mailing_list.html">mailing list</a> to me, it's for <a href="../person.html">people</a> who <a href="../computer_user.html">use</a> <a href="../emacs.html">Emacs</a> but aren't necessarily programmers: "people using Emacs to write their PhDs, research projects, novels, screenplays, etc." Seems like a good step forward for <a href="../emacs.html">Emacs</a> as a <a href="../tool.html">tool</a> that's still being developed, and the other tools built around it like <a href="../groundhog_emacs.html">Groundhog Emacs</a>.</li>
+<a href=../benjamin_slade.html>Benjamin Slade</a> just forwarded this new <a href=../mailing_list.html>mailing list</a> to me, it's for <a href=../person.html>people</a> who <a href=../computer_user.html>use</a> <a href=../emacs.html>Emacs</a> but aren't necessarily programmers: "people using Emacs to write their PhDs, research projects, novels, screenplays, etc." Seems like a good step forward for <a href=../emacs.html>Emacs</a> as a <a href=../tool.html>tool</a> that's still being developed, and the other tools built around it like <a href=../groundhog_emacs.html>Groundhog Emacs</a>.</li>
 </ul>
  </section>
 <dl class="org-dl">
@@ -249,7 +249,7 @@ This is my personal record for <span class="timestamp-wrapper"><span class="time
 <div class="outline-text-3" id="text-org29fd649">
 <section class="org-drawer"> <ul class="org-ul">
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-23 Wed 08:57] </span></span> <br>
-In <a href="../20201223085801-st_johns_newfoundland_canada.html">St. Johns, Newfoundland, Canada</a>, 10 <a href="../20201223083826-police.html">police</a> have been <a href="../20201223090012-charges.html">charged</a> from <a href="../20201223090109-manslaughter.html">manslaughter</a> to <a href="../20201223090120-criminal_negligence.html">criminal negligence</a> in the <a href="../20201223090130-death.html">death</a> of <a href="../20201223085839-jonathan_henoche.html">Jonathan Henoche</a>, who died in <a href="../20201223085903-police_custody.html">police custody</a> last November.</li>
+In <a href=../st_johns_newfoundland_labrador_canada.html>St. Johns, Newfoundland, Canada</a>, 10 <a href=../police.html>police</a> have been <a href=../charges.html>charged</a> from <a href=../manslaughter.html>manslaughter</a> to <a href=../criminal_negligence.html>criminal negligence</a> in the <a href=../death.html>death</a> of <a href=../jonathan_henoche.html>Jonathan Henoche</a>, who died in <a href=../police_custody.html>police custody</a> last November.</li>
 </ul>
  </section>
 <dl class="org-dl">
@@ -262,7 +262,7 @@ In <a href="../20201223085801-st_johns_newfoundland_canada.html">St. Johns, Newf
 <div class="outline-text-3" id="text-orgad36462">
 <section class="org-drawer"> <ul class="org-ul">
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-23 Wed 08:46] </span></span> <br>
-From <a href="../20201223084723-it_s_going_down.html">It's Going Down</a>, about the violence between <a href="../20201223084742-antifa.html">antifa</a>, <a href="../20201223083845-proud_boys.html">Proud Boys</a>, and the <a href="../20201223083826-police.html">police</a>. Seeing police <a href="../20201223083833-pepper_spray.html">pepper-spray</a> Proud Boys scares me more than getting pepper-sprayed by cops myself. A homie loosing their <a href="../20201223084853-police_dog.html">dog</a> on me is one thing; a homie losing control entirely is another.</li>
+From <a href=../its_going_down.html>It's Going Down</a>, about the violence between <a href=../antifa.html>antifa</a>, <a href=../proud_boys.html>Proud Boys</a>, and the <a href=../police.html>police</a>. Seeing police <a href=../pepper_spray.html>pepper-spray</a> Proud Boys scares me more than getting pepper-sprayed by cops myself. A homie loosing their <a href=../police_dog.html>dog</a> on me is one thing; a homie losing control entirely is another.</li>
 </ul>
  </section>
 <dl class="org-dl">
@@ -282,7 +282,7 @@ From <a href="../20201223084723-it_s_going_down.html">It's Going Down</a>, about
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-23 Wed 17:04] </span></span> <br></li>
 </ul>
 <p>
-<a href="../20201223165936-michael_warren_lucas.html">Michael Warren Lucas</a> released this free <a href="../20201223170521-short_story.html">short story</a> that, heads up, requires a fair emotional investment and will probably make you acutely sad. I cried, tears down my cheek.
+<a href=../michael_warren_lucas.html>Michael Warren Lucas</a> released this free <a href=../short_story.html>short story</a> that, heads up, requires a fair emotional investment and will probably make you acutely sad. I cried, tears down my cheek.
 </p>
  </section>
 <ul class="org-ul">
@@ -296,8 +296,9 @@ From <a href="../20201223084723-it_s_going_down.html">It's Going Down</a>, about
 <h3 id="backlinks">Backlinks</h3>
 <div class="outline-text-3" id="text-backlinks">
 <ul class="org-ul">
-<li><a href="../records_index.html">Records Index</a></li>
-<li><a href="index.html">Daily Records Index</a></li>
+<li><a href=index.html>Daily Records Index</a></li>
+<li><a href=2021-01-07.html>2021-01-07</a></li>
+<li><a href=../records_index.html>Records Index</a></li>
 </ul>
 </div>
 </div>
@@ -306,7 +307,7 @@ From <a href="../20201223084723-it_s_going_down.html">It's Going Down</a>, about
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-23 Wed 08:38</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-30 Wed 15:54</p>
+<p class="date">Created: 2021-01-07 Thu 13:44</p>
 </section>
 </body>
 </html>

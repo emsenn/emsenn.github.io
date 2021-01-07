@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-01-07 Thu 13:44 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2021-01-01</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="../index.html">homepage</a> | <a href="../d/index.html">daily records</a> | <a href="../concepts_index.html">concepts</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="../record.html">records</a> with more <a href="../information.html">information</a> about both of those concepts.) On the <a href="../Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="../emsenn.html">emsenn</a>, to share some of my <a href="../knowledge.html">knowledge</a> with <a href="../person.html">people</a> on the <a href="../Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="../record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="../permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="../backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">2021-01-01</h1>
+</header><p>
+This is some of what I (emsenn) experienced and wrote on on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-01 Fri]</span></span>.
+</p>
+
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7bc1ffc">Postings</a>
+<ul>
+<li><a href="#orgbb4d767">Welcome to the New Year</a></li>
+</ul>
+</li>
+<li><a href="#org00ce096">Reposts</a></li>
+<li><a href="#org894c8d8">News logs</a>
+<ul>
+<li><a href="#org656af5d">Nick Estes puts Nick Tilsen's land defense in a historical context</a></li>
+<li><a href="#org8be43e4">From the ELZN: "Part One: a declaration for life"</a></li>
+<li><a href="#orgfbbd26d">Standing Rock Sioux Tribe prioritizes COVID-19 vaccine distribution for fluent Lakota and Dakota speakers</a></li>
+<li><a href="#backlinks">Backlinks</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-org7bc1ffc" class="outline-2">
+<h2 id="org7bc1ffc">Postings</h2>
+<div class="outline-text-2" id="text-org7bc1ffc">
+</div>
+<div id="outline-container-orgbb4d767" class="outline-3">
+<h3 id="orgbb4d767">Welcome to the New Year</h3>
+<div class="outline-text-3" id="text-orgbb4d767">
+<p>
+Howdy everyone! Welcome to 2021. I apologise for the delay of a few weeks in writing a good update, but I've been busy! As I wrote about a while back, I had a series of hardware failues that left me with, to look at this positively, a clean slate. No backlog of archived files that needed sorting, no half-finished code projects, just an empty computer.
+</p>
+
+<p>
+With that clean slate, I spent some time tinkering around, trying to re-determine my relationship with computers. I have, though it's hard to express, a better idea of that relationship than I did, and I even have some notions of how to build a tool that accommodates that relationship in a way I'd like. But, I also spent a lot of time working on things like setting up a Wordpress that aren't going to be relevant going forward. Oh well.
+</p>
+
+<p>
+One thing that a new beginning let me do was take a fresh look at the relationship between my writing and my "performing" on the Web: sharing that writing with a public audience, in exchange for support, either financial or otherwise. (Thank you to everyone who's been donating! I don't know if I posted about it but it helped me put on a few big meals for my community over the past couple months.)
+</p>
+
+<p>
+With the ability to start fresh, I decided to look at what I'd be able to make using <a href="https://www.gnu.org/software/emacs/">Emacs</a> and <a href="https://orgmode.org/">Org-mode</a>, a text-editor and an information management application, respectively. Since I last used Org-mode, there's been a new addition to its ecosystem: <a href="https://www.orgroam.com/">Org-roam</a>.
+</p>
+
+<p>
+<i>Org-roam</i> uses a database to keep an eye on Org-mode text files in a directory, and provides features to make it easier to link between those features. Depending on how it's used, this can make it easier to create a personal information management system out of Emacs and Org-mode, by implementing in-part or -whole systems like Zettelkasten or a Wiki model.
+</p>
+
+<p>
+Org-roam fills, almost, a missing piece of my Org-mode use from a while back. (I need it to also track inclusions, not just links, but it looks like that's in development already so I just have to be patient.)
+</p>
+
+<p>
+Now, I'm able to pretty easily maintain a directory of Org-mode files that serves as a personal encyclopedia of terms, but also my daily records, all while holding chunks of the code that make the system work in the first place, letting me publish something that's a bit blog, a bit Wiki, and a bit soure code repository.
+</p>
+
+<p>
+You can look at the work-in-progress replacement for my Website over at <a href="https://emsenn.github.io">https://emsenn.github.io</a> <i>(Why Github? I was teaching some people how to set up personal websites with the service, and haven't moved myself off it yet.)</i>
+</p>
+
+<p>
+Even already there's a <i>lot</i> of changes planned for the Website that's there, and there's not much content&#x2026; yet. Most pages are empty, or contain just a bit of <i>boilerplate</i>, as I work to map my conception of how I want to handle my personal information to Org-mode.
+</p>
+
+<p>
+With my Website able to fulfill a more desired place in my role on the Web, and that role itself still changing, that means my newsletter and other profiles on the Web are going to change.
+</p>
+
+<ol class="org-ol">
+<li><b><i>Newsletter</i></b>. Available through <a href="https://emsenn.substack.com">https://emsenn.substack.com</a>, I have an <i>email newsletter</i>. Before, these email letters were the equivalent of <i>blog posts</i>. Now, they'll be the equivalent of <i>postings</i> from my <i>daily record</i>. So, my newsletter will be a manual "best of" from my public postings, useful for folk who want to just get the most polished of my writing.</li>
+<li><b><i>Ko-fi</i></b>. Available through <a href="https://ko-fi.com/emsenn">https://ko-fi.com/emsenn</a>, Ko-fi is where I accept financial donations. I had planned on listing various notable works there as pay-what-you-want but I'm not sure if I'll do that going forward.</li>
+<li><b><i>Itch</i></b>. Available through <a href="https://emsenn.itch.io/">https://emsenn.itch.io/</a>, Itch is another place where I had planned on listing various things as pay-what-you-want. Also unsure if I'm going to do that!</li>
+</ol>
+
+
+<p>
+I do plan to set up an <i>RSS</i> feed (or several) for the new Website, but haven't yet - there's quite a few moving parts that go into it already, and I'm not in too much of a rush.
+</p>
+
+<p>
+In other news, it's quite winter outside now, so I'm spending more time at my computer. Unfortunately, it's rather disorganized use, so if you're getting this email before a response to one you've sent to me: sorry! I've got them all flagged in my inbox, I just want to make sure I'm able to respond to each appropriately.
+</p>
+
+<p>
+It might be a bit before I have a piece of writing polished enough to send to y'all, given the current turbulence of my writing style, but I'll try and send out another email explaining any important updates every couple weeks or so. Or, I'll get things cleaned up real quick and suddenly be able to churn out good writing!
+</p>
+
+<p>
+In my personal life, my housing still isn't secure, but I don't have any other details to share on that front. 
+</p>
+</div>
+</div>
+</section>
+
+<section id="outline-container-org00ce096" class="outline-2">
+<h2 id="org00ce096">Reposts</h2>
+</section>
+<section id="outline-container-org894c8d8" class="outline-2">
+<h2 id="org894c8d8">News logs</h2>
+<div class="outline-text-2" id="text-org894c8d8">
+</div>
+<div id="outline-container-org656af5d" class="outline-3">
+<h3 id="org656af5d">Nick Estes puts Nick Tilsen's land defense in a historical context</h3>
+<div class="outline-text-3" id="text-org656af5d">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-03 Sun 13:26] </span></span> <br>
+<a href=../nick_estes.html>Nick Estes</a> talks with <a href=../nick_tilsen.html>Nick Tilsen</a> about protesting President <a href=../donald_j_trump.html>Donald J. Trump</a> at <a href=../mount_rushmore.html>Mount Rushmore</a>, putting it in the context of a history of <a href=../indigenous.html>Indigenous</a> <a href=../resistance.html>resistance</a>, but also within the contemporary movements like <a href=../landback.html>LandBack</a>.</li>
+</ul>
+ </section>
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://www.hcn.org/issues/53.1/indigenous-affairs-social-justice-the-battle-for-the-black-hills">https://www.hcn.org/issues/53.1/indigenous-affairs-social-justice-the-battle-for-the-black-hills</a></dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-org8be43e4" class="outline-3">
+<h3 id="org8be43e4">From the ELZN: "Part One: a declaration for life"</h3>
+<div class="outline-text-3" id="text-org8be43e4">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-03 Sun 13:33] </span></span> <br>
+This communication from the <a href=../elzn.html>ELZN</a> is rather important. It announces a pivot in their <a href=../praxis.html>praxis</a> from previous years, away from strictly internal community-building, to cooperating with outsiders.</li>
+</ul>
+ </section>
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="http://enlacezapatista.ezln.org.mx/2021/01/01/primera-parte-una-declaracion-por-la-vida/">http://enlacezapatista.ezln.org.mx/2021/01/01/primera-parte-una-declaracion-por-la-vida/</a></dd>
+<dt>Source (English)</dt><dd><a href="http://enlacezapatista.ezln.org.mx/2021/01/01/part-one-a-declaration-for-life/">http://enlacezapatista.ezln.org.mx/2021/01/01/part-one-a-declaration-for-life/</a></dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-orgfbbd26d" class="outline-3">
+<h3 id="orgfbbd26d">Standing Rock Sioux Tribe prioritizes COVID-19 vaccine distribution for fluent Lakota and Dakota speakers</h3>
+<div class="outline-text-3" id="text-orgfbbd26d">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-03 Sun 13:49] </span></span> <br>
+The <a href=../standing_rock_sioux_tribe.html>Standing Rock Sioux Tribe</a> is prioritizing the distribution of <a href=../covid_19.html>COVID-19</a> vaccines to those who speak <a href=../dakota.html>Dakota</a> and <a href=../lakota.html>Lakota</a>.</li>
+</ul>
+ </section>
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://time.com/5925745/standing-rock-tribe-vaccines-native-languages/?utm_source=reddit.com">https://time.com/5925745/standing-rock-tribe-vaccines-native-languages/?utm_source=reddit.com</a></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-backlinks" class="outline-3">
+<h3 id="backlinks">Backlinks</h3>
+<div class="outline-text-3" id="text-backlinks">
+<ul class="org-ul">
+<li><a href=index.html>Daily Records Index</a></li>
+<li><a href=../records_index.html>Records Index</a></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2021-01-01 Fri 12:12</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2021-01-07 Thu 13:44</p>
+</section>
+</body>
+</html>

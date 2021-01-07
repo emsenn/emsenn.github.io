@@ -1,199 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-30 Wed 15:52 -->
+<!-- 2021-01-07 Thu 13:40 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cottenboro Groundhog Autonomous Zone</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="emsenn">
 <style>
-	@charset "UTF-8";
-	
-	:root {
-	    --body-font: sans-serif;
-	    --header-font: sans-serif;
-	    --code-font: monospace;
-	    --primary-color: #ffe;
-	    --primary-dim-color: #eed;
-	    --secondary-color: #312;
-	    --secondary-dim-color: #756;
-	    --link-color: #880;
-	    --link-hover-color: #aa2;
-	    --link-visited-color: #934;
-	    --link-visited-hover-color: #b56;
-	    --external-link-color: #008;
-	    --external-link-hover-color: #60b;
-	    --external-link-visited-color: #172;
-	    --external-link-visited-hover-color: #394;
-	}
-	@media(prefers-color-scheme:dark){
-	    :root {
-		--body-font: sans-serif;
-		--header-font: sans-serif;
-		--code-font: monospace;
-		--primary-color: #756;
-		--primary-dim-color: #312;
-		--secondary-color: #eed;
-		--secondary-dim-color: #ffe;
-		--link-color: #880;
-		--link-hover-color: #aa2;
-		--link-visited-color: #934;
-		--link-visited-hover-color: #b56;
-	    }}
-	body {
-	    position: relative;
-	    min-height: 100%;
-	    background-color: var(--primary-color);
-	    color: var(--secondary-color);
-	    margin: 0 auto;
-	    font-family: sans-serif;
-	}
-	main, #content {
-	    background-color: var(--primary-dim-color);
-	    border-left: 1.5em dotted var(--primary-color);
-	    padding: 1em;
-	}
-	header {
-	    border-bottom: 0.8em dotted var(--secondary-dim-color);
-	}
-	h1 { font-size: 2em; margin-bottom: 0; }
-	h2 {
-	    border-bottom: 0.3em dotted var(--secondary-dim-color);
-	}
-	h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
-	    width: 60%;
-	}
-	aside {
-	    float: right;
-	    width: 35%;
-	}
-	aside p { width: 100%; }
-	@media screen and (max-width:760px) {
-	    h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
-		width: 90%;
-	    }
-	    aside {
-		float: inherit;
-		width: 90%;
-		border-top: 0.2em dotted var(--secondary-dim-color);
-		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
-		font-size: 0.8em;
-		  }
-	}
-	
-	footer, #postamble, #preamble {
-	    padding: 0.5em;
-	}
-	table {
-	    border-collapse: collapse;
-	    border-spacing: 0;
-	    empty-cells: show;
-	    border: 0.1em solid #444;
-	}
-	thead { font-family: sans-serif; }
-	th, td {
-	    padding: 0 0.3em;
-	    border: 0.01em solid #444;
-	}
-	img {
-	    max-width: 80vw;
-	    vertical-align: middle;
-	}
-	pre, .src {
-	    padding: 0.5em;
-	    border: 0.1em solid #444;
-	    white-space: pre-wrap;
-	    overflow-x: scroll;
-	    text-overflow: clip;
-	    scrollbar-width: none;
-	}
-	pre::-webkit-scrollbar, .src::-webkit-scrollbar {
-	    display: none;
-	}
-	
-	
-	dt {
-	    font-weight: normal;
-	    display: inline-block;
-	    border-bottom: 0.1rem dotted #444;
-	}
-	#text-index dt { border-bottom: none; }
-	h2, h3, h4, h5, h6, h7, h8, h9, h10 {
-	    display: block;
-	    font-family: sans-serif;
-	    margin: 0.2em auto 0.5em 0;
-	}
-	a, .link {
-	    text-decoration: none;
-	    color: #880;
-	    display: inline;
-	    position: relative;
-	    border-bottom: 0.1rem dotted;
-	    line-height: 1.2;
-	    transition: border 0.3s;
-	}
-	a:hover {
-	    color: #aa2;
-	    outline-style: none;
-	    border-bottom: 0.1rem solid;
-	}
-	a:visited, .visited-link { color: #934; }
-	a:visited:hover { color: #b56; }
-	a:focus {
-	    outline-style: none;
-	    border-bottom: 0.1rem solid;
-	}
-	::selection { background-color: #777; color: #eee; }
-	a::selection { background-color: #ccc; }
-	.org-todo {
-	    background-color: #ddd;
-	    color: #333;
-	    font-size: .8rem;
-	    float: right;
-	}
-	.org-src-container + .example {
-	    margin-left: 8em;
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
-	    content: "^";
-	    font-size: 0.5em;
-	    vertical-align: super;
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
-	    color: var(--external-link-color);
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
-	    color: var(--external-link-hover-color);
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
-	    color: var(--external-link-visited-color);
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
-	    color: var(--external-link-visited-hover-color);
-	}
-	blockquote {
-	    border: 0.1em dashed var(--secondary-dim-color);
-	    padding-left: 0.2em;
-	}
-	label.org-src-name {
-	    margin: 0 0 0 3em;
-	    font-family: sans-serif;
-	    font-size: 1rem;
-	    line-height: 0;
-	}
-	.skip-to-content {
-	    opacity: 0;
-	    position: absolute;
-	    left: 0.2em;
-	}
-	.skip-to-content:focus{
-	    opacity: 1;
-	    background-color: var(--secondary-dim-color);
-	    color: var(--primary-color);
-	}
-	ul { max-width: 85%; }
-	</style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
 </head>
 <body>
 <section id="preamble" class="status">
@@ -202,19 +202,24 @@
 <main id="content">
 <header>
 <h1 class="title">Cottenboro Groundhog Autonomous Zone</h1>
-</header><div class="head" id="org34ea28e">
+</header><div class="head" id="org5e44d17">
 
 </div>
 
 <p>
-The <b><i><a href="cottenboro_gaz.html">Cottenboro GAZ</a></i></b> is a <a href="groundhog_autonomous_zone.html">Groundhog Autonomous Zone</a> located in the <a href="settler_colony.html">settler-colony</a> of <a href="chapel_hill_north_carolina.html">Chapel Hill, North Carolina</a>, in the unceded <a href="traditional_territory.html">traditional territory</a> of the <a href="shakori_eno.html">Shakori-Eno</a>, focused on <a href="edaphologiculture.html">edaphologiculture</a> and <a href="kyritus_redistribution.html">kyritus redistribution</a>.
+The <b><i><a href=cottenboro_gaz.html>Cottenboro GAZ</a></i></b> is a <a href=groundhog_autonomous_zone.html>Groundhog Autonomous Zone</a> located in the <a href=settler_colony.html>settler-colony</a> of <a href=chapel_hill_north_carolina.html>Chapel Hill, North Carolina</a>, in the unceded <a href=traditional_territory.html>traditional territory</a> of the <a href=shakori_eno.html>Shakori-Eno</a>, focused on <a href=edaphologiculture.html>edaphologiculture</a> and <a href=kyritus_redistribution.html>kyritus redistribution</a>.
 </p>
+
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org687aa2c">Introduction</a></li>
-<li><a href="#org0a1a572">Cottenboro GAZ</a></li>
+<li><a href="#orga83c012">History</a></li>
+<li><a href="#org314f8f9">Operations</a>
+<ul>
+<li><a href="#orgae7aa60">Free Market</a></li>
+</ul>
+</li>
 <li><a href="#org2639593">Supplements</a>
 <ul>
 <li><a href="#record-history">Record history</a></li>
@@ -224,19 +229,26 @@ The <b><i><a href="cottenboro_gaz.html">Cottenboro GAZ</a></i></b> is a <a href=
 </ul>
 </div>
 </nav>
-<section id="outline-container-org687aa2c" class="outline-2">
-<h2 id="org687aa2c">Introduction</h2>
+
+<section id="outline-container-orga83c012" class="outline-2">
+<h2 id="orga83c012">History</h2>
 </section>
-<section id="outline-container-org0a1a572" class="outline-2">
-<h2 id="org0a1a572">Cottenboro GAZ</h2>
-<div class="outline-text-2" id="text-org0a1a572">
-<p>
-The <b><i><a href="cottenboro_gaz.html">Cottenboro GAZ</a></i></b> is a <a href="groundhog_autonomous_zone.html">Groundhog Autonomous Zone</a> located in the <a href="settler_colony.html">settler-colony</a> of <a href="chapel_hill_north_carolina.html">Chapel Hill, North Carolina</a>, in the unceded <a href="traditional_territory.html">traditional territory</a> of the <a href="shakori_eno.html">Shakori-Eno</a>, focused on <a href="edaphologiculture.html">edaphologiculture</a> and <a href="kyritus_redistribution.html">kyritus redistribution</a>.
-</p>
+<section id="outline-container-org314f8f9" class="outline-2">
+<h2 id="org314f8f9">Operations</h2>
+<div class="outline-text-2" id="text-org314f8f9">
+</div>
+<div id="outline-container-orgae7aa60" class="outline-3">
+<h3 id="orgae7aa60">Free Market</h3>
+<div class="outline-text-3" id="text-orgae7aa60">
+</div>
+<div id="outline-container-org61c3f04" class="outline-4">
+<h4 id="org61c3f04">Weaver St pickup and processing</h4>
+<div class="outline-text-4" id="text-org61c3f04">
+<section class="org-drawer"> nil </section>
+</div>
+</div>
 </div>
 </section>
-
-
 <section id="outline-container-org2639593" class="outline-2">
 <h2 id="org2639593">Supplements</h2>
 <div class="outline-text-2" id="text-org2639593">
@@ -246,7 +258,7 @@ The <b><i><a href="cottenboro_gaz.html">Cottenboro GAZ</a></i></b> is a <a href=
 <div class="outline-text-3" id="text-record-history">
 <section class="org-drawer"> <ul class="org-ul">
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-26 Sat 12:03] </span></span> <br>
-Created from <a href="groundhog_autonomous_zone.html">Known GAZes</a></li>
+Created from <a href=~/org/s/p/groundhog_autonomous_zone.html>Known GAZes</a></li>
 </ul>
  </section>
 </div>
@@ -256,14 +268,14 @@ Created from <a href="groundhog_autonomous_zone.html">Known GAZes</a></li>
 <h3 id="backlinks">Backlinks</h3>
 <div class="outline-text-3" id="text-backlinks">
 <ul class="org-ul">
-<li><a href="shakori_eno.html">Shakori-Eno</a></li>
-<li><a href="edaphologiculture.html">edaphologiculture</a></li>
-<li><a href="cottenboro_gaz.html">Cottenboro Groundhog Autonomous Zone</a></li>
-<li><a href="d/2020-12-28.html">2020-12-28</a></li>
-<li><a href="groundhog_autonomous_zone.html">Groundhog Autonomous Zone</a></li>
-<li><a href="groundhog_autonomous_zone.html">Groundhog Autonomous Zone</a></li>
-<li><a href="settler_colony.html">settler-colony</a></li>
-<li><a href="records_index.html">Records Index</a></li>
+<li><a href=shakori_eno.html>Shakori-Eno</a></li>
+<li><a href=edaphologiculture.html>edaphologiculture</a></li>
+<li><a href=d/2020-12-28.html>2020-12-28</a></li>
+<li><a href=groundhog_autonomous_zone.html>Groundhog Autonomous Zone</a></li>
+<li><a href=groundhog_autonomous_zone.html>Groundhog Autonomous Zone</a></li>
+<li><a href=settler_colony.html>settler-colony</a></li>
+<li><a href=cottenboro_gaz.html>Cottenboro Groundhog Autonomous Zone</a></li>
+<li><a href=records_index.html>Records Index</a></li>
 </ul>
 </div>
 </div>
@@ -272,7 +284,7 @@ Created from <a href="groundhog_autonomous_zone.html">Known GAZes</a></li>
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-26 Sat 12:03</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-30 Wed 15:52</p>
+<p class="date">Created: 2021-01-07 Thu 13:40</p>
 </section>
 </body>
 </html>

@@ -1,199 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-30 Wed 15:53 -->
+<!-- 2021-01-07 Thu 13:41 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Org-mode</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="emsenn">
 <style>
-	@charset "UTF-8";
-	
-	:root {
-	    --body-font: sans-serif;
-	    --header-font: sans-serif;
-	    --code-font: monospace;
-	    --primary-color: #ffe;
-	    --primary-dim-color: #eed;
-	    --secondary-color: #312;
-	    --secondary-dim-color: #756;
-	    --link-color: #880;
-	    --link-hover-color: #aa2;
-	    --link-visited-color: #934;
-	    --link-visited-hover-color: #b56;
-	    --external-link-color: #008;
-	    --external-link-hover-color: #60b;
-	    --external-link-visited-color: #172;
-	    --external-link-visited-hover-color: #394;
-	}
-	@media(prefers-color-scheme:dark){
-	    :root {
-		--body-font: sans-serif;
-		--header-font: sans-serif;
-		--code-font: monospace;
-		--primary-color: #756;
-		--primary-dim-color: #312;
-		--secondary-color: #eed;
-		--secondary-dim-color: #ffe;
-		--link-color: #880;
-		--link-hover-color: #aa2;
-		--link-visited-color: #934;
-		--link-visited-hover-color: #b56;
-	    }}
-	body {
-	    position: relative;
-	    min-height: 100%;
-	    background-color: var(--primary-color);
-	    color: var(--secondary-color);
-	    margin: 0 auto;
-	    font-family: sans-serif;
-	}
-	main, #content {
-	    background-color: var(--primary-dim-color);
-	    border-left: 1.5em dotted var(--primary-color);
-	    padding: 1em;
-	}
-	header {
-	    border-bottom: 0.8em dotted var(--secondary-dim-color);
-	}
-	h1 { font-size: 2em; margin-bottom: 0; }
-	h2 {
-	    border-bottom: 0.3em dotted var(--secondary-dim-color);
-	}
-	h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
-	    width: 60%;
-	}
-	aside {
-	    float: right;
-	    width: 35%;
-	}
-	aside p { width: 100%; }
-	@media screen and (max-width:760px) {
-	    h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
-		width: 90%;
-	    }
-	    aside {
-		float: inherit;
-		width: 90%;
-		border-top: 0.2em dotted var(--secondary-dim-color);
-		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
-		font-size: 0.8em;
-		  }
-	}
-	
-	footer, #postamble, #preamble {
-	    padding: 0.5em;
-	}
-	table {
-	    border-collapse: collapse;
-	    border-spacing: 0;
-	    empty-cells: show;
-	    border: 0.1em solid #444;
-	}
-	thead { font-family: sans-serif; }
-	th, td {
-	    padding: 0 0.3em;
-	    border: 0.01em solid #444;
-	}
-	img {
-	    max-width: 80vw;
-	    vertical-align: middle;
-	}
-	pre, .src {
-	    padding: 0.5em;
-	    border: 0.1em solid #444;
-	    white-space: pre-wrap;
-	    overflow-x: scroll;
-	    text-overflow: clip;
-	    scrollbar-width: none;
-	}
-	pre::-webkit-scrollbar, .src::-webkit-scrollbar {
-	    display: none;
-	}
-	
-	
-	dt {
-	    font-weight: normal;
-	    display: inline-block;
-	    border-bottom: 0.1rem dotted #444;
-	}
-	#text-index dt { border-bottom: none; }
-	h2, h3, h4, h5, h6, h7, h8, h9, h10 {
-	    display: block;
-	    font-family: sans-serif;
-	    margin: 0.2em auto 0.5em 0;
-	}
-	a, .link {
-	    text-decoration: none;
-	    color: #880;
-	    display: inline;
-	    position: relative;
-	    border-bottom: 0.1rem dotted;
-	    line-height: 1.2;
-	    transition: border 0.3s;
-	}
-	a:hover {
-	    color: #aa2;
-	    outline-style: none;
-	    border-bottom: 0.1rem solid;
-	}
-	a:visited, .visited-link { color: #934; }
-	a:visited:hover { color: #b56; }
-	a:focus {
-	    outline-style: none;
-	    border-bottom: 0.1rem solid;
-	}
-	::selection { background-color: #777; color: #eee; }
-	a::selection { background-color: #ccc; }
-	.org-todo {
-	    background-color: #ddd;
-	    color: #333;
-	    font-size: .8rem;
-	    float: right;
-	}
-	.org-src-container + .example {
-	    margin-left: 8em;
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
-	    content: "^";
-	    font-size: 0.5em;
-	    vertical-align: super;
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
-	    color: var(--external-link-color);
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
-	    color: var(--external-link-hover-color);
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
-	    color: var(--external-link-visited-color);
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
-	    color: var(--external-link-visited-hover-color);
-	}
-	blockquote {
-	    border: 0.1em dashed var(--secondary-dim-color);
-	    padding-left: 0.2em;
-	}
-	label.org-src-name {
-	    margin: 0 0 0 3em;
-	    font-family: sans-serif;
-	    font-size: 1rem;
-	    line-height: 0;
-	}
-	.skip-to-content {
-	    opacity: 0;
-	    position: absolute;
-	    left: 0.2em;
-	}
-	.skip-to-content:focus{
-	    opacity: 1;
-	    background-color: var(--secondary-dim-color);
-	    color: var(--primary-color);
-	}
-	ul { max-width: 85%; }
-	</style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
 </head>
 <body>
 <section id="preamble" class="status">
@@ -202,12 +202,12 @@
 <main id="content">
 <header>
 <h1 class="title">Org-mode</h1>
-</header><div class="head" id="org268c9cc">
+</header><div class="head" id="org325423c">
 
 </div>
 
 <p>
-<b><i>Org-mode</i></b> is a <a href="20201217220656-text_formatting.html">text-formatting</a> <a href="language.html">language</a> and its interpretter <a href="software.html">software</a>, a part of the <a href="emacs.html">Emacs</a> <a href="20201221212117-text_editor.html">text editor</a>.
+<b><i>Org-mode</i></b> is a <a href=text_formatting.html>text-formatting</a> <a href=language.html>language</a> and its interpretter <a href=software.html>software</a>, a part of the <a href=emacs.html>Emacs</a> <a href=text_editor.html>text editor</a>.
 </p>
 
 <section id="outline-container-orgfddb43b" class="outline-2">
@@ -223,11 +223,11 @@ This record is some of what I (emsenn) know about <b><i>Org-mode</i></b>. You ma
 <h2 id="org03bd84b">Org-mode</h2>
 <div class="outline-text-2" id="text-org03bd84b">
 <p>
-<b><i>Org-mode</i></b> is a <a href="20201217220656-text_formatting.html">text-formatting</a> <a href="language.html">language</a> and its interpretter <a href="software.html">software</a>, a part of the <a href="emacs.html">Emacs</a> <a href="20201221212117-text_editor.html">text editor</a>.
+<b><i>Org-mode</i></b> is a <a href=text_formatting.html>text-formatting</a> <a href=language.html>language</a> and its interpretter <a href=software.html>software</a>, a part of the <a href=emacs.html>Emacs</a> <a href=text_editor.html>text editor</a>.
 </p>
 
 <p>
-Whenever I'm using a <a href="20201217094215-computer.html">computer</a>, I'm probably using <a href="org_mode.html">Org-mode</a>. I use it to keep notes, draft essays, keep ledgers, write software, and more.
+Whenever I'm using a <a href=computer.html>computer</a>, I'm probably using <a href=org_mode.html>Org-mode</a>. I use it to keep notes, draft essays, keep ledgers, write software, and more.
 </p>
 </div>
 
@@ -253,18 +253,1330 @@ Whenever I'm using a <a href="20201217094215-computer.html">computer</a>, I'm pr
 </div>
 </div>
 </div>
-</section>
 
+<div id="outline-container-org215ae46" class="outline-3">
+<h3 id="org215ae46">Org-mode configuration</h3>
+<div class="outline-text-3" id="text-org215ae46">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>A sequence of <i>Elisp</i> declarations that configures some basic parts of <i>Org-mode</i></label><pre class="src src-elisp" id="orgcc42005">(setq org-directory
+      "~/org")
+(setq org-startup-folded
+      'overview)
+(setq org-hide-block-startup
+      'hideblocks)
+(setq org-catch-invisible-edits
+      'show-and-error)
+(setq org-image-actual-width
+      '(400))
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3436f4f" class="outline-4">
+<h4 id="org3436f4f">Org-mode directory configuration</h4>
+<div class="outline-text-4" id="text-org3436f4f">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>The value of <code>org-directory</code></label><pre class="src src-elisp" id="orge154528">"~/org"
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org73d8d55" class="outline-4">
+<h4 id="org73d8d55">Org-mode startup folding configuration</h4>
+<div class="outline-text-4" id="text-org73d8d55">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>The value of <code>org-startup-folded</code>.</label><pre class="src src-text" id="org70ae840">'overview
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org78a1d30" class="outline-4">
+<h4 id="org78a1d30">Org-mode invisible edits catch configuration</h4>
+<div class="outline-text-4" id="text-org78a1d30">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>The value for <code>org-catch-invisible-edits</code></label><pre class="src src-text" id="orgc9d1435">'show-and-error
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org163dcb5" class="outline-4">
+<h4 id="org163dcb5">Org-mode blocks visibility configuration</h4>
+<div class="outline-text-4" id="text-org163dcb5">
+<div class="org-src-container">
+<pre class="src src-text" id="org2c7284d">'hideblocks
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org763acd3" class="outline-4">
+<h4 id="org763acd3">Org-mode image visibility configuration</h4>
+<div class="outline-text-4" id="text-org763acd3">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org1d161b5">'(400)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb1dd39a" class="outline-3">
+<h3 id="orgb1dd39a">Components</h3>
+<div class="outline-text-3" id="text-orgb1dd39a">
+</div>
+<div id="outline-container-org676c923" class="outline-4">
+<h4 id="org676c923">Org-agenda</h4>
+<div class="outline-text-4" id="text-org676c923">
+<p>
+<b><i><a href=org_mode_agenda.html>Org-mode agenda</a></i></b> is a part of <a href=org_mode.html>Org-mode</a> used for handling a <a href=time.html>temporal</a> schedule.
+</p>
+</div>
+</div>
+<div id="outline-container-org0f1c8f3" class="outline-4">
+<h4 id="org0f1c8f3">Org-links</h4>
+<div class="outline-text-4" id="text-org0f1c8f3">
+<p>
+An <b><i><a href=org_mode_link.html>Org-mode link</a></i></b> is a <a href=hypertext.html>hypertext</a> reference to another location within a <a href=computer_file.html>computer file</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org05ed527" class="outline-4">
+<h4 id="org05ed527">Org-attach-screenshot</h4>
+<div class="outline-text-4" id="text-org05ed527">
+<p>
+<b><i><a href=org_attach_screenshot.html>Org-attach-screenshot</a></i></b> is an <a href=emacs_package.html>Emacs package</a>, part of the <a href=org_ecosystem.html>Org ecosystem</a>, that is for using <a href=org_attach.html>Org-attach</a> to link screenshots to Org-mode entries.
+</p>
+</div>
+</div>
+<div id="outline-container-org3d45050" class="outline-4">
+<h4 id="org3d45050">Babel</h4>
+<div class="outline-text-4" id="text-org3d45050">
+<p>
+<b><i><a href=babel.html>Babel</a></i></b> is a part of the <a href=org_ecosystem.html>Org ecosystem</a> that allows for executing source code within <a href=org_mode.html>Org-mode</a> files.
+</p>
+</div>
+</div>
+<div id="outline-container-orgec025aa" class="outline-4">
+<h4 id="orgec025aa">Org-capture</h4>
+<div class="outline-text-4" id="text-orgec025aa">
+<p>
+An <b><i>Org-mode capture template</i></b> is a <a href=template.html>template</a> for <a href=text_input_automation.html>text input automation</a> within <a href=emacs.html>Emacs</a>.
+</p>
+</div>
+</div>
+</div>
+</section>
 <section id="outline-container-org37f5397" class="outline-2">
 <h2 id="org37f5397">Supplements</h2>
 <div class="outline-text-2" id="text-org37f5397">
 </div>
+<div id="outline-container-org47e1c05" class="outline-3">
+<h3 id="org47e1c05">Component parts</h3>
+<div class="outline-text-3" id="text-org47e1c05">
+</div>
+<div id="outline-container-org73e8804" class="outline-4">
+<h4 id="org73e8804">Org-agenda</h4>
+<div class="outline-text-4" id="text-org73e8804">
+</div>
+<div id="outline-container-orgd58d2c0" class="outline-5">
+<h5 id="orgd58d2c0">Org-agenda configuration</h5>
+<div class="outline-text-5" id="text-orgd58d2c0">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>The value for <code>org-agenda-files</code>. Needs to be a list of <i>strings</i>, each pointing to a <i>file</i> or <i>directory</i>.</label><pre class="src src-elisp" id="org96b8606">(list "~/org/r")
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>A sequence of <i>Elisp</i> declarations for configuring <i>Org-mode agenda</i>.</label><pre class="src src-elisp" id="org904c6e7">(setq org-agenda-files
+ (list "~/org/r"))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1a1e809" class="outline-5">
+<h5 id="org1a1e809">Org-agenda global bindings</h5>
+<div class="outline-text-5" id="text-org1a1e809">
+<pre class="example" id="orge25c754">
+("C-c a" . org-agenda)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org2d7a108" class="outline-4">
+<h4 id="org2d7a108">Org-export</h4>
+<div class="outline-text-4" id="text-org2d7a108">
+</div>
+<div id="outline-container-org044fd32" class="outline-5">
+<h5 id="org044fd32">Org-export functions</h5>
+<div class="outline-text-5" id="text-org044fd32">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>The preprocessor used by Org-export</label><pre class="src src-elisp" id="org86f4901">(defun ghe-org-export-preprocessor (backend)
+  (let ((links (ghe-org-roam-format-backlinks-list (buffer-file-name))))
+    (unless (string= links "")
+ (save-excursion
+   (goto-char (point-max))
+   (insert (concat "\n** Backlinks\n   :PROPERTIES:\n   :CUSTOM_ID:   backlinks\n   :END:\n") links)))))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbe242d9" class="outline-5">
+<h5 id="orgbe242d9">Org-export configuration</h5>
+<div class="outline-text-5" id="text-orgbe242d9">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orge7fffec">  nil
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgaad32a0">  nil
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-elisp" id="org84f3237">  nil
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 9: </span>Org-mode export configuration</label><pre class="src src-elisp" id="org215157b">(setq org-export-with-section-numbers
+ nil)
+(setq org-export-with-smart-quotes
+ nil)
+(setq org-export-with-toc
+ nil)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org2d05051" class="outline-5">
+<h5 id="org2d05051">Org-export hooks</h5>
+<div class="outline-text-5" id="text-org2d05051">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 10: </span>Org hooks</label><pre class="src src-elisp" id="orga9b320d">(org-export-before-processing . ghe-org-export-preprocessor)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org12b61f0" class="outline-5">
+<h5 id="org12b61f0">HTML</h5>
+<div class="outline-text-5" id="text-org12b61f0">
+</div>
+<div id="outline-container-org6882211" class="outline-6">
+<h6 id="org6882211">HTML functions</h6>
+<div class="outline-text-6" id="text-org6882211">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 11: </span>Wrap drawers in a org-drawer class section tag</label><pre class="src src-elisp" id="org7f19fb4">(defun ghe-org-html-format-drawer (name contents)
+  (format "&lt;section class=\"org-drawer\"&gt; %s &lt;/section&gt;" contents))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org64b1486" class="outline-6">
+<h6 id="org64b1486">HTML variables</h6>
+<div class="outline-text-6" id="text-org64b1486">
+<div class="org-src-container">
+<pre class="src src-css" id="org11b71a3">@charset \"UTF-8\";
+
+:root {
+    --body-font: sans-serif;
+    --header-font: sans-serif;
+    --code-font: monospace;
+    --primary-color: #ffe;
+    --primary-dim-color: #eed;
+    --secondary-color: #312;
+    --secondary-dim-color: #756;
+    --link-color: #880;
+    --link-hover-color: #aa2;
+    --link-visited-color: #934;
+    --link-visited-hover-color: #b56;
+    --external-link-color: #008;
+    --external-link-hover-color: #60b;
+    --external-link-visited-color: #172;
+    --external-link-visited-hover-color: #394;
+}
+@media(prefers-color-scheme:dark){
+    :root {
+	--body-font: sans-serif;
+	--header-font: sans-serif;
+	--code-font: monospace;
+	--primary-color: #756;
+	--primary-dim-color: #312;
+	--secondary-color: #eed;
+	--secondary-dim-color: #ffe;
+	--link-color: #880;
+	--link-hover-color: #aa2;
+	--link-visited-color: #934;
+	--link-visited-hover-color: #b56;
+    }}
+body {
+    position: relative;
+    min-height: 100%;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+main, #content {
+    background-color: var(--primary-dim-color);
+    border-left: 1.5em dotted var(--primary-color);
+    padding: 1em;
+}
+header {
+    border-bottom: 0.8em dotted var(--secondary-dim-color);
+}
+h1 { font-size: 2em; margin-bottom: 0; }
+h2 {
+    border-bottom: 0.3em dotted var(--secondary-dim-color);
+}
+h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+    width: 60%;
+}
+aside {
+    float: right;
+    width: 35%;
+}
+aside p { width: 100%; }
+@media screen and (max-width:760px) {
+    h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+	width: 90%;
+    }
+    aside {
+	float: inherit;
+	width: 90%;
+	border-top: 0.2em dotted var(--secondary-dim-color);
+	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+	font-size: 0.8em;
+	  }
+}
+
+footer, #postamble, #preamble {
+    padding: 0.5em;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 0.1em solid #444;
+}
+thead { font-family: sans-serif; }
+th, td {
+    padding: 0 0.3em;
+    border: 0.01em solid #444;
+}
+img {
+    max-width: 80vw;
+    vertical-align: middle;
+}
+pre, .src {
+    padding: 0.5em;
+    border: 0.1em solid #444;
+    white-space: pre-wrap;
+    overflow-x: scroll;
+    text-overflow: clip;
+    scrollbar-width: none;
+}
+pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+    display: none;
+}
+
+
+dt {
+    font-weight: normal;
+    display: inline-block;
+    border-bottom: 0.1rem dotted #444;
+}
+#text-index dt { border-bottom: none; }
+h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+    display: block;
+    font-family: sans-serif;
+    margin: 0.2em auto 0.5em 0;
+}
+a, .link {
+    text-decoration: none;
+    color: #880;
+    display: inline;
+    position: relative;
+    border-bottom: 0.1rem dotted;
+    line-height: 1.2;
+    transition: border 0.3s;
+}
+a:hover {
+    color: #aa2;
+    outline-style: none;
+    border-bottom: 0.1rem solid;
+}
+a:visited, .visited-link { color: #934; }
+a:visited:hover { color: #b56; }
+a:focus {
+    outline-style: none;
+    border-bottom: 0.1rem solid;
+}
+::selection { background-color: #777; color: #eee; }
+a::selection { background-color: #ccc; }
+.org-todo {
+    background-color: #ddd;
+    color: #333;
+    font-size: .8rem;
+    float: right;
+}
+.org-src-container + .example {
+    margin-left: 8em;
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):after, a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:after, .external-link:after, .visited-external-link:after { 
+    content: \"^\";
+    font-size: 0.5em;
+    vertical-align: super;
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]), .external-link {
+    color: var(--external-link-color);
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):hover{ 
+    color: var(--external-link-hover-color);
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited, .visited-external-link { 
+    color: var(--external-link-visited-color);
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:hover{ 
+    color: var(--external-link-visited-hover-color);
+}
+blockquote {
+    border: 0.1em dashed var(--secondary-dim-color);
+    padding-left: 0.2em;
+}
+label.org-src-name {
+    margin: 0 0 0 3em;
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 0;
+}
+.skip-to-content {
+    opacity: 0;
+    position: absolute;
+    left: 0.2em;
+}
+.skip-to-content:focus{
+    opacity: 1;
+    background-color: var(--secondary-dim-color);
+    color: var(--primary-color);
+}
+ul { max-width: 85%; }
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 12: </span>The preamble text inserted by Org-export after the opening body tag, and before the header tag.</label><pre class="src src-elisp" id="org936cc48"> (setq ghe-org-html-base-preamble
+     (concat "&lt;a href=\"#content\" class=\"skip-to-content\"&gt;skip to content&lt;/a&gt;"
+       "&lt;section class=\"nav\"&gt;&lt;strong&gt;Website navigation:&lt;/strong&gt; "
+       "&lt;a href=\"./index.html\"&gt;"
+       "homepage&lt;/a&gt; | "
+       "&lt;a href=\"./d/index.html\"&gt;"
+       "daily records&lt;/a&gt; | "
+       "&lt;a href=\"./concepts_index.html\"&gt;"
+       "concepts"
+       "&lt;/a&gt;"
+       "&lt;p&gt;"
+       "This Website was cultivated as a public asset with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from people like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
+       "&lt;/p&gt;"
+       "&lt;details&gt;"
+       "&lt;summary&gt;Click this sentence for information about this Website.&lt;/summary&gt;"
+       "&lt;p&gt;Click each sentence below for more information about each topic.&lt;/p&gt;"
+       "&lt;ul&gt;"
+       "&lt;li&gt;"
+       "&lt;details&gt;"
+       "&lt;summary&gt;This Website is a collection of records linked through their relationship to each other.&lt;/summary&gt;"
+       "&lt;p&gt;Each page on this Website is &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;. (There are &lt;a href=\"./record.html\"&gt;records&lt;/a&gt; with more &lt;a href=\"./information.html\"&gt;information&lt;/a&gt; about both of those concepts.) On the &lt;a href=\"./Web.html\"&gt;Web&lt;/a&gt;, these records are &lt;a href=\"hypertext\"&gt;hypertext&lt;/a&gt;: they contain links to each other (and other resources). The table below demonstrates link styling."
+       "&lt;table&gt;"
+       "&lt;thead&gt;&lt;tr&gt;"
+       "&lt;th scope=\"col\"&gt;Color&lt;/th&gt;"
+       "&lt;th scope=\"col\"&gt;Link type&lt;/th&gt;"
+       "&lt;/tr&gt;&lt;/thead&gt;"
+       "&lt;tbody&gt;"
+       "&lt;tr&gt;"
+       "&lt;td class=\"link\"&gt;Sample&lt;/td&gt;"
+       "&lt;td&gt;Unvisited local resource&lt;/td&gt;"
+       "&lt;/tr&gt;"
+       "&lt;tr&gt;"
+       "&lt;td class=\"visited-link\"&gt;Sample&lt;/td&gt;"
+       "&lt;td&gt;Visited local resource&lt;/td&gt;"
+       "&lt;/tr&gt;"
+       "&lt;tr&gt;"
+       "&lt;td class=\"external-link\"&gt;Sample&lt;/td&gt;"
+       "&lt;td&gt;Unvisited external resource&lt;/td&gt;"
+       "&lt;/tr&gt;"
+       "&lt;tr&gt;"
+       "&lt;td class=\"visited-external-link\"&gt;Sample&lt;/td&gt;"
+       "&lt;td&gt;Visited external resource&lt;/td&gt;"
+       "&lt;/tr&gt;"
+       "&lt;/table&gt;"
+       "&lt;/details&gt;"
+       "&lt;/li&gt;"
+       "&lt;li&gt;"
+       "&lt;details&gt;"
+       "&lt;summary&gt;It was created by one human person wishing to communicate with others.&lt;/summary&gt;"
+       "&lt;p&gt;It was created by me, &lt;a href=\"./emsenn.html\"&gt;emsenn&lt;/a&gt;, to share some of my &lt;a href=\"./knowledge.html\"&gt;knowledge&lt;/a&gt; with &lt;a href=\"./person.html\"&gt;people&lt;/a&gt; on the &lt;a href=\"Web.html\"&gt;Web&lt;/a&gt;.&lt;/p&gt;"
+       "&lt;/details&gt;"
+       "&lt;/li&gt;"
+       "&lt;li&gt;"
+       "&lt;details&gt;"
+       "&lt;summary&gt;Each Webpage contains a &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;.&lt;/summary&gt;"
+       "&lt;p&gt;Each Webpage on my Website is a &lt;a href=\"./record.html\"&gt;record&lt;/a&gt; of &lt;a  href=\"information.html\"&gt;information&lt;/a&gt;. These records have different components, depending on what type they are, but here's some common components:"
+       "&lt;dl&gt;"
+       "&lt;dt&gt;Introduction&lt;/dt&gt;"
+       "&lt;dd&gt;A record's &lt;em&gt;introduction&lt;/em&gt; describes the record, including what &lt;a href=\"./permission.html\"&gt;permissions&lt;/a&gt; are granted.&lt;/dd&gt;"
+       "&lt;dt&gt;Backlinks&lt;/dt&gt;"
+       "&lt;dd&gt;A record's &lt;a href=\"./backlink.html\"&gt;backlinks&lt;/a&gt; shows which other records link to this one.&lt;/dd&gt;"
+       "&lt;/dl&gt;"
+       "&lt;/details&gt;"
+       "&lt;/li&gt;"
+       "&lt;/ul&gt;"
+       "&lt;/section&gt;"
+))
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 13: </span>The preamble text inserted by Org-export after the opening body tag, and before the header tag.</label><pre class="src src-elisp" id="orgcd3828a">(setq ghe-org-html-dailies-preamble
+    (concat "&lt;a href=\"#content\" class=\"skip-to-content\"&gt;skip to content&lt;/a&gt;"
+      "&lt;section class=\"nav\"&gt;&lt;strong&gt;Website navigation:&lt;/strong&gt; "
+      "&lt;a href=\"../index.html\"&gt;"
+      "homepage&lt;/a&gt; | "
+      "&lt;a href=\"../d/index.html\"&gt;"
+      "daily records&lt;/a&gt; | "
+      "&lt;a href=\"../concepts_index.html\"&gt;"
+      "concepts"
+      "&lt;/a&gt;"
+      "&lt;p&gt;"
+      "This Website was cultivated as a public asset with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from people like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
+      "&lt;/p&gt;"
+      "&lt;details&gt;"
+      "&lt;summary&gt;Click this sentence for information about this Website.&lt;/summary&gt;"
+      "&lt;p&gt;Click each sentence below for more information about each topic.&lt;/p&gt;"
+      "&lt;ul&gt;"
+      "&lt;li&gt;"
+      "&lt;details&gt;"
+      "&lt;summary&gt;This Website is a collection of records linked through their relationship to each other.&lt;/summary&gt;"
+      "&lt;p&gt;Each page on this Website is &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;. (There are &lt;a href=\"../record.html\"&gt;records&lt;/a&gt; with more &lt;a href=\"../information.html\"&gt;information&lt;/a&gt; about both of those concepts.) On the &lt;a href=\"../Web.html\"&gt;Web&lt;/a&gt;, these records are &lt;a href=\"hypertext\"&gt;hypertext&lt;/a&gt;: they contain links to each other (and other resources). The table below demonstrates link styling."
+      "&lt;table&gt;"
+      "&lt;thead&gt;&lt;tr&gt;"
+      "&lt;th scope=\"col\"&gt;Color&lt;/th&gt;"
+      "&lt;th scope=\"col\"&gt;Link type&lt;/th&gt;"
+      "&lt;/tr&gt;&lt;/thead&gt;"
+      "&lt;tbody&gt;"
+      "&lt;tr&gt;"
+      "&lt;td class=\"link\"&gt;Sample&lt;/td&gt;"
+      "&lt;td&gt;Unvisited local resource&lt;/td&gt;"
+      "&lt;/tr&gt;"
+      "&lt;tr&gt;"
+      "&lt;td class=\"visited-link\"&gt;Sample&lt;/td&gt;"
+      "&lt;td&gt;Visited local resource&lt;/td&gt;"
+      "&lt;/tr&gt;"
+      "&lt;tr&gt;"
+      "&lt;td class=\"external-link\"&gt;Sample&lt;/td&gt;"
+      "&lt;td&gt;Unvisited external resource&lt;/td&gt;"
+      "&lt;/tr&gt;"
+      "&lt;tr&gt;"
+      "&lt;td class=\"visited-external-link\"&gt;Sample&lt;/td&gt;"
+      "&lt;td&gt;Visited external resource&lt;/td&gt;"
+      "&lt;/tr&gt;"
+      "&lt;/table&gt;"
+      "&lt;/details&gt;"
+      "&lt;/li&gt;"
+      "&lt;li&gt;"
+      "&lt;details&gt;"
+      "&lt;summary&gt;It was created by one human person wishing to communicate with others.&lt;/summary&gt;"
+      "&lt;p&gt;It was created by me, &lt;a href=\"../emsenn.html\"&gt;emsenn&lt;/a&gt;, to share some of my &lt;a href=\"../knowledge.html\"&gt;knowledge&lt;/a&gt; with &lt;a href=\"../person.html\"&gt;people&lt;/a&gt; on the &lt;a href=\"../Web.html\"&gt;Web&lt;/a&gt;.&lt;/p&gt;"
+      "&lt;/details&gt;"
+      "&lt;/li&gt;"
+      "&lt;li&gt;"
+      "&lt;details&gt;"
+      "&lt;summary&gt;Each Webpage contains a &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;.&lt;/summary&gt;"
+      "&lt;p&gt;Each Webpage on my Website is a &lt;a href=\"../record.html\"&gt;record&lt;/a&gt; of &lt;a  href=\"information.html\"&gt;information&lt;/a&gt;. These records have different components, depending on what type they are, but here's some common components:"
+      "&lt;dl&gt;"
+      "&lt;dt&gt;Introduction&lt;/dt&gt;"
+      "&lt;dd&gt;A record's &lt;em&gt;introduction&lt;/em&gt; describes the record, including what &lt;a href=\"../permission.html\"&gt;permissions&lt;/a&gt; are granted.&lt;/dd&gt;"
+      "&lt;dt&gt;Backlinks&lt;/dt&gt;"
+      "&lt;dd&gt;A record's &lt;a href=\"../backlink.html\"&gt;backlinks&lt;/a&gt; shows which other records link to this one.&lt;/dd&gt;"
+      "&lt;/dl&gt;"
+      "&lt;/details&gt;"
+      "&lt;/li&gt;"
+      "&lt;/ul&gt;"
+      "&lt;/section&gt;"
+      ))
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 14: </span>The HTML put inside the head tag of files generated by Org-export</label><pre class="src src-elisp" id="org84c060c">   (setq ghe-org-html-head
+   (concat "&lt;style&gt;
+@charset \"UTF-8\";
+
+:root {
+    --body-font: sans-serif;
+    --header-font: sans-serif;
+    --code-font: monospace;
+    --primary-color: #ffe;
+    --primary-dim-color: #eed;
+    --secondary-color: #312;
+    --secondary-dim-color: #756;
+    --link-color: #880;
+    --link-hover-color: #aa2;
+    --link-visited-color: #934;
+    --link-visited-hover-color: #b56;
+    --external-link-color: #008;
+    --external-link-hover-color: #60b;
+    --external-link-visited-color: #172;
+    --external-link-visited-hover-color: #394;
+}
+@media(prefers-color-scheme:dark){
+    :root {
+	--body-font: sans-serif;
+	--header-font: sans-serif;
+	--code-font: monospace;
+	--primary-color: #756;
+	--primary-dim-color: #312;
+	--secondary-color: #eed;
+	--secondary-dim-color: #ffe;
+	--link-color: #880;
+	--link-hover-color: #aa2;
+	--link-visited-color: #934;
+	--link-visited-hover-color: #b56;
+    }}
+body {
+    position: relative;
+    min-height: 100%;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+main, #content {
+    background-color: var(--primary-dim-color);
+    border-left: 1.5em dotted var(--primary-color);
+    padding: 1em;
+}
+header {
+    border-bottom: 0.8em dotted var(--secondary-dim-color);
+}
+h1 { font-size: 2em; margin-bottom: 0; }
+h2 {
+    border-bottom: 0.3em dotted var(--secondary-dim-color);
+}
+h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+    width: 60%;
+}
+aside {
+    float: right;
+    width: 35%;
+}
+aside p { width: 100%; }
+@media screen and (max-width:760px) {
+    h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+	width: 90%;
+    }
+    aside {
+	float: inherit;
+	width: 90%;
+	border-top: 0.2em dotted var(--secondary-dim-color);
+	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+	font-size: 0.8em;
+	  }
+}
+
+footer, #postamble, #preamble {
+    padding: 0.5em;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 0.1em solid #444;
+}
+thead { font-family: sans-serif; }
+th, td {
+    padding: 0 0.3em;
+    border: 0.01em solid #444;
+}
+img {
+    max-width: 80vw;
+    vertical-align: middle;
+}
+pre, .src {
+    padding: 0.5em;
+    border: 0.1em solid #444;
+    white-space: pre-wrap;
+    overflow-x: scroll;
+    text-overflow: clip;
+    scrollbar-width: none;
+}
+pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+    display: none;
+}
+
+
+dt {
+    font-weight: normal;
+    display: inline-block;
+    border-bottom: 0.1rem dotted #444;
+}
+#text-index dt { border-bottom: none; }
+h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+    display: block;
+    font-family: sans-serif;
+    margin: 0.2em auto 0.5em 0;
+}
+a, .link {
+    text-decoration: none;
+    color: #880;
+    display: inline;
+    position: relative;
+    border-bottom: 0.1rem dotted;
+    line-height: 1.2;
+    transition: border 0.3s;
+}
+a:hover {
+    color: #aa2;
+    outline-style: none;
+    border-bottom: 0.1rem solid;
+}
+a:visited, .visited-link { color: #934; }
+a:visited:hover { color: #b56; }
+a:focus {
+    outline-style: none;
+    border-bottom: 0.1rem solid;
+}
+::selection { background-color: #777; color: #eee; }
+a::selection { background-color: #ccc; }
+.org-todo {
+    background-color: #ddd;
+    color: #333;
+    font-size: .8rem;
+    float: right;
+}
+.org-src-container + .example {
+    margin-left: 8em;
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):after, a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:after, .external-link:after, .visited-external-link:after { 
+    content: \"^\";
+    font-size: 0.5em;
+    vertical-align: super;
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]), .external-link {
+    color: var(--external-link-color);
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):hover{ 
+    color: var(--external-link-hover-color);
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited, .visited-external-link { 
+    color: var(--external-link-visited-color);
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:hover{ 
+    color: var(--external-link-visited-hover-color);
+}
+blockquote {
+    border: 0.1em dashed var(--secondary-dim-color);
+    padding-left: 0.2em;
+}
+label.org-src-name {
+    margin: 0 0 0 3em;
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 0;
+}
+.skip-to-content {
+    opacity: 0;
+    position: absolute;
+    left: 0.2em;
+}
+.skip-to-content:focus{
+    opacity: 1;
+    background-color: var(--secondary-dim-color);
+    color: var(--primary-color);
+}
+ul { max-width: 85%; }
+&lt;/style&gt;"))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8647c25" class="outline-6">
+<h6 id="org8647c25">HTML configuration</h6>
+<div class="outline-text-6" id="text-org8647c25">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org274dd7a">  nil
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 15: </span>Org-mode export configuration</label><pre class="src src-elisp" id="orgb111517">(setq org-html-validation-link
+ nil)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org89732df" class="outline-4">
+<h4 id="org89732df">Org-links</h4>
+<div class="outline-text-4" id="text-org89732df">
+</div>
+<div id="outline-container-orga1a3363" class="outline-5">
+<h5 id="orga1a3363">Org-links global bindings</h5>
+<div class="outline-text-5" id="text-orga1a3363">
+<pre class="example" id="orga86d9fd">
+("C-c l" . org-store-link)
+("C-c t" . org-toggle-link-display)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf513d94" class="outline-4">
+<h4 id="orgf513d94">Babel</h4>
+<div class="outline-text-4" id="text-orgf513d94">
+</div>
+<div id="outline-container-orgcda3910" class="outline-5">
+<h5 id="orgcda3910">Babel languages configuration</h5>
+<div class="outline-text-5" id="text-orgcda3910">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 17: </span>Elisp to load common languages for Babel.</label><pre class="src src-elisp" id="orgf7538bb">(org-babel-do-load-languages 'org-babel-load-languages
+			'((shell . t)))
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org9c2bb02" class="outline-4">
+<h4 id="org9c2bb02">HTMLize</h4>
+<div class="outline-text-4" id="text-org9c2bb02">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 18: </span>The value for <code>org-html-htmlize-output</code>.</label><pre class="src src-elisp" id="org2e7cea9">  nil
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 19: </span>A sequence of <i>Elisp</i> declarations for configuring <i>Org-mode agenda</i>.</label><pre class="src src-elisp" id="orgb7aff08">(setq org-html-htmlize-output-type
+  nil)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org7243d60" class="outline-4">
+<h4 id="org7243d60">Org-log</h4>
+<div class="outline-text-4" id="text-org7243d60">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org95378ed">'time
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-elisp" id="org41f6468">'LOGBOOK
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 20: </span>Org-mode log configuration</label><pre class="src src-elisp" id="orgc4c6b90">(setq org-log-done
+  'time)
+(setq org-log-into-drawer
+      'LOGBOOK)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf6d90fa" class="outline-4">
+<h4 id="orgf6d90fa">Org-capture</h4>
+<div class="outline-text-4" id="text-orgf6d90fa">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 21: </span>Capture at the current point</label><pre class="src src-elisp" id="orgfc52ae0">(defun ghe-org-capture-capture-at-point ()
+   "Insert an org capture template at point."
+   (interactive)
+   (org-capture 0))
+</pre>
+</div>
+
+<pre class="example" id="orge1502bc">
+("C-c c" . org-capture)
+("&lt;f8&gt;" . ghe-org-capture-capture-at-point)
+</pre>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 23: </span>The capture template for capturing source blocks</label><pre class="src src-elisp" id="org6841e93">("s" "Capture source code block")
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 24: </span>Capture an Elisp code block</label><pre class="src src-elisp" id="org00549d1">("se" "Elisp code block"
+	 plain (clock)
+	 ,(concat "#+name: %^{NAME}-elisp\n"
+		  "#+caption: %^{CAPTION}\n"
+		"#+begin_src elisp %^{HEADER-ARGS}\n"
+		"%?\n"
+		"#+end_src\n"))
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 25: </span>The capture template for capturing source blocks</label><pre class="src src-elisp" id="org4492b66">("i" "Capture inclusion")
+</pre>
+</div>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 26: </span>Capture an Elisp code block</label><pre class="src src-elisp" id="orgac147cf">("io" "Org-mode inclusion"
+ plain (clock)
+ "#+include: \"%^{INCLUSION}\" %^{OPTIONS}")
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgf3a0f2c" class="outline-3">
+<h3 id="orgf3a0f2c">Use-package declaration</h3>
+<div class="outline-text-3" id="text-orgf3a0f2c">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 27: </span>My <i>use-package</i> declaration for installing and configuration <i>Org-mode</i> (and its <i>ecosystem</i>).</label><pre class="src src-elisp" id="orgb25624a">(use-package
+  org :straight t
+  :config
+
+  (defun ghe-org-capture-capture-at-point ()
+     "Insert an org capture template at point."
+     (interactive)
+     (org-capture 0))
+
+  (defun ghe-org-export-preprocessor (backend)
+    (let ((links (ghe-org-roam-format-backlinks-list (buffer-file-name))))
+      (unless (string= links "")
+   (save-excursion
+     (goto-char (point-max))
+     (insert (concat "\n** Backlinks\n   :PROPERTIES:\n   :CUSTOM_ID:   backlinks\n   :END:\n") links)))))
+
+  (defun ghe-org-html-format-drawer (name contents)
+    (format "&lt;section class=\"org-drawer\"&gt; %s &lt;/section&gt;" contents))
+
+  (setq org-directory
+	"~/org")
+  (setq org-startup-folded
+	'overview)
+  (setq org-hide-block-startup
+	'hideblocks)
+  (setq org-catch-invisible-edits
+	'show-and-error)
+  (setq org-image-actual-width
+	'(400))
+  (setq org-agenda-files
+   (list "~/org/r"))
+
+
+  (setq org-export-with-section-numbers
+   nil)
+  (setq org-export-with-smart-quotes
+   nil)
+  (setq org-export-with-toc
+   nil)
+
+  (setq org-html-htmlize-output-type
+    nil)
+  (setq org-html-validation-link
+   nil)
+
+  (setq org-log-done
+    'time)
+  (setq org-log-into-drawer
+	'LOGBOOK)
+
+   (setq ghe-org-html-base-preamble
+       (concat "&lt;a href=\"#content\" class=\"skip-to-content\"&gt;skip to content&lt;/a&gt;"
+	 "&lt;section class=\"nav\"&gt;&lt;strong&gt;Website navigation:&lt;/strong&gt; "
+	 "&lt;a href=\"./index.html\"&gt;"
+	 "homepage&lt;/a&gt; | "
+	 "&lt;a href=\"./d/index.html\"&gt;"
+	 "daily records&lt;/a&gt; | "
+	 "&lt;a href=\"./concepts_index.html\"&gt;"
+	 "concepts"
+	 "&lt;/a&gt;"
+	 "&lt;p&gt;"
+	 "This Website was cultivated as a public asset with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from people like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
+	 "&lt;/p&gt;"
+	 "&lt;details&gt;"
+	 "&lt;summary&gt;Click this sentence for information about this Website.&lt;/summary&gt;"
+	 "&lt;p&gt;Click each sentence below for more information about each topic.&lt;/p&gt;"
+	 "&lt;ul&gt;"
+	 "&lt;li&gt;"
+	 "&lt;details&gt;"
+	 "&lt;summary&gt;This Website is a collection of records linked through their relationship to each other.&lt;/summary&gt;"
+	 "&lt;p&gt;Each page on this Website is &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;. (There are &lt;a href=\"./record.html\"&gt;records&lt;/a&gt; with more &lt;a href=\"./information.html\"&gt;information&lt;/a&gt; about both of those concepts.) On the &lt;a href=\"./Web.html\"&gt;Web&lt;/a&gt;, these records are &lt;a href=\"hypertext\"&gt;hypertext&lt;/a&gt;: they contain links to each other (and other resources). The table below demonstrates link styling."
+	 "&lt;table&gt;"
+	 "&lt;thead&gt;&lt;tr&gt;"
+	 "&lt;th scope=\"col\"&gt;Color&lt;/th&gt;"
+	 "&lt;th scope=\"col\"&gt;Link type&lt;/th&gt;"
+	 "&lt;/tr&gt;&lt;/thead&gt;"
+	 "&lt;tbody&gt;"
+	 "&lt;tr&gt;"
+	 "&lt;td class=\"link\"&gt;Sample&lt;/td&gt;"
+	 "&lt;td&gt;Unvisited local resource&lt;/td&gt;"
+	 "&lt;/tr&gt;"
+	 "&lt;tr&gt;"
+	 "&lt;td class=\"visited-link\"&gt;Sample&lt;/td&gt;"
+	 "&lt;td&gt;Visited local resource&lt;/td&gt;"
+	 "&lt;/tr&gt;"
+	 "&lt;tr&gt;"
+	 "&lt;td class=\"external-link\"&gt;Sample&lt;/td&gt;"
+	 "&lt;td&gt;Unvisited external resource&lt;/td&gt;"
+	 "&lt;/tr&gt;"
+	 "&lt;tr&gt;"
+	 "&lt;td class=\"visited-external-link\"&gt;Sample&lt;/td&gt;"
+	 "&lt;td&gt;Visited external resource&lt;/td&gt;"
+	 "&lt;/tr&gt;"
+	 "&lt;/table&gt;"
+	 "&lt;/details&gt;"
+	 "&lt;/li&gt;"
+	 "&lt;li&gt;"
+	 "&lt;details&gt;"
+	 "&lt;summary&gt;It was created by one human person wishing to communicate with others.&lt;/summary&gt;"
+	 "&lt;p&gt;It was created by me, &lt;a href=\"./emsenn.html\"&gt;emsenn&lt;/a&gt;, to share some of my &lt;a href=\"./knowledge.html\"&gt;knowledge&lt;/a&gt; with &lt;a href=\"./person.html\"&gt;people&lt;/a&gt; on the &lt;a href=\"Web.html\"&gt;Web&lt;/a&gt;.&lt;/p&gt;"
+	 "&lt;/details&gt;"
+	 "&lt;/li&gt;"
+	 "&lt;li&gt;"
+	 "&lt;details&gt;"
+	 "&lt;summary&gt;Each Webpage contains a &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;.&lt;/summary&gt;"
+	 "&lt;p&gt;Each Webpage on my Website is a &lt;a href=\"./record.html\"&gt;record&lt;/a&gt; of &lt;a  href=\"information.html\"&gt;information&lt;/a&gt;. These records have different components, depending on what type they are, but here's some common components:"
+	 "&lt;dl&gt;"
+	 "&lt;dt&gt;Introduction&lt;/dt&gt;"
+	 "&lt;dd&gt;A record's &lt;em&gt;introduction&lt;/em&gt; describes the record, including what &lt;a href=\"./permission.html\"&gt;permissions&lt;/a&gt; are granted.&lt;/dd&gt;"
+	 "&lt;dt&gt;Backlinks&lt;/dt&gt;"
+	 "&lt;dd&gt;A record's &lt;a href=\"./backlink.html\"&gt;backlinks&lt;/a&gt; shows which other records link to this one.&lt;/dd&gt;"
+	 "&lt;/dl&gt;"
+	 "&lt;/details&gt;"
+	 "&lt;/li&gt;"
+	 "&lt;/ul&gt;"
+	 "&lt;/section&gt;"
+  ))
+  (setq ghe-org-html-dailies-preamble
+      (concat "&lt;a href=\"#content\" class=\"skip-to-content\"&gt;skip to content&lt;/a&gt;"
+	"&lt;section class=\"nav\"&gt;&lt;strong&gt;Website navigation:&lt;/strong&gt; "
+	"&lt;a href=\"../index.html\"&gt;"
+	"homepage&lt;/a&gt; | "
+	"&lt;a href=\"../d/index.html\"&gt;"
+	"daily records&lt;/a&gt; | "
+	"&lt;a href=\"../concepts_index.html\"&gt;"
+	"concepts"
+	"&lt;/a&gt;"
+	"&lt;p&gt;"
+	"This Website was cultivated as a public asset with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from people like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
+	"&lt;/p&gt;"
+	"&lt;details&gt;"
+	"&lt;summary&gt;Click this sentence for information about this Website.&lt;/summary&gt;"
+	"&lt;p&gt;Click each sentence below for more information about each topic.&lt;/p&gt;"
+	"&lt;ul&gt;"
+	"&lt;li&gt;"
+	"&lt;details&gt;"
+	"&lt;summary&gt;This Website is a collection of records linked through their relationship to each other.&lt;/summary&gt;"
+	"&lt;p&gt;Each page on this Website is &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;. (There are &lt;a href=\"../record.html\"&gt;records&lt;/a&gt; with more &lt;a href=\"../information.html\"&gt;information&lt;/a&gt; about both of those concepts.) On the &lt;a href=\"../Web.html\"&gt;Web&lt;/a&gt;, these records are &lt;a href=\"hypertext\"&gt;hypertext&lt;/a&gt;: they contain links to each other (and other resources). The table below demonstrates link styling."
+	"&lt;table&gt;"
+	"&lt;thead&gt;&lt;tr&gt;"
+	"&lt;th scope=\"col\"&gt;Color&lt;/th&gt;"
+	"&lt;th scope=\"col\"&gt;Link type&lt;/th&gt;"
+	"&lt;/tr&gt;&lt;/thead&gt;"
+	"&lt;tbody&gt;"
+	"&lt;tr&gt;"
+	"&lt;td class=\"link\"&gt;Sample&lt;/td&gt;"
+	"&lt;td&gt;Unvisited local resource&lt;/td&gt;"
+	"&lt;/tr&gt;"
+	"&lt;tr&gt;"
+	"&lt;td class=\"visited-link\"&gt;Sample&lt;/td&gt;"
+	"&lt;td&gt;Visited local resource&lt;/td&gt;"
+	"&lt;/tr&gt;"
+	"&lt;tr&gt;"
+	"&lt;td class=\"external-link\"&gt;Sample&lt;/td&gt;"
+	"&lt;td&gt;Unvisited external resource&lt;/td&gt;"
+	"&lt;/tr&gt;"
+	"&lt;tr&gt;"
+	"&lt;td class=\"visited-external-link\"&gt;Sample&lt;/td&gt;"
+	"&lt;td&gt;Visited external resource&lt;/td&gt;"
+	"&lt;/tr&gt;"
+	"&lt;/table&gt;"
+	"&lt;/details&gt;"
+	"&lt;/li&gt;"
+	"&lt;li&gt;"
+	"&lt;details&gt;"
+	"&lt;summary&gt;It was created by one human person wishing to communicate with others.&lt;/summary&gt;"
+	"&lt;p&gt;It was created by me, &lt;a href=\"../emsenn.html\"&gt;emsenn&lt;/a&gt;, to share some of my &lt;a href=\"../knowledge.html\"&gt;knowledge&lt;/a&gt; with &lt;a href=\"../person.html\"&gt;people&lt;/a&gt; on the &lt;a href=\"../Web.html\"&gt;Web&lt;/a&gt;.&lt;/p&gt;"
+	"&lt;/details&gt;"
+	"&lt;/li&gt;"
+	"&lt;li&gt;"
+	"&lt;details&gt;"
+	"&lt;summary&gt;Each Webpage contains a &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;.&lt;/summary&gt;"
+	"&lt;p&gt;Each Webpage on my Website is a &lt;a href=\"../record.html\"&gt;record&lt;/a&gt; of &lt;a  href=\"information.html\"&gt;information&lt;/a&gt;. These records have different components, depending on what type they are, but here's some common components:"
+	"&lt;dl&gt;"
+	"&lt;dt&gt;Introduction&lt;/dt&gt;"
+	"&lt;dd&gt;A record's &lt;em&gt;introduction&lt;/em&gt; describes the record, including what &lt;a href=\"../permission.html\"&gt;permissions&lt;/a&gt; are granted.&lt;/dd&gt;"
+	"&lt;dt&gt;Backlinks&lt;/dt&gt;"
+	"&lt;dd&gt;A record's &lt;a href=\"../backlink.html\"&gt;backlinks&lt;/a&gt; shows which other records link to this one.&lt;/dd&gt;"
+	"&lt;/dl&gt;"
+	"&lt;/details&gt;"
+	"&lt;/li&gt;"
+	"&lt;/ul&gt;"
+	"&lt;/section&gt;"
+	))
+     (setq ghe-org-html-head
+     (concat "&lt;style&gt;
+  @charset \"UTF-8\";
+
+  :root {
+      --body-font: sans-serif;
+      --header-font: sans-serif;
+      --code-font: monospace;
+      --primary-color: #ffe;
+      --primary-dim-color: #eed;
+      --secondary-color: #312;
+      --secondary-dim-color: #756;
+      --link-color: #880;
+      --link-hover-color: #aa2;
+      --link-visited-color: #934;
+      --link-visited-hover-color: #b56;
+      --external-link-color: #008;
+      --external-link-hover-color: #60b;
+      --external-link-visited-color: #172;
+      --external-link-visited-hover-color: #394;
+  }
+  @media(prefers-color-scheme:dark){
+      :root {
+		--body-font: sans-serif;
+		--header-font: sans-serif;
+		--code-font: monospace;
+		--primary-color: #756;
+		--primary-dim-color: #312;
+		--secondary-color: #eed;
+		--secondary-dim-color: #ffe;
+		--link-color: #880;
+		--link-hover-color: #aa2;
+		--link-visited-color: #934;
+		--link-visited-hover-color: #b56;
+      }}
+  body {
+      position: relative;
+      min-height: 100%;
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      margin: 0 auto;
+      font-family: sans-serif;
+  }
+  main, #content {
+      background-color: var(--primary-dim-color);
+      border-left: 1.5em dotted var(--primary-color);
+      padding: 1em;
+  }
+  header {
+      border-bottom: 0.8em dotted var(--secondary-dim-color);
+  }
+  h1 { font-size: 2em; margin-bottom: 0; }
+  h2 {
+      border-bottom: 0.3em dotted var(--secondary-dim-color);
+  }
+  h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+      width: 60%;
+  }
+  aside {
+      float: right;
+      width: 35%;
+  }
+  aside p { width: 100%; }
+  @media screen and (max-width:760px) {
+      h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+		width: 90%;
+      }
+      aside {
+		float: inherit;
+		width: 90%;
+		border-top: 0.2em dotted var(--secondary-dim-color);
+		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+		font-size: 0.8em;
+		  }
+  }
+
+  footer, #postamble, #preamble {
+      padding: 0.5em;
+  }
+  table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      empty-cells: show;
+      border: 0.1em solid #444;
+  }
+  thead { font-family: sans-serif; }
+  th, td {
+      padding: 0 0.3em;
+      border: 0.01em solid #444;
+  }
+  img {
+      max-width: 80vw;
+      vertical-align: middle;
+  }
+  pre, .src {
+      padding: 0.5em;
+      border: 0.1em solid #444;
+      white-space: pre-wrap;
+      overflow-x: scroll;
+      text-overflow: clip;
+      scrollbar-width: none;
+  }
+  pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+      display: none;
+  }
+
+
+  dt {
+      font-weight: normal;
+      display: inline-block;
+      border-bottom: 0.1rem dotted #444;
+  }
+  #text-index dt { border-bottom: none; }
+  h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+      display: block;
+      font-family: sans-serif;
+      margin: 0.2em auto 0.5em 0;
+  }
+  a, .link {
+      text-decoration: none;
+      color: #880;
+      display: inline;
+      position: relative;
+      border-bottom: 0.1rem dotted;
+      line-height: 1.2;
+      transition: border 0.3s;
+  }
+  a:hover {
+      color: #aa2;
+      outline-style: none;
+      border-bottom: 0.1rem solid;
+  }
+  a:visited, .visited-link { color: #934; }
+  a:visited:hover { color: #b56; }
+  a:focus {
+      outline-style: none;
+      border-bottom: 0.1rem solid;
+  }
+  ::selection { background-color: #777; color: #eee; }
+  a::selection { background-color: #ccc; }
+  .org-todo {
+      background-color: #ddd;
+      color: #333;
+      font-size: .8rem;
+      float: right;
+  }
+  .org-src-container + .example {
+      margin-left: 8em;
+  }
+  a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):after, a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:after, .external-link:after, .visited-external-link:after { 
+      content: \"^\";
+      font-size: 0.5em;
+      vertical-align: super;
+  }
+  a[href^=\"https://\"]:not([href*=\"emsenn.net\"]), .external-link {
+      color: var(--external-link-color);
+  }
+  a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):hover{ 
+      color: var(--external-link-hover-color);
+  }
+  a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited, .visited-external-link { 
+      color: var(--external-link-visited-color);
+  }
+  a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:hover{ 
+      color: var(--external-link-visited-hover-color);
+  }
+  blockquote {
+      border: 0.1em dashed var(--secondary-dim-color);
+      padding-left: 0.2em;
+  }
+  label.org-src-name {
+      margin: 0 0 0 3em;
+      font-family: sans-serif;
+      font-size: 1rem;
+      line-height: 0;
+  }
+  .skip-to-content {
+      opacity: 0;
+      position: absolute;
+      left: 0.2em;
+  }
+  .skip-to-content:focus{
+      opacity: 1;
+      background-color: var(--secondary-dim-color);
+      color: var(--primary-color);
+  }
+  ul { max-width: 85%; }
+  &lt;/style&gt;"))
+
+  (org-babel-do-load-languages 'org-babel-load-languages
+			'((shell . t)))
+
+
+
+		   (defun ghe-org-html-format-drawer (name contents)
+		     (format "&lt;section class=\"org-drawer\"&gt; %s &lt;/section&gt;" contents))
+
+		   (setq org-capture-templates
+			 `(
+			   ("s" "Capture source code block")
+			   ("se" "Elisp code block"
+				 plain (clock)
+				 ,(concat "#+name: %^{NAME}-elisp\n"
+					  "#+caption: %^{CAPTION}\n"
+					"#+begin_src elisp %^{HEADER-ARGS}\n"
+					"%?\n"
+					"#+end_src\n"))
+			   ))
+		   (setq org-publish-project-alist
+			 `(
+
+			   ("personal-records"
+
+			    )
+			   ("personal-daily-records"
+
+			    )
+			   ("teraum"
+
+			    )))
+		   :hook 
+
+
+		   :bind (
+
+			  ))
+
+
+
+	       (use-package
+		   org-roam :straight t
+		   :config (setq
+			    org-roam-directory 
+			    org-roam-dailies-directory )
+
+		   (setq org-roam-capture-immediate-template
+		     (backquote 
+		     ))
+		   (setq org-roam-capture-templates
+			 `(
+
+
+
+
+
+
+			   ))
+		   (setq org-roam-dailies-capture-templates
+			 `(
+
+
+
+
+			   ))
+	  :hook 
+		   :bind (
+
+			  ))
+
+
+</pre>
+</div>
+</div>
+</div>
+
 <div id="outline-container-org5fd1583" class="outline-3">
 <h3 id="org5fd1583">Record history</h3>
 <div class="outline-text-3" id="text-org5fd1583">
 <section class="org-drawer"> <ul class="org-ul">
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-25 Fri 18:39] </span></span> <br>
-Brought this record up, roughly, version <code>0.1.4</code> of the <a href="groundhog_record.html">Groundhog record</a> schema.</li>
+Brought this record up, roughly, version <code>0.1.4</code> of the <a href=groundhog_record.html>Groundhog record</a> schema.</li>
 </ul>
  </section>
 </div>
@@ -274,28 +1586,31 @@ Brought this record up, roughly, version <code>0.1.4</code> of the <a href="grou
 <h3 id="backlinks">Backlinks</h3>
 <div class="outline-text-3" id="text-backlinks">
 <ul class="org-ul">
-<li><a href="org_roam.html">Org-roam</a></li>
-<li><a href="org_mode.html">Org-mode</a></li>
-<li><a href="jethro_kuan_how_to_take_smart_notes_with_org_mode.html">Jethro Kuan: "How To Take Smart Notes with Org-mode"</a></li>
-<li><a href="jethro_kuan_how_to_take_smart_notes_with_org_mode.html">Jethro Kuan: "How To Take Smart Notes with Org-mode"</a></li>
-<li><a href="org_publish.html">Org-publish</a></li>
-<li><a href="bindinggenerations_net.html">BindingGenerations.net</a></li>
-<li><a href="d/2020-12-12.html">2020-12-12</a></li>
-<li><a href="d/2020-12-15.html">2020-12-15</a></li>
-<li><a href="d/2020-12-17.html">2020-12-17</a></li>
-<li><a href="org_mode_format.html">Org-mode format</a></li>
-<li><a href="jeremy_friesen.html">Jeremy Friesen</a></li>
-<li><a href="d/2020-12-18.html">2020-12-18</a></li>
-<li><a href="d/2020-12-18.html">2020-12-18</a></li>
-<li><a href="d/2020-12-27.html">2020-12-27</a></li>
-<li><a href="d/2020-12-22.html">2020-12-22</a></li>
-<li><a href="d/2020-12-16.html">2020-12-16</a></li>
-<li><a href="d/2020-12-16.html">2020-12-16</a></li>
-<li><a href="d/2020-12-16.html">2020-12-16</a></li>
-<li><a href="d/2020-12-29.html">2020-12-29</a></li>
-<li><a href="d/2020-12-28.html">2020-12-28</a></li>
-<li><a href="records_index.html">Records Index</a></li>
-<li><a href="d/2020-12-30.html">2020-12-30</a></li>
+<li><a href=org_publish.html>Org-publish</a></li>
+<li><a href=d/2020-12-15.html>2020-12-15</a></li>
+<li><a href=org_mode_format.html>Org-mode format</a></li>
+<li><a href=jeremy_friesen.html>Jeremy Friesen</a></li>
+<li><a href=d/2020-12-16.html>2020-12-16</a></li>
+<li><a href=d/2020-12-16.html>2020-12-16</a></li>
+<li><a href=d/2020-12-16.html>2020-12-16</a></li>
+<li><a href=d/2020-12-28.html>2020-12-28</a></li>
+<li><a href=d/2020-12-12.html>2020-12-12</a></li>
+<li><a href=bindinggenerations_net.html>BindingGenerations.net</a></li>
+<li><a href=org_roam.html>Org-roam</a></li>
+<li><a href=org_mode_agenda.html>Org-mode agenda</a></li>
+<li><a href=babel.html>Babel</a></li>
+<li><a href=org_mode.html>Org-mode</a></li>
+<li><a href=d/2020-12-22.html>2020-12-22</a></li>
+<li><a href=d/2020-12-27.html>2020-12-27</a></li>
+<li><a href=d/2020-12-17.html>2020-12-17</a></li>
+<li><a href=d/2020-12-29.html>2020-12-29</a></li>
+<li><a href=d/2020-12-30.html>2020-12-30</a></li>
+<li><a href=d/2020-12-18.html>2020-12-18</a></li>
+<li><a href=d/2020-12-18.html>2020-12-18</a></li>
+<li><a href=groundhog_emacs.html>Groundhog Emacs</a></li>
+<li><a href=d/2021-01-06.html>2020-01-06</a></li>
+<li><a href=jethro_kuan_how_to_take_smart_notes_with_org_mode.html>Jethro Kuan: "How To Take Smart Notes with Org-mode"</a></li>
+<li><a href=records_index.html>Records Index</a></li>
 </ul>
 </div>
 </div>
@@ -304,7 +1619,7 @@ Brought this record up, roughly, version <code>0.1.4</code> of the <a href="grou
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-12 Sat 10:12</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-30 Wed 15:53</p>
+<p class="date">Created: 2021-01-07 Thu 13:41</p>
 </section>
 </body>
 </html>

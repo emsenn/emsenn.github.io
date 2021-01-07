@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-01-07 Thu 13:46 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2021-01-07</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./d/index.html">daily records</a> | <a href="./concepts_index.html">concepts</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="./record.html">records</a> with more <a href="./information.html">information</a> about both of those concepts.) On the <a href="./Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="./emsenn.html">emsenn</a>, to share some of my <a href="./knowledge.html">knowledge</a> with <a href="./person.html">people</a> on the <a href="Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="./record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="./permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="./backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">2021-01-07</h1>
+</header><p>
+This is some of what I (emsenn) experienced and wrote on on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-07 Thu]</span></span>.
+</p>
+
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org73cbe67">Postings</a>
+<ul>
+<li><a href="#orgfb02778">My perspective on yesterday's protests in the U.S.</a></li>
+<li><a href="#orgabd6b89">Finding introductory reading on note-taking with Org-roam</a></li>
+</ul>
+</li>
+<li><a href="#orgbdca278">News log</a>
+<ul>
+<li><a href="#orgaa1da67">Yocha Dehe elder transitioned from COVID-19 December 29th</a></li>
+<li><a href="#org55b609b">FBI translating cold case posters into Navajo language</a></li>
+<li><a href="#org4f530fa">Two charged with child endangerment in connection with missing Crow child</a></li>
+<li><a href="#org003da4a">Archaeologist shares some erased history of Yellowstone National Park</a></li>
+<li><a href="#orgcb96fba">Nahua blockade roads following threats from Los Ardillos</a></li>
+<li><a href="#org63703d3">Facebook blocks Donald Trump</a></li>
+<li><a href="#org6ec8425">Historian contrasts storming of U.S. Capitol to anti-Democracy actions in the American South during Reconstruction</a></li>
+</ul>
+</li>
+<li><a href="#org9e03a07">Supplements</a>
+<ul>
+<li><a href="#backlinks">Backlinks</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-org73cbe67" class="outline-2">
+<h2 id="org73cbe67">Postings</h2>
+<div class="outline-text-2" id="text-org73cbe67">
+</div>
+<div id="outline-container-orgfb02778" class="outline-3">
+<h3 id="orgfb02778">My perspective on yesterday's protests in the U.S.</h3>
+<div class="outline-text-3" id="text-orgfb02778">
+<p>
+I've seen a lot of folk asking about what happened yesterday, referring to the <a href=../2021_storming_of_the_u_s_capitol.html>storming of the Capitol</a>.
+</p>
+
+<p>
+The recent changes on the <a href="https://en.wikipedia.org/w/index.php?title=United_States_Capitol_Police&amp;action=history">Wikipedia page</a> for the <a href=../u_s_capitol_police.html>U.S. Capitol Police</a> demonstrate that there has been an effort to establish what happened yesterday that is based in swarming Wikipedia with revisions, not evidence. The page has been changed frequently, with many changes painting vastly different pictures of events. Unless you were there, the reality of events is going to be impossible to discern, and is largely irrelevant.
+</p>
+
+<p>
+"What happened in <a href=../washington_d_c_u_s_a.html>D.C.</a> yesterday?"
+</p>
+
+<p>
+Nothing of importance: what matters is that in <a href=../suburb.html>suburbs</a> around the country, everyone said "traitor!" about <a href=../ashli_babbitt.html>the woman</a> who got shot breaking into Congress, but there are mainly two groups saying it for exactly opposite reasons.
+</p>
+
+<p>
+I cannot stress enough how much the events of yesterday were an attack against the <a href=../american_left.html>American Left</a>, and need to be seen that way, by <a href=../leftist.html>leftists</a>, immediately.
+</p>
+
+<p>
+People who were funding your <a href=../protest.html>protests</a> against the <a href=../police.html>police</a>, <a href=../george_floyd_uprising.html>several months ago</a>, are now cheering someone getting shot by federal cops.
+</p>
+
+<p>
+(This is why for four years I've been repeating "<a href=../accomplices_not_allies.html>accomplices not allies</a>" and holding my colleagues up to "impossible" high standards. Because they aren't impossibly high, they're quite easy to clear&#x2026; if you aren't just waiting for an opportunity to <a href=../collaboration.html>privilege yourself</a> within the <a href=../state.html>state</a>. All our allies are going to vanish by the end of the month, and the people who will be left will largely be the people who have no place else to go. That's because they have few resources to use to secure privilege within the state, but it also means life is hard for them, outside the state.
+</p>
+
+<p>
+I've posted before about how it isn't even the <a href=../kyriarchy.html>kyriarchy</a> keeping <a href=../person.html>people</a> <a href=../survival.html>alive</a> right now, citing <a href=../united_healthcare.html>United Healthcare</a> redirecting customers to me, a single <a href=../anarchist.html>anarchist</a>, for support. Yet you will see a great many people lean into a pursuit of "<a href=../back_to_normal.html>back to normal</a>," because the kyriarchy was at least keeping up the pretense of keeping them alive.
+</p>
+
+<p>
+Now's the real test. There are people who could get you your <a href=../universal_healthcare.html>free healthcare</a>, your <a href=../universal_basic_income.html>universal income</a>, your high-speed <a href=../internet.html>Internet</a>. They're right in front of you, willing to help. All you've got to do is support the <a href=../american.html>U.S.</a> <a href=../empire.html>empire</a>.
+</p>
+
+<p>
+Will you do it, or will you risk inaccess to healthcare, food, Internet, so that someday <i>everyone</i> might have those things, not just you and your family?)
+</p>
+
+<p>
+Today, for the first time in their adult life, a lot of <a href=../zoomer.html>Zoomers</a> are <i>genuinely</i> facing the question, "Do you support the US empire?"
+</p>
+
+<p>
+I hope they're prepared to be surprised and disappointed by their knee-jerk answers. Looking around the <a href=../fediverse.html>Fediverse</a>, I have been.
+</p>
+
+<p>
+Think it can't happen to you?
+</p>
+
+<p>
+<a href=../boomer.html>Boomers</a> started off as the anti-<a href=../war.html>war</a> <a href=../hippie.html>Hippie</a> <a href=../generation.html>generation</a>.
+</p>
+
+<p>
+Check your <a href=../privilege.html>privilege</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgabd6b89" class="outline-3">
+<h3 id="orgabd6b89">Finding introductory reading on note-taking with Org-roam</h3>
+<div class="outline-text-3" id="text-orgabd6b89">
+<p>
+Tomorrow, I'm going to help my partner as they begin to try and use <a href=../org_roam.html>Org-roam</a> as their <a href=../note_taking_system.html>note-taking systems</a> for their upcoming academic work; finishing their degree in <a href=../library_science.html>library science</a>.
+</p>
+
+<p>
+So today, I'd like to share with them one or two pieces that I think might best prime them to engage with the activity. In this posting, I'm going to talk about my journey to find those resources.
+</p>
+
+<p>
+To get started, I remember that when I was getting started with learning Org-roam, there were several lists to blog posts about the merits of a formal note-taking system, on the blog posts I was reading about Org-roam. I skipped past those lists at the time, as I was already sold on not just the intention but the specific product, but I'll try and go back now and re-find those things.
+</p>
+
+<p>
+The place I started was with <a href=../jethro_kuan.html>Jethro Kuan</a>, and as my notes just reminded me as I typed in that link, I already wrote down the piece I wanted to remember, that talked about specifically this: <a href="https://blog.jethro.dev/posts/how_to_take_smart_notes_org/">"How To Take Smart Notes With Org-mode"</a> Thank you, me of <a href=2020-12-15.html>December 15th</a>!
+</p>
+
+<p>
+I'm going to switch over to <a href=../jethro_kuan_how_to_take_smart_notes_with_org_mode.html>my record</a> on that piece, to cut out my favorite quotes, but I'll probably hop back and forth to here to talk about whether it's the right piece for my partner's self-education.
+</p>
+
+<p>
+…And I'm back! The piece was a decent introduction to the flaws of the traditional academic research method, and introduced some benefits of accretive knowledge management, but wasn't as deep as I'd hoped. Maybe there's something to be found in <a href=../neil_mather.html>Neil Mather</a>'s <a href="https://commonplace.doubleloop.net/">digital garden</a>.
+</p>
+
+<p>
+No such luck, but I did find an <a href="https://gilest.org/2004/interview-with-lion-kimbro/">interview with Lion Kimbro</a> that was useful. <a href=../lion_kimbro.html>Lion Kimbro</a> wrote <a href=../lion_kimbro_how_to_make_a_complete_map_of_every_thought_you_think.html>"How to make a complete map of every thought you think"</a>.
+</p>
+</div>
+</div>
+</section>
+
+
+
+
+<section id="outline-container-orgbdca278" class="outline-2">
+<h2 id="orgbdca278">News log</h2>
+<div class="outline-text-2" id="text-orgbdca278">
+</div>
+<div id="outline-container-orgaa1da67" class="outline-3">
+<h3 id="orgaa1da67">Yocha Dehe elder transitioned from COVID-19 December 29th</h3>
+<div class="outline-text-3" id="text-orgaa1da67">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-07 Thu 10:17] </span></span> <br>
+Marshall McKay, an <a href=../elder.html>elder</a> in the <a href=../yocha_dene_tribe.html>Yocha Dene Tribe</a>, <a href=../death.html>transitioned</a> on <a href=2020-12-29.html>December 29th</a>, from <a href=../covid_19.html>COVID-19</a>.</li>
+</ul>
+ </section>
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://www.kcra.com/article/native-american-tribal-elder-marshall-mckay-dies-covid-19/35135876">https://www.kcra.com/article/native-american-tribal-elder-marshall-mckay-dies-covid-19/35135876</a></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org55b609b" class="outline-3">
+<h3 id="org55b609b">FBI translating cold case posters into Navajo language</h3>
+<div class="outline-text-3" id="text-org55b609b">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-07 Thu 10:18] </span></span> <br>
+The <a href=../fbi.html>FBI</a> is translating several cold case posters into the <a href=../navajo_language.html>Navajo language</a>.</li>
+</ul>
+ </section>
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://www.nhonews.com/news/2021/jan/05/hone-wokeed-fbi-seeks-reach-navajo-language-speake/">https://www.nhonews.com/news/2021/jan/05/hone-wokeed-fbi-seeks-reach-navajo-language-speake/</a></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org4f530fa" class="outline-3">
+<h3 id="org4f530fa">Two charged with child endangerment in connection with missing Crow child</h3>
+<div class="outline-text-3" id="text-org4f530fa">
+<section class="org-drawer"> <ul class="org-ul">
+<li><p>
+Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-07 Thu 10:19] </span></span> <br>
+Two people have been <a href=../charges.html>charged</a> with <a href=../child_endangerment.html>child endangerment</a> in connection with Mildred Old Crow, an eight-year-old who has been missing for more than a year. The charge carries a maximum sentence of 6 months in <a href=../jail.html>jail</a> and a $2,500 <a href=../fine.html>fine</a>.
+</p>
+
+<p>
+The warrant first went out on <a href=2020-12-16.html>December 16th</a>, after the two "failed to produce the child nor was any proof of life provided," and on the <a href=2020-12-23.html>23rd</a> they were arrested as fugitives. Yesterday, they posted <a href=../bond.html>bond</a>.
+</p>
+
+<p>
+Relatives of Mildred Old Crow informed the <a href=../bureau_of_indian_affairs.html>Bureau of Indian Affairs</a> back in November that they'd not seen her since July 2018.
+</p>
+
+<p>
+That is, she was last seen alive when she was six. Two years later, two people who were supposed to be her guardians might spend six months in jail and pay a total of $5,000 because she has been missing, potentially that whole time.
+</p>
+
+<p>
+I've heard more people this year than last recognize the <a href=../mmiwg2s.html>#MMIWG2S</a> epidemic. I hope that hearing about events like this shows just how little the <a href=../american.html>U.S.</a> government cares about <a href=../indigenous.html>Indigenous</a> people.
+</p></li>
+</ul>
+ </section>
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://billingsgazette.com/news/local/two-charged-with-child-endangerment-in-connection-with-missing-crow-girl/article_097dfca1-49ec-56c0-88e0-0ee718239d2a.html">https://billingsgazette.com/news/local/two-charged-with-child-endangerment-in-connection-with-missing-crow-girl/article_097dfca1-49ec-56c0-88e0-0ee718239d2a.html</a></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org003da4a" class="outline-3">
+<h3 id="org003da4a">Archaeologist shares some erased history of Yellowstone National Park</h3>
+<div class="outline-text-3" id="text-org003da4a">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-07 Thu 10:35] </span></span> <br>
+In <a href=../smithsonian_magazine.html>Smithsonian Magazine</a> magazine, a look at some of the <a href=../erasure.html>erasured</a> <a href=../history.html>history</a> of <a href=../yellowstone_national_park.html>Yellowstone National Park</a>.</li>
+</ul>
+ </section>
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://www.smithsonianmag.com/history/lost-history-yellowstone-180976518/">https://www.smithsonianmag.com/history/lost-history-yellowstone-180976518/</a></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgcb96fba" class="outline-3">
+<h3 id="orgcb96fba">Nahua blockade roads following threats from Los Ardillos</h3>
+<div class="outline-text-3" id="text-orgcb96fba">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-07 Thu 13:27] </span></span> <br>
+After the <a href=../mexican_federal_government.html>Mexican federal government</a> failed to install checkpoints between <a href=../hueytenango.html>Hueytenango</a> and <a href=../chilapa_de_alvarez.html>Chilapa de Alvarez</a>, <a href=../nahua.html>Nahua</a> people have re-established a <a href=../road_blockade.html>road blockade</a> between the two municipalities.</li>
+</ul>
+ </section>
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://sipazen.wordpress.com/2021/01/07/guerrero-nahua-indigenous-renew-road-blockades-following-new-threats/">https://sipazen.wordpress.com/2021/01/07/guerrero-nahua-indigenous-renew-road-blockades-following-new-threats/</a></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org63703d3" class="outline-3">
+<h3 id="org63703d3">Facebook blocks Donald Trump</h3>
+<div class="outline-text-3" id="text-org63703d3">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-07 Thu 13:30] </span></span> <br>
+<a href=../facebook.html>Facebook</a> has blocked President <a href=../donald_j_trump.html>Donald Trump</a> from posting on the site. I view this as another part of the show to demonstrate the new relationship of moral majority and violent scum, so as to deradicalize many of those who were radicalized under Trump's administration.</li>
+</ul>
+ </section>
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://www.cnbc.com/2021/01/07/facebook-will-block-trump-from-posting-for-the-remainder-of-his-term.html">https://www.cnbc.com/2021/01/07/facebook-will-block-trump-from-posting-for-the-remainder-of-his-term.html</a></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org6ec8425" class="outline-3">
+<h3 id="org6ec8425">Historian contrasts storming of U.S. Capitol to anti-Democracy actions in the American South during Reconstruction</h3>
+<div class="outline-text-3" id="text-org6ec8425">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-07 Thu 13:24] </span></span> <br>
+Professor <a href=../manisha_sinha.html>Manisha Sinha</a> at the <a href=../university_of_connectictu.html>University of Connecticut</a> is interviewed by <a href=../amy_goodman.html>Amy Goodman</a> from <a href=../democracy_now.html>Democracy Now!</a> about the <a href=../2021_storming_of_the_u_s_capitol.html>2021 Storming of the U.S. Capitol</a>, contrasting the event to anti-<a href=../democracy.html>democracy</a> efforts in the <a href=../american_south.html>American South</a> during <a href=../reconstruction.html>Reconstruction</a>.</li>
+</ul>
+ </section>
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://www.democracynow.org/2021/1/7/us_capitol_violent_mob_manisha_sinha">https://www.democracynow.org/2021/1/7/us_capitol_violent_mob_manisha_sinha</a></dd>
+</dl>
+</div>
+</div>
+</section>
+<section id="outline-container-org9e03a07" class="outline-2">
+<h2 id="org9e03a07">Supplements</h2>
+<div class="outline-text-2" id="text-org9e03a07">
+</div>
+<div id="outline-container-backlinks" class="outline-3">
+<h3 id="backlinks">Backlinks</h3>
+<div class="outline-text-3" id="text-backlinks">
+<ul class="org-ul">
+<li><a href=../universal_healthcare.html>universal healthcare</a></li>
+<li><a href=../universal_basic_income.html>universal basic income</a></li>
+<li><a href=../empire.html>empire</a></li>
+<li><a href=../boomer.html>Boomer</a></li>
+<li><a href=../privilege.html>privilege</a></li>
+<li><a href=../zoomer.html>Zoomer</a></li>
+<li><a href=../hippie.html>Hippie</a></li>
+<li><a href=../2021_storming_of_the_u_s_capitol.html>2021 Storming of the U.S. Capitol</a></li>
+<li><a href=../u_s_capitol_police.html>U.S. Capitol Police</a></li>
+<li><a href=../leftist.html>leftist</a></li>
+<li><a href=../protest.html>protest</a></li>
+<li><a href=../accomplices_not_allies.html>Accomplices Not Allies</a></li>
+<li><a href=../united_healthcare.html>United Healthcare</a></li>
+<li><a href=../anarchist.html>anarchist</a></li>
+<li><a href=../back_to_normal.html>Back to Normal</a></li>
+<li><a href=../suburb.html>suburb</a></li>
+<li><a href=../library_science.html>library-science</a></li>
+<li><a href=../lion_kimbro_how_to_make_a_complete_map_of_every_thought_you_think.html>Lion Kimbro: "How to make a complete map of every thought you think"</a></li>
+<li><a href=../lion_kimbro.html>Lion Kimbro</a></li>
+<li><a href=../records_index.html>Records Index</a></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2021-01-07 Thu 09:06</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2021-01-07 Thu 13:46</p>
+</section>
+</body>
+</html>

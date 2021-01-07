@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-01-07 Thu 13:41 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>emsenn's anniversary calendar</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./d/index.html">daily records</a> | <a href="./concepts_index.html">concepts</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="./record.html">records</a> with more <a href="./information.html">information</a> about both of those concepts.) On the <a href="./Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="./emsenn.html">emsenn</a>, to share some of my <a href="./knowledge.html">knowledge</a> with <a href="./person.html">people</a> on the <a href="Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="./record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="./permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="./backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">emsenn's anniversary calendar</h1>
+</header><div class="head" id="orgf2350b3">
+
+</div>
+
+<p>
+<b><i><a href=emsenn_s_anniversary_calendar.html>emsenn's anniversary calendar</a></i></b> is a list of the anniversaries and other events I observe over the course of my year.
+</p>
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org3c6850a">Introduction</a></li>
+<li><a href="#org906fa56">emsenn's anniversary calendar</a>
+<ul>
+<li><a href="#org88f102d">January</a></li>
+<li><a href="#org394cf5c">February</a></li>
+<li><a href="#org8381dd6">March</a></li>
+<li><a href="#org8c4ddad">April</a></li>
+<li><a href="#orge49a0c9">May</a></li>
+<li><a href="#orga5562a0">June</a></li>
+<li><a href="#org1e245c2">July</a></li>
+<li><a href="#org39f7add">August</a></li>
+<li><a href="#orgb793a3a">September</a></li>
+<li><a href="#org496d81b">October</a></li>
+<li><a href="#orgc4f14bf">November</a></li>
+<li><a href="#orgd8f2231">December</a></li>
+</ul>
+</li>
+<li><a href="#org2528d81">Supplements</a>
+<ul>
+<li><a href="#record-history">Record history</a></li>
+<li><a href="#backlinks">Backlinks</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<section id="outline-container-org3c6850a" class="outline-2">
+<h2 id="org3c6850a">Introduction</h2>
+</section>
+<section id="outline-container-org906fa56" class="outline-2">
+<h2 id="org906fa56">emsenn's anniversary calendar</h2>
+<div class="outline-text-2" id="text-org906fa56">
+</div>
+<div id="outline-container-org88f102d" class="outline-3">
+<h3 id="org88f102d">January</h3>
+<div class="outline-text-3" id="text-org88f102d">
+</div>
+<div id="outline-container-orgfd4491d" class="outline-4">
+<h4 id="orgfd4491d">January 1st</h4>
+<div class="outline-text-4" id="text-orgfd4491d">
+</div>
+<div id="outline-container-orgbb833b2" class="outline-5">
+<h5 id="orgbb833b2">Congress of Racial Equality founed by James Farmer, Chicago, Illinois, U.S.A., 1942</h5>
+<div class="outline-text-5" id="text-orgbb833b2">
+<p>
+On this date in 1942, in <a href=chicago_illinois_u_s_a.html>Chicago, Illinois, U.S.A.</a>, <a href=james_farmer.html>James Farmer</a> founded the <a href=congress_of_racial_equality.html>Congress of Racial Equality</a>. The group's membership largely came from the <a href=pacifist.html>pacifist</a> group <a href=fellowship_of_reconciliation.html>Fellowship of Reconciliation</a>. They were inspired by <a href=mahatma_gandhi.html>Mahatma Gandhi</a>'s strategy of <a href=non_violence.html>non-violence</a> and sought to apply it in abolishing <a href=segregation.html>segregation</a>. Notably, the group was 28 men and 22 women, with nearly 2/3rds of its founding membership being white.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1bd774c" class="outline-5">
+<h5 id="org1bd774c">Oscar Grant III, shot by police, Oakland, California, U.S.A., 2009</h5>
+<div class="outline-text-5" id="text-org1bd774c">
+<p>
+<a href=oscar_grant_iii.html>Oscar Grant III</a> was shot by <a href=police.html>police</a> in <a href=oakland_california_u_s_a.html>Oakland, California, U.S.A.</a>, by officers affiliated with the city's public transport, while unarmed and held in a prone position. His shooting was captured on video by bystanders.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfb5fe5f" class="outline-4">
+<h4 id="orgfb5fe5f">January 2nd</h4>
+<div class="outline-text-4" id="text-orgfb5fe5f">
+</div>
+<div id="outline-container-org3e0ed9f" class="outline-5">
+<h5 id="org3e0ed9f">Poplar River Fight, Lakota Country, 1881</h5>
+<div class="outline-text-5" id="text-org3e0ed9f">
+<p>
+<i>Waȟčíŋča Wakpá Okíčize</i>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb1e7abc" class="outline-4">
+<h4 id="orgb1e7abc">January 3rd</h4>
+<div class="outline-text-4" id="text-orgb1e7abc">
+</div>
+<div id="outline-container-org1ae23f6" class="outline-5">
+<h5 id="org1ae23f6">Christmas Rebellion ends, Jamaica, 1832</h5>
+</div>
+</div>
+<div id="outline-container-orgca2fc2c" class="outline-4">
+<h4 id="orgca2fc2c">January 8th</h4>
+<div class="outline-text-4" id="text-orgca2fc2c">
+</div>
+<div id="outline-container-org172d5be" class="outline-5">
+<h5 id="org172d5be">Wolf Mountain Fight, Lakota Country, 1877</h5>
+<div class="outline-text-5" id="text-org172d5be">
+<p>
+<i>Thezí Pahá Okíčize</i>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0e61fb6" class="outline-4">
+<h4 id="org0e61fb6">January 9th</h4>
+<div class="outline-text-4" id="text-org0e61fb6">
+</div>
+<div id="outline-container-org7e97905" class="outline-5">
+<h5 id="org7e97905">Southern Tenant Farmers Union sit-down strike begins, Missouri, U.S.A., 1939</h5>
+</div>
+</div>
+<div id="outline-container-org41a694c" class="outline-4">
+<h4 id="org41a694c">January 11th</h4>
+<div class="outline-text-4" id="text-org41a694c">
+</div>
+<div id="outline-container-orgf9284fa" class="outline-5">
+<h5 id="orgf9284fa">"Bread and Roses" strike begins, Lawrence, Massachussetts, U.S.A., 1912</h5>
+</div>
+</div>
+<div id="outline-container-orga23b3ac" class="outline-4">
+<h4 id="orga23b3ac">January 13th</h4>
+<div class="outline-text-4" id="text-orga23b3ac">
+</div>
+<div id="outline-container-org27df079" class="outline-5">
+<h5 id="org27df079">U.S. Supreme Court rules postal service must carry gay magazine, U.S.A. 1958</h5>
+</div>
+</div>
+<div id="outline-container-org4fe7a75" class="outline-4">
+<h4 id="org4fe7a75">January 14th</h4>
+<div class="outline-text-4" id="text-org4fe7a75">
+</div>
+<div id="outline-container-org63751e6" class="outline-5">
+<h5 id="org63751e6">Public school teachers strike begins, Los Angeles, California, U.S.A., 2019</h5>
+</div>
+</div>
+<div id="outline-container-orgf2c7b52" class="outline-4">
+<h4 id="orgf2c7b52">January 17th</h4>
+<div class="outline-text-4" id="text-orgf2c7b52">
+</div>
+<div id="outline-container-org60de01b" class="outline-5">
+<h5 id="org60de01b">Lucy Parsons leads anti-hunger march, Chicago, Illinois, U.S.A., 1915</h5>
+</div>
+</div>
+<div id="outline-container-org34fe144" class="outline-4">
+<h4 id="org34fe144">January 18th</h4>
+<div class="outline-text-4" id="text-org34fe144">
+</div>
+<div id="outline-container-org54176cf" class="outline-5">
+<h5 id="org54176cf">Lumbee Tribe drive out the Ku Klux Klan, Robeson County, North Carolina, U.S.A., 1958</h5>
+</div>
+</div>
+<div id="outline-container-org0543f75" class="outline-4">
+<h4 id="org0543f75">January 20th</h4>
+<div class="outline-text-4" id="text-org0543f75">
+</div>
+<div id="outline-container-org7f0906d" class="outline-5">
+<h5 id="org7f0906d">Public school teacher strike succeeds, Los Angeles, California, U.S.A., 2019</h5>
+</div>
+</div>
+<div id="outline-container-orgc9157af" class="outline-4">
+<h4 id="orgc9157af">January 21st</h4>
+<div class="outline-text-4" id="text-orgc9157af">
+</div>
+<div id="outline-container-org7045e45" class="outline-5">
+<h5 id="org7045e45">Women's March, U.S.A. and global, 2017</h5>
+</div>
+</div>
+<div id="outline-container-org89f9ad2" class="outline-4">
+<h4 id="org89f9ad2">January 28th</h4>
+<div class="outline-text-4" id="text-org89f9ad2">
+</div>
+<div id="outline-container-orga8fc1a0" class="outline-5">
+<h5 id="orga8fc1a0">Protests against "Muslim Ban" begin, U.S.A., 2017</h5>
+</div>
+</div>
+<div id="outline-container-org8b0436b" class="outline-4">
+<h4 id="org8b0436b">January 29th</h4>
+<div class="outline-text-4" id="text-org8b0436b">
+</div>
+<div id="outline-container-org7a67f5e" class="outline-5">
+<h5 id="org7a67f5e">John C. Calhoun's name removed from Bde Maka Ska, Minneapolis, Minnesota, U.S.A., 2018</h5>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org394cf5c" class="outline-3">
+<h3 id="org394cf5c">February</h3>
+<div class="outline-text-3" id="text-org394cf5c">
+</div>
+<div id="outline-container-org84e578c" class="outline-4">
+<h4 id="org84e578c">February 1st</h4>
+<div class="outline-text-4" id="text-org84e578c">
+</div>
+<div id="outline-container-org7390a16" class="outline-5">
+<h5 id="org7390a16">Civil rights sit-ins begin, Greensboro, North Carolina, U.S.A., 1960</h5>
+</div>
+</div>
+
+<div id="outline-container-org8424963" class="outline-4">
+<h4 id="org8424963">Feburary 3rd</h4>
+<div class="outline-text-4" id="text-org8424963">
+</div>
+<div id="outline-container-org6268ff3" class="outline-5">
+<h5 id="org6268ff3">Boycott of segregated city schools begins, New York City, New York, U.S.A., 1964</h5>
+</div>
+</div>
+
+<div id="outline-container-orgc68a159" class="outline-4">
+<h4 id="orgc68a159">February 6th</h4>
+<div class="outline-text-4" id="text-orgc68a159">
+</div>
+<div id="outline-container-orgf9dba71" class="outline-5">
+<h5 id="orgf9dba71">Seattle General Strike, Seattle, Washington, U.S.A., 1919</h5>
+<div class="outline-text-5" id="text-orgf9dba71">
+<p>
+First city-wide general strike in the U.S.A.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org7eb14f1" class="outline-4">
+<h4 id="org7eb14f1">February 9th</h4>
+<div class="outline-text-4" id="text-org7eb14f1">
+</div>
+<div id="outline-container-org96a119a" class="outline-5">
+<h5 id="org96a119a">Cottonwood Fight, Lakota Country, 1874</h5>
+<div class="outline-text-5" id="text-org96a119a">
+<p>
+<i>Míla Háŋska Núnpa Ktépi</i>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2c8233e" class="outline-4">
+<h4 id="org2c8233e">February 11th</h4>
+<div class="outline-text-4" id="text-org2c8233e">
+</div>
+<div id="outline-container-orgee89434" class="outline-5">
+<h5 id="orgee89434">Japanese-Mexican Labor Association founded, Oxnard, California, U.S.A., 1903</h5>
+</div>
+</div>
+
+<div id="outline-container-org6df18f6" class="outline-4">
+<h4 id="org6df18f6">February 13th</h4>
+<div class="outline-text-4" id="text-org6df18f6">
+</div>
+<div id="outline-container-org7f18dec" class="outline-5">
+<h5 id="org7f18dec">Via Rail shuts down service in response to Indigenous blockade, British Columbia, Canada, 2019</h5>
+</div>
+</div>
+<div id="outline-container-orgd138462" class="outline-4">
+<h4 id="orgd138462">February 15th</h4>
+<div class="outline-text-4" id="text-orgd138462">
+</div>
+<div id="outline-container-org73cf092" class="outline-5">
+<h5 id="org73cf092">Worldwide protests against U.S.A.'s invasion of Iraq, 2003</h5>
+</div>
+</div>
+
+<div id="outline-container-org013fe5d" class="outline-4">
+<h4 id="org013fe5d">February 20th</h4>
+<div class="outline-text-4" id="text-org013fe5d">
+</div>
+<div id="outline-container-org6fc1fcf" class="outline-5">
+<h5 id="org6fc1fcf">Non-curricular clubs banned at East High SChool, Salt Lake City, Utah, U.S.A., 1995</h5>
+<div class="outline-text-5" id="text-org6fc1fcf">
+<p>
+After Kelli Peterson founded the Gay/Straight Allice, the city school board banned all "non-curricular" student clubs.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1afc8b9" class="outline-4">
+<h4 id="org1afc8b9">Feburary 22nd</h4>
+<div class="outline-text-4" id="text-org1afc8b9">
+</div>
+<div id="outline-container-org2138af9" class="outline-5">
+<h5 id="org2138af9">Public school teachers strike begins, West Virginia, U.S.A., 2018</h5>
+</div>
+</div>
+
+<div id="outline-container-org1eeca90" class="outline-4">
+<h4 id="org1eeca90">February 23rd</h4>
+<div class="outline-text-4" id="text-org1eeca90">
+</div>
+<div id="outline-container-org5c8d34a" class="outline-5">
+<h5 id="org5c8d34a">No Border Wall Drag Protest, Brownsville, Texas, U.S.A., 2019</h5>
+</div>
+</div>
+
+<div id="outline-container-orgc34ce35" class="outline-4">
+<h4 id="orgc34ce35">February 27th</h4>
+<div class="outline-text-4" id="text-orgc34ce35">
+</div>
+<div id="outline-container-org8446eb9" class="outline-5">
+<h5 id="org8446eb9">Occupation of Wounded Knee begins, Pine Ridge Reservation, South Dakota, U.S.A., 1973</h5>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8381dd6" class="outline-3">
+<h3 id="org8381dd6">March</h3>
+<div class="outline-text-3" id="text-org8381dd6">
+</div>
+<div id="outline-container-org2d99690" class="outline-4">
+<h4 id="org2d99690">March 17th</h4>
+<div class="outline-text-4" id="text-org2d99690">
+</div>
+<div id="outline-container-orgdb1ef03" class="outline-5">
+<h5 id="orgdb1ef03">Charcoal River Fight, Lakota Country, 1876</h5>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org8c4ddad" class="outline-3">
+<h3 id="org8c4ddad">April</h3>
+<div class="outline-text-3" id="text-org8c4ddad">
+</div>
+<div id="outline-container-org70a1f28" class="outline-4">
+<h4 id="org70a1f28">April 28th</h4>
+<div class="outline-text-4" id="text-org70a1f28">
+</div>
+<div id="outline-container-org0b7b0da" class="outline-5">
+<h5 id="org0b7b0da">Grace Creek Fight, Lakota Country, 1876</h5>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge49a0c9" class="outline-3">
+<h3 id="orge49a0c9">May</h3>
+<div class="outline-text-3" id="text-orge49a0c9">
+</div>
+<div id="outline-container-org727e8cd" class="outline-4">
+<h4 id="org727e8cd">May 7th</h4>
+<div class="outline-text-4" id="text-org727e8cd">
+</div>
+<div id="outline-container-orgfff86e3" class="outline-5">
+<h5 id="orgfff86e3">Me &amp; Esther's Anniversary, 2015</h5>
+</div>
+
+<div id="outline-container-org608dcf3" class="outline-5">
+<h5 id="org608dcf3">Lame Deer Fight, Lakota Country, 1877</h5>
+</div>
+</div>
+
+<div id="outline-container-orgc9b1139" class="outline-4">
+<h4 id="orgc9b1139">May 16th</h4>
+<div class="outline-text-4" id="text-orgc9b1139">
+</div>
+<div id="outline-container-org62792bf" class="outline-5">
+<h5 id="org62792bf">Spring Creek Fight, Lakota Country, 1869</h5>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga5562a0" class="outline-3">
+<h3 id="orga5562a0">June</h3>
+<div class="outline-text-3" id="text-orga5562a0">
+</div>
+<div id="outline-container-orge9ff4ab" class="outline-4">
+<h4 id="orge9ff4ab">June 4th</h4>
+<div class="outline-text-4" id="text-orge9ff4ab">
+</div>
+<div id="outline-container-orgde67848" class="outline-5">
+<h5 id="orgde67848">Big Hill Fight, Lakota Country, 1873</h5>
+</div>
+</div>
+
+<div id="outline-container-orgda1006d" class="outline-4">
+<h4 id="orgda1006d">June 9th</h4>
+<div class="outline-text-4" id="text-orgda1006d">
+</div>
+<div id="outline-container-org5ca8b39" class="outline-5">
+<h5 id="org5ca8b39">Praire Dog Creek Fight, Lakota Country, 1876</h5>
+</div>
+</div>
+
+<div id="outline-container-org3bfab73" class="outline-4">
+<h4 id="org3bfab73">June 17th</h4>
+<div class="outline-text-4" id="text-org3bfab73">
+</div>
+<div id="outline-container-org48790e2" class="outline-5">
+<h5 id="org48790e2">Rosebud River Fight, Lakota Country, 1876</h5>
+</div>
+</div>
+
+<div id="outline-container-orga7f507a" class="outline-4">
+<h4 id="orga7f507a">June 25th</h4>
+<div class="outline-text-4" id="text-orga7f507a">
+</div>
+<div id="outline-container-org2414e04" class="outline-5">
+<h5 id="org2414e04">Greasy Grass Fight, Lakota Country, 1876</h5>
+</div>
+</div>
+
+<div id="outline-container-org478c032" class="outline-4">
+<h4 id="org478c032">June 29th</h4>
+<div class="outline-text-4" id="text-org478c032">
+</div>
+<div id="outline-container-org96c4d21" class="outline-5">
+<h5 id="org96c4d21">Beaver Creek Fight, Lakota Country, 1867</h5>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1e245c2" class="outline-3">
+<h3 id="org1e245c2">July</h3>
+<div class="outline-text-3" id="text-org1e245c2">
+</div>
+<div id="outline-container-org97f8686" class="outline-4">
+<h4 id="org97f8686">July 17th</h4>
+<div class="outline-text-4" id="text-org97f8686">
+</div>
+<div id="outline-container-orgce1ad82" class="outline-5">
+<h5 id="orgce1ad82">Warbonnet Creek Fight, Lakota Country, 1879</h5>
+</div>
+</div>
+
+<div id="outline-container-orgde0698e" class="outline-4">
+<h4 id="orgde0698e">July 19th</h4>
+<div class="outline-text-4" id="text-orgde0698e">
+</div>
+<div id="outline-container-orgc33345b" class="outline-5">
+<h5 id="orgc33345b">Ten Soldier Fight, Lakota Country, 1868</h5>
+</div>
+</div>
+
+<div id="outline-container-org1dc8d84" class="outline-4">
+<h4 id="org1dc8d84">July 20th</h4>
+<div class="outline-text-4" id="text-org1dc8d84">
+</div>
+<div id="outline-container-orgd83207b" class="outline-5">
+<h5 id="orgd83207b">Crazy Woman Creek Fight, Lakota Country, 1866</h5>
+</div>
+</div>
+
+<div id="outline-container-org18d7cb3" class="outline-4">
+<h4 id="org18d7cb3">July 24th</h4>
+<div class="outline-text-4" id="text-org18d7cb3">
+</div>
+<div id="outline-container-orge03c04a" class="outline-5">
+<h5 id="orge03c04a">Big Mound Fight, Lakota Country, 1863</h5>
+</div>
+
+<div id="outline-container-org4a8d9b0" class="outline-5">
+<h5 id="org4a8d9b0">Clear Creek Fight, Lakota Country, 1866</h5>
+</div>
+</div>
+
+<div id="outline-container-org67d8885" class="outline-4">
+<h4 id="org67d8885">July 26th</h4>
+<div class="outline-text-4" id="text-org67d8885">
+</div>
+<div id="outline-container-org42f88c8" class="outline-5">
+<h5 id="org42f88c8">Bison Hunt Lake Fight, Lakota Country, 1863</h5>
+</div>
+</div>
+
+<div id="outline-container-org825ea3d" class="outline-4">
+<h4 id="org825ea3d">July 28th</h4>
+<div class="outline-text-4" id="text-org825ea3d">
+</div>
+<div id="outline-container-orga97d342" class="outline-5">
+<h5 id="orga97d342">Stone Lake Fight, Lakota Country, 1863</h5>
+</div>
+
+<div id="outline-container-org01ef0ae" class="outline-5">
+<h5 id="org01ef0ae">Where They Kill Deer Fight, Lakota Country, 1864</h5>
+<div class="outline-text-5" id="text-org01ef0ae">
+<p>
+Continued until the 29th
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org1e414b5" class="outline-4">
+<h4 id="org1e414b5">July 30th</h4>
+<div class="outline-text-4" id="text-org1e414b5">
+</div>
+<div id="outline-container-orgec92e49" class="outline-5">
+<h5 id="orgec92e49">Apple Creek Fight, Lakota Country, 1863</h5>
+<div class="outline-text-5" id="text-orgec92e49">
+<p>
+Continued until August 1st
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org39f7add" class="outline-3">
+<h3 id="org39f7add">August</h3>
+<div class="outline-text-3" id="text-org39f7add">
+</div>
+<div id="outline-container-orged41aa2" class="outline-4">
+<h4 id="orged41aa2">August 1st</h4>
+<div class="outline-text-4" id="text-orged41aa2">
+</div>
+<div id="outline-container-orgf9fec1d" class="outline-5">
+<h5 id="orgf9fec1d">They Tried to Start a Prairie Fire Fight, Lakota Country, 1867</h5>
+</div>
+<div id="outline-container-org09fa9d8" class="outline-5">
+<h5 id="org09fa9d8">Red Canyon Creek Fight, Lakota Country, 1976</h5>
+</div>
+</div>
+<div id="outline-container-orgb7d0ac4" class="outline-4">
+<h4 id="orgb7d0ac4">August 2nd</h4>
+<div class="outline-text-4" id="text-orgb7d0ac4">
+</div>
+<div id="outline-container-org5c01600" class="outline-5">
+<h5 id="org5c01600">Wagon Fight, Lakota Country, 1867</h5>
+</div>
+</div>
+<div id="outline-container-org35ce6ee" class="outline-4">
+<h4 id="org35ce6ee">August 4th</h4>
+<div class="outline-text-4" id="text-org35ce6ee">
+</div>
+<div id="outline-container-org7382143" class="outline-5">
+<h5 id="org7382143">Tongue River Fight, Lakota Country, 1873</h5>
+</div>
+</div>
+<div id="outline-container-org6d99255" class="outline-4">
+<h4 id="org6d99255">August 7th</h4>
+<div class="outline-text-4" id="text-org6d99255">
+</div>
+<div id="outline-container-orga9e1371" class="outline-5">
+<h5 id="orga9e1371">Pitiful Lands Fight, Lakota Country, 1864</h5>
+<div class="outline-text-5" id="text-orga9e1371">
+<p>
+Continued until the 9th.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org3bfcd13" class="outline-4">
+<h4 id="org3bfcd13">August 11th</h4>
+<div class="outline-text-4" id="text-org3bfcd13">
+</div>
+<div id="outline-container-org2c3ff64" class="outline-5">
+<h5 id="org2c3ff64">Spoon Horn River Fight, Lakota Country, 1873</h5>
+</div>
+</div>
+<div id="outline-container-org2630382" class="outline-4">
+<h4 id="org2630382">August 16th</h4>
+<div class="outline-text-4" id="text-org2630382">
+</div>
+<div id="outline-container-org9d27d57" class="outline-5">
+<h5 id="org9d27d57">Elk Creek Fight, Lakota Country, 1864</h5>
+</div>
+</div>
+<div id="outline-container-org593696a" class="outline-4">
+<h4 id="org593696a">August 19th</h4>
+<div class="outline-text-4" id="text-org593696a">
+</div>
+<div id="outline-container-org8ed932a" class="outline-5">
+<h5 id="org8ed932a">White Man's Cow Fight, Lakota Country, 1855</h5>
+</div>
+</div>
+<div id="outline-container-org66916b1" class="outline-4">
+<h4 id="org66916b1">August 20th</h4>
+<div class="outline-text-4" id="text-org66916b1">
+</div>
+<div id="outline-container-orgb10ecb1" class="outline-5">
+<h5 id="orgb10ecb1">Creek Fight, Lakota Country, 1841</h5>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb793a3a" class="outline-3">
+<h3 id="orgb793a3a">September</h3>
+<div class="outline-text-3" id="text-orgb793a3a">
+</div>
+<div id="outline-container-org9bbb08e" class="outline-4">
+<h4 id="org9bbb08e">September 2nd</h4>
+<div class="outline-text-4" id="text-org9bbb08e">
+</div>
+<div id="outline-container-org49794ab" class="outline-5">
+<h5 id="org49794ab">Earth Fort Fight, Lakota Country, 1864</h5>
+</div>
+</div>
+<div id="outline-container-org4e6652d" class="outline-4">
+<h4 id="org4e6652d">September 3rd</h4>
+<div class="outline-text-4" id="text-org4e6652d">
+</div>
+<div id="outline-container-org33e03a3" class="outline-5">
+<h5 id="org33e03a3">Whitestone Hill Massacre, Lakota Country, 1863</h5>
+<div class="outline-text-5" id="text-org33e03a3">
+<p>
+Continued until the 5th
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org36b1bf8" class="outline-4">
+<h4 id="org36b1bf8">September 9th</h4>
+<div class="outline-text-4" id="text-org36b1bf8">
+</div>
+<div id="outline-container-orge122e4b" class="outline-5">
+<h5 id="orge122e4b">Thin Buttes Fight, Lakota Country, 1876</h5>
+<div class="outline-text-5" id="text-orge122e4b">
+<p>
+Continued until the 10th
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org170c063" class="outline-4">
+<h4 id="org170c063">September 10th</h4>
+<div class="outline-text-4" id="text-org170c063">
+</div>
+<div id="outline-container-org38784e2" class="outline-5">
+<h5 id="org38784e2">Power River Fight, Lakota Country, 1865</h5>
+</div>
+</div>
+</div>
+<div id="outline-container-org496d81b" class="outline-3">
+<h3 id="org496d81b">October</h3>
+<div class="outline-text-3" id="text-org496d81b">
+</div>
+<div id="outline-container-org6b8306c" class="outline-4">
+<h4 id="org6b8306c">October 3rd</h4>
+<div class="outline-text-4" id="text-org6b8306c">
+</div>
+<div id="outline-container-org8aa6fd0" class="outline-5">
+<h5 id="org8aa6fd0">Heart River Fight, Lakota Country, 1872</h5>
+<div class="outline-text-5" id="text-org8aa6fd0">
+<p>
+Continued until the 4th.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org1e99f46" class="outline-4">
+<h4 id="org1e99f46">October 11th</h4>
+<div class="outline-text-4" id="text-org1e99f46">
+</div>
+<div id="outline-container-org6ef4a33" class="outline-5">
+<h5 id="org6ef4a33">Elk Creek Fights, Lakota Country, 1876</h5>
+<div class="outline-text-5" id="text-org6ef4a33">
+<p>
+Continued until the 16th
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org29050d0" class="outline-4">
+<h4 id="org29050d0">October 21st</h4>
+<div class="outline-text-4" id="text-org29050d0">
+</div>
+<div id="outline-container-orgc8b78a3" class="outline-5">
+<h5 id="orgc8b78a3">They Shot at Each Other Fight, Lakota Country, 1876</h5>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc4f14bf" class="outline-3">
+<h3 id="orgc4f14bf">November</h3>
+<div class="outline-text-3" id="text-orgc4f14bf">
+</div>
+<div id="outline-container-org652bbba" class="outline-4">
+<h4 id="org652bbba">November 4th</h4>
+<div class="outline-text-4" id="text-org652bbba">
+</div>
+<div id="outline-container-org5cb2b8e" class="outline-5">
+<h5 id="org5cb2b8e">Goose Creek Fight, Lakota Country, 1867</h5>
+<div class="outline-text-5" id="text-org5cb2b8e">
+<p>
+Continued until the 5th
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge623b72" class="outline-4">
+<h4 id="orge623b72">November 25th</h4>
+<div class="outline-text-4" id="text-orge623b72">
+</div>
+<div id="outline-container-org096f133" class="outline-5">
+<h5 id="org096f133">Canyon Fight, Lakota Country, 1876</h5>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd8f2231" class="outline-3">
+<h3 id="orgd8f2231">December</h3>
+<div class="outline-text-3" id="text-orgd8f2231">
+</div>
+<div id="outline-container-org3aa0dd7" class="outline-4">
+<h4 id="org3aa0dd7">December 1st</h4>
+<div class="outline-text-4" id="text-org3aa0dd7">
+</div>
+<div id="outline-container-orge582f5c" class="outline-5">
+<h5 id="orge582f5c">Another Fight at Crazy Woman Creek, Lakota Country, 1867</h5>
+<div class="outline-text-5" id="text-orge582f5c">
+<p>
+Continued until the 2nd.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org9bbfe33" class="outline-4">
+<h4 id="org9bbfe33">December 6th</h4>
+<div class="outline-text-4" id="text-org9bbfe33">
+</div>
+<div id="outline-container-org54aaec8" class="outline-5">
+<h5 id="org54aaec8">Magpie Creek Fight, Lakota Country, 1866</h5>
+</div>
+</div>
+<div id="outline-container-orgf964670" class="outline-4">
+<h4 id="orgf964670">December 7th</h4>
+<div class="outline-text-4" id="text-orgf964670">
+</div>
+<div id="outline-container-org20845d6" class="outline-5">
+<h5 id="org20845d6">Bark Creek Fight, Lakota Country, 1876</h5>
+</div>
+</div>
+<div id="outline-container-org98554e3" class="outline-4">
+<h4 id="org98554e3">December 15th</h4>
+<div class="outline-text-4" id="text-org98554e3">
+</div>
+<div id="outline-container-orge1eaa58" class="outline-5">
+<h5 id="orge1eaa58">Murder of Sitting Bull, Lakota Country, 1890</h5>
+</div>
+</div>
+<div id="outline-container-orge6ea133" class="outline-4">
+<h4 id="orge6ea133">December 18th</h4>
+<div class="outline-text-4" id="text-orge6ea133">
+</div>
+<div id="outline-container-orgfef234a" class="outline-5">
+<h5 id="orgfef234a">Midwinter Fight, Lakota Country, 1876</h5>
+</div>
+</div>
+<div id="outline-container-orgb248c0d" class="outline-4">
+<h4 id="orgb248c0d">December 29th</h4>
+<div class="outline-text-4" id="text-orgb248c0d">
+</div>
+<div id="outline-container-orgf63d70b" class="outline-5">
+<h5 id="orgf63d70b">Wounded Knee Massacre, Lakota Country, 1890</h5>
+</div>
+</div>
+</div>
+</section>
+<section id="outline-container-org2528d81" class="outline-2">
+<h2 id="org2528d81">Supplements</h2>
+<div class="outline-text-2" id="text-org2528d81">
+</div>
+<div id="outline-container-record-history" class="outline-3">
+<h3 id="record-history">Record history</h3>
+<div class="outline-text-3" id="text-record-history">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-21 Mon 10:03] </span></span> <br>
+Created from scratch.</li>
+</ul>
+ </section>
+</div>
+</div>
+
+<div id="outline-container-backlinks" class="outline-3">
+<h3 id="backlinks">Backlinks</h3>
+<div class="outline-text-3" id="text-backlinks">
+<ul class="org-ul">
+<li><a href=chicago_illinois_u_s_a.html>Chicago, Illinois, U.S.A.</a></li>
+<li><a href=pacifist.html>pacifist</a></li>
+<li><a href=fellowship_of_reconciliation.html>Fellowship of Reconciliation</a></li>
+<li><a href=mahatma_gandhi.html>Mahatma Gandhi</a></li>
+<li><a href=non_violence.html>non-violence</a></li>
+<li><a href=segregation.html>segregation</a></li>
+<li><a href=oakland_california_u_s_a.html>Oakland, California, U.S.A.</a></li>
+<li><a href=oscar_grant_iii.html>Oscar Grant III</a></li>
+<li><a href=james_farmer.html>James Farmer</a></li>
+<li><a href=congress_of_racial_equality.html>Congress of Racial Equality</a></li>
+<li><a href=emsenn_s_anniversary_calendar.html>emsenn's anniversary calendar</a></li>
+<li><a href=records_index.html>Records Index</a></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2021-01-01 Fri 10:03</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2021-01-07 Thu 13:41</p>
+</section>
+</body>
+</html>

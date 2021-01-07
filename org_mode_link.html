@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-01-07 Thu 13:43 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Org-mode link</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./d/index.html">daily records</a> | <a href="./concepts_index.html">concepts</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="./record.html">records</a> with more <a href="./information.html">information</a> about both of those concepts.) On the <a href="./Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="./emsenn.html">emsenn</a>, to share some of my <a href="./knowledge.html">knowledge</a> with <a href="./person.html">people</a> on the <a href="Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="./record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="./permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="./backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">Org-mode link</h1>
+</header><div class="head" id="org952594e">
+
+</div>
+
+<p>
+An <b><i><a href=org_mode_link.html>Org-mode link</a></i></b> is a <a href=hypertext.html>hypertext</a> reference to another location within a <a href=computer_file.html>computer file</a>.
+</p>
+
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge9b5d33">Introduction</a></li>
+<li><a href="#orgc7c6b65">Org-mode links</a>
+<ul>
+<li><a href="#org72ddab7">Org-mode links configuration</a></li>
+<li><a href="#org84cdba7">Use</a></li>
+</ul>
+</li>
+<li><a href="#org63b5828">Supplements</a>
+<ul>
+<li><a href="#record-history">Record history</a></li>
+<li><a href="#backlinks">Backlinks</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-orge9b5d33" class="outline-2">
+<h2 id="orge9b5d33">Introduction</h2>
+<div class="outline-text-2" id="text-orge9b5d33">
+<p>
+This <i>record</i> is some of what I (emsenn) know about <i>Org-mode links</i>.
+</p>
+</div>
+</section>
+
+<section id="outline-container-orgc7c6b65" class="outline-2">
+<h2 id="orgc7c6b65">Org-mode links</h2>
+<div class="outline-text-2" id="text-orgc7c6b65">
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org72ddab7">Org-mode links configuration</a>
+<ul>
+<li><a href="#orga781f53">Global bindings</a></li>
+</ul>
+</li>
+<li><a href="#org84cdba7">Use</a>
+<ul>
+<li><a href="#orgf56e0b2">Key Sequences</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org72ddab7" class="outline-3">
+<h3 id="org72ddab7">Org-mode links configuration</h3>
+<div class="outline-text-3" id="text-org72ddab7">
+</div>
+<div id="outline-container-orga781f53" class="outline-4">
+<h4 id="orga781f53">Global bindings</h4>
+<div class="outline-text-4" id="text-orga781f53">
+<pre class="example" id="org916e0f3">
+("C-c l" . org-store-link)
+("C-c t" . org-toggle-link-display)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org84cdba7" class="outline-3">
+<h3 id="org84cdba7">Use</h3>
+<div class="outline-text-3" id="text-org84cdba7">
+</div>
+<div id="outline-container-orgf56e0b2" class="outline-4">
+<h4 id="orgf56e0b2">Key Sequences</h4>
+<div class="outline-text-4" id="text-orgf56e0b2">
+</div>
+<div id="outline-container-orgede64ee" class="outline-5">
+<h5 id="orgede64ee">Structure movement</h5>
+<div class="outline-text-5" id="text-orgede64ee">
+<table id="org0245fec">
+<caption class="t-above"><span class="table-number">Table 1:</span> A <i>table</i> describing the <i>key sequences</i> I use to move around with <i>Org-mode links</i>.</caption>
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key sequence</th>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c C-o</code></td>
+<td class="org-left"><code>(org-open-at-point)</code></td>
+<td class="org-left"><b>Open</b> the link under point</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-x C-n</code></td>
+<td class="org-left"><code>(org-next-link)</code></td>
+<td class="org-left">Move to the <b>next</b> link in the buffer</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c C-x C-p</code></td>
+<td class="org-left"><code>(org-previous-link)</code></td>
+<td class="org-left">Move to the <b>previous</b> link in the buffer</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org76fa2d5" class="outline-5">
+<h5 id="org76fa2d5">Structure editing</h5>
+<div class="outline-text-5" id="text-org76fa2d5">
+<table id="org25a4385">
+<caption class="t-above"><span class="table-number">Table 2:</span> A <i>table</i> describing the <i>key sequences</i> I use to edit <i>Org-mode links</i>.</caption>
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key sequence</th>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>C-c C-l</code></td>
+<td class="org-left"><code>(org-insert-link)</code></td>
+<td class="org-left">Pulls up the interface to insert a link (either typed or selected from the link "ring", or edit the link under point</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-c l</code></td>
+<td class="org-left"><code>(org-store-link)</code></td>
+<td class="org-left">Saves a link in in the link "ring"</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="outline-container-org63b5828" class="outline-2">
+<h2 id="org63b5828">Supplements</h2>
+<div class="outline-text-2" id="text-org63b5828">
+</div>
+<div id="outline-container-record-history" class="outline-3">
+<h3 id="record-history">Record history</h3>
+<div class="outline-text-3" id="text-record-history">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-31 Thu 12:53] </span></span> <br>
+Added some basic structure to the record.</li>
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-30 Wed 09:52] </span></span> <br>
+Created from <a href="org-catch-invisible-edits">org-catch-invisible-edits</a></li>
+</ul>
+ </section>
+</div>
+</div>
+
+<div id="outline-container-backlinks" class="outline-3">
+<h3 id="backlinks">Backlinks</h3>
+<div class="outline-text-3" id="text-backlinks">
+<ul class="org-ul">
+<li><a href=computer_file.html>computer file</a></li>
+<li><a href=org_mode_agenda.html>Org-mode agenda</a></li>
+<li><a href=org_mode_link.html>Org-mode link</a></li>
+<li><a href=d/2020-12-30.html>2020-12-30</a></li>
+<li><a href=d/2021-01-02.html>2021-01-02</a></li>
+<li><a href=records_index.html>Records Index</a></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2020-12-30 Wed 09:52</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2021-01-07 Thu 13:43</p>
+</section>
+</body>
+</html>

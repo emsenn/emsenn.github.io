@@ -1,199 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-12-30 Wed 15:54 -->
+<!-- 2021-01-07 Thu 13:44 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2020-12-09</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="emsenn">
 <style>
-	@charset "UTF-8";
-	
-	:root {
-	    --body-font: sans-serif;
-	    --header-font: sans-serif;
-	    --code-font: monospace;
-	    --primary-color: #ffe;
-	    --primary-dim-color: #eed;
-	    --secondary-color: #312;
-	    --secondary-dim-color: #756;
-	    --link-color: #880;
-	    --link-hover-color: #aa2;
-	    --link-visited-color: #934;
-	    --link-visited-hover-color: #b56;
-	    --external-link-color: #008;
-	    --external-link-hover-color: #60b;
-	    --external-link-visited-color: #172;
-	    --external-link-visited-hover-color: #394;
-	}
-	@media(prefers-color-scheme:dark){
-	    :root {
-		--body-font: sans-serif;
-		--header-font: sans-serif;
-		--code-font: monospace;
-		--primary-color: #756;
-		--primary-dim-color: #312;
-		--secondary-color: #eed;
-		--secondary-dim-color: #ffe;
-		--link-color: #880;
-		--link-hover-color: #aa2;
-		--link-visited-color: #934;
-		--link-visited-hover-color: #b56;
-	    }}
-	body {
-	    position: relative;
-	    min-height: 100%;
-	    background-color: var(--primary-color);
-	    color: var(--secondary-color);
-	    margin: 0 auto;
-	    font-family: sans-serif;
-	}
-	main, #content {
-	    background-color: var(--primary-dim-color);
-	    border-left: 1.5em dotted var(--primary-color);
-	    padding: 1em;
-	}
-	header {
-	    border-bottom: 0.8em dotted var(--secondary-dim-color);
-	}
-	h1 { font-size: 2em; margin-bottom: 0; }
-	h2 {
-	    border-bottom: 0.3em dotted var(--secondary-dim-color);
-	}
-	h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
-	    width: 60%;
-	}
-	aside {
-	    float: right;
-	    width: 35%;
-	}
-	aside p { width: 100%; }
-	@media screen and (max-width:760px) {
-	    h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
-		width: 90%;
-	    }
-	    aside {
-		float: inherit;
-		width: 90%;
-		border-top: 0.2em dotted var(--secondary-dim-color);
-		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
-		font-size: 0.8em;
-		  }
-	}
-	
-	footer, #postamble, #preamble {
-	    padding: 0.5em;
-	}
-	table {
-	    border-collapse: collapse;
-	    border-spacing: 0;
-	    empty-cells: show;
-	    border: 0.1em solid #444;
-	}
-	thead { font-family: sans-serif; }
-	th, td {
-	    padding: 0 0.3em;
-	    border: 0.01em solid #444;
-	}
-	img {
-	    max-width: 80vw;
-	    vertical-align: middle;
-	}
-	pre, .src {
-	    padding: 0.5em;
-	    border: 0.1em solid #444;
-	    white-space: pre-wrap;
-	    overflow-x: scroll;
-	    text-overflow: clip;
-	    scrollbar-width: none;
-	}
-	pre::-webkit-scrollbar, .src::-webkit-scrollbar {
-	    display: none;
-	}
-	
-	
-	dt {
-	    font-weight: normal;
-	    display: inline-block;
-	    border-bottom: 0.1rem dotted #444;
-	}
-	#text-index dt { border-bottom: none; }
-	h2, h3, h4, h5, h6, h7, h8, h9, h10 {
-	    display: block;
-	    font-family: sans-serif;
-	    margin: 0.2em auto 0.5em 0;
-	}
-	a, .link {
-	    text-decoration: none;
-	    color: #880;
-	    display: inline;
-	    position: relative;
-	    border-bottom: 0.1rem dotted;
-	    line-height: 1.2;
-	    transition: border 0.3s;
-	}
-	a:hover {
-	    color: #aa2;
-	    outline-style: none;
-	    border-bottom: 0.1rem solid;
-	}
-	a:visited, .visited-link { color: #934; }
-	a:visited:hover { color: #b56; }
-	a:focus {
-	    outline-style: none;
-	    border-bottom: 0.1rem solid;
-	}
-	::selection { background-color: #777; color: #eee; }
-	a::selection { background-color: #ccc; }
-	.org-todo {
-	    background-color: #ddd;
-	    color: #333;
-	    font-size: .8rem;
-	    float: right;
-	}
-	.org-src-container + .example {
-	    margin-left: 8em;
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
-	    content: "^";
-	    font-size: 0.5em;
-	    vertical-align: super;
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
-	    color: var(--external-link-color);
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
-	    color: var(--external-link-hover-color);
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
-	    color: var(--external-link-visited-color);
-	}
-	a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
-	    color: var(--external-link-visited-hover-color);
-	}
-	blockquote {
-	    border: 0.1em dashed var(--secondary-dim-color);
-	    padding-left: 0.2em;
-	}
-	label.org-src-name {
-	    margin: 0 0 0 3em;
-	    font-family: sans-serif;
-	    font-size: 1rem;
-	    line-height: 0;
-	}
-	.skip-to-content {
-	    opacity: 0;
-	    position: absolute;
-	    left: 0.2em;
-	}
-	.skip-to-content:focus{
-	    opacity: 1;
-	    background-color: var(--secondary-dim-color);
-	    color: var(--primary-color);
-	}
-	ul { max-width: 85%; }
-	</style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
 </head>
 <body>
 <section id="preamble" class="status">
@@ -202,10 +202,10 @@
 <main id="content">
 <header>
 <h1 class="title">2020-12-09</h1>
-</header><div class="head" id="org6a85c6c">
+</header><div class="head" id="orge7189d0">
 
 </div>
-<summary id="orgb39bc03">
+<summary id="org71a5bd1">
 <p>
 This is my personal record for <span class="timestamp-wrapper"><span class="timestamp">[2020-12-09 Wed]</span></span>. If you are viewing this record outside of its original environment, please be aware it maybe be heavily redacted.
 </p>
@@ -227,6 +227,11 @@ This is my personal record for <span class="timestamp-wrapper"><span class="time
 </ul>
 </li>
 <li><a href="#orgfd20993">Reposts</a></li>
+<li><a href="#orge4f9d5d">News log</a>
+<ul>
+<li><a href="#org093a89e">Study suggests indingeous practices can revitalize Pacific salmon fisheries</a></li>
+</ul>
+</li>
 <li><a href="#org3f8c2eb">Supplements</a>
 <ul>
 <li><a href="#backlinks">Backlinks</a></li>
@@ -244,7 +249,7 @@ This is my personal record for <span class="timestamp-wrapper"><span class="time
 <div class="outline-text-3" id="text-org3687085">
 <section class="org-drawer"> <ul class="org-ul">
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-09 Wed 18:57] </span></span> <br>
-<a href="../20201222211055-anthony_gramuglia.html">Anthony Gramuglia</a> writes about the <a href="../transphobia.html">transphobia</a> in <a href="../cyberpunk_2077.html">Cyberpunk 2077</a>, and its place in <a href="../gaming_culture.html">gaming culture</a>'s transphobia.</li>
+<a href=../anthony_gramuglia.html>Anthony Gramuglia</a> writes about the <a href=../transphobia.html>transphobia</a> in <a href=../cyberpunk_2077.html>Cyberpunk 2077</a>, and its place in <a href=../gaming_culture.html>gaming culture</a>'s transphobia.</li>
 </ul>
  </section>
 <dl class="org-dl">
@@ -257,8 +262,8 @@ This is my personal record for <span class="timestamp-wrapper"><span class="time
 <div class="outline-text-3" id="text-org499c348">
 <section class="org-drawer"> <ul class="org-ul">
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-09 Wed 11:15] </span></span> <br>
-In <a href="../charles_keil_dear_gretas.html">Charles Keil: "dear gretas"</a>, the author contrasts different <a href="../ways_of_living.html">ways of living</a>.
-"<a href="../20201222211749-rainforests.html">rainforests</a> are not just the <a href="../20201222211810-earth_s_atmosphere.html">lungs of the planet</a> they are the brains of <a href="../indigenous.html">classless peoples</a> who live there," is such an important point. Going back to my critique of contemporary <a href="../20201222211531-ethnobotany.html">ethnobotanical studies</a>, <a href="../indigenous2.html">Indigenousness</a> is not here to help you <a href="../survival.html">breathe</a>, it is here for you to use to <a href="../culture.html">think</a>.</li>
+In <a href=../charles_keil_dear_gretas.html>Charles Keil: "dear gretas"</a>, the author contrasts different <a href=../ways_of_living.html>ways of living</a>.
+"<a href=../rainforests.html>rainforests</a> are not just the <a href=../earth_s_atmosphere.html>lungs of the planet</a> they are the brains of <a href=../indigenous.html>classless peoples</a> who live there," is such an important point. Going back to my critique of contemporary <a href=../ethnobotany.html>ethnobotanical studies</a>, <a href=../indigenous2.html>Indigenousness</a> is not here to help you <a href=../survival.html>breathe</a>, it is here for you to use to <a href=../culture.html>think</a>.</li>
 </ul>
  </section>
 <dl class="org-dl">
@@ -275,11 +280,11 @@ In <a href="../charles_keil_dear_gretas.html">Charles Keil: "dear gretas"</a>, t
 <h3 id="org3e9b776"><span class="timestamp-wrapper"><span class="timestamp">[2020-12-09 Wed 12:12]</span></span></h3>
 <div class="outline-text-3" id="text-org3e9b776">
 <p>
-Hey y’all; I’ve seen a lot of <a href="../posting.html">posts</a> today about people concerned about the future of their housing, as we get closer to <a href="../20201222210441-covid_19_eviction_moritorium.html">the eviction moritorium</a>. I just want to share, I've lived in housing, I’ve lived <a href="../homelessness.html">sleeping on city benches</a>, I’ve lived in tents deep in the “wilderness.”
+Hey y’all; I’ve seen a lot of <a href=../posting.html>posts</a> today about people concerned about the future of their housing, as we get closer to <a href=../covid_19_eviction_moritorium.html>the eviction moritorium</a>. I just want to share, I've lived in housing, I’ve lived <a href=../homelessness.html>sleeping on city benches</a>, I’ve lived in tents deep in the “wilderness.”
 </p>
 
 <p>
-The biggest threat to your long-term and immediate survival is a lack of <a href="../20201222210523-imagination.html">imagination</a>. Stay childlike; stay evergreen, and you might meet these threats well-enough to meet the next.
+The biggest threat to your long-term and immediate survival is a lack of <a href=../imagination.html>imagination</a>. Stay childlike; stay evergreen, and you might meet these threats well-enough to meet the next.
 </p>
 </div>
 </div>
@@ -288,7 +293,7 @@ The biggest threat to your long-term and immediate survival is a lack of <a href
 <h3 id="org16eedff"><span class="timestamp-wrapper"><span class="timestamp">[2020-12-09 Wed 11:30]</span></span></h3>
 <div class="outline-text-3" id="text-org16eedff">
 <p>
-Just added a labor listing to my <a href="../20201222210618-in_search_of.html">ISO</a> page, I’ve some extra <a href="../20201222210855-basket_splint.html">basket splint</a>. If someone’s interested in using them, you’re welcome to them; I’d like to ask you keep the resultant <a href="../20201222210907-baskets.html">baskets</a> outside of <a href="../collaboration.html">Collaborator</a> <a href="../20201222210926-relationships.html">relationship</a>, though.
+Just added a labor listing to my <a href=../in_search_oif.html>ISO</a> page, I’ve some extra <a href=../basket_splint.html>basket splint</a>. If someone’s interested in using them, you’re welcome to them; I’d like to ask you keep the resultant <a href=../baskets.html>baskets</a> outside of <a href=../collaboration.html>Collaborator</a> <a href=../relationships.html>relationship</a>, though.
 </p>
 </div>
 </div>
@@ -302,7 +307,7 @@ Just added a labor listing to my <a href="../20201222210618-in_search_of.html">I
 <div class="outline-text-4" id="text-orgd2e814e">
 <section class="org-drawer"> <ul class="org-ul">
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-09 Wed 09:40] </span></span> <br>
-Tomorrow there's a <a href="../20201222212039-web_workshop.html">Web workshop</a> led by Professor <a href="../20201222212054-michel_degraff.html">Michel DeGraff</a> on "<a href="../decolonization.html">decolonising</a> the <a href="../language.html">linguistic</a> curriculum."</li>
+Tomorrow there's a <a href=../web_workshop.html>Web workshop</a> led by Professor <a href=../michel_degraff.html>Michel DeGraff</a> on "<a href=../decolonization.html>decolonising</a> the <a href=../language.html>linguistic</a> curriculum."</li>
 </ul>
  </section>
 </div>
@@ -313,27 +318,27 @@ Tomorrow there's a <a href="../20201222212039-web_workshop.html">Web workshop</a
 <div class="outline-text-4" id="text-org521b96f">
 <section class="org-drawer"> <ul class="org-ul">
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-12-09 Wed 18:50] </span></span> <br>
-I call the <a href="../cat.html">cat</a> I live with <a href="../ikmu.html">Igmú</a>. After learning that’s her name, people ask “Oh? Interesting name, does it mean anything?” and I say “Yes, it’s the <a href="../20201222205636-lakota.html">Lakota</a> word for cat.” and they go “Oh are you Lakota?” and I say “Yup” and they say… something awful, yup.</li>
+I call the <a href=../cat.html>cat</a> I live with <a href=../ikmu.html>Igmú</a>. After learning that’s her name, people ask “Oh? Interesting name, does it mean anything?” and I say “Yes, it’s the <a href=../lakota.html>Lakota</a> word for cat.” and they go “Oh are you Lakota?” and I say “Yup” and they say… something awful, yup.</li>
 </ul>
  </section>
 <blockquote>
 <p>
-My girlfriend just said every time she goes to the <a href="../20201222205620-dog_park.html">dog park</a>:
+My girlfriend just said every time she goes to the <a href=../dog_park.html>dog park</a>:
 </p>
 
 <ol class="org-ol">
-<li>People find out our <a href="../20201222205647-dog.html">dog</a>'s name is <a href="../20201222205636-lakota.html">Lakota</a></li>
+<li>People find out our <a href=../dog.html>dog</a>'s name is <a href=../lakota.html>Lakota</a></li>
 <li>They find out I'm Lakota</li>
-<li>They say something <a href="../20201222205729-racism.html">racist</a></li>
+<li>They say something <a href=../racism.html>racist</a></li>
 </ol>
 
 <p>
 😂😂😂 yep that's life.
-<a href="../20201222205557-anti_native_racism.html">Anti-Native</a> sh*t is everywhere.
+<a href=../anti_native_racism.html>Anti-Native</a> sh*t is everywhere.
 </p>
 
 <ul class="org-ul">
-<li><a href="../lucas_brown_eyes.html">Lucas Brown Eyes</a></li>
+<li><a href=../lucas_brown_eyes.html>Lucas Brown Eyes</a></li>
 </ul>
 </blockquote>
 </div>
@@ -356,6 +361,22 @@ People who hang nose are cowards. Just go bare face, we know what you're about, 
 </div>
 </div>
 </section>
+<section id="outline-container-orge4f9d5d" class="outline-2">
+<h2 id="orge4f9d5d">News log</h2>
+<div class="outline-text-2" id="text-orge4f9d5d">
+</div>
+<div id="outline-container-org093a89e" class="outline-3">
+<h3 id="org093a89e">Study suggests indingeous practices can revitalize Pacific salmon fisheries</h3>
+<div class="outline-text-3" id="text-org093a89e">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-03 Sun 12:51] </span></span> <br>
+A study on <a href=../pacific_salmon_fisheries.html>Pacific salmon fisheries</a> contrasts <a href=../indigenous.html>Indigenous</a> management to <a href=../colonialism.html>colonial</a> management, indicating how colonial systems "have contributed to declining salmon fisheries in mamny locations." The paper is written in appreciation of "escalating <a href=../climate_collapse.html>anthropogenic threats to global biodiversity</a>," and so "suggest[s] that revitalizing traditional systems of salmon management can improve prospects for sustainable fisheries and healthy fishing communities[.]"</li>
+</ul>
+ </section>
+</div>
+</div>
+</section>
+
 <section id="outline-container-org3f8c2eb" class="outline-2">
 <h2 id="org3f8c2eb">Supplements</h2>
 <div class="outline-text-2" id="text-org3f8c2eb">
@@ -364,8 +385,8 @@ People who hang nose are cowards. Just go bare face, we know what you're about, 
 <h3 id="backlinks">Backlinks</h3>
 <div class="outline-text-3" id="text-backlinks">
 <ul class="org-ul">
-<li><a href="../records_index.html">Records Index</a></li>
-<li><a href="index.html">Daily Records Index</a></li>
+<li><a href=index.html>Daily Records Index</a></li>
+<li><a href=../records_index.html>Records Index</a></li>
 </ul>
 </div>
 </div>
@@ -374,7 +395,7 @@ People who hang nose are cowards. Just go bare face, we know what you're about, 
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-09 Wed 08:37</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2020-12-30 Wed 15:54</p>
+<p class="date">Created: 2021-01-07 Thu 13:44</p>
 </section>
 </body>
 </html>
