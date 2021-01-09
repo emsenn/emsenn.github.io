@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-01-09 Sat 14:54 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Esther Ferrer: "Letter to John Cage"</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./d/index.html">daily records</a> | <a href="./concepts_index.html">concepts</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="./record.html">records</a> with more <a href="./information.html">information</a> about both of those concepts.) On the <a href="./Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="./emsenn.html">emsenn</a>, to share some of my <a href="./knowledge.html">knowledge</a> with <a href="./person.html">people</a> on the <a href="Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="./record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="./permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="./backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">Esther Ferrer: "Letter to John Cage"</h1>
+</header><div class="head" id="org5a028b7">
+
+</div>
+
+<p>
+In 1991, the <a href="anarchist.html">anarchist</a> <a href="esther-ferrer.html">Esther Ferrer</a> wrote a letter to <a href="john-cage.html">John Cage</a> in response to his question, asking her to define <a href="anarchy.html">anarchy</a> and the future of <a href="anarchism.html">anarchism</a>.
+</p>
+
+<section id="outline-container-org91656c5" class="outline-2">
+<h2 id="org91656c5">Full text</h2>
+<div class="outline-text-2" id="text-org91656c5">
+<p>
+Querido John,
+</p>
+
+<p>
+Here are some quick thoughts to respond to your question as to the future of anarchism,
+</p>
+
+<ul class="org-ul">
+<li>For me, anarchism shall always have a future, and a present, for the basic reason that I associate it with creativity. Please, I don't mean art, which is something else, much more limited. I am talking about creativity in the sense that it comes from rejoicing, from pleasure and it serves first of all the person who practices it, without paying attention to the consequences and without feeling obligations to anyone else. There is no "master" except oneself.</li>
+</ul>
+
+<p>
+Anarchy, like creativity, is thus a completely gratuitous choice, which engages only yourself and which you decided to practice; one could well define anarchy as a practice of liberty, first individual and then social. One can practice it alone, even if others are not at all interested. That is often the case, when one speaks of anarchism, others laugh or mistrust the idea, but that does not take away from one's own joy. This is to say that anarchistic thought is something out of time, even without time, and I would even dare to say that it is something anchored in human nature (there are other things anchored in human nature also, unfortunately) and like creativity, individualistic and individualized. This is the source of its attractiveness, and of its enormous risk, which in my opinion, makes it all the more attractive.
+</p>
+
+<p>
+As a result, John, I think that in periods of "desánimo" (1) of "desesperanza", as today, when there is not, or seems not to be, any messianic hope to stuff our heads with, when the hopes have turned out to be largely inoperative, there is a return to essential things, and the essential things are never far away, because WE CAN FIND THEM IN OURSELVES, without needing recourse to ideologists and master thinkers, without needing to think outside of ourselves. Our liberty is only limited by the characteristics of our species in the most physical sense, and by the personal decision to employ liberty intelligently, that is, to consider others as beings who practice liberty too.
+</p>
+
+<p>
+Anarchy is quite simply a problem of assuming individual responsibility. It is the idea that each person conceive of himself as a thinking being, capable of making his life decisions without delegating his decision making capacities to someone else, whether it be a god, a king, a state, a party, an ingenious artist, a master of thought, a leader, a mother or a father. Now, to be more specific, for me, John, anarchy really does have the future that people are talking about, and for a reason much more concrete than the one, fundamental for me, which I spoke about before, that is, creative conduct, as opposed to subordinate conduct, and positive individualism:
+</p>
+
+<p>
+In these times, which flow in a behavioral "grisaille" (2) , it is no doubt attractive to follow a way of thinking that does not demand anything, that simply proposes the possibility that you have the courage to assume the decision and the consequences of your own acts, without protecting yourself in the imperatives of an ideology, a religion, or an authority, which convert you into an irresponsible person, first in regard to yourself, and then in regard to society.
+</p>
+
+<p>
+In view of the unworkability of all the doctrines that claim to liberate humanity, such as capitalism, Marxism, or authoritative socialism (3) , the big loser of all the revolutions (Soviet, without forgetting Kronstadt, Spanish, etc.), that is, anarchism, seems for many to be once again a possibility. (As the Basque sculptor Jorge Oteiza, used to say to me: "From failure to failure right up to the final victory"). Of course, that this possibility could become another fashion, another fad, is a new risk that anarchists must assume.
+</p>
+
+<p>
+Why is anarchy a possibility? Because we begin to understand that we have delegated too much, believed too much in the daddy state, which protects us, and gives us such security (or the delusion of it) and puts us to sleep (in the best cases) or which exploits us (in the worst, and unfortunately more frequent cases). The daddy state also puts to sleep our capacity to think, to revolt, to manage our lives, because it promises everything and gives us practically nothing. Maybe it is easier, and even more comfortable, to delegate than to think.
+</p>
+
+<p>
+Anarchism, in the face of all the other doctrines and ideologies, is a marvelous exception. IT PROMISES NOTHING! Wow! What joy! It gives us no model of pleasure to follow, to go for. It gives us no paradise, neither an artificial one nor a real one nor a proletarian one, at the end of an authoritative road. This is because, among other things, there is no road. Machado, a Spanish poet, exiled by the forces of General Franco, and who died in exile, has written: "caminante no hay camino, se hace camino al andar" ("Walker, there is no road, the road is made by walking").
+</p>
+
+<p>
+So, from this struggle against the state, which does not mean the conquest of power, but rather its dispersion, anarchy struggles against the patriarchal family, of which the state is only one manifestation, (even if anarchist writing, with rare exceptions, make no reference to women, and even if, in their individual behavior, some of the great anarchist theoreticians were misogynist and authoritative). The term "patriarchal" really means any hierarchical pyramidal structure, in which the summit is occupied by a supreme authority traditionally masculine. Given that one of the goals of feminism is to decompose the patriarchal family (and not, if you please, to replace it by a matriarchal authority) in this sense the various feminist movements, can stimulate and actualize&#x2013;thanks to women anarchists&#x2013;some anarchistic ideas.
+</p>
+
+<p>
+These ideas, John, at bottom, are simply natural creations of free thought, capable of generating someday, a fraternity and solidarity, conflictive, I hope (anarchy does not fear contradictions, she is submerged in them), but capable of inventing imaginative and joyful solutions.
+</p>
+</div>
+
+<div id="outline-container-backlinks" class="outline-3">
+<h3 id="backlinks">Backlinks</h3>
+<div class="outline-text-3" id="text-backlinks">
+<ul class="org-ul">
+<li><a href="records_index.html">Records Index</a></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2021-01-09 Sat 11:40</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2021-01-09 Sat 14:54</p>
+</section>
+</body>
+</html>
