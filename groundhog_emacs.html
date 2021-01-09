@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-07 Thu 13:41 -->
+<!-- 2021-01-09 Sat 13:41 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Groundhog Emacs</title>
@@ -202,13 +202,13 @@
 <main id="content">
 <header>
 <h1 class="title">Groundhog Emacs</h1>
-</header><div class="head" id="orge644010">
+</header><div class="head" id="orgda5dd97">
 
 </div>
 
 
 <p>
-<b><i><a href=groundhog_emacs.html>Groundhog Emacs</a></i></b> is what I call my <a href=emacsen.html>Emacsen</a>: my primary <a href=tool.html>tool</a> for doing <a href=information_management.html>information management</a> using a <a href=computer.html>computer</a>.
+<b><i><a href="groundhog_emacs.html">Groundhog Emacs</a></i></b> is what I call my <a href="emacsen.html">Emacsen</a>: my primary <a href="tool.html">tool</a> for doing <a href="information_management.html">information management</a> using a <a href="computer.html">computer</a>.
 </p>
 
 <nav id="table-of-contents">
@@ -513,13 +513,156 @@
 <h3 id="org9b54994">Org-roam configuration</h3>
 <div class="outline-text-3" id="text-org9b54994">
 </div>
+<div id="outline-container-orgee7757c" class="outline-4">
+<h4 id="orgee7757c">Org-roam immediate capture template</h4>
+<div class="outline-text-4" id="text-orgee7757c">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgddd649c">("B" "blank record" plain
+ (function org-roam--capture-get-point)
+ "This record was created on %U in the process of writing %a and hasn't been written itself, yet. If you require more information on this concept, please consider [[mailto:emsenn@emsenn.net][sending me an email]].\n"
+ :file-name "${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: blank\n"
+		"#+end_head\n\n")
+ :unnarrowed t
+ :immediate-finish t)
+</pre>
+</div>
+</div>
+</div>
 <div id="outline-container-orgdc14138" class="outline-4">
 <h4 id="orgdc14138">Org-roam capture templates</h4>
 <div class="outline-text-4" id="text-orgdc14138">
 </div>
+<div id="outline-container-orga9dda0e" class="outline-5">
+<h5 id="orga9dda0e">Org-roam term capture template</h5>
+<div class="outline-text-5" id="text-orga9dda0e">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org90c7d4c">("t" "term" plain
+ (function org-roam--capture-get-point)
+ "#+name: ${slug}-definition\n%?\n"
+ :file-name "${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: term\n"
+		"#+end_head\n\n")
+ :unnarrowed t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org1a77479" class="outline-5">
+<h5 id="org1a77479">Org-roam area capture template</h5>
+<div class="outline-text-5" id="text-org1a77479">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgea0e293">("a" "area" plain
+ (function org-roam--capture-get-point)
+ "#+name: ${slug}-definition\n*/[[file:${slug}][${title}]] is a [[file:person.org][person]]%?\n"
+ :file-name "${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: term\n"
+		"#+end_head\n\n")
+ :unnarrowed t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org29f1fc2" class="outline-5">
+<h5 id="org29f1fc2">Org-roam person capture template</h5>
+<div class="outline-text-5" id="text-org29f1fc2">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org949233b">("p" "person" plain
+ (function org-roam--capture-get-point)
+ "#+name: ${slug}-definition\n%?\n"
+ :file-name "${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: term\n"
+		"#+end_head\n\n")
+ :unnarrowed t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org0ea2bff" class="outline-5">
+<h5 id="org0ea2bff">Org-roam concept capture template</h5>
+<div class="outline-text-5" id="text-org0ea2bff">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org9d8fcbd">("c" "concept" plain
+ (function org-roam--capture-get-point)
+ "#+name: ${slug}-definition\n%?\n"
+ :file-name "${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: concept\n"
+		"#+end_head\n\n")
+ :unnarrowed t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga64377b" class="outline-5">
+<h5 id="orga64377b">Org-roam reference capture template</h5>
+<div class="outline-text-5" id="text-orga64377b">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgbb4f205">("r" "reference" plain
+ (function org-roam--capture-get-point)
+ "#+roam_key: %^{SOURCE}\n#+end_head\n\n%?\n"
+ :file-name "${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: reference\n")
+ :unnarrowed t)
+</pre>
+</div>
+</div>
+</div>
+
 <div id="outline-container-orga7cfc33" class="outline-5">
 <h5 id="orga7cfc33">Org-roam Teraum capture templates</h5>
 <div class="outline-text-5" id="text-orga7cfc33">
+</div>
+<div id="outline-container-orgc230bdc" class="outline-6">
+<h6 id="orgc230bdc">Org-roam Teraum term capture template</h6>
+<div class="outline-text-6" id="text-orgc230bdc">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org1cda1c2">("Tt" "term" plain
+ (function org-roam--capture-get-point)
+ "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an term of [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+ :file-name "teraum/${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum term\n"
+		"#+end_head\n\n")
+ :unnarrowed t)
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-orgd0202cc" class="outline-6">
 <h6 id="orgd0202cc">Org-roam Teraum area capture template</h6>
@@ -633,8 +776,110 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org5fdf745" class="outline-4">
-<h4 id="org5fdf745">Org-roam-dailies capture templates</h4>
+<div id="outline-container-org5b7f2f2" class="outline-4">
+<h4 id="org5b7f2f2">Org-roam dailies capture templates</h4>
+<div class="outline-text-4" id="text-org5b7f2f2">
+</div>
+<div id="outline-container-org8efbeb4" class="outline-5">
+<h5 id="org8efbeb4">Org-roam dailies activity capture template</h5>
+<div class="outline-text-5" id="text-org8efbeb4">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgc9eac27">("a" "Activity" entry
+ #'org-roam-capture--get-point
+ "* %U\n  %?\n\n"
+ :file-name "d/%&lt;%Y-%m-%d&gt;"
+ :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: daily-record\n\n"
+		"#+name: ${slug}-definition\n"
+		"This is some of what I ({{{author}}}) experienced, read, and wrote on on %u.\n\n"
+		"#+toc: headlines 2\n\n"
+		"* Activity log                                                     :noexport:\n\n"
+		"* Journal                                                          :noexport:\n\n"
+		"* Posts\n\n"
+		"* News log\n\n")
+ :olp ("Activity log"))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org2a0d296" class="outline-5">
+<h5 id="org2a0d296">Org-roam dailies journal capture template</h5>
+<div class="outline-text-5" id="text-org2a0d296">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgaa344c7">("j" "Journal" entry
+ #'org-roam-capture--get-point
+ "* %U\n  %?\n\n"
+ :file-name "d/%&lt;%Y-%m-%d&gt;"
+ :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: daily-record\n\n"
+		"#+name: ${slug}-definition\n"
+		"This is some of what I ({{{author}}}) experienced, read, and wrote on on %u.\n\n"
+		"#+toc: headlines 2\n\n"
+		"* Activity log                                                     :noexport:\n\n"
+		"* Journal                                                          :noexport:\n\n"
+		"* Posts\n\n"
+		"* News log\n\n")
+ :olp ("Journal"))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org930ac17" class="outline-5">
+<h5 id="org930ac17">Org-roam dailies post capture template</h5>
+<div class="outline-text-5" id="text-org930ac17">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org0edba4d">("p" "Post" entry
+ #'org-roam-capture--get-point
+ "* %U\n  %?\n\n"
+ :file-name "d/%&lt;%Y-%m-%d&gt;"
+ :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: daily-record\n\n"
+		"#+name: ${slug}-definition\n"
+		"This is some of what I ({{{author}}}) experienced, read, and wrote on on %u.\n\n"
+		"#+toc: headlines 2\n\n"
+		"* Activity log                                                     :noexport:\n\n"
+		"* Journal                                                          :noexport:\n\n"
+		"* Posts\n\n"
+		"* News log\n\n")
+ :olp ("Posts"))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9d09ee9" class="outline-5">
+<h5 id="org9d09ee9">Org-roam dailies news capture template</h5>
+<div class="outline-text-5" id="text-org9d09ee9">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org49cdb09">("n" "News" entry
+ #'org-roam-capture--get-point
+ "* %U\n  %?\n\n"
+ :file-name "d/%&lt;%Y-%m-%d&gt;"
+ :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: daily-record\n\n"
+		"#+name: ${slug}-definition\n"
+		"This is some of what I ({{{author}}}) experienced, read, and wrote on on %u.\n\n"
+		"#+toc: headlines 2\n\n"
+		"* Activity log                                                     :noexport:\n\n"
+		"* Journal                                                          :noexport:\n\n"
+		"* Posts\n\n"
+		"* News log\n\n")
+ :olp ("News log"))
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -685,7 +930,7 @@
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-01 Fri 17:34] </span></span> <br></li>
 </ul>
 <p>
-When I was first setting up <i>Groundhog Emacs</i>, I looked at <a href=alex_schroder.html>Alex Schröder</a>'s <a href=emacs_configuration.html>Emacs configuration</a>, and it had code for fixing a bug with <i>Isearch</i>'s behavior. I copied the code into <i>GHE</i> without really thinking about it, but having taken the time to look at <a href="https://debbugs.gnu.org/cgi/bugreport.cgi?bug=20971">bug's thread</a>, I'm not convinced it's necessary to use this.
+When I was first setting up <i>Groundhog Emacs</i>, I looked at <a href="alex_schroder.html">Alex Schröder</a>'s <a href="emacs_configuration.html">Emacs configuration</a>, and it had code for fixing a bug with <i>Isearch</i>'s behavior. I copied the code into <i>GHE</i> without really thinking about it, but having taken the time to look at <a href="https://debbugs.gnu.org/cgi/bugreport.cgi?bug=20971">bug's thread</a>, I'm not convinced it's necessary to use this.
 </p>
  </section>
 
@@ -1174,8 +1419,14 @@ When I was first setting up <i>Groundhog Emacs</i>, I looked at <a href=alex_sch
 
   (setq org-capture-templates
        `(
-
-
+	 ("s" "Capture source code block")
+	 ("se" "Elisp code block"
+		     plain (clock)
+		     ,(concat "#+name: %^{NAME}-elisp\n"
+			      "#+caption: %^{CAPTION}\n"
+			    "#+begin_src elisp %^{HEADER-ARGS}\n"
+			    "%?\n"
+			    "#+end_src\n"))
 	 ))
  (setq org-publish-project-alist
        `(
@@ -1297,297 +1548,282 @@ When I was first setting up <i>Groundhog Emacs</i>, I looked at <a href=alex_sch
 <h3 id="orgba8645d">Org-roam</h3>
 <div class="outline-text-3" id="text-orgba8645d">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org9c3c45a">
-    (use-package
-	org-roam :straight t
-	:config (setq
-		 org-roam-directory "~/org/s/p"
-		 org-roam-dailies-directory "d/")
-	;; from doubleloop's commonplace wiki
-	(defun ghe-org-roam-format-backlinks-list (file)
-	  (if (org-roam--org-roam-file-p file)
-	      (--reduce-from
-	       (concat acc
-		       (format
-			"- [[file:%s][%s]]\n"
-			(if (or (string= (org-roam-dailies-directory--get-absolute-path)
-					 (file-name-directory file))
-				(string= "/home/emsenn/org/s/p/teraum/"
-					 (file-name-directory file)))
-			    (file-relative-name (car it))
-			  (file-relative-name (car it) org-roam-directory))
-			(org-roam-db--get-title (car it))))
-	       "" (org-roam-db-query
-		   [:select [source]
-			    :from links
-			    :where (= dest $s1)] file))
-	    ""))
-	(setq org-roam-capture-immediate-template
-	  (backquote 
-	  ("r" "record" plain
-	   (function org-roam--capture-get-point)
-	   "#+name: definition\n*/[[file:${slug}.org][${title}]]/* is a record for something I haven't defined yet. Try checking the [[#record-history][record's history]] and [[#backlinks][backlinks]] for more information.\n#+toc: headlines 2\n* Introduction\n   This record is some of what I (emsenn) know about */${title}/*. You may use it without limits or promises.\n* ${title}\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n     %?\n   :END:\n"
-	   :file-name "${slug}"
-	   :head ,(concat "#+title: ${title}\n"
-			"#+begin_head\n"
-			"#+ghe_schema: "
-			"reference-0.1.2\n"
-			"#+author: " (user-full-name) "\n"
-			"#+email: " user-mail-address "\n"
-			"#+date: %U\n"
-			"#+roam_tags: term\n"
-			"#+end_head\n\n")
-	   :unnarrowed t)))
-	(setq org-roam-capture-templates
-	      `(
-		("r" "record" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: definition\n*/[[file:${slug}.org][${title}]]/* is a record for something I haven't defined yet. Try checking the [[#record-history][record's history]] and [[#backlinks][backlinks]] for more information.\n#+toc: headlines 2\n* Introduction\n   This record is some of what I (emsenn) know about */${title}/*. You may use it without limits or promises.\n* ${title}\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n     %?\n   :END:\n"
-		 :file-name "${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"reference-0.1.2\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: term\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		("t" "term" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: definition\n*/[[file:${slug}.org][${title}]]/* is a term I haven't defined yet. Try checking the [[#record-history][record's history]] for more information.\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
-		 :file-name "${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"term-0.1.3\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: term\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		("R" "reference" plain
-		 (function org-roam--capture-get-point)
-		 "#+roam_key: %^{SOURCE}\n#+end_head\n\n#+name: definition\n%?\n\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
-		 :file-name "${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: term\n")
-		 :unnarrowed t)
-		("p" "person" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: definition\n%?\n\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
-		 :file-name "${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"person-0.1.2\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: person\n"
-				"#+end_head\n")
-		 :unnarrowed t)
-		("T" "Teraum")
-		("Tt" "term" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: definition\n*/[[file:${slug}.org][${title}]]/* is a term I haven't defined yet. Try checking the [[#record-history][record's history]] for more information.\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
-		 :file-name "teraum/${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: Teraum term\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		("Ta" "area" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an area of [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
-		 :file-name "teraum/${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: Teraum area\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		("Ty" "year" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is a year in [[file:teraum_s_history.org][Teraum's history]].\n\n#+toc: headlines 2\n\n%?\n\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
-		 :file-name "teraum/${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: Teraum year\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		("Td" "date" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is a date in [[file:teraum_s_history.org][Teraum's history]].\n\n#+toc: headlines 2\n\n%?\n\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
-		 :file-name "teraum/${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: Teraum date\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		("Ts" "species" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an species from [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
-		 :file-name "teraum/${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: Teraum species\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		("Tp" "species" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an person from [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n   :END:\n"
-		 :file-name "teraum/${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: Teraum person\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		))
-	(setq org-roam-dailies-capture-templates
-	      `(
-		("a" "Activity entry" entry
-		 #'org-roam-capture--get-point
-		 "* %U\n  %?"
-		 :file-name "d/%&lt;%Y-%m-%d&gt;"
-		 :head ,(concat "#+title: ${title}\n"
-			       "#+ghe_schema: daily-record-0.1.1\n"
-			       "#+author: " (user-full-name) "\n"
-			       "#+email: " user-mail-address "\n"
-			       "#+date: %U\n"
-			       "#+roam_tags: daily-record\n\n"
-			       "#+name: definition\n"
-			       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
-			       "#+toc: headlines 2\n\n"
-			       "* Activity Log                                                     :noexport:\n\n"
-			       "* Journal                                                          :noexport:\n\n"
-			       "* Weather observations\n\n"
-			       "* Postings\n\n"
-			       "* Media log\n\n"
-			       "* Reposts\n\n")
-		 :olp ("Activity Log"))
-		("j" "Journal entry" entry
-		 #'org-roam-capture--get-point
-		 "* %U\n\n  %?\n\n"
-		 :file-name "d/%&lt;%Y-%m-%d&gt;"
-		 :head ,(concat "#+title: ${title}\n"
-			       "#+ghe_schema: daily-record-0.1.1\n"
-			       "#+author: " (user-full-name) "\n"
-			       "#+email: " user-mail-address "\n"
-			       "#+date: %U\n"
-			       "#+roam_tags: daily-record\n\n"
-			       "#+name: definition\n"
-			       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
-			       "#+toc: headlines 2\n\n"
-			       "* Activity Log                                                     :noexport:\n\n"
-			       "* Journal                                                          :noexport:\n\n"
-			       "* Weather observations\n\n"
-			       "* Postings\n\n"
-			       "* Media log\n\n"
-			       "* Reposts\n\n")
-		 :olp ("Journal"))
-
-		("m" "Found media" entry
-		 #'org-roam-capture--get-point
-		 ,(concat "* FOUND %^{AUTHOR}: \"%^{TITLE}\"\n"
-			  "   :LOGBOOK:\n"
-			  "   - Note taken on %U \\\\\n"
-			  "   %?\n"
-			  "   :END:\n"
-			  "   - Source: %^{SOURCE}\n")
-		 :file-name "d/%&lt;%Y-%m-%d&gt;"
-		 :head ,(concat "#+title: ${title}\n"
-			       "#+ghe_schema: daily-record-0.1.1\n"
-			       "#+author: " (user-full-name) "\n"
-			       "#+email: " user-mail-address "\n"
-			       "#+date: %U\n"
-			       "#+roam_tags: daily-record\n\n"
-			       "#+name: definition\n"
-			       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
-			       "#+toc: headlines 2\n\n"
-			       "* Activity Log                                                     :noexport:\n\n"
-			       "* Journal                                                          :noexport:\n\n"
-			       "* Weather observations\n\n"
-			       "* Postings\n\n"
-			       "* Media log\n\n"
-			       "* Reposts\n\n")
-		 :olp ("Media log"))
-		("w" "Weather observation" entry
-		 #'org-roam-capture--get-point
-		 "** %U\n%?"
-		 :file-name "d/%&lt;%Y-%m-%d&gt;"
-		 :head ,(concat "#+title: ${title}\n"
-			       "#+ghe_schema: daily-record-0.1.1\n"
-			       "#+author: " (user-full-name) "\n"
-			       "#+email: " user-mail-address "\n"
-			       "#+date: %U\n"
-			       "#+roam_tags: daily-record\n\n"
-			       "#+name: definition\n"
-			       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
-			       "#+toc: headlines 2\n\n"
-			       "* Activity Log                                                     :noexport:\n\n"
-			       "* Journal                                                          :noexport:\n\n"
-			       "* Weather observations\n\n"
-			       "* Postings\n\n"
-			       "* Media log\n\n"
-			       "* Reposts\n\n")
-		 :olp ("Weather"))
-		("p" "posting" entry
-		 #'org-roam-capture--get-point
-		 "* %U\n%?"
-		 :file-name "d/%&lt;%Y-%m-%d&gt;"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: daily-record")
-		 :olp ("Postings"))))
-:hook (after-init . org-roam-mode)
-	:bind (
-	       ("&lt;f5&gt;" . org-roam-dailies-capture-today)
-	       ("&lt;f9&gt;" . org-roam-dailies-find-today)
-	       ("C-c n l" . org-roam)
-	       ("C-c n f" . org-roam-find-file)
-	       ("C-c n g" . org-roam-graph)
-	       (("C-c n i" . org-roam-insert)
-	       ("C-c n I" . org-roam-insert-immediate))))
+<pre class="src src-elisp" id="org9c3c45a">(use-package
+  org-roam :straight t
+  :hook (after-init . org-roam-mode)
+  :bind (
+	 ("&lt;f5&gt;" . org-roam-dailies-capture-today)
+	 ("&lt;f9&gt;" . org-roam-dailies-find-today)
+	 ("C-c n l" . org-roam)
+	 ("C-c n f" . org-roam-find-file)
+	 ("C-c n g" . org-roam-graph)
+	 ("C-c n i" . org-roam-insert)
+	 ("C-c n I" . org-roam-insert-immediate))
+  :custom
+  (org-roam-directory "~/org/s/p")
+  (org-roam-dailies-directory "d/")
+  (org-roam-capture-immediate-template
+   (backquote
+    ("B" "blank record" plain
+     (function org-roam--capture-get-point)
+     "This record was created on %U in the process of writing %a and hasn't been written itself, yet. If you require more information on this concept, please consider [[mailto:emsenn@emsenn.net][sending me an email]].\n"
+     :file-name "${slug}"
+     :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: blank\n"
+		"#+end_head\n\n")
+     :unnarrowed t
+     :immediate-finish t)
+    ))
+  (org-roam-capture-templates
+   `(
+     ("t" "term" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n%?\n"
+      :file-name "${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: term\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("c" "concept" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n%?\n"
+      :file-name "${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: concept\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("a" "area" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}][${title}]] is a [[file:person.org][person]]%?\n"
+      :file-name "${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: term\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("p" "person" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n%?\n"
+      :file-name "${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: term\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("r" "reference" plain
+      (function org-roam--capture-get-point)
+      "#+roam_key: %^{SOURCE}\n#+end_head\n\n%?\n"
+      :file-name "${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: reference\n")
+      :unnarrowed t)
+     ("T" "Teraum")
+     ("Tt" "term" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an term of [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum term\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("Ta" "area" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an area of [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum area\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("Ty" "year" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is a year in [[file:teraum_s_history.org][Teraum's history]].\n\n#+toc: headlines 2\n\n%?\n\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum year\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("Td" "date" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is a date in [[file:teraum_s_history.org][Teraum's history]].\n\n#+toc: headlines 2\n\n%?\n\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum date\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("Ts" "species" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an species from [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum species\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ))
+  (org-roam-dailies-capture-templates
+   `(
+     ("a" "Activity" entry
+      #'org-roam-capture--get-point
+      "* %U\n  %?\n\n"
+      :file-name "d/%&lt;%Y-%m-%d&gt;"
+      :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: daily-record\n\n"
+		"#+name: ${slug}-definition\n"
+		"This is some of what I ({{{author}}}) experienced, read, and wrote on on %u.\n\n"
+		"#+toc: headlines 2\n\n"
+		"* Activity log                                                     :noexport:\n\n"
+		"* Journal                                                          :noexport:\n\n"
+		"* Posts\n\n"
+		"* News log\n\n")
+      :olp ("Activity log"))
+     ("j" "Journal" entry
+      #'org-roam-capture--get-point
+      "* %U\n  %?\n\n"
+      :file-name "d/%&lt;%Y-%m-%d&gt;"
+      :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: daily-record\n\n"
+		"#+name: ${slug}-definition\n"
+		"This is some of what I ({{{author}}}) experienced, read, and wrote on on %u.\n\n"
+		"#+toc: headlines 2\n\n"
+		"* Activity log                                                     :noexport:\n\n"
+		"* Journal                                                          :noexport:\n\n"
+		"* Posts\n\n"
+		"* News log\n\n")
+      :olp ("Journal"))
+     ("p" "Post" entry
+      #'org-roam-capture--get-point
+      "* %U\n  %?\n\n"
+      :file-name "d/%&lt;%Y-%m-%d&gt;"
+      :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: daily-record\n\n"
+		"#+name: ${slug}-definition\n"
+		"This is some of what I ({{{author}}}) experienced, read, and wrote on on %u.\n\n"
+		"#+toc: headlines 2\n\n"
+		"* Activity log                                                     :noexport:\n\n"
+		"* Journal                                                          :noexport:\n\n"
+		"* Posts\n\n"
+		"* News log\n\n")
+      :olp ("Posts"))
+     ("n" "News" entry
+      #'org-roam-capture--get-point
+      "* %U\n  %?\n\n"
+      :file-name "d/%&lt;%Y-%m-%d&gt;"
+      :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: daily-record\n\n"
+		"#+name: ${slug}-definition\n"
+		"This is some of what I ({{{author}}}) experienced, read, and wrote on on %u.\n\n"
+		"#+toc: headlines 2\n\n"
+		"* Activity log                                                     :noexport:\n\n"
+		"* Journal                                                          :noexport:\n\n"
+		"* Posts\n\n"
+		"* News log\n\n")
+      :olp ("News log"))
+     ))
+  :config
+  (defun org-roam--title-to-slug (title)
+    "Convert TITLE to a filename-suitable slug. Uses hyphens rather than underscores."
+    (cl-flet* ((nonspacing-mark-p
+		(char)
+		(eq 'Mn (get-char-code-property char 'general-category)))
+	       (strip-nonspacing-marks
+		(s)
+		(apply #'string (seq-remove #'nonspacing-mark-p
+					    (ucs-normalize-NFD-string s))))
+	       (cl-replace (title pair)
+			   (replace-regexp-in-string (car pair)
+						     (cdr pair)
+						     title)))
+      (let* ((pairs `(("[^[:alnum:][:digit:]]" . "-")
+		      ;; convert anything not alphanumeric
+		      ("--*" . "-")  ;; remove sequential underscores
+		      ("^-" . "")  ;; remove starting underscore
+		      ("-$" . "")))  ;; remove ending underscore
+	     (slug (-reduce-from #'cl-replace
+				 (strip-nonspacing-marks title)
+				 pairs)))
+	(s-downcase slug))))
+  ;; from neil mather's commonplace wiki
+  (defun ghe-org-roam-format-backlinks-list (file)
+    (if (org-roam--org-roam-file-p file)
+	(--reduce-from
+	 (concat acc
+		 (format
+		  "- [[file:%s][%s]]\n"
+		  (if (or (string= (org-roam-dailies-directory--get-absolute-path)
+				   (file-name-directory file))
+			  (string= "/home/emsenn/org/s/p/teraum/"
+				   (file-name-directory file)))
+		      (file-relative-name (car it))
+		    (file-relative-name (car it) org-roam-directory))
+		  (org-roam-db--get-title (car it))))
+	 "" (org-roam-db-query
+	     [:select [source]
+		      :from links
+		      :where (= dest $s1)] file))
+      "")))
 </pre>
 </div>
 </div>
@@ -2591,8 +2827,14 @@ ul { max-width: 85%; }
 
   (setq org-capture-templates
        `(
-
-
+	 ("s" "Capture source code block")
+	 ("se" "Elisp code block"
+		     plain (clock)
+		     ,(concat "#+name: %^{NAME}-elisp\n"
+			      "#+caption: %^{CAPTION}\n"
+			    "#+begin_src elisp %^{HEADER-ARGS}\n"
+			    "%?\n"
+			    "#+end_src\n"))
 	 ))
  (setq org-publish-project-alist
        `(
@@ -2698,297 +2940,282 @@ ul { max-width: 85%; }
    :config (setq
 	org-attach-screenshot-command-line "spectacle -rbno $f"))
 
-
-    (use-package
-	org-roam :straight t
-	:config (setq
-		 org-roam-directory "~/org/s/p"
-		 org-roam-dailies-directory "d/")
-	;; from doubleloop's commonplace wiki
-	(defun ghe-org-roam-format-backlinks-list (file)
-	  (if (org-roam--org-roam-file-p file)
-	      (--reduce-from
-	       (concat acc
-		       (format
-			"- [[file:%s][%s]]\n"
-			(if (or (string= (org-roam-dailies-directory--get-absolute-path)
-					 (file-name-directory file))
-				(string= "/home/emsenn/org/s/p/teraum/"
-					 (file-name-directory file)))
-			    (file-relative-name (car it))
-			  (file-relative-name (car it) org-roam-directory))
-			(org-roam-db--get-title (car it))))
-	       "" (org-roam-db-query
-		   [:select [source]
-			    :from links
-			    :where (= dest $s1)] file))
-	    ""))
-	(setq org-roam-capture-immediate-template
-	  (backquote 
-	  ("r" "record" plain
-	   (function org-roam--capture-get-point)
-	   "#+name: definition\n*/[[file:${slug}.org][${title}]]/* is a record for something I haven't defined yet. Try checking the [[#record-history][record's history]] and [[#backlinks][backlinks]] for more information.\n#+toc: headlines 2\n* Introduction\n   This record is some of what I (emsenn) know about */${title}/*. You may use it without limits or promises.\n* ${title}\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n     %?\n   :END:\n"
-	   :file-name "${slug}"
-	   :head ,(concat "#+title: ${title}\n"
-			"#+begin_head\n"
-			"#+ghe_schema: "
-			"reference-0.1.2\n"
-			"#+author: " (user-full-name) "\n"
-			"#+email: " user-mail-address "\n"
-			"#+date: %U\n"
-			"#+roam_tags: term\n"
-			"#+end_head\n\n")
-	   :unnarrowed t)))
-	(setq org-roam-capture-templates
-	      `(
-		("r" "record" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: definition\n*/[[file:${slug}.org][${title}]]/* is a record for something I haven't defined yet. Try checking the [[#record-history][record's history]] and [[#backlinks][backlinks]] for more information.\n#+toc: headlines 2\n* Introduction\n   This record is some of what I (emsenn) know about */${title}/*. You may use it without limits or promises.\n* ${title}\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n     %?\n   :END:\n"
-		 :file-name "${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"reference-0.1.2\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: term\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		("t" "term" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: definition\n*/[[file:${slug}.org][${title}]]/* is a term I haven't defined yet. Try checking the [[#record-history][record's history]] for more information.\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
-		 :file-name "${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"term-0.1.3\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: term\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		("R" "reference" plain
-		 (function org-roam--capture-get-point)
-		 "#+roam_key: %^{SOURCE}\n#+end_head\n\n#+name: definition\n%?\n\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
-		 :file-name "${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: term\n")
-		 :unnarrowed t)
-		("p" "person" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: definition\n%?\n\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :LOGBOOK:\n   - Note taken on %U \\\\\n     Created\n   :END:\n"
-		 :file-name "${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"person-0.1.2\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: person\n"
-				"#+end_head\n")
-		 :unnarrowed t)
-		("T" "Teraum")
-		("Tt" "term" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: definition\n*/[[file:${slug}.org][${title}]]/* is a term I haven't defined yet. Try checking the [[#record-history][record's history]] for more information.\n#+toc: headlines 2\n* Introduction\n* ${title}\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
-		 :file-name "teraum/${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: Teraum term\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		("Ta" "area" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an area of [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
-		 :file-name "teraum/${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: Teraum area\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		("Ty" "year" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is a year in [[file:teraum_s_history.org][Teraum's history]].\n\n#+toc: headlines 2\n\n%?\n\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
-		 :file-name "teraum/${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: Teraum year\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		("Td" "date" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is a date in [[file:teraum_s_history.org][Teraum's history]].\n\n#+toc: headlines 2\n\n%?\n\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
-		 :file-name "teraum/${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: Teraum date\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		("Ts" "species" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an species from [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
-		 :file-name "teraum/${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: Teraum species\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		("Tp" "species" plain
-		 (function org-roam--capture-get-point)
-		 "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an person from [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n   :END:\n"
-		 :file-name "teraum/${slug}"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+begin_head\n"
-				"#+ghe_schema: "
-				"\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: Teraum person\n"
-				"#+end_head\n\n")
-		 :unnarrowed t)
-		))
-	(setq org-roam-dailies-capture-templates
-	      `(
-		("a" "Activity entry" entry
-		 #'org-roam-capture--get-point
-		 "* %U\n  %?"
-		 :file-name "d/%&lt;%Y-%m-%d&gt;"
-		 :head ,(concat "#+title: ${title}\n"
-			       "#+ghe_schema: daily-record-0.1.1\n"
-			       "#+author: " (user-full-name) "\n"
-			       "#+email: " user-mail-address "\n"
-			       "#+date: %U\n"
-			       "#+roam_tags: daily-record\n\n"
-			       "#+name: definition\n"
-			       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
-			       "#+toc: headlines 2\n\n"
-			       "* Activity Log                                                     :noexport:\n\n"
-			       "* Journal                                                          :noexport:\n\n"
-			       "* Weather observations\n\n"
-			       "* Postings\n\n"
-			       "* Media log\n\n"
-			       "* Reposts\n\n")
-		 :olp ("Activity Log"))
-		("j" "Journal entry" entry
-		 #'org-roam-capture--get-point
-		 "* %U\n\n  %?\n\n"
-		 :file-name "d/%&lt;%Y-%m-%d&gt;"
-		 :head ,(concat "#+title: ${title}\n"
-			       "#+ghe_schema: daily-record-0.1.1\n"
-			       "#+author: " (user-full-name) "\n"
-			       "#+email: " user-mail-address "\n"
-			       "#+date: %U\n"
-			       "#+roam_tags: daily-record\n\n"
-			       "#+name: definition\n"
-			       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
-			       "#+toc: headlines 2\n\n"
-			       "* Activity Log                                                     :noexport:\n\n"
-			       "* Journal                                                          :noexport:\n\n"
-			       "* Weather observations\n\n"
-			       "* Postings\n\n"
-			       "* Media log\n\n"
-			       "* Reposts\n\n")
-		 :olp ("Journal"))
-
-		("m" "Found media" entry
-		 #'org-roam-capture--get-point
-		 ,(concat "* FOUND %^{AUTHOR}: \"%^{TITLE}\"\n"
-			  "   :LOGBOOK:\n"
-			  "   - Note taken on %U \\\\\n"
-			  "   %?\n"
-			  "   :END:\n"
-			  "   - Source: %^{SOURCE}\n")
-		 :file-name "d/%&lt;%Y-%m-%d&gt;"
-		 :head ,(concat "#+title: ${title}\n"
-			       "#+ghe_schema: daily-record-0.1.1\n"
-			       "#+author: " (user-full-name) "\n"
-			       "#+email: " user-mail-address "\n"
-			       "#+date: %U\n"
-			       "#+roam_tags: daily-record\n\n"
-			       "#+name: definition\n"
-			       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
-			       "#+toc: headlines 2\n\n"
-			       "* Activity Log                                                     :noexport:\n\n"
-			       "* Journal                                                          :noexport:\n\n"
-			       "* Weather observations\n\n"
-			       "* Postings\n\n"
-			       "* Media log\n\n"
-			       "* Reposts\n\n")
-		 :olp ("Media log"))
-		("w" "Weather observation" entry
-		 #'org-roam-capture--get-point
-		 "** %U\n%?"
-		 :file-name "d/%&lt;%Y-%m-%d&gt;"
-		 :head ,(concat "#+title: ${title}\n"
-			       "#+ghe_schema: daily-record-0.1.1\n"
-			       "#+author: " (user-full-name) "\n"
-			       "#+email: " user-mail-address "\n"
-			       "#+date: %U\n"
-			       "#+roam_tags: daily-record\n\n"
-			       "#+name: definition\n"
-			       "This is some of what I (emsenn) experienced and wrote on on %u.\n\n"
-			       "#+toc: headlines 2\n\n"
-			       "* Activity Log                                                     :noexport:\n\n"
-			       "* Journal                                                          :noexport:\n\n"
-			       "* Weather observations\n\n"
-			       "* Postings\n\n"
-			       "* Media log\n\n"
-			       "* Reposts\n\n")
-		 :olp ("Weather"))
-		("p" "posting" entry
-		 #'org-roam-capture--get-point
-		 "* %U\n%?"
-		 :file-name "d/%&lt;%Y-%m-%d&gt;"
-		 :head ,(concat "#+title: ${title}\n"
-				"#+author: " (user-full-name) "\n"
-				"#+email: " user-mail-address "\n"
-				"#+date: %U\n"
-				"#+roam_tags: daily-record")
-		 :olp ("Postings"))))
-:hook (after-init . org-roam-mode)
-	:bind (
-	       ("&lt;f5&gt;" . org-roam-dailies-capture-today)
-	       ("&lt;f9&gt;" . org-roam-dailies-find-today)
-	       ("C-c n l" . org-roam)
-	       ("C-c n f" . org-roam-find-file)
-	       ("C-c n g" . org-roam-graph)
-	       (("C-c n i" . org-roam-insert)
-	       ("C-c n I" . org-roam-insert-immediate))))
+(use-package
+  org-roam :straight t
+  :hook (after-init . org-roam-mode)
+  :bind (
+	 ("&lt;f5&gt;" . org-roam-dailies-capture-today)
+	 ("&lt;f9&gt;" . org-roam-dailies-find-today)
+	 ("C-c n l" . org-roam)
+	 ("C-c n f" . org-roam-find-file)
+	 ("C-c n g" . org-roam-graph)
+	 ("C-c n i" . org-roam-insert)
+	 ("C-c n I" . org-roam-insert-immediate))
+  :custom
+  (org-roam-directory "~/org/s/p")
+  (org-roam-dailies-directory "d/")
+  (org-roam-capture-immediate-template
+   (backquote
+    ("B" "blank record" plain
+     (function org-roam--capture-get-point)
+     "This record was created on %U in the process of writing %a and hasn't been written itself, yet. If you require more information on this concept, please consider [[mailto:emsenn@emsenn.net][sending me an email]].\n"
+     :file-name "${slug}"
+     :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: blank\n"
+		"#+end_head\n\n")
+     :unnarrowed t
+     :immediate-finish t)
+    ))
+  (org-roam-capture-templates
+   `(
+     ("t" "term" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n%?\n"
+      :file-name "${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: term\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("c" "concept" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n%?\n"
+      :file-name "${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: concept\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("a" "area" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}][${title}]] is a [[file:person.org][person]]%?\n"
+      :file-name "${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: term\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("p" "person" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n%?\n"
+      :file-name "${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: term\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("r" "reference" plain
+      (function org-roam--capture-get-point)
+      "#+roam_key: %^{SOURCE}\n#+end_head\n\n%?\n"
+      :file-name "${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: reference\n")
+      :unnarrowed t)
+     ("T" "Teraum")
+     ("Tt" "term" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an term of [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum term\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("Ta" "area" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an area of [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum area\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("Ty" "year" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is a year in [[file:teraum_s_history.org][Teraum's history]].\n\n#+toc: headlines 2\n\n%?\n\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum year\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("Td" "date" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is a date in [[file:teraum_s_history.org][Teraum's history]].\n\n#+toc: headlines 2\n\n%?\n\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum date\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("Ts" "species" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an species from [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum species\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ))
+  (org-roam-dailies-capture-templates
+   `(
+     ("a" "Activity" entry
+      #'org-roam-capture--get-point
+      "* %U\n  %?\n\n"
+      :file-name "d/%&lt;%Y-%m-%d&gt;"
+      :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: daily-record\n\n"
+		"#+name: ${slug}-definition\n"
+		"This is some of what I ({{{author}}}) experienced, read, and wrote on on %u.\n\n"
+		"#+toc: headlines 2\n\n"
+		"* Activity log                                                     :noexport:\n\n"
+		"* Journal                                                          :noexport:\n\n"
+		"* Posts\n\n"
+		"* News log\n\n")
+      :olp ("Activity log"))
+     ("j" "Journal" entry
+      #'org-roam-capture--get-point
+      "* %U\n  %?\n\n"
+      :file-name "d/%&lt;%Y-%m-%d&gt;"
+      :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: daily-record\n\n"
+		"#+name: ${slug}-definition\n"
+		"This is some of what I ({{{author}}}) experienced, read, and wrote on on %u.\n\n"
+		"#+toc: headlines 2\n\n"
+		"* Activity log                                                     :noexport:\n\n"
+		"* Journal                                                          :noexport:\n\n"
+		"* Posts\n\n"
+		"* News log\n\n")
+      :olp ("Journal"))
+     ("p" "Post" entry
+      #'org-roam-capture--get-point
+      "* %U\n  %?\n\n"
+      :file-name "d/%&lt;%Y-%m-%d&gt;"
+      :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: daily-record\n\n"
+		"#+name: ${slug}-definition\n"
+		"This is some of what I ({{{author}}}) experienced, read, and wrote on on %u.\n\n"
+		"#+toc: headlines 2\n\n"
+		"* Activity log                                                     :noexport:\n\n"
+		"* Journal                                                          :noexport:\n\n"
+		"* Posts\n\n"
+		"* News log\n\n")
+      :olp ("Posts"))
+     ("n" "News" entry
+      #'org-roam-capture--get-point
+      "* %U\n  %?\n\n"
+      :file-name "d/%&lt;%Y-%m-%d&gt;"
+      :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: daily-record\n\n"
+		"#+name: ${slug}-definition\n"
+		"This is some of what I ({{{author}}}) experienced, read, and wrote on on %u.\n\n"
+		"#+toc: headlines 2\n\n"
+		"* Activity log                                                     :noexport:\n\n"
+		"* Journal                                                          :noexport:\n\n"
+		"* Posts\n\n"
+		"* News log\n\n")
+      :olp ("News log"))
+     ))
+  :config
+  (defun org-roam--title-to-slug (title)
+    "Convert TITLE to a filename-suitable slug. Uses hyphens rather than underscores."
+    (cl-flet* ((nonspacing-mark-p
+		(char)
+		(eq 'Mn (get-char-code-property char 'general-category)))
+	       (strip-nonspacing-marks
+		(s)
+		(apply #'string (seq-remove #'nonspacing-mark-p
+					    (ucs-normalize-NFD-string s))))
+	       (cl-replace (title pair)
+			   (replace-regexp-in-string (car pair)
+						     (cdr pair)
+						     title)))
+      (let* ((pairs `(("[^[:alnum:][:digit:]]" . "-")
+		      ;; convert anything not alphanumeric
+		      ("--*" . "-")  ;; remove sequential underscores
+		      ("^-" . "")  ;; remove starting underscore
+		      ("-$" . "")))  ;; remove ending underscore
+	     (slug (-reduce-from #'cl-replace
+				 (strip-nonspacing-marks title)
+				 pairs)))
+	(s-downcase slug))))
+  ;; from neil mather's commonplace wiki
+  (defun ghe-org-roam-format-backlinks-list (file)
+    (if (org-roam--org-roam-file-p file)
+	(--reduce-from
+	 (concat acc
+		 (format
+		  "- [[file:%s][%s]]\n"
+		  (if (or (string= (org-roam-dailies-directory--get-absolute-path)
+				   (file-name-directory file))
+			  (string= "/home/emsenn/org/s/p/teraum/"
+				   (file-name-directory file)))
+		      (file-relative-name (car it))
+		    (file-relative-name (car it) org-roam-directory))
+		  (org-roam-db--get-title (car it))))
+	 "" (org-roam-db-query
+	     [:select [source]
+		      :from links
+		      :where (= dest $s1)] file))
+      "")))
 
 (use-package org-roam-server :straight t)
 
@@ -3001,7 +3228,7 @@ ul { max-width: 85%; }
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-18 Fri 14:06</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2021-01-07 Thu 13:41</p>
+<p class="date">Created: 2021-01-09 Sat 13:41</p>
 </section>
 </body>
 </html>

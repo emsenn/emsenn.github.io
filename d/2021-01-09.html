@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-01-09 Sat 13:31 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2021-01-09</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./d/index.html">daily records</a> | <a href="./concepts_index.html">concepts</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="./record.html">records</a> with more <a href="./information.html">information</a> about both of those concepts.) On the <a href="./Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="./emsenn.html">emsenn</a>, to share some of my <a href="./knowledge.html">knowledge</a> with <a href="./person.html">people</a> on the <a href="Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="./record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="./permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="./backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">2021-01-09</h1>
+</header><p>
+This is some of what I (emsenn) experienced, read, and wrote on on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-09 Sat]</span></span>.
+</p>
+
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org8b2178e">Posts</a>
+<ul>
+<li><a href="#org6fd8cc0">Looking at the Capitol as a "sacred" space</a></li>
+<li><a href="#orga7a359c">Preparing for a neo-liberal administration</a></li>
+</ul>
+</li>
+<li><a href="#org2f7d9ce">News log</a>
+<ul>
+<li><a href="#orgc7ba30a">Ruth Hopkins writes about the seventh direction</a></li>
+<li><a href="#orged74f30">Camp Mniluzahan is nearly three months old</a></li>
+<li><a href="#backlinks">Backlinks</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-org8b2178e" class="outline-2">
+<h2 id="org8b2178e">Posts</h2>
+<div class="outline-text-2" id="text-org8b2178e">
+</div>
+<div id="outline-container-org6fd8cc0" class="outline-3">
+<h3 id="org6fd8cc0">Looking at the Capitol as a "sacred" space</h3>
+<div class="outline-text-3" id="text-org6fd8cc0">
+<section class="org-drawer"> <ul class="org-ul">
+<li><p>
+Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-09 Sat 10:52] </span></span> <br>
+I shared this into the <a href="../fediverse.html">Fediverse</a> and <a href="../jeremy_friesen.html">Jeremy Friesen</a> pointed out that <a href="../university-of-notre-dame.html">University of Notre Dame</a> has many similar works. They also shared some nice commentary:
+</p>
+
+<blockquote>
+<p>
+Crucial in all of this is: "Art says who we aspire to be."  By framing as history, it also uses Orwells statement that: "Who controls the past controls the future. Who controls the present controls the past."
+</p>
+</blockquote>
+
+<p>
+Notably, Notre Dame has <a href="https://www.nd.edu/about/history/columbus-murals/">covered the art with tapestries</a>. I hadn't heard of this approach to compromising on these works before, and while my opinion might change, right now I think it's a good one. Like I said to Jeremy, "It really seems like the realistic alternative is wait for them to be destroyed as a political action and I&#x2026; don't prefer that, honestly."
+</p></li>
+</ul>
+ </section>
+
+<p>
+In response to the <a href="../2021_storming_of_the_u_s_capitol.html">Storming of the U.S. Capitol</a> back so long ago, on the <a href="2021-01-06.html">6th</a>, many members of our <a href="../u_s_federal_government.html">federal government</a> referred to the <a href="../u_s_capitol.html">U.S. Capitol</a> as a "<a href="../sacred-space.html">sacred space</a>."
+</p>
+
+<p>
+The Capitol building is known for its white dome. Under that dome is a large room known as the Rotunda. There are, around this room, eight alcoves, each containing an oil painting. Each painting is twelve feet tall and eighteen feet wide. The figures in these paintings are almost life-sized.
+</p>
+
+<p>
+Four paintings depict the relationship between the <a href="../united-states-of-america.html">U.S.A.</a> and <a href="../uk.html">Great Britian</a>: the signing of the <a href="../declaration-of-independence.html">Declaration of Independence</a>, two British surrenders during the <a href="../u-s-revolutionary-war.html">U.S. Revolutionary War</a>, and <a href="../george-washington.html">George Washington</a> preparing to assume the <a href="../u-s-president.html">U.S. presidency</a>.
+</p>
+
+<p>
+Those four paintings were added between <a href="../1820.html">1820</a> and <a href="../1826.html">1826</a>. The other four were added between <a href="../1840.html">1840</a> and <a href="../1855.html">1855</a>.
+</p>
+
+<p>
+The <i>Baptism of Pocahontas</i> was installed in 1840, demonstrating the <a href="../assimilation.html">assimilation</a> of <a href="../pocahontas.html">Pocahontas</a>, notably from before the U.S. existed. <i>Embarkation of the Pilgrims</i> went up in 1844 and is also from before the creation of the U.S., and shows the <a href="../pilgrims.html">Pilgrims</a> in <a href="../england.html">England</a>, about to depart for <a href="../turtle_island.html">Turtle Island</a>. A year after the <i>Embarkation</i> was installed, the term "<a href="../manifest-destiny.html">manifest destiny</a>" was coined, and two years later, <a href="../colonial.html">colonials</a> were openly <a href="../massacre.html">massacring</a> <a href="../indigenous_people.html">Indigenous people</a> in what would become <a href="../nevada.html">Nevada</a>, <a href="../texas-u-s-a.html">Texas</a>, and <a href="../washington-u-s-a.html">Washington</a>.
+</p>
+
+<p>
+And the <i>Landing of Columbus</i> was put up in the Rotunda. This one goes even further back before the creation of the United States, to lands very distant from <a href="../concord-massachussetts.html">Concord</a> and <a href="../plymouth-colony.html">Plymouth</a>. In the <i>Landing</i>, <a href="../christopher-columbus.html">Christopher Columbus</a> is shown driving a flag into the sand as naked <a href="../taino.html">Taino</a> women run into the forest.
+</p>
+
+<p>
+In 1855 the final painting was installed, as the <a href="../indian-wars.html">Indian Wars</a> were escalating across the <a href="../great-plains.html">Great Plains</a>. The <i>Discovery of the Mississippi</i> shows <a href="../hernando-de-soto.html">Hernando de Soto</a> riding into a <a href="../native_american.html">Native</a> camp on a bank of the <a href="../mississippi-river.html">Mississippi River</a>, heavily armed, while women cower before him and his white <a href="../horse.html">horse</a>.
+</p>
+
+<p>
+So, in the center of this "sacred" space, there are three giant paintings depicting naked or captive Native women, women who have been raped or are about to be raped. That is what is sacred to this space: a myth of <a href="../white-supremacy.html">white supremacy</a> and entitlement to <a href="../ethnic-cleansing.html">ethnic cleansing</a> and <a href="../genocide.html">genocide</a>.
+</p>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orga7a359c" class="outline-3">
+<h3 id="orga7a359c">Preparing for a neo-liberal administration</h3>
+<div class="outline-text-3" id="text-orga7a359c">
+<p>
+I'm sure I'll have a lot to say about the <a href="../biden-administration.html">Biden administration</a> once it's here, but I'd like to share one piece I appreciate: <a href="https://puraacracia.club/2020/08/23/pura-acracia/">"Pura Acracia: anti-politics and the police"</a>. A quote, to draw y'all in:
+</p>
+
+<blockquote>
+<p>
+The perfection of politics can be found in democracy: class-collaboration at its finest. As the writers of Dixie Be Damned put it, “White supremacy’s greatest ally in this country has been democracy, not fascism.” But the anti-blackness of the racial regime of Capital is more than just a formalized White supremacy.
+</p>
+</blockquote>
+
+<p>
+The piece also might be relevant reading for people wishing to understand the <a href="../2021_storming_of_the_u_s_capitol.html">2021 Storming of the U.S. Capitol</a>, though the piece is referring to the <a href="../george_floyd_uprising.html">George Floyd Uprising</a> and <a href="../riot.html">riots</a> in general:
+</p>
+
+<blockquote>
+<p>
+[T]he instrumentalization of the riot as a thing that ‘works’ misunderstands the riot. This is projected onto the riot after the fact. It is an attempt to make the riot political. To make it legible to State power.…
+</p>
+
+<p>
+Though the riot, as expressed by racialized proles, is essentially anti-political. The white racist riot is fascism in its extra-legal street mode (see the Tulsa Race Riot &amp; the Zoot Suit Riots).
+</p>
+</blockquote>
+</div>
+</div>
+</section>
+
+
+<section id="outline-container-org2f7d9ce" class="outline-2">
+<h2 id="org2f7d9ce">News log</h2>
+<div class="outline-text-2" id="text-org2f7d9ce">
+</div>
+<div id="outline-container-orgc7ba30a" class="outline-3">
+<h3 id="orgc7ba30a">Ruth Hopkins writes about the seventh direction</h3>
+<div class="outline-text-3" id="text-orgc7ba30a">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-09 Sat 10:26] </span></span> <br>
+<a href="../ruth_h_hopkins.html">Ruth H. Hopkins</a> writes about <a href="../black-elk.html">Black Elk</a>, <a href="../six-grandfathers.html">Six Grandfathers</a>, and the <a href="../seventh-direction.html">seventh direction</a>.</li>
+</ul>
+ </section>
+
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://atmos.earth/sacred-ecology-directions-history/">https://atmos.earth/sacred-ecology-directions-history/</a></dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-orged74f30" class="outline-3">
+<h3 id="orged74f30">Camp Mniluzahan is nearly three months old</h3>
+<div class="outline-text-3" id="text-orged74f30">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-09 Sat 10:15] </span></span> <br>
+Located on tribal lands just west of <a href="../rapid-city-south-dakota-u-s-a.html">Rapid City, South Dakota, U.S.A.</a>, <a href="../camp-mniluzahan.html">Camp Mniluzahan</a> was established on <a href="2020-10-20.html">October 20th</a> and moved on the <a href="2020-10-23.html">23rd</a>. Consisting of several <a href="../tipi.html">tipis</a> and other infrastrucutre, the camp was set up by <a href="../creek-patrol.html">Creek Patrol</a>, a volunteer group of <a href="../lakota.html">Lakota</a>, to help the homeless in Rapid City.</li>
+</ul>
+ </section>
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://rapidcityjournal.com/news/local/camp-mniluzahan-provides-shelter-community/article_ad73b852-3b71-55f8-b152-77364adc1c57.html">https://rapidcityjournal.com/news/local/camp-mniluzahan-provides-shelter-community/article_ad73b852-3b71-55f8-b152-77364adc1c57.html</a></dd>
+</dl>
+</div>
+</div>
+
+
+<div id="outline-container-backlinks" class="outline-3">
+<h3 id="backlinks">Backlinks</h3>
+<div class="outline-text-3" id="text-backlinks">
+<ul class="org-ul">
+<li><a href="../declaration-of-independence.html">Declaration of Independence</a></li>
+<li><a href="../1855.html">1855</a></li>
+<li><a href="../1840.html">1840</a></li>
+<li><a href="../1820.html">1820</a></li>
+<li><a href="../1826.html">1826</a></li>
+<li><a href="../pocahontas.html">Pocahontas</a></li>
+<li><a href="../pilgrims.html">Pilgrims</a></li>
+<li><a href="../manifest-destiny.html">manifest destiny</a></li>
+<li><a href="../massacre.html">massacre</a></li>
+<li><a href="../washington-u-s-a.html">Washington, U.S.A.</a></li>
+<li><a href="../nevada.html">Nevada</a></li>
+<li><a href="../texas-u-s-a.html">Texas, U.S.A.</a></li>
+<li><a href="../concord-massachussetts.html">Concord, Massachussetts</a></li>
+<li><a href="../plymouth-colony.html">Plymouth Colony</a></li>
+<li><a href="../christopher-columbus.html">Christopher Columbus</a></li>
+<li><a href="../taino.html">Taino</a></li>
+<li><a href="../indian-wars.html">Indian Wars</a></li>
+<li><a href="../hernando-de-soto.html">Hernando de Soto</a></li>
+<li><a href="../sioux.html">Sioux</a></li>
+<li><a href="../horse.html">horse</a></li>
+<li><a href="../white-supremacy.html">white supremacy</a></li>
+<li><a href="../ethnic-cleansing.html">ethnic cleansing</a></li>
+<li><a href="../biden-administration.html">Biden administration</a></li>
+<li><a href="../riot.html">riot</a></li>
+<li><a href="../great-plains.html">Great Plains</a></li>
+<li><a href="../george-washington.html">George Washington</a></li>
+<li><a href="../sacred-space.html">sacred space</a></li>
+<li><a href="../records_index.html">Records Index</a></li>
+<li><a href="../mississippi-river.html">Mississippi River</a></li>
+<li><a href="../u-s-revolutionary-war.html">U.S. Revolutionary War</a></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2021-01-09 Sat 09:32</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2021-01-09 Sat 13:31</p>
+</section>
+</body>
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-01-09 Sat 11:54 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2021-01-08</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./d/index.html">daily records</a> | <a href="./concepts_index.html">concepts</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="./record.html">records</a> with more <a href="./information.html">information</a> about both of those concepts.) On the <a href="./Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="./emsenn.html">emsenn</a>, to share some of my <a href="./knowledge.html">knowledge</a> with <a href="./person.html">people</a> on the <a href="Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="./record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="./permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="./backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">2021-01-08</h1>
+</header><p>
+This is some of what I (emsenn) experienced and wrote on on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-08 Fri]</span></span>.
+</p>
+
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgc340447">Weather observations</a></li>
+<li><a href="#orga6df8e9">Posts</a>
+<ul>
+<li><a href="#org572861f">"Cheap talk" skepticism is an innocent repainting of systemic genocide, and, White identity cannot imagine its own decentering</a></li>
+</ul>
+</li>
+<li><a href="#orga94b20e">News Log</a>
+<ul>
+<li><a href="#org668a2ac">Two arrested for protesting Keystone oil pipeline</a></li>
+<li><a href="#backlinks">Backlinks</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-orgc340447" class="outline-2">
+<h2 id="orgc340447">Weather observations</h2>
+</section>
+
+<section id="outline-container-orga6df8e9" class="outline-2">
+<h2 id="orga6df8e9">Posts</h2>
+<div class="outline-text-2" id="text-orga6df8e9">
+</div>
+<div id="outline-container-org572861f" class="outline-3">
+<h3 id="org572861f">"Cheap talk" skepticism is an innocent repainting of systemic genocide, and, White identity cannot imagine its own decentering</h3>
+<div class="outline-text-3" id="text-org572861f">
+<p>
+Today one of the first conversations I had was with <a href="../woozle.html">@Woozle</a>, in response to a post I saw them share in from their <a href="../fediverse.html">Fediverse</a> <a href="../microblog.html">microblog</a>, <a href="https://freethoughtblogs.com/pharyngula/2021/01/08/cheap-talk-skepticism/">"'Cheap Talk' skepticism"</a> from <a href="../paul-myers.html">Paul Myers</a>, who was himself sharing a <a href="../blog.html">blog</a> post from <a href="../aaron-rabinowitz.html">Aaron Rabinowitz</a>, <a href="https://www.skeptic.org.uk/2021/01/cheap-talk-skepticism-why-we-need-to-push-back-against-those-who-are-just-asking-questions/">"Cheap talk skepticism: why we need to push back against those who are 'just asking questions'"</a>.
+</p>
+
+<p>
+I was initially curious because the excerpt that Myers took from Rabinowitz's piece mentioned <a href="../sam-harris.html">Sam Harris</a>, whose <a href="../rhetoric.html">rhetoric</a> I think is intended to manipulate the <a href="../american.html">American</a> <a href="../overton-window.html">Overton window</a> toward a <a href="../neo-liberal.html">neo-liberal</a> <a href="../futurist.html">future</a>.
+</p>
+
+<p>
+To sum up Rabinowitz's piece, basically, people that were previously viewed maverick intellectuals have now begun to, under the guise of "just asking questions," support dangerous conspiracy theories. Rabinowitz calls these sort of <a href="../skeptic.html">skeptics</a> "cheap talk skeptics." I agree with Myers, the term is good. Here's some quotes from Rabinowitz's post, that offer a definition:
+</p>
+
+<blockquote>
+<p>
+Cheap talk skepticism occurs when someone expresses skepticism in a way that comes at little cost to them, though it frequently comes at a significant cost to others. For example, if I express glib doubt about the personhood of another group of sentient beings, when my personhood is highly unlikely to be questioned, that would be cheap talk skepticism. Furthermore, if I received praise and positive reinforcement for my skeptical signaling, we could see that skepticism as effectively free of cost.
+</p>
+</blockquote>
+
+<p>
+As I said, this is a good concept. As an <a href="../indigenous.html">Indigenous</a> person <a href="../web_performance.html">performing on the Web</a>, I often run into these "cheap talk skeptics" who literally will try and debate my personhood.
+</p>
+
+<p>
+But, that definition isn't what drew me in. It was mentioning Sam Harris. So, I went further into the blog post.
+</p>
+
+<blockquote>
+<p>
+Skepticism… has traditionally come at substantial personal cost… Skeptics are seen as risking social instability with their skepticism about deeply held community beliefs… For many, skeptics are most charitably seen as busy bodies who should really stay quiet during family meals.
+</p>
+</blockquote>
+
+<p>
+This definitely sounds like the perspective of skeptics' role in society that a skeptic would have, but I'm including it to situate where Rabinowitz is coming from. The next paragraph is where it gets interesting:
+</p>
+
+<blockquote>
+<p>
+In the age of the internet though, there’s an audience for mass produced skepticism, and the cost for producing that skepticism has dropped to almost nothing. At first glance, that could seem like a good thing. One might argue that the goal of Mill style liberalism, the sort that’s highly valued by free speech advocates, is to create a space where speech in general comes with little to no cost, since that will promote the greatest free exchange of ideas. While I sympathise with this principle in theory, the unfortunate reality is that talk is rarely free – it’s more a question of how much the cost is externalised or carried by the speaker… The same rising distrust of institutions that is making space for more secularism is also making space for more anti-vaxxers, more Q-anoners, and as always more anti-Semites.
+</p>
+</blockquote>
+
+<p>
+It's actually pretty interesting watching someone from a fairly <a href="../conservative.html">conservative</a> perspective come around to this idea that questioning things for the sake of it can be disruptive and harmful. But of course, skepticism, questioning the world, is useful.
+</p>
+
+<blockquote>
+<p>
+It’s not easy to do quality skepticism and still produce hot takes across a wide range of topics, which is something that public intellectuals are unfortunately pressured to do in order to stay relevant. Properly justified belief lags behind misinformation in the best of times. Cheap talk skepticism widens that gap by forcing skeptics to correct this sort of internal misinformation alongside all the other forms of cheap talk out there.
+</p>
+</blockquote>
+
+<p>
+This is a problem I can actually relate to. For example, I want to be able to write and think critically about what I write, but that makes it take a long time and by the time I've finished it, the general <a href="../web.html">Web</a> has moved on.
+</p>
+
+<p>
+In this reading, I saw mention of "Monster Island." It was referencing another blog post from Rabinowitz, written back in October, <a href="https://www.skeptic.org.uk/2020/10/monster-island-free-speech-experiment/">"The Curse of Monster Island: a four year experiemtn in unmoderated free speech"</a>.
+</p>
+
+<p>
+In this, Rabinowitz talks about, for <i>four years</i>, running a forum (a <a href="../facebook.html">Facebook</a> group) that was specifically intended to lower the cost of speech. He points out that at least one member of the group went on to commit acts of terrorism.
+</p>
+
+<p>
+No where in Rabinowitz's worry about the harms of the cheap talk skeptic does he think to mention that he cultivated them, actively, to feed his own intellectual curiosity. No where in either piece is there anything close to an apology.
+</p>
+
+<p>
+As I said to Woozle:
+</p>
+
+<blockquote>
+<p>
+From my perspective, it's not the "cheap talk skeptics" that are so harmful, but the people that act as though it's just "cheap talk," not an organized culture of genocide that they're a part of.
+</p>
+
+<p>
+[Rabinowitz] provided a safe space for bigots to organize violence so that [he] could learn more about bigots. Then saying "these bigots feel too safe, that's the problem!" is just&#x2026; insulting. Yes, they do feel too safe. I bet [Rabinowtiz] platforming them and debating them for years didn't make them feel less safe!
+</p>
+
+<p>
+Giving a place for bigots to call for violence against people like me so kyriarchists can learn more about kyriarchism is a <i>way</i> bigger issue to me. Reframing those organized calls to violence as people indulging their ability to talk without consequence is a <i>way</i> bigger issue to me.
+</p>
+
+<p>
+No shit white people say horrible shit when they think they're alone. I really don't think it's because people aren't calling out their faulty logic. I mean, I try and do that, and white folk who have opted into relationships and ASKED ME to do that walk away and mute me.
+</p>
+
+<p>
+TBH it seems to fall back to the default operating mode of the kyriarchist: "If only I had a little more resources, things would be perfect."
+</p>
+
+<p>
+If only the bigots knew what they said, they wouldn't be bigoted!
+</p>
+
+<p>
+&#x2026;What? Come on, that's a silly notion.
+</p>
+</blockquote>
+
+<p>
+I really liked Woozle's <a href="https://toot.cat/@woozle/105520982030627452">response at this point</a>, especially when they related it to <a href="../wiki.html">wiki</a>, which I was just reading about <a href="2021-01-07.html#org9d8ad62">last night</a>!
+</p>
+
+<p>
+I directed Woozle to that post I wrote yesterday, and then the conversation took a pivot, when they said:
+</p>
+
+<blockquote>
+<p>
+If you're dissing the idea of focusing on computing as part of a sustainable social solution, I strongly disagree &#x2013; as long as we're dealing with a highly technological society, and even if we wanted that to go away (I don't) I don't think we could make that happen short of massive genocide.
+</p>
+</blockquote>
+
+<p>
+This is a pretty common response to me suggesting that a given individual not focus their <a href="../labor.html">labor</a> on improving contemporary <a href="../computer.html">computer</a> efficiency.
+</p>
+
+<p>
+In fact, just last <a href="2021-01-02.html">Saturday</a> I lost an ally because they couldn't understand that me telling them to de-center their <a href="../relationships.html">relationship</a> with computers wasn't the same thing as saying "everyone should throw their computers in the trash," or something. I've noticed folk seem to have a <a href="../habit.html">habit</a> of projecting <a href="../anarcho-primitivism.html">anarcho-primitivism</a> onto <a href="../native_american.html">Native</a> <a href="../radical.html">radicals</a>.
+</p>
+
+<p>
+It, to me, shows the baseline of supremacy that most <a href="../whiteness.html">White</a> people hold, even if they don't realize it. If <i>they</i> aren't the ones doing something, it simply cannot be done. On an individual level. Here's what I (snarkily) said about this last week:
+</p>
+
+<blockquote>
+<p>
+Frankly, it is amazing how how clever white people are; I don't know a single one who had to change their life's work when they began to decolonize. And just, wow! I can't imagine how great it feels to know the thing you decided you wanted to be as a privileged youth just happens to be the best thing any person could possibly do to dismantle kyriarchism.
+</p>
+
+<p>
+But it seems like that's just, every white person's story!
+</p>
+
+<p>
+"I grew up wanting to be a computer programmer. Then, I learned <a href="../colonialism.html">colonialism</a> is bad. Conveniently, the best way to fix it is with programming!"
+</p>
+
+<p>
+Or they grew up wanting to be a journalist. Or lawyer.
+</p>
+
+<p>
+It's just <a href="../white-saviorism.html">white saviorism</a> run through the <a href="../assimilation.html">assimilation</a> of <a href="../radicalism.html">radicalism</a> instead of the broadcast of <a href="../christianity.html">Christianity</a>, but it's the same effect for me.
+</p>
+</blockquote>
+
+<p>
+Here's some of what I said about it today:
+</p>
+
+<blockquote>
+<p>
+I criticize a white techperson's pursuit of their own technical projects as their primary <a href="../praxis.html">praxis</a> toward emancipating humanity, and they go "if you don't want me making new blogging software, you must want the world to burn and everyone to fight with sticks and stones!"
+</p>
+
+<p>
+When no&#x2026; I'd love if they used their skill to help people accultured outside <a href="../kyriarchy.html">kyriarchism</a> communicate, with themselves or with other kyriarchists. I'd love if they did things that ensured we didn't lose "blogs" as a concept within a generation, like used their technical skills to help do analysis on soil management projects in their area, or something.
+</p>
+
+<p>
+But "white person learns from world outside whiteness to build tools for themselves that benefit the world" is like&#x2026; <a href="../white-culture.html">white culture</a>'s whole <a href="../hero.html">hero</a> schtick since before the rennaissance. It's literally just <a href="../gilgamesh.html">Gilgamesh</a> saying "I need to take this cedar, so that my palace doesn't collapse, then others can move into it!," however many centuries later.
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+If I had a dollar for every time someone said "You don't think white people should be leading the change of our society, so you're an anarcho-primitivist" I would hire a plane to write "People who aren't white do exist, you know." up in the sky where everyone could see.
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+I don't dismiss focusing on computing as part of a sustainable social solution. I dismiss white people doing more than acting as accomplices in that focus.
+</p>
+
+<p>
+That I say "white folk can't lead here" and white folk hear "no one can go there" is an indicator of internalized supremacy, and perhaps a reliance on the myth of the "<a href="../noble-savage.html">noble savage</a>" Indian.
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+A lot of folk just do computer work because it's what it's always done and don't consider that like, no matter how clever a <a href="../hacker.html">hacker</a> they are, maybe it'd be more useful for them to help mend clothes at the local community center…
+</p>
+
+<p>
+I know maybe it sounds irrelevant but to me it's almost the most important thing people understand before they read my posts here:
+</p>
+
+<p>
+I'm only here because of &lt;environmental reasons, in this case it is cold and rainy&gt;. If those weren't inhibiting me, I would be making and distributing <a href="../soil.html">soil</a>, <a href="../plant.html">plants</a>, and <a href="../food.html">food</a>.
+</p>
+</blockquote>
+
+<p>
+Anyway, all that to say: white people frequently find it impossible to <a href="../imagination.html">imagine</a> a future where they aren't leading the way, and it's literally the same quest for <a href="../immortality.html">immortality</a> they've been hung up on for so so many generations.
+</p>
+
+<p>
+My display name in the <a href="../fediverse.html">Fediverse</a> has been <code>emsenn says end food apartheid</code> for like two years now. I've said it before, but I think too few people take it as a directive. I think the world would be made a much better place if each person decided to center ending <a href="../food_apartheid.html">food apartheid</a> with their labor. We'll <a href="../craft.html">craft</a> computers as we need to, as we do that, just like humans have always crafted <a href="../tool.html">tools</a> to do what they need to do. Pursuing computer technology for its own right, or to solve the social problems of kyriarchists, seems as silly as making a social media network for the citizens of <a href="../pompei.html">Pompei</a>. The <a href="../ways_of_living.html">way of life</a> of the <a href="../person.html">people</a> of the <a href="../contemporary_kyriarchy.html">contemporary settler-colonial kyriarchy</a> is <a href="../extinct.html">extinct</a> already. Move on.
+</p>
+</div>
+</div>
+</section>
+
+
+<section id="outline-container-orga94b20e" class="outline-2">
+<h2 id="orga94b20e">News Log</h2>
+<div class="outline-text-2" id="text-orga94b20e">
+</div>
+<div id="outline-container-org668a2ac" class="outline-3">
+<h3 id="org668a2ac">Two arrested for protesting Keystone oil pipeline</h3>
+<div class="outline-text-3" id="text-org668a2ac">
+<section class="org-drawer"> <ul class="org-ul">
+<li><p>
+Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-09 Sat 10:24] </span></span> <br>
+<a href="../jasilyn-charger.html">Jasilyn Charger</a> and <a href="../oscar-high-elk.html">Oscar High Elk</a> have been arrested for their protest actions against the <a href="../keystone_xl.html">Keystone XL</a> <a href="../oil_pipeline.html">oil pipeline</a>.
+</p>
+
+<p>
+“This is on my people's land, and I have the right to protect it for my future generations,” Charger said. “Our people will not be bullied, and we're not criminals for protecting our water. What they forget to realize is that we have been occupying and living on this land for generations. And this just goes to show that we need to keep showing up as a people. We need to keep up the resistance."
+</p></li>
+</ul>
+ </section>
+<dl class="org-dl">
+<dt>Source</dt><dd><a href="https://indiancountrytoday.com/the-press-pool/two-native-americans-arrested-over-keystone-xl-protests-zN3nD18Nik2hHITAHg9-ew">https://indiancountrytoday.com/the-press-pool/two-native-americans-arrested-over-keystone-xl-protests-zN3nD18Nik2hHITAHg9-ew</a></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-backlinks" class="outline-3">
+<h3 id="backlinks">Backlinks</h3>
+<div class="outline-text-3" id="text-backlinks">
+<ul class="org-ul">
+<li><a href="../sam-harris.html">Sam Harris</a></li>
+<li><a href="../overton-window.html">Overton window</a></li>
+<li><a href="../neo-liberal.html">neo-liberal</a></li>
+<li><a href="../conservative.html">conservative</a></li>
+<li><a href="../white-culture.html">white culture</a></li>
+<li><a href="../pompei.html">Pompei</a></li>
+<li><a href="../records_index.html">Records Index</a></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2021-01-08 Fri 12:18</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2021-01-09 Sat 11:54</p>
+</section>
+</body>
+</html>
