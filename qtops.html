@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-11 Mon 11:52 -->
+<!-- 2021-01-11 Mon 11:57 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>qtOps</title>
@@ -202,7 +202,7 @@
 <main id="content">
 <header>
 <h1 class="title">qtOps</h1>
-</header><div class="head" id="org903b4e3">
+</header><div class="head" id="org0be933c">
 
 </div>
 
@@ -254,7 +254,7 @@
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#sitting-down-to-make-a-mud-in-fennel">Sitting down to make a MUD in Fennel, finally</a></li>
-<li><a href="#orgfa679f8">Tweaking <code>create-core-thing</code></a></li>
+<li><a href="#tweaking-create-core-thing">Tweaking <code>create-core-thing</code></a></li>
 </ul>
 </div>
 </div>
@@ -567,11 +567,29 @@ I hope whoever reads this in the future, including myself, enjoys it, or gets so
 </p>
 </div>
 </div>
-<div id="outline-container-orgfa679f8" class="outline-4">
-<h4 id="orgfa679f8">Tweaking <code>create-core-thing</code></h4>
-<div class="outline-text-4" id="text-orgfa679f8">
+<div id="outline-container-tweaking-create-core-thing" class="outline-4">
+<h4 id="tweaking-create-core-thing">Tweaking <code>create-core-thing</code></h4>
+<div class="outline-text-4" id="text-tweaking-create-core-thing">
 <p>
 <a href="phil_hagelberg.html">Phil Hagelberg</a> saw my <a href="#sitting-down-to-make-a-mud-in-fennel">first development journal</a> about migrating <i>qtOps</i> to <a href="fennel.html">Fennel</a>, and suggested a tweak to my <code>create-core-thing</code> function:
+</p>
+
+<blockquote>
+<p>
+btw for the inner function inside create-core-thing, instead of the bit where you go (if (~= nil (. thing-table key)) &#x2026;)
+</p>
+
+<p>
+you could do (match (. thing-table key) f (f &#x2026;) _ (print "no key"))
+</p>
+
+<p>
+the pattern matching will bind f only after a nil check, so you don't have to write that out by hand.
+</p>
+</blockquote>
+
+<p>
+Makes sense enough to me, and is a little more clear, I think. Here it is implemented:
 </p>
 
 <div class="org-src-container">
@@ -781,7 +799,7 @@ The source code for <i>qtOps</i> is being written in my <a href="d/index.html">d
 <section id="postamble" class="status">
 <p class="date">Date: 2021-01-11 Mon 09:44</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2021-01-11 Mon 11:52</p>
+<p class="date">Created: 2021-01-11 Mon 11:57</p>
 </section>
 </body>
 </html>
