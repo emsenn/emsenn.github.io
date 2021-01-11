@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-01-11 Mon 11:52 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>qtOps</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./d/index.html">daily records</a> | <a href="./concepts_index.html">concepts</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="./record.html">records</a> with more <a href="./information.html">information</a> about both of those concepts.) On the <a href="./Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="./emsenn.html">emsenn</a>, to share some of my <a href="./knowledge.html">knowledge</a> with <a href="./person.html">people</a> on the <a href="Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="./record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="./permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="./backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">qtOps</h1>
+</header><div class="head" id="org903b4e3">
+
+</div>
+
+<p>
+<b><i><a href="qtops.html">qtOps</a></i></b> is a <a href="mud-engine.html">MUD engine</a> implemented in <a href="fennel.html">Fennel</a>.
+</p>
+
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgf7333f6">History</a></li>
+<li><a href="#orgadf022e">Development journals</a>
+<ul>
+<li><a href="#emsenn-development-journal">emsenn's qtOps development journal</a></li>
+</ul>
+</li>
+<li><a href="#orgf9cd558">Source code</a>
+<ul>
+<li><a href="#org998487b">Things</a></li>
+</ul>
+</li>
+<li><a href="#org14ed1d6">Supplements</a>
+<ul>
+<li><a href="#orgd371f40">Source files</a></li>
+<li><a href="#orgb65264a">Table listings</a></li>
+<li><a href="#backlinks">Backlinks</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<section id="outline-container-orgf7333f6" class="outline-2">
+<h2 id="orgf7333f6">History</h2>
+<div class="outline-text-2" id="text-orgf7333f6">
+<ul class="org-ul">
+<li>Started writing in <a href="fennel.html">Fennel</a> on <a href="d/2021-01-10.html">2021-01-10</a>.</li>
+</ul>
+</div>
+</section>
+
+<section id="outline-container-orgadf022e" class="outline-2">
+<h2 id="orgadf022e">Development journals</h2>
+<div class="outline-text-2" id="text-orgadf022e">
+</div>
+<div id="outline-container-emsenn-development-journal" class="outline-3">
+<h3 id="emsenn-development-journal">emsenn's qtOps development journal</h3>
+<div class="outline-text-3" id="text-emsenn-development-journal">
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sitting-down-to-make-a-mud-in-fennel">Sitting down to make a MUD in Fennel, finally</a></li>
+<li><a href="#orgfa679f8">Tweaking <code>create-core-thing</code></a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sitting-down-to-make-a-mud-in-fennel" class="outline-4">
+<h4 id="sitting-down-to-make-a-mud-in-fennel">Sitting down to make a MUD in Fennel, finally</h4>
+<div class="outline-text-4" id="text-sitting-down-to-make-a-mud-in-fennel">
+<p>
+Alright, it's been way too long but I'm finally planning to sit down today and re-start my <a href="mud.html">MUD</a> project, using <a href="fennel.html">Fennel</a> as the <a href="programming_languages.html">programming language</a>. Right now, I don't have any of the prerequisites set up on my system, and it's been&#x2026; more than a month and a half, maybe two months, since I've touched Fennel.
+</p>
+
+<p>
+I'm on <a href="debian-buster.html">Debian Buster</a>, so I start with the command <code>sudo apt install lua5.3 luarocks &amp;&amp; luarocks --local install fennel</code>
+</p>
+
+<p>
+Since I'm in <a href="emacs.html">Emacs</a>, I also want to install <a href="https://gitlab.com/technomancy/fennel-mode/">fennel-mode</a>. See <a href="groundhog_emacs.html#org0d46674">Fennel-mode</a> in the <a href="groundhog_emacs.html">Groundhog Emacs</a> record for my configuration. (Right now, none.)
+</p>
+
+<p>
+Let's see if that gets me all set up: let me add a little code block here and try and execute it.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>A little test block of Fennel code</label><pre class="src src-fennel" id="orgef394ac">(print "foo")
+
+(fn foo []
+  "Blah blah"
+  (print "BAR"))
+
+foo
+</pre>
+</div>
+
+<p>
+Nope!: <code>org-babel-execute-src-block: No org-babel-execute function for fennel!</code>
+</p>
+
+<p>
+Let me tweak my <a href="babel.html">Babel</a> configuration&#x2026; That gets me a different error: <code>org-babel-do-load-languages: Cannot open load file: No such file or directory, ob-fennel</code>
+</p>
+
+<p>
+Let me check the fennel-mode README&#x2026; It suggests using the command <code>C-u M-x run-lisp RET fennel RET</code> to start a Fennel <a href="repl.html">REPL</a>, but that gets me yet another error: <code>apply: Searching for program: No such file or directory, fennel</code>
+</p>
+
+<p>
+I tried setting <code>inferior-lisp-program</code> to directly what the path to my fennel binary is, and that didn't work. So, I rebooted my whole computer.
+</p>
+
+<p>
+And now it's working! Let me go back up to that fennel block and play with it.
+</p>
+
+<p>
+That all seems to be working how it should work&#x2026; however! It clearly is not integrated in fully with Babel, or at least I'm not doing it right - I'd expect pressing <code>C-c C-c</code> on the block to try and run it, but I still goet the error about not finding <code>ob-fennel</code>.
+</p>
+
+<p>
+That's outside the scope of my knowledge, so what I'll do is ask <a href="phil_hagelberg.html">Phil</a> about it, but I should be able to work with <a href="org_mode.html">Org-mode</a> and Fennel in a way that works for me, for now, right now.
+</p>
+
+<p>
+So then that brings me to my first task: writing a simple socket server in Fennel. Let me first look at a simple socket server I found <a href="https://gist.github.com/whiler/35289e6e9b4239708dce72a591d295ec">on the Web</a>, and try and make sure it works and I understand it, in <a href="lua.html">Lua</a>, before I try and re-write it in Fennel.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Echo socket server implemented in Lua</label><pre class="src src-lua" id="orgc9dbc67">local socket = require("socket")
+local string = require("string")
+
+-- create a TCP socket and bind it to the local host, at any port
+local server = assert(socket.bind("127.0.0.1", 0))
+local ip, port = server:getsockname()
+
+print(string.format("telnet %s %s", ip, port))
+
+while true do
+    local client = server:accept()
+    client:settimeout(9)
+    local msg, err = client:receive()
+    while not err and "quit" ~= msg do
+	print(string.format("received: %s", msg))
+	client:send(msg)
+	client:send("\n")
+	msg, err = client:receive()
+    end
+    client:close()
+end
+server:close()
+</pre>
+</div>
+
+<p>
+Wonderful - that works exactly as expected. Now to convert it into Fennel.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>Echo socket server implemented in Fennel</label><pre class="src src-fennel" id="orgd69958f">(local socket (require :socket))
+
+(local server (assert (socket.bind "127.0.0.1" 0)))
+(local (ip port) (server:getsockname))
+
+(print (string.format "telnet %s %s" ip port))
+
+(while true
+  (let [client (server:accept)]
+    (client:settimeout 9)
+    (var (msg err) (client:receive))
+    (while (and (not err) (~= "quit" msg))
+      (print (string.format "received: %s" msg))
+      (client:send msg)
+      (client:send "\n")
+      (set (msg err) (client:receive)))
+    (client:close)))
+</pre>
+</div>
+
+<p>
+That seems to accomplish the same task! And it might not look like it, but this is actually a pretty significant step in terms of getting to a useful-enough MUD. I need to step away from my computer for a while, but when I get back I'll come to the other side of a basic MUD, the game engine, and then hopefully this evening or tomorrow I can plug the two in and have the foundation of a <a href="game-engine.html">game engine</a> accessible through <a href="telnet.html">TELNET</a>.
+</p>
+
+<p>
+(Does it show that I've done this many times before in different languages?)
+</p>
+
+<p>
+And I'm back! So, a bit of history. The most recent iteration of my <a href="mud-engine.html">MUD engine</a> was called <i>qtOps</i>, which stood for "qualities of things operations," and was implemented in <a href="racket.html">Racket</a>. I'll probably stick with the name and a lot of the basic functionality, which was, well, here's just the opening paragraph of the project's README:
+</p>
+
+<blockquote id="org7b531f1">
+<p>
+<b><i>qtOps</i></b> is a Racket package providing procedures for performing operations on <i>things</i> with <i>qualities</i>. <i>Things</i> are essentially fieldless object with a mutable set of methods, while <i>qualities</i> are collections of procedures which generate those methods.
+</p>
+</blockquote>
+
+<p>
+The core of qtOps then, is the "thing," which in Racket was a hash-table, and in Fennel will be a <a href="lua-table.html">Lua table</a> - both are types of <a href="associative_array.html">associative arrays</a>.
+</p>
+
+
+<p>
+Here's the Racket code that defines the procedure for creating a very very basic thing:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>Old Racket version of qtOps' <code>create-core-thing</code> procedure.</label><pre class="src src-racket" id="org6e0d5f8">(define (create-core-thing)
+  (log-debug "creating new core thing")
+  (define T (make-hash))
+  (define (t k . a)
+    (if (hash-has-key? T k)
+	(apply (hash-ref T k) a)
+	(raise-argument-error 'thing
+			      (format "~a is missing procedure ~a"
+				      (if (hash-has-key? T 'name)
+					  (hash-ref T 'name)
+					  "thing")
+				      k)
+			      (hash-keys T))))
+  (hash-set! T 'call~~ (λ (p) (p T)))
+  t)
+</pre>
+</div>
+
+<p>
+That looks really complicated, and isn't helped by the fact it uses single-character variable names. I'll break it down: It first defines <code>T</code> as a hash-table. This hash-table is the upcoming thing's "internal" table.
+</p>
+
+<p>
+Next it defines a function <code>t</code>, that accepts one more more arguments (<code>k</code> and potentially <code>a</code>). This is the <i>thing</i> proper - this is what is returned by the <code>create-core-thing</code> procedure, and what the MUD engine sees as a "thing."
+</p>
+
+<p>
+So, <i>things</i> are procedures, and these procedures take one or more arguments. Let's figure out what these arguments represent, by how they're used:
+</p>
+
+<p>
+Inside the thing procedure, we start with <code>if (hash-has-key? T k)</code>, that is, if the thing's table has a key that matches <code>k</code>, then we move onto <code>(apply (hash-ref T k) a)</code>: look up that key in the table's thing, and call it (because we know it's a procedure), passing <code>a</code> to it. Otherwise, if the thing's table doesn't have a key, return an error.
+</p>
+
+<p>
+The <code>create-core-thing</code> procedure sets one key within the thing's table: <code>call~~</code>, which is a procedure that takes one argument and applies it to the thing's table. In effect, <code>call~~</code> lets us operate on the thing's table, and is how other procedures are added to the thing:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>Demonstration of creating a core thing with the old Racket version of qtOps.</label><pre class="src src-racket" id="org148a9ec">(define bean (create-core-thing))
+(bean 'call~~ (lambda (T) (hash-set! T 'name (lambda () "lima bean"))))
+(bean 'name)
+</pre>
+</div>
+
+<p>
+That's difficult to follow as code, but is saying:
+</p>
+
+<ol class="org-ol">
+<li>Make a new thing, <code>bean</code></li>
+<li>Call the bean's <code>call~~</code> procedure, passing it a procedure that takes a hash-table, and within that table sets the <code>name</code> key to a procedure that returns the string <code>"lima bean"</code>.</li>
+<li>Call the bean's <code>name</code> procedure, which now will return <code>"lima bean"</code></li>
+</ol>
+
+<p>
+Converting this into Lua/Fennel&#x2026; probably won't be too tricky: Lua's tables are innately similar to my <i>thing</i> construct.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>qtOps <code>create-core-thing</code> function version <code>0.1.0</code></label><pre class="src src-fennel" id="orga2ed103">
+(fn create-core-thing []
+  (let [thing-table {}
+	thing (fn [key ...]
+	    (if (~= nil (. thing-table key))
+		((. thing-table key) ...)
+		(print "no key")))]
+    (tset thing-table :call (fn [procedure] (procedure thing-table)))
+    thing))
+</pre>
+</div>
+
+<p>
+The rest of the Racket version of qtOps' module for creating things is for creating basic procedures like <code>name</code>, <code>set-name!</code>, <code>name?</code>, and so on, to a thing. I'll just copy one here as an example:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>Old Racket version of qtOps' <code>make-name-for-thing</code> procedure.</label><pre class="src src-racket" id="orge9b408e">(define (&gt;name t [n #f])
+  (define rn (if n n "thing"))
+  (log-debug "Creating name procedure for ~a" rn)
+  (λ () rn))
+(define ((&gt;set-name! t) n) (t 'set-procedure! 'name
+			      (λ () n)))
+</pre>
+</div>
+
+<p>
+When I was writing the Racket version of qtOps, I used lots of symbols prefixed and post-fixed to procedure names, inspired by the use of <code>!</code> after procedure names to declare they have <a href="functional-side-effects.html">functional side-effects</a>. Above, in <code>call~~</code>, the <code>~~</code> means "this procedure might change this thing, and/or possibly other things."
+</p>
+
+<p>
+Here, <code>&gt;</code> means "this function results in a function for a thing." If I were to write it verbosely, I think it'd translate to <code>make-name-for-thing</code>.
+</p>
+
+<p>
+Is that added explicitness worth it? I'm&#x2026; going to lean toward yes.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>qtOps' <code>make-name-for-thing</code> function verson <code>0.1.0</code></label><pre class="src src-fennel" id="org8ef33f3">(fn make-name-for-thing [thing ?name]
+  (let [real-name (if ?name ?name "thing")]
+    (fn [] real-name)))
+</pre>
+</div>
+
+<p>
+<i>(Why am I not writing logging stuff this go around? Because I'm unfamiliar with Lua's logging capabilities.</i>
+</p>
+
+<p>
+Let me make a basic draft of the <code>create-thing</code> function, that adds a name to things - then I'll work on the other basic functions for things, which'll probably be a bit more tedious, since it'll rely on querying stuff about tables and I'm not comfortable with that syntax yet.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 9: </span>qtOps' <code>create-thing</code> function version <code>0.1.0</code></label><pre class="src src-fennel" id="orgaad707a">(fn create-thing [?name ?additional-procedures]
+  (let [created-thing (create-core-thing)]
+    (created-thing
+     :call
+     (fn [T]
+       (tset T :name (make-name-for-thing created-thing ?name))))
+    (when ?additional-procedures
+      (each [key procedure (pairs ?additional-procedures)]
+	(created-thing :set-procedure key procedure)))
+    created-thing))
+
+</pre>
+</div>
+
+<p>
+So, now I'll bring these chunks together and load them into the REPL and play with them, see what I get!
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 10: </span>Demonstration of qtOps' <code>things</code> module, version <code>0.1.0</code>.</label><pre class="src src-fennel" id="org0b525cf">
+
+
+
+{: create-core-thing
+ : create-thing
+ : make-name-for-thing}
+</pre>
+</div>
+
+<p>
+Playing with this works how I expect:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 11: </span>Demonstration of qtOps' <code>things</code> module version <code>0.1.0</code>.</label><pre class="src src-text" id="org3286564">&gt;&gt; (local qtops (require :qtops-0-1-0))
+nil
+&gt;&gt; (local bear (qtops.create-thing "black bear"))
+nil
+&gt;&gt; bear
+#&lt;function: 0x55fd4d56dd40&gt;
+&gt;&gt; (bear :name)
+"black bear"
+</pre>
+</div>
+
+<p>
+I think I might call it quits here for the day, actually, or at least for now.
+</p>
+
+<p>
+I hope whoever reads this in the future, including myself, enjoys it, or gets something out of it! I'd like to continue journaling all my development of qtOps this way, though that might not be feasible if the code gets too sophisticated.
+</p>
+</div>
+</div>
+<div id="outline-container-orgfa679f8" class="outline-4">
+<h4 id="orgfa679f8">Tweaking <code>create-core-thing</code></h4>
+<div class="outline-text-4" id="text-orgfa679f8">
+<p>
+<a href="phil_hagelberg.html">Phil Hagelberg</a> saw my <a href="#sitting-down-to-make-a-mud-in-fennel">first development journal</a> about migrating <i>qtOps</i> to <a href="fennel.html">Fennel</a>, and suggested a tweak to my <code>create-core-thing</code> function:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 12: </span>qtOps' <code>create-core-thing</code> function version <code>0.1.1</code></label><pre class="src src-fennel" id="orgc545cfd">(fn create-core-thing []
+       (let [thing-table {}
+	     thing (fn [key ...]
+		     (match (. thing-table key) procedure
+			    (procedure ...)
+			    (print "no key")))]
+	 (tset thing-table :call (fn [procedure] (procedure thing-table)))
+	 thing))
+</pre>
+</div>
+
+<p>
+I've just tested it and it works just fine, so I'm gonna stick with it! Yay!
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="outline-container-orgf9cd558" class="outline-2">
+<h2 id="orgf9cd558">Source code</h2>
+<div class="outline-text-2" id="text-orgf9cd558">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-11 Mon 10:55] </span></span> <br>
+I've started moving the first development journal from yesterday's record straight into this record. <a href="org_mode_inclusion.html">Org-mode inclusion</a> didn't work how I had hoped, and so I wasn't able to tangle code out from included blocks.</li>
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-11 Mon 09:48] </span></span> <br>
+The source code for <i>qtOps</i> is being written in my <a href="d/index.html">daily records</a>. What is here can be considered the "main" or "stable" version of the source, but all code blocks are pulled in from those records.</li>
+</ul>
+ </section>
+
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org998487b">Things</a>
+<ul>
+<li><a href="#orga01f672">Thing creation</a>
+<ul>
+<li><a href="#org3eada1a">Create core thing</a></li>
+<li><a href="#orgc1bdab6">Create thing</a></li>
+</ul>
+</li>
+<li><a href="#org75445a9">Thing properties</a>
+<ul>
+<li><a href="#org6b5dd37">Make name for thing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org998487b" class="outline-3">
+<h3 id="org998487b">Things</h3>
+<div class="outline-text-3" id="text-org998487b">
+</div>
+<div id="outline-container-orga01f672" class="outline-4">
+<h4 id="orga01f672">Thing creation</h4>
+<div class="outline-text-4" id="text-orga01f672">
+</div>
+<div id="outline-container-org3eada1a" class="outline-5">
+<h5 id="org3eada1a">Create core thing</h5>
+<div class="outline-text-5" id="text-org3eada1a">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 13: </span>qtOps' current <code>create-core-thing</code> procedure, version <code>0.1.1</code></label><pre class="src src-fennel" id="org667c774">(fn create-core-thing []
+       (let [thing-table {}
+	     thing (fn [key ...]
+		     (match (. thing-table key) procedure
+			    (procedure ...)
+			    (print "no key")))]
+	 (tset thing-table :call (fn [procedure] (procedure thing-table)))
+	 thing))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc1bdab6" class="outline-5">
+<h5 id="orgc1bdab6">Create thing</h5>
+<div class="outline-text-5" id="text-orgc1bdab6">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 14: </span>qtOps' current <code>create-thing</code> procedure, version <code>0.1.0</code></label><pre class="src src-fennel" id="org73c7e32">(fn create-thing [?name ?additional-procedures]
+  (let [created-thing (create-core-thing)]
+    (created-thing
+     :call
+     (fn [T]
+       (tset T :name (make-name-for-thing created-thing ?name))))
+    (when ?additional-procedures
+      (each [key procedure (pairs ?additional-procedures)]
+	(created-thing :set-procedure key procedure)))
+    created-thing))
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org75445a9" class="outline-4">
+<h4 id="org75445a9">Thing properties</h4>
+<div class="outline-text-4" id="text-org75445a9">
+</div>
+<div id="outline-container-org6b5dd37" class="outline-5">
+<h5 id="org6b5dd37">Make name for thing</h5>
+<div class="outline-text-5" id="text-org6b5dd37">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 15: </span>qtOps' current <code>make-name-for-thing</code> procedure, version <code>0.1.0</code></label><pre class="src src-fennel" id="org651194a">(fn make-name-for-thing [thing ?name]
+  (let [real-name (if ?name ?name "thing")]
+    (fn [] real-name)))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="outline-container-org14ed1d6" class="outline-2">
+<h2 id="org14ed1d6">Supplements</h2>
+<div class="outline-text-2" id="text-org14ed1d6">
+</div>
+<div id="outline-container-orgd371f40" class="outline-3">
+<h3 id="orgd371f40">Source files</h3>
+<div class="outline-text-3" id="text-orgd371f40">
+</div>
+<div id="outline-container-org1377adb" class="outline-4">
+<h4 id="org1377adb">things.fnl</h4>
+<div class="outline-text-4" id="text-org1377adb">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 16: </span>qtOps <code>things</code> module.</label><pre class="src src-fennel" id="org36c800a">
+(fn make-name-for-thing [thing ?name]
+  (let [real-name (if ?name ?name "thing")]
+    (fn [] real-name)))
+
+(fn create-core-thing []
+       (let [thing-table {}
+	     thing (fn [key ...]
+		     (match (. thing-table key) procedure
+			    (procedure ...)
+			    (print "no key")))]
+	 (tset thing-table :call (fn [procedure] (procedure thing-table)))
+	 thing))
+
+(fn create-thing [?name ?additional-procedures]
+  (let [created-thing (create-core-thing)]
+    (created-thing
+     :call
+     (fn [T]
+       (tset T :name (make-name-for-thing created-thing ?name))))
+    (when ?additional-procedures
+      (each [key procedure (pairs ?additional-procedures)]
+	(created-thing :set-procedure key procedure)))
+    created-thing))
+
+
+
+       {: create-core-thing
+	: create-thing
+	: make-name-for-thing}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb65264a" class="outline-3">
+<h3 id="orgb65264a">Table listings</h3>
+<div class="outline-text-3" id="text-orgb65264a">
+<div id="list-of-listings">
+<h2>List of Listings</h2>
+<div id="text-list-of-listings">
+<ul>
+<li><a href="#orgef394ac"><span class="listing-number">Listing 1:</span> A little test block of Fennel code</a></li>
+<li><a href="#orgc9dbc67"><span class="listing-number">Listing 2:</span> Echo socket server implemented in Lua</a></li>
+<li><a href="#orgd69958f"><span class="listing-number">Listing 3:</span> Echo socket server implemented in Fennel</a></li>
+<li><a href="#org6e0d5f8"><span class="listing-number">Listing 4:</span> Old Racket version of qtOps' <code>create-core-thing</code> procedure.</a></li>
+<li><a href="#org148a9ec"><span class="listing-number">Listing 5:</span> Demonstration of creating a core thing with the old Racket version of qtOps.</a></li>
+<li><a href="#orga2ed103"><span class="listing-number">Listing 6:</span> qtOps <code>create-core-thing</code> function version <code>0.1.0</code></a></li>
+<li><a href="#orge9b408e"><span class="listing-number">Listing 7:</span> Old Racket version of qtOps' <code>make-name-for-thing</code> procedure.</a></li>
+<li><a href="#org8ef33f3"><span class="listing-number">Listing 8:</span> qtOps' <code>make-name-for-thing</code> function verson <code>0.1.0</code></a></li>
+<li><a href="#orgaad707a"><span class="listing-number">Listing 9:</span> qtOps' <code>create-thing</code> function version <code>0.1.0</code></a></li>
+<li><a href="#org0b525cf"><span class="listing-number">Listing 10:</span> Demonstration of qtOps' <code>things</code> module, version <code>0.1.0</code>.</a></li>
+<li><a href="#org3286564"><span class="listing-number">Listing 11:</span> Demonstration of qtOps' <code>things</code> module version <code>0.1.0</code>.</a></li>
+<li><a href="#orgc545cfd"><span class="listing-number">Listing 12:</span> qtOps' <code>create-core-thing</code> function version <code>0.1.1</code></a></li>
+<li><a href="#org667c774"><span class="listing-number">Listing 13:</span> qtOps' current <code>create-core-thing</code> procedure, version <code>0.1.1</code></a></li>
+<li><a href="#org73c7e32"><span class="listing-number">Listing 14:</span> qtOps' current <code>create-thing</code> procedure, version <code>0.1.0</code></a></li>
+<li><a href="#org651194a"><span class="listing-number">Listing 15:</span> qtOps' current <code>make-name-for-thing</code> procedure, version <code>0.1.0</code></a></li>
+<li><a href="#org36c800a"><span class="listing-number">Listing 16:</span> qtOps <code>things</code> module.</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-backlinks" class="outline-3">
+<h3 id="backlinks">Backlinks</h3>
+<div class="outline-text-3" id="text-backlinks">
+<ul class="org-ul">
+<li><a href="d/2021-01-11.html">2021-01-11</a></li>
+<li><a href="qtops.html">qtOps</a></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2021-01-11 Mon 09:44</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2021-01-11 Mon 11:52</p>
+</section>
+</body>
+</html>

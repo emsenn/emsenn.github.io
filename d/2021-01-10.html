@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-10 Sun 16:38 -->
+<!-- 2021-01-11 Mon 10:04 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2021-01-10</title>
@@ -212,7 +212,7 @@ This is some of what I (emsenn) experienced, read, and wrote on on <span class="
 <ul>
 <li><a href="#org2826d30">Posts</a>
 <ul>
-<li><a href="#org75d7c91">Sitting down to make a MUD in Fennel, finally</a></li>
+<li><a href="#sitting-down-to-make-a-mud-in-fennel">Sitting down to make a MUD in Fennel, finally</a></li>
 </ul>
 </li>
 <li><a href="#org46c8080">News log</a>
@@ -229,9 +229,9 @@ This is some of what I (emsenn) experienced, read, and wrote on on <span class="
 <h2 id="org2826d30">Posts</h2>
 <div class="outline-text-2" id="text-org2826d30">
 </div>
-<div id="outline-container-org75d7c91" class="outline-3">
-<h3 id="org75d7c91">Sitting down to make a MUD in Fennel, finally</h3>
-<div class="outline-text-3" id="text-org75d7c91">
+<div id="outline-container-sitting-down-to-make-a-mud-in-fennel" class="outline-3">
+<h3 id="sitting-down-to-make-a-mud-in-fennel">Sitting down to make a MUD in Fennel, finally</h3>
+<div class="outline-text-3" id="text-sitting-down-to-make-a-mud-in-fennel">
 <p>
 Alright, it's been way too long but I'm finally planning to sit down today and re-start my <a href="../mud.html">MUD</a> project, using <a href="../fennel.html">Fennel</a> as the <a href="../programming_languages.html">programming language</a>. Right now, I don't have any of the prerequisites set up on my system, and it's been&#x2026; more than a month and a half, maybe two months, since I've touched Fennel.
 </p>
@@ -249,7 +249,7 @@ Let's see if that gets me all set up: let me add a little code block here and tr
 </p>
 
 <div class="org-src-container">
-<pre class="src src-fennel">(print "foo")
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>A little test block of Fennel code</label><pre class="src src-fennel">(print "foo")
 
 (fn foo []
   "Blah blah"
@@ -292,7 +292,7 @@ So then that brings me to my first task: writing a simple socket server in Fenne
 </p>
 
 <div class="org-src-container">
-<pre class="src src-lua">local socket = require("socket")
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>An echoing socket server implemented in Lua</label><pre class="src src-lua">local socket = require("socket")
 local string = require("string")
 
 -- create a TCP socket and bind it to the local host, at any port
@@ -322,7 +322,7 @@ Wonderful - that works exactly as expected. Now to convert it into Fennel.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-fennel">(local socket (require :socket))
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>An echo socket server implemented in Fennel</label><pre class="src src-fennel">(local socket (require :socket))
 
 (local server (assert (socket.bind "127.0.0.1" 0)))
 (local (ip port) (server:getsockname))
@@ -370,7 +370,7 @@ Here's the Racket code that defines the procedure for creating a very very basic
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(define (create-core-thing)
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>The Racket version of qtOps' <code>create-core-thing</code> procedure</label><pre class="src src-racket">(define (create-core-thing)
   (log-debug "creating new core thing")
   (define T (make-hash))
   (define (t k . a)
@@ -408,13 +408,12 @@ Inside the thing procedure, we start with <code>if (hash-has-key? T k)</code>, t
 The <code>create-core-thing</code> procedure sets one key within the thing's table: <code>call~~</code>, which is a procedure that takes one argument and applies it to the thing's table. In effect, <code>call~~</code> lets us operate on the thing's table, and is how other procedures are added to the thing:
 </p>
 
-<p>
-#+being<sub>src</sub> racket
-(define bean (create-core-thing))
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>A demonstration of making things with the Racket version of qtOps.</label><pre class="src src-racket">(define bean (create-core-thing))
 (bean 'call~~ (lambda (T) (hash-set! T 'name (lambda () "lima bean"))))
 (bean 'name)
-#+end<sub>src</sub>
-</p>
+</pre>
+</div>
 
 <p>
 That's difficult to follow as code, but is saying:
@@ -431,7 +430,7 @@ Converting this into Lua/Fennel&#x2026; probably won't be too tricky: Lua's tabl
 </p>
 
 <div class="org-src-container">
-<pre class="src src-fennel" id="org9a7c65e">
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>The qtOps function <code>create-core-thing</code>, verson <code>0.1.0</code></label><pre class="src src-fennel" id="org9a7c65e">
 (fn create-core-thing []
   (let [T {}
 	t (fn [k ...]
@@ -448,7 +447,7 @@ The rest of the Racket version of qtOps' module for creating things is for creat
 </p>
 
 <div class="org-src-container">
-<pre class="src src-racket">(define (&gt;name t [n #f])
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>The Racket version qtOps' <code>make-name-for-thing</code> procedure.</label><pre class="src src-racket">(define (&gt;name t [n #f])
   (define rn (if n n "thing"))
   (log-debug "Creating name procedure for ~a" rn)
   (λ () rn))
@@ -470,7 +469,7 @@ Is that added explicitness worth it? I'm&#x2026; going to lean toward yes.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-fennel" id="org6758f5b">(fn make-name-for-thing [thing ?name]
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>The qtOps function <code>make-name-for-thing</code>, verson <code>0.1.0</code></label><pre class="src src-fennel" id="org6758f5b">(fn make-name-for-thing [thing ?name]
   (let [real-name (if ?name ?name "thing")]
     (fn [] real-name)))
 </pre>
@@ -485,7 +484,7 @@ Let me make a basic draft of the <code>create-thing</code> function, that adds a
 </p>
 
 <div class="org-src-container">
-<pre class="src src-fennel" id="orga44c590">(fn create-thing [?name ?additional-procedures]
+<label class="org-src-name"><span class="listing-number">Listing 9: </span>The qtOps function <code>create-thing</code>, verson <code>0.1.0</code></label><pre class="src src-fennel" id="orga44c590">(fn create-thing [?name ?additional-procedures]
   (let [created-thing (create-core-thing)]
     (created-thing
      :call
@@ -504,7 +503,7 @@ So, now I'll bring these chunks together and load them into the REPL and play wi
 </p>
 
 <div class="org-src-container">
-<pre class="src src-fennel">(fn make-name-for-thing [thing ?name]
+<label class="org-src-name"><span class="listing-number">Listing 10: </span>qtOps' <code>things</code> module, version <code>0.1.0</code>.</label><pre class="src src-fennel" id="orgbfcafbc">(fn make-name-for-thing [thing ?name]
   (let [real-name (if ?name ?name "thing")]
     (fn [] real-name)))
 
@@ -539,7 +538,7 @@ Playing with this works how I expect:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-text">&gt;&gt; (local qtops (require :qtops-0-1-0))
+<label class="org-src-name"><span class="listing-number">Listing 11: </span>A demonstration of playing with qtOps' <code>things</code> module version <code>0.1.0</code>.</label><pre class="src src-text">&gt;&gt; (local qtops (require :qtops-0-1-0))
 nil
 &gt;&gt; (local bear (qtops.create-thing "black bear"))
 nil
@@ -549,6 +548,14 @@ nil
 "black bear"
 </pre>
 </div>
+
+<p>
+I think I might call it quits here for the day, actually, or at least for now.
+</p>
+
+<p>
+I hope whoever reads this in the future, including myself, enjoys it, or gets something out of it! I'd like to continue journaling all my development of qtOps this way, though that might not be feasible if the code gets too sophisticated.
+</p>
 </div>
 </div>
 </section>
@@ -597,6 +604,12 @@ I love the idea, which to me seems fairly synonymous with <a href="../lua.html">
 <ul class="org-ul">
 <li><a href="../debian-buster.html">Debian Buster</a></li>
 <li><a href="../repl.html">REPL</a></li>
+<li><a href="../qtops.html">qtOps</a></li>
+<li><a href="../qtops.html">qtOps</a></li>
+<li><a href="../qtops.html">qtOps</a></li>
+<li><a href="../qtops.html">qtOps</a></li>
+<li><a href="../qtops.html">qtOps</a></li>
+<li><a href="../qtops.html">qtOps</a></li>
 </ul>
 </div>
 </div>
@@ -605,7 +618,7 @@ I love the idea, which to me seems fairly synonymous with <a href="../lua.html">
 <section id="postamble" class="status">
 <p class="date">Date: 2021-01-10 Sun 10:50</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2021-01-10 Sun 16:38</p>
+<p class="date">Created: 2021-01-11 Mon 10:04</p>
 </section>
 </body>
 </html>
