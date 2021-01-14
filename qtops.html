@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-11 Mon 12:05 -->
+<!-- 2021-01-13 Wed 19:00 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>qtOps</title>
@@ -202,7 +202,7 @@
 <main id="content">
 <header>
 <h1 class="title">qtOps</h1>
-</header><div class="head" id="org639fc2a">
+</header><div class="head" id="orgd3f292c">
 
 </div>
 
@@ -255,6 +255,7 @@
 <ul>
 <li><a href="#sitting-down-to-make-a-mud-in-fennel">Sitting down to make a MUD in Fennel, finally</a></li>
 <li><a href="#tweaking-create-core-thing">Tweaking <code>create-core-thing</code></a></li>
+<li><a href="#adding-basic-properties-to-things">Adding basic properties to things</a></li>
 </ul>
 </div>
 </div>
@@ -609,8 +610,91 @@ I've just tested it and it works just fine, so I'm gonna stick with it! Yay!
 </p>
 </div>
 </div>
+
+<div id="outline-container-adding-basic-properties-to-things" class="outline-4">
+<h4 id="adding-basic-properties-to-things">Adding basic properties to things</h4>
+<div class="outline-text-4" id="text-adding-basic-properties-to-things">
+<p>
+So before I get started writing here, I want to highlight that I have been sleeping poorly recently and had a physically exhausting day yesterday, so I'm finding it fairly hard to focus. I might do a poor job explaining what I'm doing here. I apologise if that's the case.
+</p>
+
+<p>
+In the <a href="#sitting-down-to-make-a-mud-in-fennel">first development journal</a>, I ported over the procedures for creating <i>things</i>, and the procedure for querying one property, a <i>name</i>. In this one I'd like to port over the procedures for handling a thing's basic <i>properties</i>.  
+</p>
+
+<p>
+Each property usually has a few functions associated with it, at least to query it and set it. Here's the basic properties a <i>thing</i> had, in the Racket version of qtOps:
+</p>
+
+<ul class="org-ul">
+<li><code>procedures</code>, which stored the other properties. (It's named procedures in the code because every property is accessible through a procedure, and it's important not to forget that while programming. While "properties" is more of an in-world perspective on it.</li>
+<li><code>name</code>, which stores the thing's name</li>
+</ul>
+
+<p>
+…And that's actually it! Just the property of querying and setting properties, and a name. The name property comes with three procedures: <code>name</code>, <code>set-name</code>, and <code>name=?</code>, which query, set, and check if the name is equal to a given string, respectively. The procedures property is a bit more compliceted:
+</p>
+
+<ul class="org-ul">
+<li><code>set-procedure</code></li>
+<li><code>set-procedures</code></li>
+<li><code>has-procedure?</code></li>
+<li><code>procedures</code></li>
+<li><code>procedure</code></li>
+<li><code>remove-procedure</code></li>
+<li><code>with-procedure</code></li>
+</ul>
+
+<p>
+Now there's a bit of confusing <a href="semantics.html">semantics</a> going on here. See, in the Racket version of qtOps, everything <i>was</i> a procedure, within a thing: querying a thing's name called a name procedure that returned a string. And I'm unsure if that's necessary, going forward. (Maybe it was never necessary?)
+</p>
+
+<aside id="org536c438">
+<p>
+This seems like a problem where having notes from back when I was writing it this way would be helpful, to see if I ever address the question of "why is everything a procedure?"
+</p>
+</aside>
+
+<p>
+Either way, I'll need procedures that <code>make-X-for-thing</code> the way I have a <code>make-name-for-thing</code> in that first development log.
+</p>
+
+<p>
+I guess I can finish up the name code, first.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 13: </span>qtOps' <code>make-set-name-for-thing</code> function version <code>0.1.0</code></label><pre class="src src-fennel" id="org1a5e9bd">(fn make-set-name-for-thing [thing]
+  "Returns a set-name procedure for THING"
+  (fn set-name [name]
+    "Sets thing's name to NAME"
+    (thing :set-procedure :name
+	   (fn name []
+	     "Returns thing's name."
+	     name))))
+
+</pre>
+</div>
+
+<p>
+Unfortunately this relies on a <code>set-procedure</code> I haven't written in Fennel yet. <i>(Also, I forgot I can add docstrings after functions, which given my reliance on heavily nested functions seems a really useful thing.)</i>
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 14: </span>qtOps' <code>make-set-procedure-for-thing</code> function version <code>0.1.0</code></label><pre class="src src-fennel" id="org02423bf">(fn make-set-procedure-for-thing [thing]
+  "Returns a set-procedure function for THING"
+  (fn set-procedure [key procedure]
+    (thing :call
+	   (fn [thing-table]
+	     (tset thing-table key procedure)))))
+</pre>
+</div>
+</div>
+</div>
 </div>
 </section>
+
+
 
 <section id="outline-container-orgf9cd558" class="outline-2">
 <h2 id="orgf9cd558">Source code</h2>
@@ -633,9 +717,9 @@ The source code for <i>qtOps</i> is being written in my <a href="d/index.html">d
 <li><a href="#orgc1bdab6">Create thing</a></li>
 </ul>
 </li>
-<li><a href="#org75445a9">Thing properties</a>
+<li><a href="#org3b34558">Basic thing properties</a>
 <ul>
-<li><a href="#org6b5dd37">Make name for thing</a></li>
+<li><a href="#org4768f49">Name</a></li>
 </ul>
 </li>
 </ul>
@@ -664,7 +748,7 @@ Added in response developments in <a href="qtops.html#sitting-down-to-make-a-mud
  </section>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 13: </span>qtOps' current <code>create-core-thing</code> procedure, version <code>0.1.1</code></label><pre class="src src-fennel" id="org667c774">(fn create-core-thing []
+<label class="org-src-name"><span class="listing-number">Listing 15: </span>qtOps' current <code>create-core-thing</code> procedure, version <code>0.1.1</code></label><pre class="src src-fennel" id="org667c774">(fn create-core-thing []
        (let [thing-table {}
 	     thing (fn [key ...]
 		     (match (. thing-table key) procedure
@@ -687,7 +771,7 @@ Added in response developments in <a href="qtops.html#sitting-down-to-make-a-mud
  </section>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 14: </span>qtOps' current <code>create-thing</code> procedure, version <code>0.1.0</code></label><pre class="src src-fennel" id="org73c7e32">(fn create-thing [?name ?additional-procedures]
+<label class="org-src-name"><span class="listing-number">Listing 16: </span>qtOps' current <code>create-thing</code> procedure, version <code>0.1.0</code></label><pre class="src src-fennel" id="org73c7e32">(fn create-thing [?name ?additional-procedures]
   (let [created-thing (create-core-thing)]
     (created-thing
      :call
@@ -704,24 +788,48 @@ Added in response developments in <a href="qtops.html#sitting-down-to-make-a-mud
 </div>
 </div>
 
-<div id="outline-container-org75445a9" class="outline-4">
-<h4 id="org75445a9">Thing properties</h4>
-<div class="outline-text-4" id="text-org75445a9">
+<div id="outline-container-org3b34558" class="outline-4">
+<h4 id="org3b34558">Basic thing properties</h4>
+<div class="outline-text-4" id="text-org3b34558">
 </div>
-<div id="outline-container-org6b5dd37" class="outline-5">
-<h5 id="org6b5dd37">Make name for thing</h5>
-<div class="outline-text-5" id="text-org6b5dd37">
+<div id="outline-container-org4768f49" class="outline-5">
+<h5 id="org4768f49">Name</h5>
+<div class="outline-text-5" id="text-org4768f49">
+</div>
+<div id="outline-container-org6b5dd37" class="outline-6">
+<h6 id="org6b5dd37">Make name for thing</h6>
+<div class="outline-text-6" id="text-org6b5dd37">
 <section class="org-drawer"> <ul class="org-ul">
-<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-10 Sun 11:44] </span></span> <br>
-Added in response developments in <a href="qtops.html#sitting-down-to-make-a-mud-in-fennel">Sitting down to make a MUD in Fennel, finally</a>.</li>
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-10 Sun 11:44] </span></span> <br></li>
 </ul>
+<p>
+Added in response developments in <a href="qtops.html#sitting-down-to-make-a-mud-in-fennel">Sitting down to make a MUD in Fennel, finally</a>.
+</p>
  </section>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 15: </span>qtOps' current <code>make-name-for-thing</code> procedure, version <code>0.1.0</code></label><pre class="src src-fennel" id="org651194a">(fn make-name-for-thing [thing ?name]
+<label class="org-src-name"><span class="listing-number">Listing 17: </span>qtOps' current <code>make-name-for-thing</code> procedure, version <code>0.1.0</code></label><pre class="src src-fennel" id="org651194a">(fn make-name-for-thing [thing ?name]
   (let [real-name (if ?name ?name "thing")]
     (fn [] real-name)))
 </pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org17e47eb" class="outline-6">
+<h6 id="org17e47eb">Make set-name for thing</h6>
+<div class="outline-text-6" id="text-org17e47eb">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 18: </span>qtOps' current <code>make-set-name-for-thing</code> procedure, version <code>0.1.0</code></label><pre class="src src-fennel" id="orged2bf63">(fn make-set-name-for-thing [thing]
+  "Returns a set-name procedure for THING"
+  (fn set-name [name]
+    "Sets thing's name to NAME"
+    (thing :set-procedure :name
+	   (fn name []
+	     "Returns thing's name."
+	     name))))
+
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -740,10 +848,20 @@ Added in response developments in <a href="qtops.html#sitting-down-to-make-a-mud
 <h4 id="org1377adb">things.fnl</h4>
 <div class="outline-text-4" id="text-org1377adb">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 16: </span>qtOps <code>things</code> module.</label><pre class="src src-fennel" id="org36c800a">
+<label class="org-src-name"><span class="listing-number">Listing 19: </span>qtOps <code>things</code> module.</label><pre class="src src-fennel" id="org36c800a">
 (fn make-name-for-thing [thing ?name]
   (let [real-name (if ?name ?name "thing")]
     (fn [] real-name)))
+(fn make-set-name-for-thing [thing]
+  "Returns a set-name procedure for THING"
+  (fn set-name [name]
+    "Sets thing's name to NAME"
+    (thing :set-procedure :name
+	   (fn name []
+	     "Returns thing's name."
+	     name))))
+
+
 
 (fn create-core-thing []
        (let [thing-table {}
@@ -795,10 +913,13 @@ Added in response developments in <a href="qtops.html#sitting-down-to-make-a-mud
 <li><a href="#org0b525cf"><span class="listing-number">Listing 10:</span> Demonstration of qtOps' <code>things</code> module, version <code>0.1.0</code>.</a></li>
 <li><a href="#org3286564"><span class="listing-number">Listing 11:</span> Demonstration of qtOps' <code>things</code> module version <code>0.1.0</code>.</a></li>
 <li><a href="#orgc545cfd"><span class="listing-number">Listing 12:</span> qtOps' <code>create-core-thing</code> function version <code>0.1.1</code></a></li>
-<li><a href="#org667c774"><span class="listing-number">Listing 13:</span> qtOps' current <code>create-core-thing</code> procedure, version <code>0.1.1</code></a></li>
-<li><a href="#org73c7e32"><span class="listing-number">Listing 14:</span> qtOps' current <code>create-thing</code> procedure, version <code>0.1.0</code></a></li>
-<li><a href="#org651194a"><span class="listing-number">Listing 15:</span> qtOps' current <code>make-name-for-thing</code> procedure, version <code>0.1.0</code></a></li>
-<li><a href="#org36c800a"><span class="listing-number">Listing 16:</span> qtOps <code>things</code> module.</a></li>
+<li><a href="#org1a5e9bd"><span class="listing-number">Listing 13:</span> qtOps' <code>make-set-name-for-thing</code> function version <code>0.1.0</code></a></li>
+<li><a href="#org02423bf"><span class="listing-number">Listing 14:</span> qtOps' <code>make-set-procedure-for-thing</code> function version <code>0.1.0</code></a></li>
+<li><a href="#org667c774"><span class="listing-number">Listing 15:</span> qtOps' current <code>create-core-thing</code> procedure, version <code>0.1.1</code></a></li>
+<li><a href="#org73c7e32"><span class="listing-number">Listing 16:</span> qtOps' current <code>create-thing</code> procedure, version <code>0.1.0</code></a></li>
+<li><a href="#org651194a"><span class="listing-number">Listing 17:</span> qtOps' current <code>make-name-for-thing</code> procedure, version <code>0.1.0</code></a></li>
+<li><a href="#orged2bf63"><span class="listing-number">Listing 18:</span> qtOps' current <code>make-set-name-for-thing</code> procedure, version <code>0.1.0</code></a></li>
+<li><a href="#org36c800a"><span class="listing-number">Listing 19:</span> qtOps <code>things</code> module.</a></li>
 </ul>
 </div>
 </div>
@@ -811,6 +932,12 @@ Added in response developments in <a href="qtops.html#sitting-down-to-make-a-mud
 <ul class="org-ul">
 <li><a href="d/2021-01-11.html">2021-01-11</a></li>
 <li><a href="qtops.html">qtOps</a></li>
+<li><a href="qtops.html">qtOps</a></li>
+<li><a href="qtops.html">qtOps</a></li>
+<li><a href="qtops.html">qtOps</a></li>
+<li><a href="qtops.html">qtOps</a></li>
+<li><a href="repl.html">REPL</a></li>
+<li><a href="records_index.html">Records Index</a></li>
 </ul>
 </div>
 </div>
@@ -819,7 +946,7 @@ Added in response developments in <a href="qtops.html#sitting-down-to-make-a-mud
 <section id="postamble" class="status">
 <p class="date">Date: 2021-01-11 Mon 09:44</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2021-01-11 Mon 12:05</p>
+<p class="date">Created: 2021-01-13 Wed 19:00</p>
 </section>
 </body>
 </html>

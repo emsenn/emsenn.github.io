@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-09 Sat 15:44 -->
+<!-- 2021-01-13 Wed 18:59 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Groundhog Emacs</title>
@@ -202,7 +202,7 @@
 <main id="content">
 <header>
 <h1 class="title">Groundhog Emacs</h1>
-</header><div class="head" id="orgf8f8a77">
+</header><div class="head" id="org15c3326">
 
 </div>
 
@@ -215,6 +215,11 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
+<li><a href="#org26df111">Plans</a>
+<ul>
+<li><a href="#orge16b510">Look at org-ql</a></li>
+</ul>
+</li>
 <li><a href="#orgae64852">Configuration</a>
 <ul>
 <li><a href="#orgce12d24">Email</a></li>
@@ -236,7 +241,12 @@
 <li><a href="#org99db800">Tao theme</a></li>
 <li><a href="#org36643e9">HTMLize</a></li>
 <li><a href="#orge792f3c">Ivy</a></li>
+<li><a href="#org0d46674">Fennel-mode</a></li>
+<li><a href="#org1f4815f">Lua-mode</a></li>
+<li><a href="#orgae6d56a">Racket-mode</a></li>
+<li><a href="#org3ca53dc">rcIRC</a></li>
 <li><a href="#orgee88a9a">Magit</a></li>
+<li><a href="#org5d57ff8">Olivetti</a></li>
 <li><a href="#orgf5c178c">Org-mode</a></li>
 <li><a href="#org484f2e3">Org-attach-screenshot</a></li>
 <li><a href="#orgba8645d">Org-roam</a></li>
@@ -248,7 +258,19 @@
 </ul>
 </div>
 </nav>
-
+<section id="outline-container-org26df111" class="outline-2">
+<h2 id="org26df111">Plans</h2>
+<div class="outline-text-2" id="text-org26df111">
+</div>
+<div id="outline-container-orge16b510" class="outline-3">
+<h3 id="orge16b510">Look at org-ql</h3>
+<div class="outline-text-3" id="text-orge16b510">
+<p>
+<a href="https://github.com/alphapapa/org-ql">https://github.com/alphapapa/org-ql</a>
+</p>
+</div>
+</div>
+</section>
 <section id="outline-container-orgae64852" class="outline-2">
 <h2 id="orgae64852">Configuration</h2>
 <div class="outline-text-2" id="text-orgae64852">
@@ -276,8 +298,7 @@
 <div class="outline-text-3" id="text-orgc420d4b">
 <div class="org-src-container">
 <pre class="src src-elisp" id="orgdea6443">(setq inhibit-startup-message t)
-
-
+(setq visible-bell 1)
 (setq inhibit-startup-screen t)
 
 </pre>
@@ -903,7 +924,12 @@
 <li><a href="#org99db800">Tao theme</a></li>
 <li><a href="#org36643e9">HTMLize</a></li>
 <li><a href="#orge792f3c">Ivy</a></li>
+<li><a href="#org0d46674">Fennel-mode</a></li>
+<li><a href="#org1f4815f">Lua-mode</a></li>
+<li><a href="#orgae6d56a">Racket-mode</a></li>
+<li><a href="#org3ca53dc">rcIRC</a></li>
 <li><a href="#orgee88a9a">Magit</a></li>
+<li><a href="#org5d57ff8">Olivetti</a></li>
 <li><a href="#orgf5c178c">Org-mode</a></li>
 <li><a href="#org484f2e3">Org-attach-screenshot</a></li>
 <li><a href="#orgba8645d">Org-roam</a></li>
@@ -958,7 +984,11 @@ When I was first setting up <i>Groundhog Emacs</i>, I looked at <a href="alex_sc
 <div id="outline-container-org608c3d3" class="outline-3">
 <h3 id="org608c3d3">Straight.el and use-package</h3>
 <div class="outline-text-3" id="text-org608c3d3">
+<p>
+Requires <a href="git.html">Git</a> be installed.
+</p>
 </div>
+
 <div id="outline-container-org1b8fc29" class="outline-4">
 <h4 id="org1b8fc29">Straight.el bootstrapping</h4>
 <div class="outline-text-4" id="text-org1b8fc29">
@@ -1035,6 +1065,58 @@ When I was first setting up <i>Groundhog Emacs</i>, I looked at <a href="alex_sc
 </div>
 </div>
 
+<div id="outline-container-org0d46674" class="outline-3">
+<h3 id="org0d46674">Fennel-mode</h3>
+<div class="outline-text-3" id="text-org0d46674">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgdc617e8">(use-package fennel-mode :straight t
+  :mode "\\.fnl\\'"
+  :interpreter "fennel"
+  :custom
+  (inferior-lisp-program "/home/emsenn/.luarocks/bin/fennel"))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org1f4815f" class="outline-3">
+<h3 id="org1f4815f">Lua-mode</h3>
+<div class="outline-text-3" id="text-org1f4815f">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org1ccfd09">(use-package lua-mode :straight t
+  :mode "\\.lua\\'"
+  :interpreter "lua")
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgae6d56a" class="outline-3">
+<h3 id="orgae6d56a">Racket-mode</h3>
+<div class="outline-text-3" id="text-orgae6d56a">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org09936e5">(use-package racket-mode :straight t
+  :mode "\\.rkt\\'"
+  :interpreter "racket")
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org3ca53dc" class="outline-3">
+<h3 id="org3ca53dc">rcIRC</h3>
+<div class="outline-text-3" id="text-org3ca53dc">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org9db1209">(use-package rcirc :straight t
+  :custom
+  (rcirc-time-format "%Y-%m-%d %H:%M ")
+  (rcirc-default-nick "emsenn")
+  (rcirc-default-user-name "emsenn")
+  (rcirc-default-full-name "emsenn")
+  (rcirc-server-alist '(("irc.freenode.net" :channels ("webgaz" "qtops"))))
+  :config
+  (rcirc-connect "irc.freenode.net"))
+</pre>
+</div>
+</div>
+</div>
 <div id="outline-container-orgee88a9a" class="outline-3">
 <h3 id="orgee88a9a">Magit</h3>
 <div class="outline-text-3" id="text-orgee88a9a">
@@ -1045,7 +1127,15 @@ When I was first setting up <i>Groundhog Emacs</i>, I looked at <a href="alex_sc
 </div>
 </div>
 </div>
-
+<div id="outline-container-org5d57ff8" class="outline-3">
+<h3 id="org5d57ff8">Olivetti</h3>
+<div class="outline-text-3" id="text-org5d57ff8">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgff2db7a">(use-package olivetti :straight t)
+</pre>
+</div>
+</div>
+</div>
 <div id="outline-container-orgf5c178c" class="outline-3">
 <h3 id="orgf5c178c">Org-mode</h3>
 <div class="outline-text-3" id="text-orgf5c178c">
@@ -2415,8 +2505,7 @@ ul { max-width: 85%; }
 (setq user-mail-address "emsenn@emsenn.net")
 (setq make-backup-files nil)
 (setq inhibit-startup-message t)
-
-
+(setq visible-bell 1)
 (setq inhibit-startup-screen t)
 
 (setq initial-scratch-message ";; Groundhog Emacs has some bugs\n;; Press C-x C-e after the following lines to fix them\n(ivy-mode)\n")
@@ -2441,6 +2530,29 @@ ul { max-width: 85%; }
 
 (use-package htmlize :straight t)
 
+
+(use-package fennel-mode :straight t
+  :mode "\\.fnl\\'"
+  :interpreter "fennel"
+  :custom
+  (inferior-lisp-program "/home/emsenn/.luarocks/bin/fennel"))
+
+(use-package lua-mode :straight t
+  :mode "\\.lua\\'"
+  :interpreter "lua")
+(use-package racket-mode :straight t
+  :mode "\\.rkt\\'"
+  :interpreter "racket")
+
+(use-package rcirc :straight t
+  :custom
+  (rcirc-time-format "%Y-%m-%d %H:%M ")
+  (rcirc-default-nick "emsenn")
+  (rcirc-default-user-name "emsenn")
+  (rcirc-default-full-name "emsenn")
+  (rcirc-server-alist '(("irc.freenode.net" :channels ("webgaz" "qtops"))))
+  :config
+  (rcirc-connect "irc.freenode.net"))
 
 (use-package ivy
       :straight t
@@ -3228,7 +3340,7 @@ ul { max-width: 85%; }
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-18 Fri 14:06</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2021-01-09 Sat 15:44</p>
+<p class="date">Created: 2021-01-13 Wed 18:59</p>
 </section>
 </body>
 </html>

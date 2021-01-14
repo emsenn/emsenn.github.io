@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-01-13 Wed 19:03 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lion Kimbro</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./d/index.html">daily records</a> | <a href="./concepts_index.html">concepts</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="./record.html">records</a> with more <a href="./information.html">information</a> about both of those concepts.) On the <a href="./Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="./emsenn.html">emsenn</a>, to share some of my <a href="./knowledge.html">knowledge</a> with <a href="./person.html">people</a> on the <a href="Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="./record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="./permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="./backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">Lion Kimbro</h1>
+</header><div class="head" id="org3f87868">
+
+</div>
+
+<p>
+<b><i><a href="lion-kimbro.html">Lion Kimbro</a></i></b> is a term I haven't defined yet. Try checking the <a href="#record-history">record's history</a> for more information.
+</p>
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org97e767c">Introduction</a></li>
+<li><a href="#org2625c1d">Interviews</a>
+<ul>
+<li><a href="#2004-gilest-org-interview">2004, gilest.org</a></li>
+</ul>
+</li>
+<li><a href="#org013926e">Supplements</a>
+<ul>
+<li><a href="#record-history">Record history</a></li>
+<li><a href="#backlinks">Backlinks</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<section id="outline-container-org97e767c" class="outline-2">
+<h2 id="org97e767c">Introduction</h2>
+</section>
+<section id="outline-container-org2625c1d" class="outline-2">
+<h2 id="org2625c1d">Interviews</h2>
+<div class="outline-text-2" id="text-org2625c1d">
+</div>
+<div id="outline-container-2004-gilest-org-interview" class="outline-3">
+<h3 id="2004-gilest-org-interview">2004, gilest.org</h3>
+<div class="outline-text-3" id="text-2004-gilest-org-interview">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-07 Thu 13:22] </span></span> <br>
+I read this piece for the first time today, and what's interesting is how it waxes poetic about the potential of wikis, which was never realized. Especially interesting is how I talked about <a href="introduction.html">Introduction</a> being the grounds for an <a href="edit_war.html">edit war</a> in relation to the <a href="2021_storming_of_the_u_s_capitol.html">2021 Storming of the U.S. Capitol</a> just earlier today.</li>
+</ul>
+ </section>
+
+<p>
+<a href="https://gilest.org/2004/interview-with-lion-kimbro/">https://gilest.org/2004/interview-with-lion-kimbro/</a>
+</p>
+
+<blockquote id="orgaf2ac49">
+<p>
+I wanted to see if I could make myself smarter, by strategically placing notes to myself.
+</p>
+
+<p>
+Intelligence, as I define it, is: Getting the right information at the right time at the right place, towards whatever end you are going for.
+</p>
+
+<p>
+So, to use the “Getting Things Done” analogy: You’re at home, and you realize you need to get a Philip’s screwdriver. If, the next day, you’re walking down the street, and you walk by a hardware store- if you don’t think to get the screwdriver, that’s an “Intelligence Failure.” You’re not getting the right information, at the right time, at the right place.
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+What I didn’t antipicate was the freezing effect. That’s where your mind re-hashes old things and sort of unconsciously avoids new things. (It’s real, I’ve come to understand why it happens much better, through work in wiki, where it can happen as well.)
+</p>
+
+<p>
+And I didn’t anticipate just how strong the drive to write notes would become. You sort of re-wire yourself, as part of the Intelligence Process. It can get quite weird.”
+</p>
+</blockquote>
+
+
+<blockquote id="org13a2c2a">
+<p>
+I learned a LOT of things, by doing this. I’ll pick one, for example:
+</p>
+
+<p>
+I remember the feeling of realizing, for the very first time, that if you wanted to know what your values were, you should look at your goals. And if you want to know what your goals should be, you should look at your values.
+</p>
+
+<p>
+How did I learn that? I didn’t learn it from a self-help book. Maybe I’d heard it before, maybe not, but I certainly never realized it before.
+</p>
+
+<p>
+But it came out, mechanically, just by doing the calculations. (By calculations, I mean: The steps of the notebook system- applying the introspection.)
+</p>
+
+<p>
+Things like that would just “open up,” spontaneously. Out of the blue. But when I sawthings like that, it became apparent to me that that there are these deep systems in our minds. That there’s just ages of structure there. It’s like finding Atlantis.
+</p>
+</blockquote>
+
+
+<blockquote id="org25fa136">
+<p>
+Let me explain, concretely, the kinds of things that happen.
+</p>
+
+<p>
+You find yourself reaching towards some objective. Your notes are strategy notes, mental puzzling, things like that, to reach the objective. It all goes into the notebook system. Then you have some questions about life. They seem unrelated. It all goes into the notebook system. Then you realize that the objective is important to you. That goes into the notebook system. How do you place “important?” Well, that’s connected to your life. But now it’s also attached to your objective. A line is literally drawn between the objectives, and the questions about life. You now consider them together.
+</p>
+
+<p>
+Then you see this, and that becomes a thought. It goes into the notebook system. You pay attention to this: You realize (because, it’s there, graphically, right in front of you) that your notions about life are intricately connected to your objectives. Before, you thought you were just doing it for fun. But afterwards, you realize that it’s part of this causal chain.
+</p>
+
+<p>
+It feels like a mystery novel, or a fairy tale.
+</p>
+
+<p>
+You ask questions. Remember: You have all the time in the world now. When you were in school, you had to whip something out and go to the next topic. But here, you have your whole life ahead of you, to figure things out with. So, it’s very nice. You ask questions that you never asked before, like: “Why is this important to me?”
+</p>
+
+<p>
+If you hold any question in mind long enough, you eventually find the answer. You read something, and it has the answer to your question. We’re just surrounded by information: Just holding a question in mind is enough.
+</p>
+
+<p>
+The answer comes, you integrate it into your database. Everything checks out? Good: You’re golden.
+</p>
+
+<p>
+So, you start to recognize, quite clearly, because it’s all in your conscious mind, the structure of your life. Why you do things. What your REAL beliefs are. What things are core, and what things aren’t. You hook your ideas up together- ideas about society, communication, personal identity, and systems in general. (At least, that’s how it came up in my 2D graph, from a high-level perspective.)
+</p>
+
+<p>
+And you see the pieces chink into place.
+</p>
+</blockquote>
+
+<blockquote id="orgc958a50">
+<p>
+Wiki, briefly, are the hottest thing in Social Software right now. All this “friendster” stuff is important, but it’s just a ruse. People don’t see the real revolution that wiki represents.
+</p>
+
+<p>
+Wiki is terribly important because it’s the first public communication system that is DOCUMENT based.
+</p>
+
+<p>
+Instant Messaging, E-Mail, Internet Relay Chat (IRC), Online Message Boards, all this stuff-
+</p>
+
+<p>
+It’s all MESSAGE based.
+</p>
+
+<p>
+It’s a “quick signal.” You send a message to someone, and they do something different than they would have done before. “Someone.” Sometimes even a group of people. Maybe you’re on a mailing list, or something.
+</p>
+
+<p>
+After the message is done, it’s spent. It’s indexed by Google, and someone looking for something can find your message amidst a sea of messages, and try to apply it to their situation.
+</p>
+
+<p>
+But wiki is totally different. It’s document based. The fundamental element of a wiki is the document. It’s not a one-off message. (Though, you CAN attach messages to the bottom of a wiki page. Very common.) It’s something that people can use, and refer back to, time and time again.
+</p>
+
+<p>
+It’s made to exist across time.
+</p>
+
+<p>
+And so, also, that means that you get a sense of “space.” You can point two wiki towards each other. You can’t point two mailing lists at each other. To do that, you’d have to have some program that automatically mails, every day, the same message over and over again. People would hate that. You can’t network mailing lists, without the aid of static web pages. But then: People can’t affect those, unless they are site administrators. So you are really constrained with what you can do.
+</p>
+
+<p>
+Wiki is the only document based public system. That means that wiki (or something just like wiki, integrated into another system,) will be the vehicle by which our online conversations all organize themselves.
+</p>
+
+<p>
+It’s my notebook system, ALL OVER AGAIN. In the notebook system, related things get pointed at each other, and then “move” on the grand map towards one another.
+</p>
+</blockquote>
+</div>
+</div>
+</section>
+
+<section id="outline-container-org013926e" class="outline-2">
+<h2 id="org013926e">Supplements</h2>
+<div class="outline-text-2" id="text-org013926e">
+</div>
+<div id="outline-container-record-history" class="outline-3">
+<h3 id="record-history">Record history</h3>
+<div class="outline-text-3" id="text-record-history">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-07 Thu 13:19] </span></span> <br>
+Created from <a href="d/2021-01-07.html#introductory-reading-on-note-taking-with-org-roam">Finding introductory reading on note-taking with Org-roam</a></li>
+</ul>
+ </section>
+</div>
+</div>
+
+<div id="outline-container-backlinks" class="outline-3">
+<h3 id="backlinks">Backlinks</h3>
+<div class="outline-text-3" id="text-backlinks">
+<ul class="org-ul">
+<li><a href="lion-kimbro-how-to-make-a-complete-map-of-every-thought-you-think.html">Lion Kimbro: "How to make a complete map of every thought you think"</a></li>
+<li><a href="lion-kimbro-how-to-make-a-complete-map-of-every-thought-you-think.html">Lion Kimbro: "How to make a complete map of every thought you think"</a></li>
+<li><a href="lion-kimbro.html">Lion Kimbro</a></li>
+<li><a href="d/2021-01-07.html">2021-01-07</a></li>
+<li><a href="d/2021-01-07.html">2021-01-07</a></li>
+<li><a href="d/2021-01-07.html">2021-01-07</a></li>
+<li><a href="d/2021-01-13.html">2021-01-13</a></li>
+<li><a href="records_index.html">Records Index</a></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2021-01-07 Thu 13:19</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2021-01-13 Wed 19:03</p>
+</section>
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-01-13 Wed 19:00 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chiyamacs</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./d/index.html">daily records</a> | <a href="./concepts_index.html">concepts</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="./record.html">records</a> with more <a href="./information.html">information</a> about both of those concepts.) On the <a href="./Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="./emsenn.html">emsenn</a>, to share some of my <a href="./knowledge.html">knowledge</a> with <a href="./person.html">people</a> on the <a href="Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="./record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="./permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="./backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">Chiyamacs</h1>
+</header><div class="head" id="orgf34f4f4">
+
+</div>
+
+<p>
+<b><i>Chiyamacs</i></b> is an <a href="emacsen.html">Emacsen</a> I'm drafting for my friend <a href="chiya.html">@chiya</a>.
+</p>
+
+<section id="outline-container-org72bcd1e" class="outline-2">
+<h2 id="org72bcd1e">Bugfixes</h2>
+<div class="outline-text-2" id="text-org72bcd1e">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>An <i>Elisp</i> declaration for fixing bug #20971 in <i>Emacs</i>.</label><pre class="src src-elisp" id="org2951324">(defadvice isearch-occur (after isearch-occur-fix activate)
+  "Fixes bug #20971: http://debbugs.gnu.org/cgi/bugreport.cgi?bug=20971"
+  (setq buffer-read-only nil))
+(if (and (version&lt; emacs-version "26.3") (&gt;= libgnutls-version 30600))
+    (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
+</pre>
+</div>
+</div>
+</section>
+
+<section id="outline-container-org985f948" class="outline-2">
+<h2 id="org985f948">Package management</h2>
+<div class="outline-text-2" id="text-org985f948">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org32bb110">(defvar straight-install-script-path
+  "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el")
+
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el"
+			 user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+	(url-retrieve-synchronously straight-install-script-path
+				    'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
+
+</pre>
+</div>
+</div>
+</section>
+
+<section id="outline-container-org438ed1d" class="outline-2">
+<h2 id="org438ed1d">Theming</h2>
+<div class="outline-text-2" id="text-org438ed1d">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org8b77a66">(use-package darktooth-theme :straight t
+  :config
+  (load-theme 'darktooth t))
+</pre>
+</div>
+</div>
+</section>
+
+<section id="outline-container-org9eea336" class="outline-2">
+<h2 id="org9eea336">Boring stuff</h2>
+<div class="outline-text-2" id="text-org9eea336">
+</div>
+<div id="outline-container-orgf91878e" class="outline-3">
+<h3 id="orgf91878e">HTMLize</h3>
+<div class="outline-text-3" id="text-orgf91878e">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org1a1a867">(use-package htmlize :straight t)
+
+</pre>
+</div>
+</div>
+</div>
+</section>
+
+<section id="outline-container-org1ea6f97" class="outline-2">
+<h2 id="org1ea6f97">Org-mode</h2>
+<div class="outline-text-2" id="text-org1ea6f97">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org8c11925">(use-package
+ org :straight t
+ :config 
+     (setq org-directory "~/org")
+     (setq org-startup-folded 'fold)
+     (setq org-hide-block-startup 'hideblocks)
+     (setq org-catch-invisible-edits 'show-and-error)
+     (setq org-agenda-files (list "~/org"))
+     (setq org-export-with-section-numbers nil)
+     (setq org-export-with-smart-quotes nil)
+     (setq org-export-with-toc nil)
+     (setq org-html-htmlize-output-type 'nil)
+     (setq org-html-validation-link nil)
+     (setq org-log-done 'time)
+     (setq org-log-into-drawer 'LOGBOOK)
+     (setq org-image-actual-width '(400))
+
+ (org-babel-do-load-languages 'org-babel-load-languages
+			       '((shell . t)))
+
+ (setq org-publish-project-alist
+       `(
+      ("website"
+       :base-extension "org"
+       :publishing-function org-html-publish-to-html
+       :html-doctype "html5"
+       :html-html5-fancy t
+       :html-container "section"
+       :headline-levels 6
+       :recursive t
+       :html-divs ((preamble "section" "preamble")
+		  (content "main" "content")
+		  (postamble "section" "postamble"))
+       :publishing-function org-html-publish-to-html
+       :html-head-include-scripts nil
+       :html-head-include-default-style nil
+       :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+       :auto-sitemap t
+       :with-footnotes t
+       :with-toc nil
+       :with-drawers t
+       :base-directory "~/org/s/p"
+       :publishing-directory "~/org/p/personal"
+       :makeindex t
+       :sitemap-filename "sitemap.org"
+       :sitemap-sort-files alphabetically
+       :sitemap-title "Sitemap")
+
+    ))
+ :bind (
+	("C-c l" . org-store-link)
+	("C-c a" . org-agenda)
+	("C-c c" . org-capture)
+	("C-c t" . org-toggle-link-display)
+	("C-c C-q" . counsel-org-tag)
+	))
+</pre>
+</div>
+</div>
+</section>
+
+<section id="outline-container-orgc1735fa" class="outline-2">
+<h2 id="orgc1735fa">Full source</h2>
+<div class="outline-text-2" id="text-orgc1735fa">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org8eff6af">(defadvice isearch-occur (after isearch-occur-fix activate)
+  "Fixes bug #20971: http://debbugs.gnu.org/cgi/bugreport.cgi?bug=20971"
+  (setq buffer-read-only nil))
+(if (and (version&lt; emacs-version "26.3") (&gt;= libgnutls-version 30600))
+    (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
+(defvar straight-install-script-path
+  "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el")
+
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el"
+			 user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+	(url-retrieve-synchronously straight-install-script-path
+				    'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
+
+(use-package darktooth-theme :straight t
+  :config
+  (load-theme 'darktooth t))
+(use-package htmlize :straight t)
+
+(use-package
+ org :straight t
+ :config 
+     (setq org-directory "~/org")
+     (setq org-startup-folded 'fold)
+     (setq org-hide-block-startup 'hideblocks)
+     (setq org-catch-invisible-edits 'show-and-error)
+     (setq org-agenda-files (list "~/org"))
+     (setq org-export-with-section-numbers nil)
+     (setq org-export-with-smart-quotes nil)
+     (setq org-export-with-toc nil)
+     (setq org-html-htmlize-output-type 'nil)
+     (setq org-html-validation-link nil)
+     (setq org-log-done 'time)
+     (setq org-log-into-drawer 'LOGBOOK)
+     (setq org-image-actual-width '(400))
+
+ (org-babel-do-load-languages 'org-babel-load-languages
+			       '((shell . t)))
+
+ (setq org-publish-project-alist
+       `(
+      ("website"
+       :base-extension "org"
+       :publishing-function org-html-publish-to-html
+       :html-doctype "html5"
+       :html-html5-fancy t
+       :html-container "section"
+       :headline-levels 6
+       :recursive t
+       :html-divs ((preamble "section" "preamble")
+		  (content "main" "content")
+		  (postamble "section" "postamble"))
+       :publishing-function org-html-publish-to-html
+       :html-head-include-scripts nil
+       :html-head-include-default-style nil
+       :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+       :auto-sitemap t
+       :with-footnotes t
+       :with-toc nil
+       :with-drawers t
+       :base-directory "~/org/s/p"
+       :publishing-directory "~/org/p/personal"
+       :makeindex t
+       :sitemap-filename "sitemap.org"
+       :sitemap-sort-files alphabetically
+       :sitemap-title "Sitemap")
+
+    ))
+ :bind (
+	("C-c l" . org-store-link)
+	("C-c a" . org-agenda)
+	("C-c c" . org-capture)
+	("C-c t" . org-toggle-link-display)
+	("C-c C-q" . counsel-org-tag)
+	))
+</pre>
+</div>
+</div>
+
+<div id="outline-container-backlinks" class="outline-3">
+<h3 id="backlinks">Backlinks</h3>
+<div class="outline-text-3" id="text-backlinks">
+<ul class="org-ul">
+<li><a href="records_index.html">Records Index</a></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2021-01-12 Tue 19:14</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2021-01-13 Wed 19:00</p>
+</section>
+</body>
+</html>
