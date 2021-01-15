@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-01-15 Fri 17:08 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2021-01-15</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="../index.html">homepage</a> | <a href="../d/index.html">daily records</a> | <a href="../concepts_index.html">concepts</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="../record.html">records</a> with more <a href="../information.html">information</a> about both of those concepts.) On the <a href="../Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="../emsenn.html">emsenn</a>, to share some of my <a href="../knowledge.html">knowledge</a> with <a href="../person.html">people</a> on the <a href="../Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="../record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="../permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="../backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">2021-01-15</h1>
+</header><p>
+This is some of what I (emsenn) experienced, read, and wrote on on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-15 Fri]</span></span>.
+</p>
+
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgf9e46ed">Posts</a>
+<ul>
+<li><a href="#orgc2ca576">Avoiding problems with note-taking by viewing my computer as a teammate</a></li>
+<li><a href="#orgae71888">Solarpunk isn't very punk</a></li>
+<li><a href="#orgbdb1c4b">Avoiding a ghastly future through indigenous genocide</a></li>
+</ul>
+</li>
+<li><a href="#org519570f">News log</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="outline-container-orgf9e46ed" class="outline-2">
+<h2 id="orgf9e46ed">Posts</h2>
+<div class="outline-text-2" id="text-orgf9e46ed">
+</div>
+<div id="outline-container-orgc2ca576" class="outline-3">
+<h3 id="orgc2ca576">Avoiding problems with note-taking by viewing my computer as a teammate</h3>
+<div class="outline-text-3" id="text-orgc2ca576">
+<p>
+So I'm definitely&#x2026; making progress with developing <a href=../groundhog_emacs.html>Groundhog Emacs</a> as my <a href=../information_management_system.html>information management tool</a>, but there's a lot of places where I'm still struggling.
+</p>
+
+<p>
+There are small things - the <a href=../org_roam_capture_template.html>Org-roam capture template</a> for starting this journal entry had a typo, for example. (I've already fixed it moving forward.)
+</p>
+
+<p>
+But there are bigger things, too. Here's <a href=../lion-kimbro.html>Lion Kimbro</a> in an <a href=../interview.html>interview</a> with <a href=../giles_turnbull.html>Giles Turnbull</a>, back in 2004, talking about one of the negative effects of Kimbro's <a href=../lion-kimbro-how-to-make-a-complete-map-of-every-thought-you-think.html>Notebook method</a>.
+</p>
+
+<blockquote id="org38d69e5">
+<p>
+What I didn’t antipicate was the freezing effect. That’s where your mind re-hashes old things and sort of unconsciously avoids new things. (It’s real, I’ve come to understand why it happens much better, through work in wiki, where it can happen as well.)
+</p>
+
+<p>
+And I didn’t anticipate just how strong the drive to write notes would become. You sort of re-wire yourself, as part of the Intelligence Process. It can get quite weird.”
+</p>
+</blockquote>
+
+<p>
+I've noticed a similar tendency in my past in the way I <a href=../note_taking.html>take notes</a>: I will become focused on taking <a href=../archive.html>archival</a> notes, rather than, as my own note-taking leads me to believe is better, <a href=2021-01-13.html>taking notes to find questions</a>. And for the first time writing this, I've realized that <i>this</i>, right here, is why I have a different approach and opinion than many others who are creating <a href=../digital_garden.html>digital gardens</a> or similar <a href=../personal_records.html>personal records</a> with <a href=../computers.html>computers</a>.
+</p>
+
+<p>
+While many who write with computers use the computer's <a href=../capabilities.html>capabilities</a> to <a href=../automating.html>automate</a> as <a href=../discovery_mechanism.html>discovery mechanisms</a>, I prefer to automate input mechanisms.
+</p>
+
+<p>
+That is, while other folk enjoy their computer's capability to reveal emergent knowledge from their records, I find myself&#x2026; overly-burdened with emergent knowledge, of my own design, just from the <a href=../cognition.html>cognition</a> that occurs when I work with the data. (I wonder, perhaps, if this doesn't play into my growing awareness of the importance of <a href=../anarchistic-cognition.html>anarchistic cognition</a>.) So my focus is on automating the <i>capture</i> of information: making it easier and easier for me to add more information to records. There's a part from <a href=../fred-hebert-you-reap-what-you-code.html>Fred Hebert: "You Reap What You Code"</a> that taught me a lot, and ended with something I took as a bit of a personal challenge. (In fact, immediately after reading this piece is when I cut my tech stack down to <a href=../bash.html>BASH</a> and <a href=../nano.html>nano</a>.)
+</p>
+
+<blockquote id="org0b81969">
+<p>
+This is called the "Fitts" model, also "HABA-MABA", for "Humans are better at, machines are better at"… This model frames humans as slow, perceptive beings able of judgement, and machines are fast undiscerning indefatigable things.
+</p>
+
+<p>
+It operates on what we think we see now, not on stronger underlying principles, and often has strong limitations when it comes to being applied in practice.
+</p>
+
+<p>
+It is disconnected from the reality of human-machine interactions, and frames choices as binary when they aren't, usually with the intent of pushing the human out of the equation when you shouldn't. This is, in short, a significant factor behind the ironies of automation.
+</p>
+</blockquote>
+
+<p>
+"Pushing the human out of the equation when you shouldn't" might make it clear why I think of this piece when I think about how to automate my <a href=../note_taking_system.html>note-taking system</a>. I'm not <i>sure</i> I want to push myself out of causing knowledge to emerge from my existing knowledge. I might, in some ways, but I'm not <i>sure</i> about it. However, I am pretty sure my life would be made better if I could just wink at my computer and it would automatically insert the correct characters to include quotes from other records, for example.
+</p>
+
+<blockquote id="org4d72307">
+<p>
+[Cognitive scientists]… reframe the human-computer relationship as a "joint cognitive system", meaning that instead of thinking of humans and machines as unrelated things that must be used in distinct contexts for specific tasks, we should frame humans and computers as teammates working together. This, in a nutshell, shifts the discourse from how one is limited to terms of how one can complement the other.
+</p>
+
+<p>
+Teammates do things like being predictable to each other, sharing a context and language, being able to notice when their actions may impact others and adjust accordingly, communicate to establish common ground, and have an idea of everyone's personal and shared objectives to be able to help or prioritize properly.
+</p>
+</blockquote>
+
+<p>
+The challenge I read here is, "Make your self and your computer a team." The piece goes on to say that the first steps of this is to make a good <a href=../model.html>model</a>. In many ways, that's the work I've been doing by trying to specify my <a href=../idiolect.html>idiolect</a> around note-taking, and why I've been working to decouple my understanding of the information systems themselves, from the computer systems through which they are implemented. Hebert goes on to offer practical advice, which I'd like to think I'm following in my method, as much as I can as a <a href=../hobbyist.html>hobbyist</a>.
+</p>
+
+<p>
+What I'm saying here, is that I am using Fred Hebert's advice to try and avoid the problems Lion Kimbro ran into, while I am doing something similar to what Kimbro did when he ran into those problems. In this specific context, that looks like being careful about how I choose to decrease the time it takes me to work with records, by specifically only working to reduce the time it takes me to perform mechanical interactions with the records. Not now, but in future writing, I would like to briefly look at the configuration of my <a href=../emacsen.html>Emacsen</a>, with this perspective, to explain why I've made the choice of packages and configuration I have.
+</p>
+
+<p>
+Follow-up: I've just <span class="timestamp-wrapper"><span class="timestamp">[2021-01-15 Fri 15:28] </span></span> been made aware of, thanks to <a href=../adrian-cochrane.html>Adrian Cochrane</a>, <a href=../josh-marinacci-a-humanist-programming-language.html>Josh Marinacci: "A Humanist Programming Language"</a>. I'm including it here to demonstrate how broad this perspective toward computers is, right now, and how many people are working toward similar ideas, all through our own methods.
+</p>
+
+<aside id="org01e1612">
+<p>
+#+antonio-machado-no-hay-camino-quote
+</p>
+</aside>
+
+<p>
+<a href=../josh-marinacci.html>Josh Marinacci</a> is just beginning their work on their <a href=../humanist-language.html>Humanist Language</a>. I'm going to be watching it as it develops, because I'm curious to see how it can influence my own work here in my immediate records catalog, and my future plans with what I've been calling <a href=../phahiyapi.html>Pȟahíyapi</a>.
+</p>
+
+<p>
+#+include "../josh-marinacci-a-humanist-programming-language-exploring-ideas.org::josh-marinacci-a-humanist-programming-language-exploring-ideas-quote"
+</p>
+
+<p>
+#+include "../josh-marinacci-a-humanist-programming-language-exploring-ideas.org::josh-marinacci-a-humanist-programming-language-automating-answering-questions-quote"
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgae71888" class="outline-3">
+<h3 id="orgae71888">Solarpunk isn't very punk</h3>
+<div class="outline-text-3" id="text-orgae71888">
+<p>
+<a href=../coleman-gailloreto.html>Coleman Gailloreto</a> wrote <a href="https://screenrant.com/cyberpunk-steampunk-video-games-need-more-solarpunk-settings/">"Why There Should Be More Video Games With Solarpunk Settings"</a> back on <a href=2021-01-02.html>the 2nd</a>, and I have a few critiques of it.
+</p>
+
+<ul class="org-ul">
+<li><a href=../solarpunk.html>Solarpunk</a> maintains, as a core of its <a href=../aesthetic-ideology.html>aesthetic ideology</a>, a disconnect between <a href=../energy.html>energy</a> and <a href=../ways_of_living.html>ways of living</a>.</li>
+<li><a href=../solarpunk.html>Solarpunk</a> is usually <i>not</i> <a href=../punk.html>punk</a>, as it presents a <a href=../utopic.html>utopic</a> or <a href=../eutopic.html>eutopic</a> future in which <a href=../resistance.html>resistance</a>, if present, is <a href=../history.html>historic</a>.</li>
+<li>This piece doesn't really acknowledge <a href=../cyberpunk.html>cyberpunk</a>'s role within punk, or punk itself as anything more than an <a href=../aesthetic.html>aesthetic</a>.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbdb1c4b" class="outline-3">
+<h3 id="orgbdb1c4b">Avoiding a ghastly future through indigenous genocide</h3>
+<div class="outline-text-3" id="text-orgbdb1c4b">
+<p>
+A collection of <a href=../scientist.html>scientists</a> has released a new paper: <a href=../corey-bradshaw-understimating-the-challenges-of-avoiding-a-ghastly-future.html>"Underestimating the Challenges of Avoiding a Ghastly Future"</a>. In it, the group outlines the current and near-future state of <a href=../biodiversity.html>biodiversity</a>, <a href=../human-population.html>human population</a>, <a href=../climate_collapse.html>climate collapse</a>, and <a href=../global-politics.html>global politics</a>.
+</p>
+
+<p>
+Here is a collection of facts from those sections:
+</p>
+
+<ul class="org-ul">
+<li><b><i>Biodiversity</i></b>
+<ul class="org-ul">
+<li>Since the start of agriculture around 11,000 years ago, the biomass of terrestrial vegetation has been halved.</li>
+<li>&gt;70% of the Earth's land surface has been altered by Homo sapiens.</li>
+<li>Population sizes of vertebrate species that have been monitored across years have declined by an average of 68% over the last five decades.</li>
+<li>Perhaps 1 million species are threatened with extinction in the near future out of an estimated 7–10 million eukaryotic species on the planet.</li>
+<li>40% of plants are considered endangered.</li>
+<li>The global biomass of wild mammals is &lt;25% of that estimated for the Late Pleistocene.</li>
+<li>There is &lt;15% of the original wetland area globally than was present 300 years ago.</li>
+<li>Live coral cover on reefs has halved in &lt;200 years.</li>
+<li>Seagrass extent has been decreasing by 10% per decade over the last century.</li>
+<li>Kelp forests have declined by ~40% over the last century.</li>
+<li>The biomass of large predatory fishes is now &lt;33% of what it was last century.</li>
+<li>Only ~5% of terrestrial vertebrates, measured by biomass, are wild mammals, birds, reptiles, and amphibians.
+<ul class="org-ul">
+<li>Livestock make up 59%.</li>
+<li>Humans are 39%.</li>
+</ul></li>
+<li>The rate of vertebrate extinctions since the 16th century is &gt;15 times the background rate.</li>
+<li>20% of all species are in danger of extinction over the next few decades.</li>
+</ul></li>
+<li><b><i>Human population</i></b>
+<ul class="org-ul">
+<li>The global human population has approximately doubled since 1970.</li>
+<li>By 2050, the world population will likely grow to ~9.9 billion.</li>
+<li>By some estimates, 700–800 million people are starving and 1–2 billion are micronutrient-malnourished.</li>
+<li>Humanity's consumption as a fraction of Earth's regenerative capacity has grown from ~ 73% in 1960 to 170% in 2016.
+<ul class="org-ul">
+<li>With COVID-19, this overshoot dropped to 156%.</li>
+</ul></li>
+<li>Over 70% of all people currently live in countries that run a biocapacity deficit.</li>
+<li>85% of commercial energy, 65% of fibers, and most plastics are now produced from fossil fuels.</li>
+</ul></li>
+<li><b><i>Global politics</i></b>
+<ul class="org-ul">
+<li>None of the Aichi Biodiversity Targets for 2020 set at the Convention on Biological Diversity's 2010 conference was met.</li>
+<li>Most of the nature-related United Nations Sustainable Development Goals are also on track for failure.</li>
+<li>Nations have in general not met the goals of the 5 year-old Paris Agreement.</li>
+<li>The USA's much-touted New Green Deal has in fact exacerbated the country's political polarization.</li>
+<li>Environmental protest groups are being labeled as “terrorists” in many countries.</li>
+</ul></li>
+<li><b><i>Climate collapse</i></b>
+<ul class="org-ul">
+<li>Civilization has already exceeded a global warming of ~ 1.0°C above pre-industrial conditions, and is on track to cause at least a 1.5°C warming between 2030 and 2052.
+<ul class="org-ul">
+<li>Today's greenhouse-gas concentration is &gt;500 ppm CO2-e.</li>
+<li>450 ppm CO2-e would give Earth a mere 66% chance of not exceeding a 2°C warming.</li>
+</ul></li>
+<li>Greenhouse-gas concentration will continue to increase (via positive feedbacks such as melting permafrost and the release of stored methane), resulting in further delay of temperature-reducing responses even if humanity stops using fossil fuels entirely well before 2030.</li>
+<li>The world's climate has matched or exceeded previous predictions.
+<ul class="org-ul">
+<li>The latest climate models show greater future warming than previously predicted even if society tracks the needed lower-emissions pathway over the coming decades.</li>
+</ul></li>
+<li>Assuming that all signatories of the Paris Agreement do, in fact, manage to ratify their commitments, expected warming would still reach 2.6–3.1°C by 2100 unless large, additional commitments are made and fulfilled.</li>
+</ul></li>
+</ul>
+
+<p>
+The piece states that it isn't trying to present solutions, but say that a realistic perspective on our near-future is a useful, if not necessary part of finding solutions. And I agree: an acceptance of this future as our likely reality is important in moving toward solutions.
+</p>
+
+<p>
+But there is this growing trend I see in the <a href=../contemporary_kyriarchy.html>contemporary settler-colonial kyriarchy</a>.
+</p>
+
+<blockquote>
+<p>
+<b><i><a href=../preserve-the-indian-save-the-humans.html>Preserve the Indian, save the humans</a></i></b> is my term for refering to the habit in <a href=../contemporary_kyriarchy.html>contemporary settler-colonial kyriarchal</a> <a href=../institution.html>institutions</a> to, in the face of <a href=../climate_collapse.html>climate collapse</a>, work to "preserve" through <a href=../science.html>science</a> various elements of <a href=../indigenous-knowledge.html>Indigenous knowledge</a>.
+</p>
+</blockquote>
+
+<p>
+Unfortunately with my transitioning between different <a href=../note_taking_system.html>note-taking systems</a>, I haven't written about this topic before now, I think, despite talking about it with others since last summer. A couple days ago though <a href=../eleonore-hughes.html>Eléonore Hughes</a> wrote <a href=../eleonore-hughes-indigenous-peoples-wary-of-un-biodiversity-rescue-plan.html>"Indigenous peoples wary of UN biodiversity rescue plan"</a>, which I think touches on <i>why</i> I am scared of this habit of treating <a href=../indigenous-knowledge.html>Indigenous knowledge</a> as equivalent with <a href=../indigenous-way-of-life.html>Indigenous ways of living</a>.
+</p>
+
+<blockquote id="orgc5927e4">
+<p>
+"By just setting a target without adequate standards and commitment to accountability mechanisms, the CBD could unleash another wave of colonial land grabbing that disenfranchises millions of people," said Andy White, coordinator of the Rights and Resources Initiative.
+</p>
+</blockquote>
+
+<p>
+The fear isn't just hypothetical:
+</p>
+
+<blockquote id="orgbb1d740">
+<p>
+When the Kahuzi-Biega National Park in eastern Democratic Republic of Congo was dramatically enlarged in 1975, for example, the Bambuti community lost more than access to the forest.
+</p>
+
+<p>
+A whole culture intertwined with nature perished.
+</p>
+
+<p>
+"We no longer have access to medicinal plants," said Diel Mochire, regional director of the Integrated Programme for the Development of the Pygmy People.
+</p>
+
+<p>
+"Our diet changed. In the forest we had easy access to resources, now we have to buy everything." 
+</p>
+</blockquote>
+
+<blockquote id="org4346a16">
+<p>
+Arguably, the first conservation-related evictions date back to the last 19th century, when the US government violently expelled native Americans from lands that became the Yellowstone and Yosemite National Parks.
+</p>
+
+<p>
+"That model was exported around the world," [Andy White, coordinator of the Rights and Resources Initiative, said.]
+</p>
+
+<p>
+It is still the dominant model today, he added.
+</p>
+</blockquote>
+
+<p>
+And it's not just anecdotal:
+</p>
+
+<blockquote id="orgab594e7">
+<p>
+The [Rights and Resources Initiative], which defends indigenous peoples' rights, estimates that 136 million people have been displaced globally to date during the creation of the world's protected areas, which cover some 8.5 million square kilometres
+</p>
+</blockquote>
+
+<blockquote id="org2475fdd">
+<p>
+[The Rights and Resources Initiative] further calculates that over 1.6 billion people could be affected—directly or indirectly—by the [United Nation's] so-called "30-30" initiative.
+</p>
+</blockquote>
+
+<p>
+As I said earlier, I haven't written as much as I'd like to about this, yet, but hopefully this all gives some context to something I express often: <i>awareness of climate collapse isn't an indication of a positive relationship with Indigenous people</i>.
+</p>
+</div>
+</div>
+</section>
+
+<section id="outline-container-org519570f" class="outline-2">
+<h2 id="org519570f">News log</h2>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2021-01-15 Fri 08:37</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2021-01-15 Fri 17:08</p>
+</section>
+</body>
+</html>

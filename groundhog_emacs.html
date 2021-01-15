@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-13 Wed 18:59 -->
+<!-- 2021-01-15 Fri 17:02 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Groundhog Emacs</title>
@@ -202,13 +202,13 @@
 <main id="content">
 <header>
 <h1 class="title">Groundhog Emacs</h1>
-</header><div class="head" id="org15c3326">
+</header><div class="head" id="orgb5ad0de">
 
 </div>
 
 
 <p>
-<b><i><a href="groundhog_emacs.html">Groundhog Emacs</a></i></b> is what I call my <a href="emacsen.html">Emacsen</a>: my primary <a href="tool.html">tool</a> for doing <a href="information_management.html">information management</a> using a <a href="computer.html">computer</a>.
+<b><i><a href=groundhog_emacs.html>Groundhog Emacs</a></i></b> is what I call my <a href=emacsen.html>Emacsen</a>: my primary <a href=tool.html>tool</a> for doing <a href=information_management.html>information management</a> using a <a href=computer.html>computer</a>.
 </p>
 
 <nav id="table-of-contents">
@@ -218,6 +218,8 @@
 <li><a href="#org26df111">Plans</a>
 <ul>
 <li><a href="#orge16b510">Look at org-ql</a></li>
+<li><a href="#orgeeafbab">Look at tabfs</a></li>
+<li><a href="#orgcd98571">Look at roam-block</a></li>
 </ul>
 </li>
 <li><a href="#orgae64852">Configuration</a>
@@ -267,6 +269,22 @@
 <div class="outline-text-3" id="text-orge16b510">
 <p>
 <a href="https://github.com/alphapapa/org-ql">https://github.com/alphapapa/org-ql</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgeeafbab" class="outline-3">
+<h3 id="orgeeafbab">Look at tabfs</h3>
+<div class="outline-text-3" id="text-orgeeafbab">
+<p>
+<a href="https://omar.website/tabfs/">https://omar.website/tabfs/</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgcd98571" class="outline-3">
+<h3 id="orgcd98571">Look at roam-block</h3>
+<div class="outline-text-3" id="text-orgcd98571">
+<p>
+<a href="https://github.com/Kinneyzhang/roam-block">https://github.com/Kinneyzhang/roam-block</a>
 </p>
 </div>
 </div>
@@ -832,7 +850,7 @@
 <div class="org-src-container">
 <pre class="src src-elisp" id="orgaa344c7">("j" "Journal" entry
  #'org-roam-capture--get-point
- "* %U\n  %?\n\n"
+ "* %U\n\n  %?\n\n"
  :file-name "d/%&lt;%Y-%m-%d&gt;"
  :head ,(concat "#+title: ${title}\n"
 		"#+author: " (user-full-name) "\n"
@@ -956,7 +974,7 @@
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-01 Fri 17:34] </span></span> <br></li>
 </ul>
 <p>
-When I was first setting up <i>Groundhog Emacs</i>, I looked at <a href="alex_schroder.html">Alex Schröder</a>'s <a href="emacs_configuration.html">Emacs configuration</a>, and it had code for fixing a bug with <i>Isearch</i>'s behavior. I copied the code into <i>GHE</i> without really thinking about it, but having taken the time to look at <a href="https://debbugs.gnu.org/cgi/bugreport.cgi?bug=20971">bug's thread</a>, I'm not convinced it's necessary to use this.
+When I was first setting up <i>Groundhog Emacs</i>, I looked at <a href=alex_schroder.html>Alex Schröder</a>'s <a href=emacs_configuration.html>Emacs configuration</a>, and it had code for fixing a bug with <i>Isearch</i>'s behavior. I copied the code into <i>GHE</i> without really thinking about it, but having taken the time to look at <a href="https://debbugs.gnu.org/cgi/bugreport.cgi?bug=20971">bug's thread</a>, I'm not convinced it's necessary to use this.
 </p>
  </section>
 
@@ -985,7 +1003,7 @@ When I was first setting up <i>Groundhog Emacs</i>, I looked at <a href="alex_sc
 <h3 id="org608c3d3">Straight.el and use-package</h3>
 <div class="outline-text-3" id="text-org608c3d3">
 <p>
-Requires <a href="git.html">Git</a> be installed.
+Requires <a href=git.html>Git</a> be installed.
 </p>
 </div>
 
@@ -1822,7 +1840,7 @@ Requires <a href="git.html">Git</a> be installed.
       :olp ("Activity log"))
      ("j" "Journal" entry
       #'org-roam-capture--get-point
-      "* %U\n  %?\n\n"
+      "* %U\n\n  %?\n\n"
       :file-name "d/%&lt;%Y-%m-%d&gt;"
       :head ,(concat "#+title: ${title}\n"
 		"#+author: " (user-full-name) "\n"
@@ -3236,7 +3254,7 @@ ul { max-width: 85%; }
       :olp ("Activity log"))
      ("j" "Journal" entry
       #'org-roam-capture--get-point
-      "* %U\n  %?\n\n"
+      "* %U\n\n  %?\n\n"
       :file-name "d/%&lt;%Y-%m-%d&gt;"
       :head ,(concat "#+title: ${title}\n"
 		"#+author: " (user-full-name) "\n"
@@ -3340,7 +3358,7 @@ ul { max-width: 85%; }
 <section id="postamble" class="status">
 <p class="date">Date: 2020-12-18 Fri 14:06</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2021-01-13 Wed 18:59</p>
+<p class="date">Created: 2021-01-15 Fri 17:02</p>
 </section>
 </body>
 </html>

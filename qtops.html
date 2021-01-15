@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-13 Wed 19:00 -->
+<!-- 2021-01-15 Fri 17:04 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>qtOps</title>
@@ -202,12 +202,12 @@
 <main id="content">
 <header>
 <h1 class="title">qtOps</h1>
-</header><div class="head" id="orgd3f292c">
+</header><div class="head" id="orgc4ebe2c">
 
 </div>
 
 <p>
-<b><i><a href="qtops.html">qtOps</a></i></b> is a <a href="mud-engine.html">MUD engine</a> implemented in <a href="fennel.html">Fennel</a>.
+<b><i><a href=qtops.html>qtOps</a></i></b> is a <a href=mud-engine.html>MUD engine</a> implemented in <a href=fennel.html>Fennel</a>.
 </p>
 
 <nav id="table-of-contents">
@@ -239,7 +239,7 @@
 <h2 id="orgf7333f6">History</h2>
 <div class="outline-text-2" id="text-orgf7333f6">
 <ul class="org-ul">
-<li>Started writing in <a href="fennel.html">Fennel</a> on <a href="d/2021-01-10.html">2021-01-10</a>.</li>
+<li>Started writing in <a href=fennel.html>Fennel</a> on <a href=d/2021-01-10.html>2021-01-10</a>.</li>
 </ul>
 </div>
 </section>
@@ -263,15 +263,15 @@
 <h4 id="sitting-down-to-make-a-mud-in-fennel">Sitting down to make a MUD in Fennel, finally</h4>
 <div class="outline-text-4" id="text-sitting-down-to-make-a-mud-in-fennel">
 <p>
-Alright, it's been way too long but I'm finally planning to sit down today and re-start my <a href="mud.html">MUD</a> project, using <a href="fennel.html">Fennel</a> as the <a href="programming_languages.html">programming language</a>. Right now, I don't have any of the prerequisites set up on my system, and it's been&#x2026; more than a month and a half, maybe two months, since I've touched Fennel.
+Alright, it's been way too long but I'm finally planning to sit down today and re-start my <a href=mud.html>MUD</a> project, using <a href=fennel.html>Fennel</a> as the <a href=programming_languages.html>programming language</a>. Right now, I don't have any of the prerequisites set up on my system, and it's been&#x2026; more than a month and a half, maybe two months, since I've touched Fennel.
 </p>
 
 <p>
-I'm on <a href="debian-buster.html">Debian Buster</a>, so I start with the command <code>sudo apt install lua5.3 luarocks &amp;&amp; luarocks --local install fennel</code>
+I'm on <a href=debian-buster.html>Debian Buster</a>, so I start with the command <code>sudo apt install lua5.3 luarocks &amp;&amp; luarocks --local install fennel</code>
 </p>
 
 <p>
-Since I'm in <a href="emacs.html">Emacs</a>, I also want to install <a href="https://gitlab.com/technomancy/fennel-mode/">fennel-mode</a>. See <a href="groundhog_emacs.html#org0d46674">Fennel-mode</a> in the <a href="groundhog_emacs.html">Groundhog Emacs</a> record for my configuration. (Right now, none.)
+Since I'm in <a href=emacs.html>Emacs</a>, I also want to install <a href="https://gitlab.com/technomancy/fennel-mode/">fennel-mode</a>. See <a href=~/org/s/p/groundhog_emacs.html>Fennel-mode</a> in the <a href=groundhog_emacs.html>Groundhog Emacs</a> record for my configuration. (Right now, none.)
 </p>
 
 <p>
@@ -294,11 +294,11 @@ Nope!: <code>org-babel-execute-src-block: No org-babel-execute function for fenn
 </p>
 
 <p>
-Let me tweak my <a href="babel.html">Babel</a> configuration&#x2026; That gets me a different error: <code>org-babel-do-load-languages: Cannot open load file: No such file or directory, ob-fennel</code>
+Let me tweak my <a href=babel.html>Babel</a> configuration&#x2026; That gets me a different error: <code>org-babel-do-load-languages: Cannot open load file: No such file or directory, ob-fennel</code>
 </p>
 
 <p>
-Let me check the fennel-mode README&#x2026; It suggests using the command <code>C-u M-x run-lisp RET fennel RET</code> to start a Fennel <a href="repl.html">REPL</a>, but that gets me yet another error: <code>apply: Searching for program: No such file or directory, fennel</code>
+Let me check the fennel-mode README&#x2026; It suggests using the command <code>C-u M-x run-lisp RET fennel RET</code> to start a Fennel <a href=repl.html>REPL</a>, but that gets me yet another error: <code>apply: Searching for program: No such file or directory, fennel</code>
 </p>
 
 <p>
@@ -314,11 +314,11 @@ That all seems to be working how it should work&#x2026; however! It clearly is n
 </p>
 
 <p>
-That's outside the scope of my knowledge, so what I'll do is ask <a href="phil_hagelberg.html">Phil</a> about it, but I should be able to work with <a href="org_mode.html">Org-mode</a> and Fennel in a way that works for me, for now, right now.
+That's outside the scope of my knowledge, so what I'll do is ask <a href=phil_hagelberg.html>Phil</a> about it, but I should be able to work with <a href=org_mode.html>Org-mode</a> and Fennel in a way that works for me, for now, right now.
 </p>
 
 <p>
-So then that brings me to my first task: writing a simple socket server in Fennel. Let me first look at a simple socket server I found <a href="https://gist.github.com/whiler/35289e6e9b4239708dce72a591d295ec">on the Web</a>, and try and make sure it works and I understand it, in <a href="lua.html">Lua</a>, before I try and re-write it in Fennel.
+So then that brings me to my first task: writing a simple socket server in Fennel. Let me first look at a simple socket server I found <a href="https://gist.github.com/whiler/35289e6e9b4239708dce72a591d295ec">on the Web</a>, and try and make sure it works and I understand it, in <a href=lua.html>Lua</a>, before I try and re-write it in Fennel.
 </p>
 
 <div class="org-src-container">
@@ -373,7 +373,7 @@ Wonderful - that works exactly as expected. Now to convert it into Fennel.
 </div>
 
 <p>
-That seems to accomplish the same task! And it might not look like it, but this is actually a pretty significant step in terms of getting to a useful-enough MUD. I need to step away from my computer for a while, but when I get back I'll come to the other side of a basic MUD, the game engine, and then hopefully this evening or tomorrow I can plug the two in and have the foundation of a <a href="game-engine.html">game engine</a> accessible through <a href="telnet.html">TELNET</a>.
+That seems to accomplish the same task! And it might not look like it, but this is actually a pretty significant step in terms of getting to a useful-enough MUD. I need to step away from my computer for a while, but when I get back I'll come to the other side of a basic MUD, the game engine, and then hopefully this evening or tomorrow I can plug the two in and have the foundation of a <a href=game-engine.html>game engine</a> accessible through <a href=telnet.html>TELNET</a>.
 </p>
 
 <p>
@@ -381,7 +381,7 @@ That seems to accomplish the same task! And it might not look like it, but this 
 </p>
 
 <p>
-And I'm back! So, a bit of history. The most recent iteration of my <a href="mud-engine.html">MUD engine</a> was called <i>qtOps</i>, which stood for "qualities of things operations," and was implemented in <a href="racket.html">Racket</a>. I'll probably stick with the name and a lot of the basic functionality, which was, well, here's just the opening paragraph of the project's README:
+And I'm back! So, a bit of history. The most recent iteration of my <a href=mud-engine.html>MUD engine</a> was called <i>qtOps</i>, which stood for "qualities of things operations," and was implemented in <a href=racket.html>Racket</a>. I'll probably stick with the name and a lot of the basic functionality, which was, well, here's just the opening paragraph of the project's README:
 </p>
 
 <blockquote id="org7b531f1">
@@ -391,7 +391,7 @@ And I'm back! So, a bit of history. The most recent iteration of my <a href="mud
 </blockquote>
 
 <p>
-The core of qtOps then, is the "thing," which in Racket was a hash-table, and in Fennel will be a <a href="lua-table.html">Lua table</a> - both are types of <a href="associative_array.html">associative arrays</a>.
+The core of qtOps then, is the "thing," which in Racket was a hash-table, and in Fennel will be a <a href=lua-table.html>Lua table</a> - both are types of <a href=associative_array.html>associative arrays</a>.
 </p>
 
 
@@ -487,7 +487,7 @@ The rest of the Racket version of qtOps' module for creating things is for creat
 </div>
 
 <p>
-When I was writing the Racket version of qtOps, I used lots of symbols prefixed and post-fixed to procedure names, inspired by the use of <code>!</code> after procedure names to declare they have <a href="functional-side-effects.html">functional side-effects</a>. Above, in <code>call~~</code>, the <code>~~</code> means "this procedure might change this thing, and/or possibly other things."
+When I was writing the Racket version of qtOps, I used lots of symbols prefixed and post-fixed to procedure names, inspired by the use of <code>!</code> after procedure names to declare they have <a href=functional-side-effects.html>functional side-effects</a>. Above, in <code>call~~</code>, the <code>~~</code> means "this procedure might change this thing, and/or possibly other things."
 </p>
 
 <p>
@@ -572,7 +572,7 @@ I hope whoever reads this in the future, including myself, enjoys it, or gets so
 <h4 id="tweaking-create-core-thing">Tweaking <code>create-core-thing</code></h4>
 <div class="outline-text-4" id="text-tweaking-create-core-thing">
 <p>
-<a href="phil_hagelberg.html">Phil Hagelberg</a> saw my <a href="#sitting-down-to-make-a-mud-in-fennel">first development journal</a> about migrating <i>qtOps</i> to <a href="fennel.html">Fennel</a>, and suggested a tweak to my <code>create-core-thing</code> function:
+<a href=phil_hagelberg.html>Phil Hagelberg</a> saw my <a href="#sitting-down-to-make-a-mud-in-fennel">first development journal</a> about migrating <i>qtOps</i> to <a href=fennel.html>Fennel</a>, and suggested a tweak to my <code>create-core-thing</code> function:
 </p>
 
 <blockquote>
@@ -646,10 +646,10 @@ Each property usually has a few functions associated with it, at least to query 
 </ul>
 
 <p>
-Now there's a bit of confusing <a href="semantics.html">semantics</a> going on here. See, in the Racket version of qtOps, everything <i>was</i> a procedure, within a thing: querying a thing's name called a name procedure that returned a string. And I'm unsure if that's necessary, going forward. (Maybe it was never necessary?)
+Now there's a bit of confusing <a href=semantics.html>semantics</a> going on here. See, in the Racket version of qtOps, everything <i>was</i> a procedure, within a thing: querying a thing's name called a name procedure that returned a string. And I'm unsure if that's necessary, going forward. (Maybe it was never necessary?)
 </p>
 
-<aside id="org536c438">
+<aside id="orgd03b7ec">
 <p>
 This seems like a problem where having notes from back when I was writing it this way would be helpful, to see if I ever address the question of "why is everything a procedure?"
 </p>
@@ -701,9 +701,9 @@ Unfortunately this relies on a <code>set-procedure</code> I haven't written in F
 <div class="outline-text-2" id="text-orgf9cd558">
 <section class="org-drawer"> <ul class="org-ul">
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-11 Mon 10:55] </span></span> <br>
-I've started moving the first development journal from yesterday's record straight into this record. <a href="org_mode_inclusion.html">Org-mode inclusion</a> didn't work how I had hoped, and so I wasn't able to tangle code out from included blocks.</li>
+I've started moving the first development journal from yesterday's record straight into this record. <a href=org_mode_inclusion.html>Org-mode inclusion</a> didn't work how I had hoped, and so I wasn't able to tangle code out from included blocks.</li>
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-11 Mon 09:48] </span></span> <br>
-The source code for <i>qtOps</i> is being written in my <a href="d/index.html">daily records</a>. What is here can be considered the "main" or "stable" version of the source, but all code blocks are pulled in from those records.</li>
+The source code for <i>qtOps</i> is being written in my <a href=d/index.html>daily records</a>. What is here can be considered the "main" or "stable" version of the source, but all code blocks are pulled in from those records.</li>
 </ul>
  </section>
 
@@ -741,9 +741,9 @@ The source code for <i>qtOps</i> is being written in my <a href="d/index.html">d
 <div class="outline-text-5" id="text-org3eada1a">
 <section class="org-drawer"> <ul class="org-ul">
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-11 Mon 12:03] </span></span> <br>
-Bumped up to version 0.1.1 from <a href="qtops.html#tweaking-create-core-thing">Tweaking <code>create-core-thing</code></a>,</li>
+Bumped up to version 0.1.1 from <a href=qtops.html>Tweaking <code>create-core-thing</code></a>,</li>
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-10 Sun 11:44] </span></span> <br>
-Added in response developments in <a href="qtops.html#sitting-down-to-make-a-mud-in-fennel">Sitting down to make a MUD in Fennel, finally</a>.</li>
+Added in response developments in <a href=qtops.html>Sitting down to make a MUD in Fennel, finally</a>.</li>
 </ul>
  </section>
 
@@ -766,7 +766,7 @@ Added in response developments in <a href="qtops.html#sitting-down-to-make-a-mud
 <div class="outline-text-5" id="text-orgc1bdab6">
 <section class="org-drawer"> <ul class="org-ul">
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-10 Sun 11:44] </span></span> <br>
-Added in response developments in <a href="qtops.html#sitting-down-to-make-a-mud-in-fennel">Sitting down to make a MUD in Fennel, finally</a>.</li>
+Added in response developments in <a href=qtops.html>Sitting down to make a MUD in Fennel, finally</a>.</li>
 </ul>
  </section>
 
@@ -803,7 +803,7 @@ Added in response developments in <a href="qtops.html#sitting-down-to-make-a-mud
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-10 Sun 11:44] </span></span> <br></li>
 </ul>
 <p>
-Added in response developments in <a href="qtops.html#sitting-down-to-make-a-mud-in-fennel">Sitting down to make a MUD in Fennel, finally</a>.
+Added in response developments in <a href=qtops.html>Sitting down to make a MUD in Fennel, finally</a>.
 </p>
  </section>
 
@@ -930,14 +930,15 @@ Added in response developments in <a href="qtops.html#sitting-down-to-make-a-mud
 <h3 id="backlinks">Backlinks</h3>
 <div class="outline-text-3" id="text-backlinks">
 <ul class="org-ul">
-<li><a href="d/2021-01-11.html">2021-01-11</a></li>
-<li><a href="qtops.html">qtOps</a></li>
-<li><a href="qtops.html">qtOps</a></li>
-<li><a href="qtops.html">qtOps</a></li>
-<li><a href="qtops.html">qtOps</a></li>
-<li><a href="qtops.html">qtOps</a></li>
-<li><a href="repl.html">REPL</a></li>
-<li><a href="records_index.html">Records Index</a></li>
+<li><a href=d/2021-01-11.html>2021-01-11</a></li>
+<li><a href=qtops.html>qtOps</a></li>
+<li><a href=qtops.html>qtOps</a></li>
+<li><a href=qtops.html>qtOps</a></li>
+<li><a href=qtops.html>qtOps</a></li>
+<li><a href=qtops.html>qtOps</a></li>
+<li><a href=repl.html>REPL</a></li>
+<li><a href=debian-buster.html>Debian Buster</a></li>
+<li><a href=records_index.html>Records Index</a></li>
 </ul>
 </div>
 </div>
@@ -946,7 +947,7 @@ Added in response developments in <a href="qtops.html#sitting-down-to-make-a-mud
 <section id="postamble" class="status">
 <p class="date">Date: 2021-01-11 Mon 09:44</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2021-01-13 Wed 19:00</p>
+<p class="date">Created: 2021-01-15 Fri 17:04</p>
 </section>
 </body>
 </html>
