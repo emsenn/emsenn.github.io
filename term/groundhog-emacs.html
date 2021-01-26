@@ -1,0 +1,3365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-01-26 Tue 18:26 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Groundhog Emacs</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="../index.html">homepage</a> | <a href="../term/index.html">definitions</a> | <a href="../ref/index.html">references</a> | <a href="../com/index.html">communication</a> | <a href="../daily/index.html">daily summary</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="../record.html">records</a> with more <a href="../information.html">information</a> about both of those concepts.) On the <a href="../Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="../emsenn.html">emsenn</a>, to share some of my <a href="../knowledge.html">knowledge</a> with <a href="../person.html">people</a> on the <a href="../Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="../record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="../permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="../backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">Groundhog Emacs</h1>
+</header><p>
+<b><i><a href=groundhog-emacs.html>Groundhog Emacs</a></i></b> is my (<a href=emsenn.html>emsenn</a>'s) <a href=emacsen.html>Emacsen</a>.
+</p>
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd53aedc">Plans</a>
+<ul>
+<li><a href="#orged2e8ad">Look at org-ql</a></li>
+<li><a href="#orga159386">Look at tabfs</a></li>
+<li><a href="#orgefa6093">Look at roam-block</a></li>
+<li><a href="#orgb2ec3de">Figure out org-attach</a></li>
+</ul>
+</li>
+<li><a href="#orgcdfe9f5">Configuration</a>
+<ul>
+<li><a href="#orgde2ca5e">Email</a></li>
+<li><a href="#org277546b">Save configuration</a></li>
+<li><a href="#org79282d6">Startup configuration</a></li>
+<li><a href="#orgb4780ac">Scratch configuration</a></li>
+<li><a href="#org8a9e0bc">Interface configuration</a></li>
+<li><a href="#org81309b4">Basic behavior configuration</a></li>
+<li><a href="#org8949e47">Org-mode configuration</a></li>
+<li><a href="#org960ea47">Org-mode capture templates</a></li>
+<li><a href="#orgc358b1d">Org-mode projects</a></li>
+<li><a href="#org6e65f2a">Org-roam configuration</a></li>
+</ul>
+</li>
+<li><a href="#orgb3796c1">Components</a>
+<ul>
+<li><a href="#orgf139659">Bugfixes &amp; Version-handling</a></li>
+<li><a href="#org150510d">Straight.el and use-package</a></li>
+<li><a href="#orge759762">Tao theme</a></li>
+<li><a href="#org5c682aa">HTMLize</a></li>
+<li><a href="#orgc7b898a">Ivy</a></li>
+<li><a href="#orgfb90d9c">Fennel-mode</a></li>
+<li><a href="#org6ed2d23">Lua-mode</a></li>
+<li><a href="#org7af1829">Racket-mode</a></li>
+<li><a href="#orgad3c623">rcIRC</a></li>
+<li><a href="#org722e39e">Magit</a></li>
+<li><a href="#org0333ad7">Olivetti</a></li>
+<li><a href="#orgdb243a7">Org-mode</a></li>
+<li><a href="#org7bd64e7">Org-attach-screenshot</a></li>
+<li><a href="#org8fb4220">Org-roam</a></li>
+<li><a href="#org8ab9b6b">Org-roam-server</a></li>
+<li><a href="#org40e6fee">Org-mode export HTML &amp; CSS chunks</a></li>
+</ul>
+</li>
+<li><a href="#org853f27d">Full Source</a></li>
+<li><a href="#backlinks">Backlinks</a></li>
+</ul>
+</div>
+</nav>
+<section id="outline-container-orgd53aedc" class="outline-2">
+<h2 id="orgd53aedc">Plans</h2>
+<div class="outline-text-2" id="text-orgd53aedc">
+</div>
+<div id="outline-container-orged2e8ad" class="outline-3">
+<h3 id="orged2e8ad">Look at org-ql</h3>
+<div class="outline-text-3" id="text-orged2e8ad">
+<p>
+<a href="https://github.com/alphapapa/org-ql">https://github.com/alphapapa/org-ql</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orga159386" class="outline-3">
+<h3 id="orga159386">Look at tabfs</h3>
+<div class="outline-text-3" id="text-orga159386">
+<p>
+<a href="https://omar.website/tabfs/">https://omar.website/tabfs/</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgefa6093" class="outline-3">
+<h3 id="orgefa6093">Look at roam-block</h3>
+<div class="outline-text-3" id="text-orgefa6093">
+<p>
+<a href="https://github.com/Kinneyzhang/roam-block">https://github.com/Kinneyzhang/roam-block</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgb2ec3de" class="outline-3">
+<h3 id="orgb2ec3de">Figure out org-attach</h3>
+</div>
+</section>
+<section id="outline-container-orgcdfe9f5" class="outline-2">
+<h2 id="orgcdfe9f5">Configuration</h2>
+<div class="outline-text-2" id="text-orgcdfe9f5">
+</div>
+<div id="outline-container-orgde2ca5e" class="outline-3">
+<h3 id="orgde2ca5e">Email</h3>
+<div class="outline-text-3" id="text-orgde2ca5e">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Set the <code>user-mail-address</code> variable.</label><pre class="src src-elisp" id="org07461ea">(setq user-mail-address "emsenn@emsenn.net")
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org277546b" class="outline-3">
+<h3 id="org277546b">Save configuration</h3>
+<div class="outline-text-3" id="text-org277546b">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgb43f9ca">(setq make-backup-files nil)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org79282d6" class="outline-3">
+<h3 id="org79282d6">Startup configuration</h3>
+<div class="outline-text-3" id="text-org79282d6">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org1b7520b">(setq inhibit-startup-message t)
+(setq visible-bell 1)
+(setq inhibit-startup-screen t)
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb4780ac" class="outline-3">
+<h3 id="orgb4780ac">Scratch configuration</h3>
+<div class="outline-text-3" id="text-orgb4780ac">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org3189934">(setq initial-scratch-message ";; Groundhog Emacs has some bugs\n;; Press C-x C-e after the following lines to fix them\n(ivy-mode)\n")
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8a9e0bc" class="outline-3">
+<h3 id="org8a9e0bc">Interface configuration</h3>
+<div class="outline-text-3" id="text-org8a9e0bc">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org7ebb877">(menu-bar-mode -1)
+(tool-bar-mode -1)
+(show-paren-mode 1)
+(setq line-number-mode t)
+(setq column-number-mode t)
+(setq-default truncate-lines t)
+(setq-default line-spacing 1)
+(setq sentence-end-double-space nil)
+(global-visual-line-mode t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org81309b4" class="outline-3">
+<h3 id="org81309b4">Basic behavior configuration</h3>
+<div class="outline-text-3" id="text-org81309b4">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgdb6cbac">(setq echo-keystrokes 0.1)
+(setq fill-column 68)
+(setq mouse-wheel-scroll-amount '(1 ((shift) .1)))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8949e47" class="outline-3">
+<h3 id="org8949e47">Org-mode configuration</h3>
+<div class="outline-text-3" id="text-org8949e47">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org105207d">(setq org-directory "~/org")
+(setq org-startup-folded 'fold)
+(setq org-hide-block-startup 'hideblocks)
+(setq org-catch-invisible-edits 'show-and-error)
+(setq org-agenda-files (list "~/org"))
+(setq org-export-with-section-numbers nil)
+(setq org-export-with-smart-quotes nil)
+(setq org-export-with-toc nil)
+(setq org-html-htmlize-output-type 'nil)
+(setq org-html-validation-link nil)
+(setq org-log-done 'time)
+(setq org-log-into-drawer 'LOGBOOK)
+(setq org-image-actual-width '(400))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org960ea47" class="outline-3">
+<h3 id="org960ea47">Org-mode capture templates</h3>
+<div class="outline-text-3" id="text-org960ea47">
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgff778cf">Source block (s)</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgff778cf" class="outline-4">
+<h4 id="orgff778cf">Source block (s)</h4>
+<div class="outline-text-4" id="text-orgff778cf">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org3e34f1f">("s" "Capture source code block")
+</pre>
+</div>
+</div>
+<div id="outline-container-org3dcf117" class="outline-5">
+<h5 id="org3dcf117">Elisp source block (se)</h5>
+<div class="outline-text-5" id="text-org3dcf117">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgfd4a7fb">("se" "Elisp code block"
+	     plain (clock)
+	     ,(concat "#+name: %^{NAME}-elisp\n"
+		      "#+caption: %^{CAPTION}\n"
+		    "#+begin_src elisp %^{HEADER-ARGS}\n"
+		    "%?\n"
+		    "#+end_src\n"))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc358b1d" class="outline-3">
+<h3 id="orgc358b1d">Org-mode projects</h3>
+<div class="outline-text-3" id="text-orgc358b1d">
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org45fdbd1">Records catalog project</a></li>
+<li><a href="#org0ff648c">All records project</a></li>
+<li><a href="#org94731ff">Term records project</a></li>
+<li><a href="#org26e2392">Comment records project</a></li>
+<li><a href="#org7d0b8c8">Reference records project</a></li>
+<li><a href="#orgc10b1f5">Daily records project</a></li>
+<li><a href="#org13ed56f">Teraum project</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org45fdbd1" class="outline-4">
+<h4 id="org45fdbd1">Records catalog project</h4>
+<div class="outline-text-4" id="text-org45fdbd1">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org4dd9923">("records" :components ("all-records" "term-records" "comment-records" "reference-records" "daily-records"))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org0ff648c" class="outline-4">
+<h4 id="org0ff648c">All records project</h4>
+<div class="outline-text-4" id="text-org0ff648c">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org6105954">("all-records"
+ :base-extension "org"
+ :publishing-function org-html-publish-to-html
+ :html-doctype "html5"
+ :html-html5-fancy t
+ :html-container "section"
+ :headline-levels 6
+ :recursive t
+ :html-divs ((preamble "section" "preamble")
+	    (content "main" "content")
+	    (postamble "section" "postamble"))
+ :publishing-function org-html-publish-to-html
+ :html-format-drawer-function ghe-org-html-format-drawer
+ :html-head-include-scripts nil
+ :html-head-include-default-style nil
+ :html-head ,ghe-org-html-head
+ :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+ :with-footnotes t
+ :with-toc nil
+ :with-drawers t
+ :base-directory "~/org/s/"
+ :publishing-directory "~/org/p"
+ :makeindex t
+ :html-preamble ,ghe-org-html-base-preamble)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org94731ff" class="outline-4">
+<h4 id="org94731ff">Term records project</h4>
+<div class="outline-text-4" id="text-org94731ff">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgaeb8043">("term-records"
+ :base-extension "org"
+ :publishing-function org-html-publish-to-html
+ :html-doctype "html5"
+ :html-html5-fancy t
+ :html-container "section"
+ :headline-levels 6
+ :recursive t
+ :html-divs ((preamble "section" "preamble")
+	    (content "main" "content")
+	    (postamble "section" "postamble"))
+ :publishing-function org-html-publish-to-html
+ :html-format-drawer-function ghe-org-html-format-drawer
+ :sitemap-function ghe-org-publish-format-sitemap
+ :html-head-include-scripts nil
+ :html-head-include-default-style nil
+ :html-head ,ghe-org-html-head
+ :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+ :auto-sitemap t
+ :with-footnotes t
+ :with-toc nil
+ :with-drawers t
+ :base-directory "~/org/s/term"
+ :publishing-directory "~/org/p/term"
+ :html-preamble ,ghe-org-html-subdir-preamble
+ :sitemap-filename "index.org"
+ :sitemap-sort-files alphabetically
+ :sitemap-title "Term Index")
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org26e2392" class="outline-4">
+<h4 id="org26e2392">Comment records project</h4>
+<div class="outline-text-4" id="text-org26e2392">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org1ef4da7">("comment-records"
+ :base-extension "org"
+ :publishing-function org-html-publish-to-html
+ :html-doctype "html5"
+ :html-html5-fancy t
+ :html-container "section"
+ :headline-levels 6
+ :recursive t
+ :html-divs ((preamble "section" "preamble")
+	    (content "main" "content")
+	    (postamble "section" "postamble"))
+ :publishing-function org-html-publish-to-html
+ :html-format-drawer-function ghe-org-html-format-drawer
+ :sitemap-function ghe-org-publish-format-sitemap
+ :html-head-include-scripts nil
+ :html-head-include-default-style nil
+ :html-head ,ghe-org-html-head
+ :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+ :auto-sitemap t
+ :with-footnotes t
+ :with-toc nil
+ :with-drawers t
+ :base-directory "~/org/s/com"
+ :publishing-directory "~/org/p/com"
+ :html-preamble ,ghe-org-html-subdir-preamble
+ :sitemap-filename "index.org"
+ :sitemap-sort-files anti-chronologically
+ :sitemap-title "Communications Index")
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7d0b8c8" class="outline-4">
+<h4 id="org7d0b8c8">Reference records project</h4>
+<div class="outline-text-4" id="text-org7d0b8c8">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org4d1baa3">("reference-records"
+ :base-extension "org"
+ :publishing-function org-html-publish-to-html
+ :html-doctype "html5"
+ :html-html5-fancy t
+ :html-container "section"
+ :headline-levels 6
+ :recursive t
+ :html-divs ((preamble "section" "preamble")
+	    (content "main" "content")
+	    (postamble "section" "postamble"))
+ :publishing-function org-html-publish-to-html
+ :html-format-drawer-function ghe-org-html-format-drawer
+ :sitemap-function ghe-org-publish-format-sitemap
+ :html-head-include-scripts nil
+ :html-head-include-default-style nil
+ :html-head ,ghe-org-html-head
+ :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+ :auto-sitemap t
+ :with-footnotes t
+ :with-toc nil
+ :with-drawers t
+ :base-directory "~/org/s/ref"
+ :publishing-directory "~/org/p/ref"
+ :html-preamble ,ghe-org-html-subdir-preamble
+ :sitemap-filename "index.org"
+ :sitemap-sort-files alphabetically
+ :sitemap-title "Reference Index")
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc10b1f5" class="outline-4">
+<h4 id="orgc10b1f5">Daily records project</h4>
+<div class="outline-text-4" id="text-orgc10b1f5">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org3d3bdf7">("daily-records"
+ :base-extension "org"
+ :publishing-function org-html-publish-to-html
+ :html-doctype "html5"
+ :html-html5-fancy t
+ :html-container "section"
+ :headline-levels 6
+ :recursive t
+ :html-divs ((preamble "section" "preamble")
+	    (content "main" "content")
+	    (postamble "section" "postamble"))
+ :publishing-function org-html-publish-to-html
+ :html-format-drawer-function ghe-org-html-format-drawer
+ :sitemap-function ghe-org-publish-format-sitemap
+ :html-head-include-scripts nil
+ :html-head-include-default-style nil
+ :html-head ,ghe-org-html-head
+ :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+ :auto-sitemap t
+ :with-footnotes t
+ :with-toc nil
+ :with-drawers t
+ :base-directory "~/org/s/daily"
+ :publishing-directory "~/org/p/daily"
+ :html-preamble ,ghe-org-html-subdir-preamble
+ :sitemap-filename "index.org"
+ :sitemap-sort-files anti-chronologically
+ :sitemap-title "Daily Index")
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org13ed56f" class="outline-4">
+<h4 id="org13ed56f">Teraum project</h4>
+<div class="outline-text-4" id="text-org13ed56f">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org4a289e9">("teraum"
+ :base-extension "org"
+ :publishing-function org-html-publish-to-html
+ :html-doctype "html5"
+ :html-html5-fancy t
+ :html-container "section"
+ :headline-levels 6
+ :recursive t
+ :html-divs ((preamble "section" "preamble")
+	     (content "main" "content")
+	     (postamble "section" "postamble"))
+ :publishing-function org-html-publish-to-html
+ :html-format-drawer-function ghe-org-html-format-drawer
+ :sitemap-function ghe-org-publish-format-sitemap
+ :html-head-include-scripts nil
+ :html-head-include-default-style nil
+ :html-head ,ghe-org-html-head
+ :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+ :auto-sitemap t
+ :with-footnotes t
+ :with-toc nil
+ :with-drawers t
+ :base-directory "~/org/s/teraum"
+ :publishing-directory "~/org/p/teraum"
+ :html-preamble ,ghe-org-html-subdir-preamble
+ :sitemap-filename "index.org"
+ :sitemap-sort-files anti-chronologically
+ :sitemap-title "Teraum Index")
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6e65f2a" class="outline-3">
+<h3 id="org6e65f2a">Org-roam configuration</h3>
+<div class="outline-text-3" id="text-org6e65f2a">
+</div>
+<div id="outline-container-org887228e" class="outline-4">
+<h4 id="org887228e">Org-roam immediate capture template</h4>
+<div class="outline-text-4" id="text-org887228e">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org4950dc9">("B" "blank term" plain
+ (function org-roam--capture-get-point)
+ "*/[[file:${slug}.org][${title}]]/* hasn't been defined yet.\n"
+ :file-name "term/${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+date: %U\n"
+		"#+index: ${title}\n"
+		"#+name: ${slug}-definition\n")
+ :unnarrowed t
+ :immediate-finish t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org04add96" class="outline-4">
+<h4 id="org04add96">Org-roam capture templates</h4>
+<div class="outline-text-4" id="text-org04add96">
+</div>
+<div id="outline-container-org8d126d9" class="outline-5">
+<h5 id="org8d126d9">Org-roam term capture template</h5>
+<div class="outline-text-5" id="text-org8d126d9">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orga96fe6e">("t" "term" plain
+ (function org-roam--capture-get-point)
+ "*/[[file:${slug}.org][${title}]]/* %?\n"
+ :file-name "term/${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+date: %U\n"
+		"#+index: ${title}\n"
+		"#+name: ${slug}-definition\n")
+ :unnarrowed t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgffc5a7c" class="outline-5">
+<h5 id="orgffc5a7c">Org-roam reference capture template</h5>
+<div class="outline-text-5" id="text-orgffc5a7c">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org7c5ddde">("r" "reference" plain
+ (function org-roam--capture-get-point)
+ ,(concat "#+author: %^{Author?}\n"
+	  "#+date: %^{Date?}\n"
+	  "#+roam_tags: unincorporated-reference\n"
+	  "#+index: %^{Index?}!references!${title}\n"
+	  "#+name: ${slug}-definition\n"
+	  "*/[[file:${slug}.org][${title}]]/* is an [[file:../term/unincorporated-reference.org][unincorporated reference]].\n")
+ :file-name "ref/${slug}"
+ :head ,(concat "#+title: ${title}\n")
+ :unnarrowed t)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaa7883e" class="outline-5">
+<h5 id="orgaa7883e">Org-roam comment capture template</h5>
+<div class="outline-text-5" id="text-orgaa7883e">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org74ba486">("c" "comment" plain
+ (function org-roam--capture-get-point)
+		"#+index: %^{Index?}!comments!${slug}\n\n%?\n"
+ :file-name "com/${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+date: %U\n"
+		"#+roam_tags: comment\n")
+ :unnarrowed t)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaa87bc8" class="outline-5">
+<h5 id="orgaa87bc8">Org-roam Teraum capture templates</h5>
+<div class="outline-text-5" id="text-orgaa87bc8">
+</div>
+<div id="outline-container-orgebeb4a5" class="outline-6">
+<h6 id="orgebeb4a5">Org-roam Teraum term capture template</h6>
+<div class="outline-text-6" id="text-orgebeb4a5">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org5294a5a">("Tt" "term" plain
+ (function org-roam--capture-get-point)
+ "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an term of [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %f\n\n      %?\n   :END:\n"
+ :file-name "teraum/${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum\n"
+		"#+end_head\n\n")
+ :unnarrowed t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga86bb18" class="outline-6">
+<h6 id="orga86bb18">Org-roam Teraum area capture template</h6>
+<div class="outline-text-6" id="text-orga86bb18">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgcd94cc3">("Ta" "area" plain
+ (function org-roam--capture-get-point)
+ "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an area of [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+ :file-name "teraum/${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum area\n"
+		"#+end_head\n\n")
+ :unnarrowed t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6e6800d" class="outline-6">
+<h6 id="org6e6800d">Org-roam Teraum year capture template</h6>
+<div class="outline-text-6" id="text-org6e6800d">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgb046cf4">("Ty" "year" plain
+ (function org-roam--capture-get-point)
+ "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is a year in [[file:teraum_s_history.org][Teraum's history]].\n\n#+toc: headlines 2\n\n%?\n\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+ :file-name "teraum/${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum year\n"
+		"#+end_head\n\n")
+ :unnarrowed t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbe4dc83" class="outline-6">
+<h6 id="orgbe4dc83">Org-roam Teraum date capture template</h6>
+<div class="outline-text-6" id="text-orgbe4dc83">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org73ec7f1">("Td" "date" plain
+ (function org-roam--capture-get-point)
+ "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is a date in [[file:teraum_s_history.org][Teraum's history]].\n\n#+toc: headlines 2\n\n%?\n\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+ :file-name "teraum/${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum date\n"
+		"#+end_head\n\n")
+ :unnarrowed t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org24393ff" class="outline-6">
+<h6 id="org24393ff">Org-roam Teraum species capture template</h6>
+<div class="outline-text-6" id="text-org24393ff">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org105f460">("Ts" "species" plain
+ (function org-roam--capture-get-point)
+ "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an species from [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+ :file-name "teraum/${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum species\n"
+		"#+end_head\n\n")
+ :unnarrowed t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org617c9eb" class="outline-6">
+<h6 id="org617c9eb">Org-roam Teraum person capture template</h6>
+<div class="outline-text-6" id="text-org617c9eb">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org9963996">("Tp" "species" plain
+ (function org-roam--capture-get-point)
+ "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an person from [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n   :END:\n"
+ :file-name "teraum/${slug}"
+ :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum person\n"
+		"#+end_head\n\n")
+ :unnarrowed t)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org14fb38a" class="outline-4">
+<h4 id="org14fb38a">Org-roam dailies capture templates</h4>
+<div class="outline-text-4" id="text-org14fb38a">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgdeb3fdc">("d" "daily" plain
+ #'org-roam-capture--get-point
+ "- [[%f][%?]]\n"
+ :file-name "daily/%&lt;%Y-%m-%d&gt;"
+ :head ,(concat "#+title: %&lt;%Y-%m-%d&gt;\n"
+		"#+author: " (user-full-name) "\n"
+		"#+date: %U\n"
+		"#+roam_tags: daily\n"
+		"This is some changes that were made to this record catalog on %u.\n"))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="outline-container-orgb3796c1" class="outline-2">
+<h2 id="orgb3796c1">Components</h2>
+<div class="outline-text-2" id="text-orgb3796c1">
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgf139659">Bugfixes &amp; Version-handling</a>
+<ul>
+<li><a href="#orgc968699">Isearch occurence bug</a></li>
+<li><a href="#org91ff03d">TLS fix for Emacs &lt;26.3</a></li>
+</ul>
+</li>
+<li><a href="#org150510d">Straight.el and use-package</a>
+<ul>
+<li><a href="#org4bea900">Straight.el bootstrapping</a></li>
+<li><a href="#org43046d7">Use-package bootstrapping</a></li>
+</ul>
+</li>
+<li><a href="#orge759762">Tao theme</a></li>
+<li><a href="#org5c682aa">HTMLize</a></li>
+<li><a href="#orgc7b898a">Ivy</a></li>
+<li><a href="#orgfb90d9c">Fennel-mode</a></li>
+<li><a href="#org6ed2d23">Lua-mode</a></li>
+<li><a href="#org7af1829">Racket-mode</a></li>
+<li><a href="#orgad3c623">rcIRC</a></li>
+<li><a href="#org722e39e">Magit</a></li>
+<li><a href="#org0333ad7">Olivetti</a></li>
+<li><a href="#orgdb243a7">Org-mode</a></li>
+<li><a href="#org7bd64e7">Org-attach-screenshot</a></li>
+<li><a href="#org8fb4220">Org-roam</a></li>
+<li><a href="#org8ab9b6b">Org-roam-server</a></li>
+<li><a href="#org40e6fee">Org-mode export HTML &amp; CSS chunks</a>
+<ul>
+<li><a href="#org29f318b">HTML base preamble</a></li>
+<li><a href="#orga3f1fe3">HTML subdir preamble</a></li>
+<li><a href="#orgf2fd692">CSS stylesheet</a></li>
+<li><a href="#org4ec9be0">HTML head</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf139659" class="outline-3">
+<h3 id="orgf139659">Bugfixes &amp; Version-handling</h3>
+<div class="outline-text-3" id="text-orgf139659">
+</div>
+<div id="outline-container-orgc968699" class="outline-4">
+<h4 id="orgc968699">Isearch occurence bug</h4>
+<div class="outline-text-4" id="text-orgc968699">
+<section class="org-drawer"> <ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-01 Fri 17:34] </span></span> <br></li>
+</ul>
+<p>
+When I was first setting up <i>Groundhog Emacs</i>, I looked at <a href=alex_schroder.html>Alex Schröder</a>'s <a href=emacs_configuration.html>Emacs configuration</a>, and it had code for fixing a bug with <i>Isearch</i>'s behavior. I copied the code into <i>GHE</i> without really thinking about it, but having taken the time to look at <a href="https://debbugs.gnu.org/cgi/bugreport.cgi?bug=20971">bug's thread</a>, I'm not convinced it's necessary to use this.
+</p>
+ </section>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>An <i>Elisp</i> declaration for fixing bug #20971 in <i>Emacs</i>.</label><pre class="src src-elisp" id="org1c6a4e1">(defadvice isearch-occur (after isearch-occur-fix activate)
+  "Fixes bug #20971: http://debbugs.gnu.org/cgi/bugreport.cgi?bug=20971"
+  (setq buffer-read-only nil))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org91ff03d" class="outline-4">
+<h4 id="org91ff03d">TLS fix for Emacs &lt;26.3</h4>
+<div class="outline-text-4" id="text-org91ff03d">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>Fix an error with <i>TLS</i> stuff in Emacs versions &lt;26.3</label><pre class="src src-elisp" id="org6dace8d">(if (and (version&lt; emacs-version "26.3") (&gt;= libgnutls-version 30600))
+    (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org150510d" class="outline-3">
+<h3 id="org150510d">Straight.el and use-package</h3>
+<div class="outline-text-3" id="text-org150510d">
+<p>
+Requires <a href=git.html>Git</a> be installed.
+</p>
+</div>
+
+<div id="outline-container-org4bea900" class="outline-4">
+<h4 id="org4bea900">Straight.el bootstrapping</h4>
+<div class="outline-text-4" id="text-org4bea900">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org009cb26">(defvar straight-install-script-path
+  "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el")
+
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+    (url-retrieve-synchronously straight-install-script-path
+     'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org43046d7" class="outline-4">
+<h4 id="org43046d7">Use-package bootstrapping</h4>
+<div class="outline-text-4" id="text-org43046d7">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgdafbeb1">(straight-use-package 'use-package)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orge759762" class="outline-3">
+<h3 id="orge759762">Tao theme</h3>
+<div class="outline-text-3" id="text-orge759762">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org0e9078a">(use-package darktooth-theme :straight t
+  :config
+  (load-theme 'darktooth t))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5c682aa" class="outline-3">
+<h3 id="org5c682aa">HTMLize</h3>
+<div class="outline-text-3" id="text-org5c682aa">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orge173430">(use-package htmlize :straight t)
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc7b898a" class="outline-3">
+<h3 id="orgc7b898a">Ivy</h3>
+<div class="outline-text-3" id="text-orgc7b898a">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org08ceec2">(use-package ivy
+      :straight t
+      :diminish (ivy-mode . "")
+      :bind (("C-c C-r" . ivy-resume))
+      :config (ivy-mode 1)
+      (setq ivy-use-virtual-buffers t)
+      (setq ivy-height 12)
+      (setq ivy-count-format "(%d/%d) ")
+      (setq ivy-initial-inputs-alist nil)
+      (setq ivy-re-builders-alist
+	'((read-file-name-internal . ivy--regex-fuzzy)
+	  (t . ivy--regex-ignore-order))))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfb90d9c" class="outline-3">
+<h3 id="orgfb90d9c">Fennel-mode</h3>
+<div class="outline-text-3" id="text-orgfb90d9c">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org5ce2c4c">(use-package fennel-mode :straight t
+  :mode "\\.fnl\\'"
+  :interpreter "fennel"
+  :custom
+  (inferior-lisp-program "/home/emsenn/.luarocks/bin/fennel"))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6ed2d23" class="outline-3">
+<h3 id="org6ed2d23">Lua-mode</h3>
+<div class="outline-text-3" id="text-org6ed2d23">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orge041a9f">(use-package lua-mode :straight t
+  :mode "\\.lua\\'"
+  :interpreter "lua")
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org7af1829" class="outline-3">
+<h3 id="org7af1829">Racket-mode</h3>
+<div class="outline-text-3" id="text-org7af1829">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgd79ea5c">(use-package racket-mode :straight t
+  :mode "\\.rkt\\'"
+  :interpreter "racket")
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgad3c623" class="outline-3">
+<h3 id="orgad3c623">rcIRC</h3>
+<div class="outline-text-3" id="text-orgad3c623">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgd1af3fd">(use-package rcirc :straight t
+  :custom
+  (rcirc-time-format "%Y-%m-%d %H:%M ")
+  (rcirc-default-nick "emsenn")
+  (rcirc-default-user-name "emsenn")
+  (rcirc-default-full-name "emsenn")
+  (rcirc-server-alist '(("irc.freenode.net" :channels ("webgaz" "qtops"))))
+  :config
+  (rcirc-connect "irc.freenode.net"))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org722e39e" class="outline-3">
+<h3 id="org722e39e">Magit</h3>
+<div class="outline-text-3" id="text-org722e39e">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org67d1866">(use-package magit :straight t)
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org0333ad7" class="outline-3">
+<h3 id="org0333ad7">Olivetti</h3>
+<div class="outline-text-3" id="text-org0333ad7">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org6efd1fe">(use-package olivetti :straight t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdb243a7" class="outline-3">
+<h3 id="orgdb243a7">Org-mode</h3>
+<div class="outline-text-3" id="text-orgdb243a7">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org3199fa9">(use-package
+ org :straight t
+ :config 
+ (setq org-directory "~/org")
+ (setq org-startup-folded 'fold)
+ (setq org-hide-block-startup 'hideblocks)
+ (setq org-catch-invisible-edits 'show-and-error)
+ (setq org-agenda-files (list "~/org"))
+ (setq org-export-with-section-numbers nil)
+ (setq org-export-with-smart-quotes nil)
+ (setq org-export-with-toc nil)
+ (setq org-html-htmlize-output-type 'nil)
+ (setq org-html-validation-link nil)
+ (setq org-log-done 'time)
+ (setq org-log-into-drawer 'LOGBOOK)
+ (setq org-image-actual-width '(400))
+ (setq ghe-org-html-base-preamble
+     (concat "&lt;a href=\"#content\" class=\"skip-to-content\"&gt;skip to content&lt;/a&gt;"
+	    "&lt;section class=\"nav\"&gt;&lt;strong&gt;Website navigation:&lt;/strong&gt; "
+	    "&lt;a href=\"./index.html\"&gt;"
+	    "homepage&lt;/a&gt; | "
+	    "&lt;a href=\"./term/index.html\"&gt;"
+	    "definitions&lt;/a&gt; | "
+	    "&lt;a href=\"./ref/index.html\"&gt;"
+	    "references"
+	    "&lt;/a&gt; | "
+	    "&lt;a href=\"./com/index.html\"&gt;"
+	    "communication"
+	    "&lt;/a&gt; | "
+	    "&lt;a href=\"./daily/index.html\"&gt;"
+	    "daily summary"
+	    "&lt;/a&gt;"
+	    "&lt;p&gt;"
+	    "This Website was cultivated as a public asset with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from people like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
+	    "&lt;/p&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;Click this sentence for information about this Website.&lt;/summary&gt;"
+	    "&lt;p&gt;Click each sentence below for more information about each topic.&lt;/p&gt;"
+	    "&lt;ul&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;This Website is a collection of records linked through their relationship to each other.&lt;/summary&gt;"
+	    "&lt;p&gt;Each page on this Website is &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;. (There are &lt;a href=\"./record.html\"&gt;records&lt;/a&gt; with more &lt;a href=\"./information.html\"&gt;information&lt;/a&gt; about both of those concepts.) On the &lt;a href=\"./Web.html\"&gt;Web&lt;/a&gt;, these records are &lt;a href=\"hypertext\"&gt;hypertext&lt;/a&gt;: they contain links to each other (and other resources). The table below demonstrates link styling."
+	    "&lt;table&gt;"
+	    "&lt;thead&gt;&lt;tr&gt;"
+	    "&lt;th scope=\"col\"&gt;Color&lt;/th&gt;"
+	    "&lt;th scope=\"col\"&gt;Link type&lt;/th&gt;"
+	    "&lt;/tr&gt;&lt;/thead&gt;"
+	    "&lt;tbody&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Unvisited local resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"visited-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Visited local resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"external-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Unvisited external resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"visited-external-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Visited external resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;/table&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;It was created by one human person wishing to communicate with others.&lt;/summary&gt;"
+	    "&lt;p&gt;It was created by me, &lt;a href=\"./emsenn.html\"&gt;emsenn&lt;/a&gt;, to share some of my &lt;a href=\"./knowledge.html\"&gt;knowledge&lt;/a&gt; with &lt;a href=\"./person.html\"&gt;people&lt;/a&gt; on the &lt;a href=\"Web.html\"&gt;Web&lt;/a&gt;.&lt;/p&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;Each Webpage contains a &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;.&lt;/summary&gt;"
+	    "&lt;p&gt;Each Webpage on my Website is a &lt;a href=\"./record.html\"&gt;record&lt;/a&gt; of &lt;a  href=\"information.html\"&gt;information&lt;/a&gt;. These records have different components, depending on what type they are, but here's some common components:"
+	    "&lt;dl&gt;"
+	    "&lt;dt&gt;Introduction&lt;/dt&gt;"
+	    "&lt;dd&gt;A record's &lt;em&gt;introduction&lt;/em&gt; describes the record, including what &lt;a href=\"./permission.html\"&gt;permissions&lt;/a&gt; are granted.&lt;/dd&gt;"
+	    "&lt;dt&gt;Backlinks&lt;/dt&gt;"
+	    "&lt;dd&gt;A record's &lt;a href=\"./backlink.html\"&gt;backlinks&lt;/a&gt; shows which other records link to this one.&lt;/dd&gt;"
+	    "&lt;/dl&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;/ul&gt;"
+	    "&lt;/section&gt;"
+      ))
+ (setq ghe-org-html-subdir-preamble
+     (concat "&lt;a href=\"#content\" class=\"skip-to-content\"&gt;skip to content&lt;/a&gt;"
+	    "&lt;section class=\"nav\"&gt;&lt;strong&gt;Website navigation:&lt;/strong&gt; "
+	    "&lt;a href=\"../index.html\"&gt;"
+	    "homepage&lt;/a&gt; | "
+	    "&lt;a href=\"../term/index.html\"&gt;"
+	    "definitions&lt;/a&gt; | "
+	    "&lt;a href=\"../ref/index.html\"&gt;"
+	    "references"
+	    "&lt;/a&gt; | "
+	    "&lt;a href=\"../com/index.html\"&gt;"
+	    "communication"
+	    "&lt;/a&gt; | "
+	    "&lt;a href=\"../daily/index.html\"&gt;"
+	    "daily summary"
+	    "&lt;/a&gt;"
+	    "&lt;p&gt;"
+	    "This Website was cultivated as a public asset with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from people like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
+	    "&lt;/p&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;Click this sentence for information about this Website.&lt;/summary&gt;"
+	    "&lt;p&gt;Click each sentence below for more information about each topic.&lt;/p&gt;"
+	    "&lt;ul&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;This Website is a collection of records linked through their relationship to each other.&lt;/summary&gt;"
+	    "&lt;p&gt;Each page on this Website is &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;. (There are &lt;a href=\"../record.html\"&gt;records&lt;/a&gt; with more &lt;a href=\"../information.html\"&gt;information&lt;/a&gt; about both of those concepts.) On the &lt;a href=\"../Web.html\"&gt;Web&lt;/a&gt;, these records are &lt;a href=\"hypertext\"&gt;hypertext&lt;/a&gt;: they contain links to each other (and other resources). The table below demonstrates link styling."
+	    "&lt;table&gt;"
+	    "&lt;thead&gt;&lt;tr&gt;"
+	    "&lt;th scope=\"col\"&gt;Color&lt;/th&gt;"
+	    "&lt;th scope=\"col\"&gt;Link type&lt;/th&gt;"
+	    "&lt;/tr&gt;&lt;/thead&gt;"
+	    "&lt;tbody&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Unvisited local resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"visited-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Visited local resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"external-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Unvisited external resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"visited-external-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Visited external resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;/table&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;It was created by one human person wishing to communicate with others.&lt;/summary&gt;"
+	    "&lt;p&gt;It was created by me, &lt;a href=\"../emsenn.html\"&gt;emsenn&lt;/a&gt;, to share some of my &lt;a href=\"../knowledge.html\"&gt;knowledge&lt;/a&gt; with &lt;a href=\"../person.html\"&gt;people&lt;/a&gt; on the &lt;a href=\"../Web.html\"&gt;Web&lt;/a&gt;.&lt;/p&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;Each Webpage contains a &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;.&lt;/summary&gt;"
+	    "&lt;p&gt;Each Webpage on my Website is a &lt;a href=\"../record.html\"&gt;record&lt;/a&gt; of &lt;a  href=\"information.html\"&gt;information&lt;/a&gt;. These records have different components, depending on what type they are, but here's some common components:"
+	    "&lt;dl&gt;"
+	    "&lt;dt&gt;Introduction&lt;/dt&gt;"
+	    "&lt;dd&gt;A record's &lt;em&gt;introduction&lt;/em&gt; describes the record, including what &lt;a href=\"../permission.html\"&gt;permissions&lt;/a&gt; are granted.&lt;/dd&gt;"
+	    "&lt;dt&gt;Backlinks&lt;/dt&gt;"
+	    "&lt;dd&gt;A record's &lt;a href=\"../backlink.html\"&gt;backlinks&lt;/a&gt; shows which other records link to this one.&lt;/dd&gt;"
+	    "&lt;/dl&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;/ul&gt;"
+	    "&lt;/section&gt;"
+	    ))
+    (setq ghe-org-html-head
+	 (concat "&lt;style&gt;
+	 @charset \"UTF-8\";
+
+	 :root {
+	     --body-font: sans-serif;
+	     --header-font: sans-serif;
+	     --code-font: monospace;
+	     --primary-color: #ffe;
+	     --primary-dim-color: #eed;
+	     --secondary-color: #312;
+	     --secondary-dim-color: #756;
+	     --link-color: #880;
+	     --link-hover-color: #aa2;
+	     --link-visited-color: #934;
+	     --link-visited-hover-color: #b56;
+	     --external-link-color: #008;
+	     --external-link-hover-color: #60b;
+	     --external-link-visited-color: #172;
+	     --external-link-visited-hover-color: #394;
+	 }
+	 @media(prefers-color-scheme:dark){
+	     :root {
+		--body-font: sans-serif;
+		--header-font: sans-serif;
+		--code-font: monospace;
+		--primary-color: #756;
+		--primary-dim-color: #312;
+		--secondary-color: #eed;
+		--secondary-dim-color: #ffe;
+		--link-color: #880;
+		--link-hover-color: #aa2;
+		--link-visited-color: #934;
+		--link-visited-hover-color: #b56;
+	     }}
+	 body {
+	     position: relative;
+	     min-height: 100%;
+	     background-color: var(--primary-color);
+	     color: var(--secondary-color);
+	     margin: 0 auto;
+	     font-family: sans-serif;
+	 }
+	 main, #content {
+	     background-color: var(--primary-dim-color);
+	     border-left: 1.5em dotted var(--primary-color);
+	     padding: 1em;
+	 }
+	 header {
+	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+	 }
+	 h1 { font-size: 2em; margin-bottom: 0; }
+	 h2 {
+	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+	 }
+	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+	     width: 60%;
+	 }
+	 aside {
+	     float: right;
+	     width: 35%;
+	 }
+	 aside p { width: 100%; }
+	 @media screen and (max-width:760px) {
+	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+		width: 90%;
+	     }
+	     aside {
+		float: inherit;
+		width: 90%;
+		border-top: 0.2em dotted var(--secondary-dim-color);
+		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+		font-size: 0.8em;
+		  }
+	 }
+
+	 footer, #postamble, #preamble {
+	     padding: 0.5em;
+	 }
+	 table {
+	     border-collapse: collapse;
+	     border-spacing: 0;
+	     empty-cells: show;
+	     border: 0.1em solid #444;
+	 }
+	 thead { font-family: sans-serif; }
+	 th, td {
+	     padding: 0 0.3em;
+	     border: 0.01em solid #444;
+	 }
+	 img {
+	     max-width: 80vw;
+	     vertical-align: middle;
+	 }
+	 pre, .src {
+	     padding: 0.5em;
+	     border: 0.1em solid #444;
+	     white-space: pre-wrap;
+	     overflow-x: scroll;
+	     text-overflow: clip;
+	     scrollbar-width: none;
+	 }
+	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+	     display: none;
+	 }
+
+
+	 dt {
+	     font-weight: normal;
+	     display: inline-block;
+	     border-bottom: 0.1rem dotted #444;
+	 }
+	 #text-index dt { border-bottom: none; }
+	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+	     display: block;
+	     font-family: sans-serif;
+	     margin: 0.2em auto 0.5em 0;
+	 }
+	 a, .link {
+	     text-decoration: none;
+	     color: #880;
+	     display: inline;
+	     position: relative;
+	     border-bottom: 0.1rem dotted;
+	     line-height: 1.2;
+	     transition: border 0.3s;
+	 }
+	 a:hover {
+	     color: #aa2;
+	     outline-style: none;
+	     border-bottom: 0.1rem solid;
+	 }
+	 a:visited, .visited-link { color: #934; }
+	 a:visited:hover { color: #b56; }
+	 a:focus {
+	     outline-style: none;
+	     border-bottom: 0.1rem solid;
+	 }
+	 ::selection { background-color: #777; color: #eee; }
+	 a::selection { background-color: #ccc; }
+	 .org-todo {
+	     background-color: #ddd;
+	     color: #333;
+	     font-size: .8rem;
+	     float: right;
+	 }
+	 .org-src-container + .example {
+	     margin-left: 8em;
+	 }
+	 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):after, a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:after, .external-link:after, .visited-external-link:after { 
+	     content: \"^\";
+	     font-size: 0.5em;
+	     vertical-align: super;
+	 }
+	 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]), .external-link {
+	     color: var(--external-link-color);
+	 }
+	 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):hover{ 
+	     color: var(--external-link-hover-color);
+	 }
+	 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited, .visited-external-link { 
+	     color: var(--external-link-visited-color);
+	 }
+	 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:hover{ 
+	     color: var(--external-link-visited-hover-color);
+	 }
+	 blockquote {
+	     border: 0.1em dashed var(--secondary-dim-color);
+	     padding-left: 0.2em;
+	 }
+	 label.org-src-name {
+	     margin: 0 0 0 3em;
+	     font-family: sans-serif;
+	     font-size: 1rem;
+	     line-height: 0;
+	 }
+	 .skip-to-content {
+	     opacity: 0;
+	     position: absolute;
+	     left: 0.2em;
+	 }
+	 .skip-to-content:focus{
+	     opacity: 1;
+	     background-color: var(--secondary-dim-color);
+	     color: var(--primary-color);
+	 }
+	 ul { max-width: 85%; }
+ &lt;/style&gt;"))
+
+ (org-babel-do-load-languages 'org-babel-load-languages
+			       '((shell . t)))
+
+ (defun ghe-org-capture-capture-at-point ()
+    "Insert an org capture template at point."
+    (interactive)
+    (org-capture 0))
+ (defun ghe-org-export-preprocessor (backend)
+   (let ((links (ghe-org-roam-format-backlinks-list (buffer-file-name))))
+     (unless (string= links "")
+       (save-excursion
+	 (goto-char (point-max))
+	 (insert (concat "\n* Backlinks\n   :PROPERTIES:\n   :CUSTOM_ID:   backlinks\n   :END:\n") links)))))
+
+ (defun ghe-org-html-format-drawer (name contents)
+   (format "&lt;section class=\"org-drawer\"&gt; %s &lt;/section&gt;" contents))
+
+ ;; from https://www.john2x.com/blog/blogging-with-orgmode.html
+  (defun ghe-org-publish-format-sitemap (title sitemap)
+    (let ((posts (cdr sitemap)))
+      (concat
+       (format "#+title: %s\n" title)
+       "#+author: emsenn\n"
+       "#+email: emsenn@emsenn.net\n"
+       (format "#+date: %s\n" (format-time-string "[%Y-%m-%d %a %H:%M:%S]" (current-time)))
+       "#+roam_tags: meta\n"
+       (org-list-to-org (cons (car sitemap) posts)))))
+
+  (setq org-capture-templates
+       `(
+	 ("s" "Capture source code block")
+	 ("se" "Elisp code block"
+		     plain (clock)
+		     ,(concat "#+name: %^{NAME}-elisp\n"
+			      "#+caption: %^{CAPTION}\n"
+			    "#+begin_src elisp %^{HEADER-ARGS}\n"
+			    "%?\n"
+			    "#+end_src\n"))
+	 ))
+ (setq org-publish-project-alist
+       `(
+	 ("records" :components ("all-records" "term-records" "comment-records" "reference-records" "daily-records"))
+	 ("all-records"
+	  :base-extension "org"
+	  :publishing-function org-html-publish-to-html
+	  :html-doctype "html5"
+	  :html-html5-fancy t
+	  :html-container "section"
+	  :headline-levels 6
+	  :recursive t
+	  :html-divs ((preamble "section" "preamble")
+		    (content "main" "content")
+		    (postamble "section" "postamble"))
+	  :publishing-function org-html-publish-to-html
+	  :html-format-drawer-function ghe-org-html-format-drawer
+	  :html-head-include-scripts nil
+	  :html-head-include-default-style nil
+	  :html-head ,ghe-org-html-head
+	  :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+	  :with-footnotes t
+	  :with-toc nil
+	  :with-drawers t
+	  :base-directory "~/org/s/"
+	  :publishing-directory "~/org/p"
+	  :makeindex t
+	  :html-preamble ,ghe-org-html-base-preamble)
+	 ("term-records"
+	  :base-extension "org"
+	  :publishing-function org-html-publish-to-html
+	  :html-doctype "html5"
+	  :html-html5-fancy t
+	  :html-container "section"
+	  :headline-levels 6
+	  :recursive t
+	  :html-divs ((preamble "section" "preamble")
+		    (content "main" "content")
+		    (postamble "section" "postamble"))
+	  :publishing-function org-html-publish-to-html
+	  :html-format-drawer-function ghe-org-html-format-drawer
+	  :sitemap-function ghe-org-publish-format-sitemap
+	  :html-head-include-scripts nil
+	  :html-head-include-default-style nil
+	  :html-head ,ghe-org-html-head
+	  :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+	  :auto-sitemap t
+	  :with-footnotes t
+	  :with-toc nil
+	  :with-drawers t
+	  :base-directory "~/org/s/term"
+	  :publishing-directory "~/org/p/term"
+	  :html-preamble ,ghe-org-html-subdir-preamble
+	  :sitemap-filename "index.org"
+	  :sitemap-sort-files alphabetically
+	  :sitemap-title "Term Index")
+	 ("comment-records"
+	  :base-extension "org"
+	  :publishing-function org-html-publish-to-html
+	  :html-doctype "html5"
+	  :html-html5-fancy t
+	  :html-container "section"
+	  :headline-levels 6
+	  :recursive t
+	  :html-divs ((preamble "section" "preamble")
+		    (content "main" "content")
+		    (postamble "section" "postamble"))
+	  :publishing-function org-html-publish-to-html
+	  :html-format-drawer-function ghe-org-html-format-drawer
+	  :sitemap-function ghe-org-publish-format-sitemap
+	  :html-head-include-scripts nil
+	  :html-head-include-default-style nil
+	  :html-head ,ghe-org-html-head
+	  :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+	  :auto-sitemap t
+	  :with-footnotes t
+	  :with-toc nil
+	  :with-drawers t
+	  :base-directory "~/org/s/com"
+	  :publishing-directory "~/org/p/com"
+	  :html-preamble ,ghe-org-html-subdir-preamble
+	  :sitemap-filename "index.org"
+	  :sitemap-sort-files anti-chronologically
+	  :sitemap-title "Communications Index")
+	 ("daily-records"
+	  :base-extension "org"
+	  :publishing-function org-html-publish-to-html
+	  :html-doctype "html5"
+	  :html-html5-fancy t
+	  :html-container "section"
+	  :headline-levels 6
+	  :recursive t
+	  :html-divs ((preamble "section" "preamble")
+		    (content "main" "content")
+		    (postamble "section" "postamble"))
+	  :publishing-function org-html-publish-to-html
+	  :html-format-drawer-function ghe-org-html-format-drawer
+	  :sitemap-function ghe-org-publish-format-sitemap
+	  :html-head-include-scripts nil
+	  :html-head-include-default-style nil
+	  :html-head ,ghe-org-html-head
+	  :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+	  :auto-sitemap t
+	  :with-footnotes t
+	  :with-toc nil
+	  :with-drawers t
+	  :base-directory "~/org/s/daily"
+	  :publishing-directory "~/org/p/daily"
+	  :html-preamble ,ghe-org-html-subdir-preamble
+	  :sitemap-filename "index.org"
+	  :sitemap-sort-files anti-chronologically
+	  :sitemap-title "Daily Index")
+	 ("reference-records"
+	  :base-extension "org"
+	  :publishing-function org-html-publish-to-html
+	  :html-doctype "html5"
+	  :html-html5-fancy t
+	  :html-container "section"
+	  :headline-levels 6
+	  :recursive t
+	  :html-divs ((preamble "section" "preamble")
+		    (content "main" "content")
+		    (postamble "section" "postamble"))
+	  :publishing-function org-html-publish-to-html
+	  :html-format-drawer-function ghe-org-html-format-drawer
+	  :sitemap-function ghe-org-publish-format-sitemap
+	  :html-head-include-scripts nil
+	  :html-head-include-default-style nil
+	  :html-head ,ghe-org-html-head
+	  :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+	  :auto-sitemap t
+	  :with-footnotes t
+	  :with-toc nil
+	  :with-drawers t
+	  :base-directory "~/org/s/ref"
+	  :publishing-directory "~/org/p/ref"
+	  :html-preamble ,ghe-org-html-subdir-preamble
+	  :sitemap-filename "index.org"
+	  :sitemap-sort-files alphabetically
+	  :sitemap-title "Reference Index")
+	 ("teraum"
+	  :base-extension "org"
+	  :publishing-function org-html-publish-to-html
+	  :html-doctype "html5"
+	  :html-html5-fancy t
+	  :html-container "section"
+	  :headline-levels 6
+	  :recursive t
+	  :html-divs ((preamble "section" "preamble")
+		     (content "main" "content")
+		     (postamble "section" "postamble"))
+	  :publishing-function org-html-publish-to-html
+	  :html-format-drawer-function ghe-org-html-format-drawer
+	  :sitemap-function ghe-org-publish-format-sitemap
+	  :html-head-include-scripts nil
+	  :html-head-include-default-style nil
+	  :html-head ,ghe-org-html-head
+	  :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+	  :auto-sitemap t
+	  :with-footnotes t
+	  :with-toc nil
+	  :with-drawers t
+	  :base-directory "~/org/s/teraum"
+	  :publishing-directory "~/org/p/teraum"
+	  :html-preamble ,ghe-org-html-subdir-preamble
+	  :sitemap-filename "index.org"
+	  :sitemap-sort-files anti-chronologically
+	  :sitemap-title "Teraum Index")
+    ))
+ :hook 
+	(org-export-before-processing . ghe-org-export-preprocessor)
+ :bind (
+	("C-c l" . org-store-link)
+	    ("C-c a" . org-agenda)
+	    ("C-c c" . org-capture)
+	    ("C-c t" . org-toggle-link-display)
+	    ("C-c C-q" . counsel-org-tag)
+	    ("&lt;f8&gt;" . ghe-org-capture-capture-at-point)
+	))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7bd64e7" class="outline-3">
+<h3 id="org7bd64e7">Org-attach-screenshot</h3>
+<div class="outline-text-3" id="text-org7bd64e7">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org6db73ab">(use-package org-attach-screenshot :straight t
+   :config (setq
+	org-attach-screenshot-command-line "spectacle -rbno $f"))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8fb4220" class="outline-3">
+<h3 id="org8fb4220">Org-roam</h3>
+<div class="outline-text-3" id="text-org8fb4220">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org8e92158">(use-package
+  org-roam :straight t
+  :hook (after-init . org-roam-mode)
+  :bind (
+	 ("&lt;f5&gt;" . org-roam-dailies-capture-today)
+	 ("&lt;f9&gt;" . org-roam-dailies-find-today)
+	 ("C-c n l" . org-roam)
+	 ("C-c n f" . org-roam-find-file)
+	 ("C-c n g" . org-roam-graph)
+	 ("C-c n i" . org-roam-insert)
+	 ("C-c n I" . org-roam-insert-immediate))
+  :custom
+  (org-roam-directory "~/org/s")
+  (org-roam-dailies-directory "d/")
+  (org-roam-capture-immediate-template
+   (backquote
+    ("B" "blank term" plain
+     (function org-roam--capture-get-point)
+     "*/[[file:${slug}.org][${title}]]/* hasn't been defined yet.\n"
+     :file-name "term/${slug}"
+     :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+date: %U\n"
+		"#+index: ${title}\n"
+		"#+name: ${slug}-definition\n")
+     :unnarrowed t
+     :immediate-finish t)
+    ))
+  (org-roam-capture-templates
+   `(
+     ("t" "term" plain
+      (function org-roam--capture-get-point)
+      "*/[[file:${slug}.org][${title}]]/* %?\n"
+      :file-name "term/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+date: %U\n"
+		"#+index: ${title}\n"
+		"#+name: ${slug}-definition\n")
+      :unnarrowed t)
+     ("r" "reference" plain
+      (function org-roam--capture-get-point)
+      ,(concat "#+author: %^{Author?}\n"
+	  "#+date: %^{Date?}\n"
+	  "#+roam_tags: unincorporated-reference\n"
+	  "#+index: %^{Index?}!references!${title}\n"
+	  "#+name: ${slug}-definition\n"
+	  "*/[[file:${slug}.org][${title}]]/* is an [[file:../term/unincorporated-reference.org][unincorporated reference]].\n")
+      :file-name "ref/${slug}"
+      :head ,(concat "#+title: ${title}\n")
+      :unnarrowed t)
+     ("c" "comment" plain
+      (function org-roam--capture-get-point)
+		"#+index: %^{Index?}!comments!${slug}\n\n%?\n"
+      :file-name "com/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+date: %U\n"
+		"#+roam_tags: comment\n")
+      :unnarrowed t)
+     ("T" "Teraum")
+     ("Tt" "term" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an term of [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %f\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("Ta" "area" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an area of [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum area\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("Ty" "year" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is a year in [[file:teraum_s_history.org][Teraum's history]].\n\n#+toc: headlines 2\n\n%?\n\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum year\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("Td" "date" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is a date in [[file:teraum_s_history.org][Teraum's history]].\n\n#+toc: headlines 2\n\n%?\n\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum date\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("Ts" "species" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an species from [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum species\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ))
+  (org-roam-dailies-capture-templates
+   `(
+     ("d" "daily" plain
+      #'org-roam-capture--get-point
+      "- [[%f][%?]]\n"
+      :file-name "daily/%&lt;%Y-%m-%d&gt;"
+      :head ,(concat "#+title: %&lt;%Y-%m-%d&gt;\n"
+		"#+author: " (user-full-name) "\n"
+		"#+date: %U\n"
+		"#+roam_tags: daily\n"
+		"This is some changes that were made to this record catalog on %u.\n"))
+     ))
+  :config
+  (defun org-roam--title-to-slug (title)
+    "Convert TITLE to a filename-suitable slug. Uses hyphens rather than underscores."
+    (cl-flet* ((nonspacing-mark-p
+		(char)
+		(eq 'Mn (get-char-code-property char 'general-category)))
+	       (strip-nonspacing-marks
+		(s)
+		(apply #'string (seq-remove #'nonspacing-mark-p
+					    (ucs-normalize-NFD-string s))))
+	       (cl-replace (title pair)
+			   (replace-regexp-in-string (car pair)
+						     (cdr pair)
+						     title)))
+      (let* ((pairs `(("[^[:alnum:][:digit:]]" . "-")
+		      ;; convert anything not alphanumeric
+		      ("--*" . "-")  ;; remove sequential underscores
+		      ("^-" . "")  ;; remove starting underscore
+		      ("-$" . "")))  ;; remove ending underscore
+	     (slug (-reduce-from #'cl-replace
+				 (strip-nonspacing-marks title)
+				 pairs)))
+	(s-downcase slug))))
+  ;; from neil mather's commonplace wiki
+  (defun ghe-org-roam-format-backlinks-list (file)
+    (if (org-roam--org-roam-file-p file)
+	(--reduce-from
+	 (concat acc
+		 (format
+		  "- [[file:%s][%s]]\n"
+		  (if (or (string= (org-roam-dailies-directory--get-absolute-path)
+				   (file-name-directory file))
+			  (string= "/home/emsenn/org/s/term/"
+				   (file-name-directory file))
+			  (string= "/home/emsenn/org/s/ref/"
+				   (file-name-directory file))
+			  (string= "/home/emsenn/org/s/com/"
+				   (file-name-directory file))
+			  (string= "/home/emsenn/org/s/daily/"
+				   (file-name-directory file))
+			  )
+		      (file-relative-name (car it))
+		    (file-relative-name (car it) org-roam-directory))
+		  (org-roam-db--get-title (car it))))
+	 "" (org-roam-db-query
+	     [:select [source]
+		      :from links
+		      :where (= dest $s1)] file))
+      "")))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8ab9b6b" class="outline-3">
+<h3 id="org8ab9b6b">Org-roam-server</h3>
+<div class="outline-text-3" id="text-org8ab9b6b">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgf00fa15">(use-package org-roam-server :straight t)
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org40e6fee" class="outline-3">
+<h3 id="org40e6fee">Org-mode export HTML &amp; CSS chunks</h3>
+<div class="outline-text-3" id="text-org40e6fee">
+</div>
+<div id="outline-container-org29f318b" class="outline-4">
+<h4 id="org29f318b">HTML base preamble</h4>
+<div class="outline-text-4" id="text-org29f318b">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org340102f">(setq ghe-org-html-base-preamble
+    (concat "&lt;a href=\"#content\" class=\"skip-to-content\"&gt;skip to content&lt;/a&gt;"
+	    "&lt;section class=\"nav\"&gt;&lt;strong&gt;Website navigation:&lt;/strong&gt; "
+	    "&lt;a href=\"./index.html\"&gt;"
+	    "homepage&lt;/a&gt; | "
+	    "&lt;a href=\"./term/index.html\"&gt;"
+	    "definitions&lt;/a&gt; | "
+	    "&lt;a href=\"./ref/index.html\"&gt;"
+	    "references"
+	    "&lt;/a&gt; | "
+	    "&lt;a href=\"./com/index.html\"&gt;"
+	    "communication"
+	    "&lt;/a&gt; | "
+	    "&lt;a href=\"./daily/index.html\"&gt;"
+	    "daily summary"
+	    "&lt;/a&gt;"
+	    "&lt;p&gt;"
+	    "This Website was cultivated as a public asset with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from people like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
+	    "&lt;/p&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;Click this sentence for information about this Website.&lt;/summary&gt;"
+	    "&lt;p&gt;Click each sentence below for more information about each topic.&lt;/p&gt;"
+	    "&lt;ul&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;This Website is a collection of records linked through their relationship to each other.&lt;/summary&gt;"
+	    "&lt;p&gt;Each page on this Website is &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;. (There are &lt;a href=\"./record.html\"&gt;records&lt;/a&gt; with more &lt;a href=\"./information.html\"&gt;information&lt;/a&gt; about both of those concepts.) On the &lt;a href=\"./Web.html\"&gt;Web&lt;/a&gt;, these records are &lt;a href=\"hypertext\"&gt;hypertext&lt;/a&gt;: they contain links to each other (and other resources). The table below demonstrates link styling."
+	    "&lt;table&gt;"
+	    "&lt;thead&gt;&lt;tr&gt;"
+	    "&lt;th scope=\"col\"&gt;Color&lt;/th&gt;"
+	    "&lt;th scope=\"col\"&gt;Link type&lt;/th&gt;"
+	    "&lt;/tr&gt;&lt;/thead&gt;"
+	    "&lt;tbody&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Unvisited local resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"visited-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Visited local resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"external-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Unvisited external resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"visited-external-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Visited external resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;/table&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;It was created by one human person wishing to communicate with others.&lt;/summary&gt;"
+	    "&lt;p&gt;It was created by me, &lt;a href=\"./emsenn.html\"&gt;emsenn&lt;/a&gt;, to share some of my &lt;a href=\"./knowledge.html\"&gt;knowledge&lt;/a&gt; with &lt;a href=\"./person.html\"&gt;people&lt;/a&gt; on the &lt;a href=\"Web.html\"&gt;Web&lt;/a&gt;.&lt;/p&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;Each Webpage contains a &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;.&lt;/summary&gt;"
+	    "&lt;p&gt;Each Webpage on my Website is a &lt;a href=\"./record.html\"&gt;record&lt;/a&gt; of &lt;a  href=\"information.html\"&gt;information&lt;/a&gt;. These records have different components, depending on what type they are, but here's some common components:"
+	    "&lt;dl&gt;"
+	    "&lt;dt&gt;Introduction&lt;/dt&gt;"
+	    "&lt;dd&gt;A record's &lt;em&gt;introduction&lt;/em&gt; describes the record, including what &lt;a href=\"./permission.html\"&gt;permissions&lt;/a&gt; are granted.&lt;/dd&gt;"
+	    "&lt;dt&gt;Backlinks&lt;/dt&gt;"
+	    "&lt;dd&gt;A record's &lt;a href=\"./backlink.html\"&gt;backlinks&lt;/a&gt; shows which other records link to this one.&lt;/dd&gt;"
+	    "&lt;/dl&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;/ul&gt;"
+	    "&lt;/section&gt;"
+     ))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga3f1fe3" class="outline-4">
+<h4 id="orga3f1fe3">HTML subdir preamble</h4>
+<div class="outline-text-4" id="text-orga3f1fe3">
+<div class="org-src-container">
+<pre class="src src-elisp" id="orgee7ec44">(setq ghe-org-html-subdir-preamble
+    (concat "&lt;a href=\"#content\" class=\"skip-to-content\"&gt;skip to content&lt;/a&gt;"
+	    "&lt;section class=\"nav\"&gt;&lt;strong&gt;Website navigation:&lt;/strong&gt; "
+	    "&lt;a href=\"../index.html\"&gt;"
+	    "homepage&lt;/a&gt; | "
+	    "&lt;a href=\"../term/index.html\"&gt;"
+	    "definitions&lt;/a&gt; | "
+	    "&lt;a href=\"../ref/index.html\"&gt;"
+	    "references"
+	    "&lt;/a&gt; | "
+	    "&lt;a href=\"../com/index.html\"&gt;"
+	    "communication"
+	    "&lt;/a&gt; | "
+	    "&lt;a href=\"../daily/index.html\"&gt;"
+	    "daily summary"
+	    "&lt;/a&gt;"
+	    "&lt;p&gt;"
+	    "This Website was cultivated as a public asset with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from people like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
+	    "&lt;/p&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;Click this sentence for information about this Website.&lt;/summary&gt;"
+	    "&lt;p&gt;Click each sentence below for more information about each topic.&lt;/p&gt;"
+	    "&lt;ul&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;This Website is a collection of records linked through their relationship to each other.&lt;/summary&gt;"
+	    "&lt;p&gt;Each page on this Website is &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;. (There are &lt;a href=\"../record.html\"&gt;records&lt;/a&gt; with more &lt;a href=\"../information.html\"&gt;information&lt;/a&gt; about both of those concepts.) On the &lt;a href=\"../Web.html\"&gt;Web&lt;/a&gt;, these records are &lt;a href=\"hypertext\"&gt;hypertext&lt;/a&gt;: they contain links to each other (and other resources). The table below demonstrates link styling."
+	    "&lt;table&gt;"
+	    "&lt;thead&gt;&lt;tr&gt;"
+	    "&lt;th scope=\"col\"&gt;Color&lt;/th&gt;"
+	    "&lt;th scope=\"col\"&gt;Link type&lt;/th&gt;"
+	    "&lt;/tr&gt;&lt;/thead&gt;"
+	    "&lt;tbody&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Unvisited local resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"visited-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Visited local resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"external-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Unvisited external resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"visited-external-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Visited external resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;/table&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;It was created by one human person wishing to communicate with others.&lt;/summary&gt;"
+	    "&lt;p&gt;It was created by me, &lt;a href=\"../emsenn.html\"&gt;emsenn&lt;/a&gt;, to share some of my &lt;a href=\"../knowledge.html\"&gt;knowledge&lt;/a&gt; with &lt;a href=\"../person.html\"&gt;people&lt;/a&gt; on the &lt;a href=\"../Web.html\"&gt;Web&lt;/a&gt;.&lt;/p&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;Each Webpage contains a &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;.&lt;/summary&gt;"
+	    "&lt;p&gt;Each Webpage on my Website is a &lt;a href=\"../record.html\"&gt;record&lt;/a&gt; of &lt;a  href=\"information.html\"&gt;information&lt;/a&gt;. These records have different components, depending on what type they are, but here's some common components:"
+	    "&lt;dl&gt;"
+	    "&lt;dt&gt;Introduction&lt;/dt&gt;"
+	    "&lt;dd&gt;A record's &lt;em&gt;introduction&lt;/em&gt; describes the record, including what &lt;a href=\"../permission.html\"&gt;permissions&lt;/a&gt; are granted.&lt;/dd&gt;"
+	    "&lt;dt&gt;Backlinks&lt;/dt&gt;"
+	    "&lt;dd&gt;A record's &lt;a href=\"../backlink.html\"&gt;backlinks&lt;/a&gt; shows which other records link to this one.&lt;/dd&gt;"
+	    "&lt;/dl&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;/ul&gt;"
+	    "&lt;/section&gt;"
+	    ))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf2fd692" class="outline-4">
+<h4 id="orgf2fd692">CSS stylesheet</h4>
+<div class="outline-text-4" id="text-orgf2fd692">
+<div class="org-src-container">
+<pre class="src src-css" id="org98d8e31">@charset \"UTF-8\";
+
+:root {
+    --body-font: sans-serif;
+    --header-font: sans-serif;
+    --code-font: monospace;
+    --primary-color: #ffe;
+    --primary-dim-color: #eed;
+    --secondary-color: #312;
+    --secondary-dim-color: #756;
+    --link-color: #880;
+    --link-hover-color: #aa2;
+    --link-visited-color: #934;
+    --link-visited-hover-color: #b56;
+    --external-link-color: #008;
+    --external-link-hover-color: #60b;
+    --external-link-visited-color: #172;
+    --external-link-visited-hover-color: #394;
+}
+@media(prefers-color-scheme:dark){
+    :root {
+	--body-font: sans-serif;
+	--header-font: sans-serif;
+	--code-font: monospace;
+	--primary-color: #756;
+	--primary-dim-color: #312;
+	--secondary-color: #eed;
+	--secondary-dim-color: #ffe;
+	--link-color: #880;
+	--link-hover-color: #aa2;
+	--link-visited-color: #934;
+	--link-visited-hover-color: #b56;
+    }}
+body {
+    position: relative;
+    min-height: 100%;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+main, #content {
+    background-color: var(--primary-dim-color);
+    border-left: 1.5em dotted var(--primary-color);
+    padding: 1em;
+}
+header {
+    border-bottom: 0.8em dotted var(--secondary-dim-color);
+}
+h1 { font-size: 2em; margin-bottom: 0; }
+h2 {
+    border-bottom: 0.3em dotted var(--secondary-dim-color);
+}
+h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+    width: 60%;
+}
+aside {
+    float: right;
+    width: 35%;
+}
+aside p { width: 100%; }
+@media screen and (max-width:760px) {
+    h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+	width: 90%;
+    }
+    aside {
+	float: inherit;
+	width: 90%;
+	border-top: 0.2em dotted var(--secondary-dim-color);
+	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+	font-size: 0.8em;
+	  }
+}
+
+footer, #postamble, #preamble {
+    padding: 0.5em;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 0.1em solid #444;
+}
+thead { font-family: sans-serif; }
+th, td {
+    padding: 0 0.3em;
+    border: 0.01em solid #444;
+}
+img {
+    max-width: 80vw;
+    vertical-align: middle;
+}
+pre, .src {
+    padding: 0.5em;
+    border: 0.1em solid #444;
+    white-space: pre-wrap;
+    overflow-x: scroll;
+    text-overflow: clip;
+    scrollbar-width: none;
+}
+pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+    display: none;
+}
+
+
+dt {
+    font-weight: normal;
+    display: inline-block;
+    border-bottom: 0.1rem dotted #444;
+}
+#text-index dt { border-bottom: none; }
+h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+    display: block;
+    font-family: sans-serif;
+    margin: 0.2em auto 0.5em 0;
+}
+a, .link {
+    text-decoration: none;
+    color: #880;
+    display: inline;
+    position: relative;
+    border-bottom: 0.1rem dotted;
+    line-height: 1.2;
+    transition: border 0.3s;
+}
+a:hover {
+    color: #aa2;
+    outline-style: none;
+    border-bottom: 0.1rem solid;
+}
+a:visited, .visited-link { color: #934; }
+a:visited:hover { color: #b56; }
+a:focus {
+    outline-style: none;
+    border-bottom: 0.1rem solid;
+}
+::selection { background-color: #777; color: #eee; }
+a::selection { background-color: #ccc; }
+.org-todo {
+    background-color: #ddd;
+    color: #333;
+    font-size: .8rem;
+    float: right;
+}
+.org-src-container + .example {
+    margin-left: 8em;
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):after, a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:after, .external-link:after, .visited-external-link:after { 
+    content: \"^\";
+    font-size: 0.5em;
+    vertical-align: super;
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]), .external-link {
+    color: var(--external-link-color);
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):hover{ 
+    color: var(--external-link-hover-color);
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited, .visited-external-link { 
+    color: var(--external-link-visited-color);
+}
+a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:hover{ 
+    color: var(--external-link-visited-hover-color);
+}
+blockquote {
+    border: 0.1em dashed var(--secondary-dim-color);
+    padding-left: 0.2em;
+}
+label.org-src-name {
+    margin: 0 0 0 3em;
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 0;
+}
+.skip-to-content {
+    opacity: 0;
+    position: absolute;
+    left: 0.2em;
+}
+.skip-to-content:focus{
+    opacity: 1;
+    background-color: var(--secondary-dim-color);
+    color: var(--primary-color);
+}
+ul { max-width: 85%; }
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org4ec9be0" class="outline-4">
+<h4 id="org4ec9be0">HTML head</h4>
+<div class="outline-text-4" id="text-org4ec9be0">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org87f2ef3">   (setq ghe-org-html-head
+	 (concat "&lt;style&gt;
+	 @charset \"UTF-8\";
+
+	 :root {
+	     --body-font: sans-serif;
+	     --header-font: sans-serif;
+	     --code-font: monospace;
+	     --primary-color: #ffe;
+	     --primary-dim-color: #eed;
+	     --secondary-color: #312;
+	     --secondary-dim-color: #756;
+	     --link-color: #880;
+	     --link-hover-color: #aa2;
+	     --link-visited-color: #934;
+	     --link-visited-hover-color: #b56;
+	     --external-link-color: #008;
+	     --external-link-hover-color: #60b;
+	     --external-link-visited-color: #172;
+	     --external-link-visited-hover-color: #394;
+	 }
+	 @media(prefers-color-scheme:dark){
+	     :root {
+		--body-font: sans-serif;
+		--header-font: sans-serif;
+		--code-font: monospace;
+		--primary-color: #756;
+		--primary-dim-color: #312;
+		--secondary-color: #eed;
+		--secondary-dim-color: #ffe;
+		--link-color: #880;
+		--link-hover-color: #aa2;
+		--link-visited-color: #934;
+		--link-visited-hover-color: #b56;
+	     }}
+	 body {
+	     position: relative;
+	     min-height: 100%;
+	     background-color: var(--primary-color);
+	     color: var(--secondary-color);
+	     margin: 0 auto;
+	     font-family: sans-serif;
+	 }
+	 main, #content {
+	     background-color: var(--primary-dim-color);
+	     border-left: 1.5em dotted var(--primary-color);
+	     padding: 1em;
+	 }
+	 header {
+	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+	 }
+	 h1 { font-size: 2em; margin-bottom: 0; }
+	 h2 {
+	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+	 }
+	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+	     width: 60%;
+	 }
+	 aside {
+	     float: right;
+	     width: 35%;
+	 }
+	 aside p { width: 100%; }
+	 @media screen and (max-width:760px) {
+	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+		width: 90%;
+	     }
+	     aside {
+		float: inherit;
+		width: 90%;
+		border-top: 0.2em dotted var(--secondary-dim-color);
+		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+		font-size: 0.8em;
+		  }
+	 }
+
+	 footer, #postamble, #preamble {
+	     padding: 0.5em;
+	 }
+	 table {
+	     border-collapse: collapse;
+	     border-spacing: 0;
+	     empty-cells: show;
+	     border: 0.1em solid #444;
+	 }
+	 thead { font-family: sans-serif; }
+	 th, td {
+	     padding: 0 0.3em;
+	     border: 0.01em solid #444;
+	 }
+	 img {
+	     max-width: 80vw;
+	     vertical-align: middle;
+	 }
+	 pre, .src {
+	     padding: 0.5em;
+	     border: 0.1em solid #444;
+	     white-space: pre-wrap;
+	     overflow-x: scroll;
+	     text-overflow: clip;
+	     scrollbar-width: none;
+	 }
+	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+	     display: none;
+	 }
+
+
+	 dt {
+	     font-weight: normal;
+	     display: inline-block;
+	     border-bottom: 0.1rem dotted #444;
+	 }
+	 #text-index dt { border-bottom: none; }
+	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+	     display: block;
+	     font-family: sans-serif;
+	     margin: 0.2em auto 0.5em 0;
+	 }
+	 a, .link {
+	     text-decoration: none;
+	     color: #880;
+	     display: inline;
+	     position: relative;
+	     border-bottom: 0.1rem dotted;
+	     line-height: 1.2;
+	     transition: border 0.3s;
+	 }
+	 a:hover {
+	     color: #aa2;
+	     outline-style: none;
+	     border-bottom: 0.1rem solid;
+	 }
+	 a:visited, .visited-link { color: #934; }
+	 a:visited:hover { color: #b56; }
+	 a:focus {
+	     outline-style: none;
+	     border-bottom: 0.1rem solid;
+	 }
+	 ::selection { background-color: #777; color: #eee; }
+	 a::selection { background-color: #ccc; }
+	 .org-todo {
+	     background-color: #ddd;
+	     color: #333;
+	     font-size: .8rem;
+	     float: right;
+	 }
+	 .org-src-container + .example {
+	     margin-left: 8em;
+	 }
+	 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):after, a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:after, .external-link:after, .visited-external-link:after { 
+	     content: \"^\";
+	     font-size: 0.5em;
+	     vertical-align: super;
+	 }
+	 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]), .external-link {
+	     color: var(--external-link-color);
+	 }
+	 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):hover{ 
+	     color: var(--external-link-hover-color);
+	 }
+	 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited, .visited-external-link { 
+	     color: var(--external-link-visited-color);
+	 }
+	 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:hover{ 
+	     color: var(--external-link-visited-hover-color);
+	 }
+	 blockquote {
+	     border: 0.1em dashed var(--secondary-dim-color);
+	     padding-left: 0.2em;
+	 }
+	 label.org-src-name {
+	     margin: 0 0 0 3em;
+	     font-family: sans-serif;
+	     font-size: 1rem;
+	     line-height: 0;
+	 }
+	 .skip-to-content {
+	     opacity: 0;
+	     position: absolute;
+	     left: 0.2em;
+	 }
+	 .skip-to-content:focus{
+	     opacity: 1;
+	     background-color: var(--secondary-dim-color);
+	     color: var(--primary-color);
+	 }
+	 ul { max-width: 85%; }
+&lt;/style&gt;"))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="outline-container-org853f27d" class="outline-2">
+<h2 id="org853f27d">Full Source</h2>
+<div class="outline-text-2" id="text-org853f27d">
+<div class="org-src-container">
+<pre class="src src-elisp" id="org6f9de0c">
+(if (and (version&lt; emacs-version "26.3") (&gt;= libgnutls-version 30600))
+    (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
+
+
+(defvar straight-install-script-path
+  "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el")
+
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+    (url-retrieve-synchronously straight-install-script-path
+     'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
+
+(setq user-mail-address "emsenn@emsenn.net")
+(setq make-backup-files nil)
+(setq inhibit-startup-message t)
+(setq visible-bell 1)
+(setq inhibit-startup-screen t)
+
+(setq initial-scratch-message ";; Groundhog Emacs has some bugs\n;; Press C-x C-e after the following lines to fix them\n(ivy-mode)\n")
+
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(show-paren-mode 1)
+(setq line-number-mode t)
+(setq column-number-mode t)
+(setq-default truncate-lines t)
+(setq-default line-spacing 1)
+(setq sentence-end-double-space nil)
+(global-visual-line-mode t)
+(setq echo-keystrokes 0.1)
+(setq fill-column 68)
+(setq mouse-wheel-scroll-amount '(1 ((shift) .1)))
+
+
+(use-package darktooth-theme :straight t
+  :config
+  (load-theme 'darktooth t))
+
+(use-package htmlize :straight t)
+
+
+(use-package fennel-mode :straight t
+  :mode "\\.fnl\\'"
+  :interpreter "fennel"
+  :custom
+  (inferior-lisp-program "/home/emsenn/.luarocks/bin/fennel"))
+
+(use-package lua-mode :straight t
+  :mode "\\.lua\\'"
+  :interpreter "lua")
+(use-package racket-mode :straight t
+  :mode "\\.rkt\\'"
+  :interpreter "racket")
+
+
+(use-package ivy
+      :straight t
+      :diminish (ivy-mode . "")
+      :bind (("C-c C-r" . ivy-resume))
+      :config (ivy-mode 1)
+      (setq ivy-use-virtual-buffers t)
+      (setq ivy-height 12)
+      (setq ivy-count-format "(%d/%d) ")
+      (setq ivy-initial-inputs-alist nil)
+      (setq ivy-re-builders-alist
+	'((read-file-name-internal . ivy--regex-fuzzy)
+	  (t . ivy--regex-ignore-order))))
+
+(use-package magit :straight t)
+
+
+(use-package
+ org :straight t
+ :config 
+ (setq org-directory "~/org")
+ (setq org-startup-folded 'fold)
+ (setq org-hide-block-startup 'hideblocks)
+ (setq org-catch-invisible-edits 'show-and-error)
+ (setq org-agenda-files (list "~/org"))
+ (setq org-export-with-section-numbers nil)
+ (setq org-export-with-smart-quotes nil)
+ (setq org-export-with-toc nil)
+ (setq org-html-htmlize-output-type 'nil)
+ (setq org-html-validation-link nil)
+ (setq org-log-done 'time)
+ (setq org-log-into-drawer 'LOGBOOK)
+ (setq org-image-actual-width '(400))
+ (setq ghe-org-html-base-preamble
+     (concat "&lt;a href=\"#content\" class=\"skip-to-content\"&gt;skip to content&lt;/a&gt;"
+	    "&lt;section class=\"nav\"&gt;&lt;strong&gt;Website navigation:&lt;/strong&gt; "
+	    "&lt;a href=\"./index.html\"&gt;"
+	    "homepage&lt;/a&gt; | "
+	    "&lt;a href=\"./term/index.html\"&gt;"
+	    "definitions&lt;/a&gt; | "
+	    "&lt;a href=\"./ref/index.html\"&gt;"
+	    "references"
+	    "&lt;/a&gt; | "
+	    "&lt;a href=\"./com/index.html\"&gt;"
+	    "communication"
+	    "&lt;/a&gt; | "
+	    "&lt;a href=\"./daily/index.html\"&gt;"
+	    "daily summary"
+	    "&lt;/a&gt;"
+	    "&lt;p&gt;"
+	    "This Website was cultivated as a public asset with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from people like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
+	    "&lt;/p&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;Click this sentence for information about this Website.&lt;/summary&gt;"
+	    "&lt;p&gt;Click each sentence below for more information about each topic.&lt;/p&gt;"
+	    "&lt;ul&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;This Website is a collection of records linked through their relationship to each other.&lt;/summary&gt;"
+	    "&lt;p&gt;Each page on this Website is &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;. (There are &lt;a href=\"./record.html\"&gt;records&lt;/a&gt; with more &lt;a href=\"./information.html\"&gt;information&lt;/a&gt; about both of those concepts.) On the &lt;a href=\"./Web.html\"&gt;Web&lt;/a&gt;, these records are &lt;a href=\"hypertext\"&gt;hypertext&lt;/a&gt;: they contain links to each other (and other resources). The table below demonstrates link styling."
+	    "&lt;table&gt;"
+	    "&lt;thead&gt;&lt;tr&gt;"
+	    "&lt;th scope=\"col\"&gt;Color&lt;/th&gt;"
+	    "&lt;th scope=\"col\"&gt;Link type&lt;/th&gt;"
+	    "&lt;/tr&gt;&lt;/thead&gt;"
+	    "&lt;tbody&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Unvisited local resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"visited-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Visited local resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"external-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Unvisited external resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"visited-external-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Visited external resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;/table&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;It was created by one human person wishing to communicate with others.&lt;/summary&gt;"
+	    "&lt;p&gt;It was created by me, &lt;a href=\"./emsenn.html\"&gt;emsenn&lt;/a&gt;, to share some of my &lt;a href=\"./knowledge.html\"&gt;knowledge&lt;/a&gt; with &lt;a href=\"./person.html\"&gt;people&lt;/a&gt; on the &lt;a href=\"Web.html\"&gt;Web&lt;/a&gt;.&lt;/p&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;Each Webpage contains a &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;.&lt;/summary&gt;"
+	    "&lt;p&gt;Each Webpage on my Website is a &lt;a href=\"./record.html\"&gt;record&lt;/a&gt; of &lt;a  href=\"information.html\"&gt;information&lt;/a&gt;. These records have different components, depending on what type they are, but here's some common components:"
+	    "&lt;dl&gt;"
+	    "&lt;dt&gt;Introduction&lt;/dt&gt;"
+	    "&lt;dd&gt;A record's &lt;em&gt;introduction&lt;/em&gt; describes the record, including what &lt;a href=\"./permission.html\"&gt;permissions&lt;/a&gt; are granted.&lt;/dd&gt;"
+	    "&lt;dt&gt;Backlinks&lt;/dt&gt;"
+	    "&lt;dd&gt;A record's &lt;a href=\"./backlink.html\"&gt;backlinks&lt;/a&gt; shows which other records link to this one.&lt;/dd&gt;"
+	    "&lt;/dl&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;/ul&gt;"
+	    "&lt;/section&gt;"
+      ))
+ (setq ghe-org-html-subdir-preamble
+     (concat "&lt;a href=\"#content\" class=\"skip-to-content\"&gt;skip to content&lt;/a&gt;"
+	    "&lt;section class=\"nav\"&gt;&lt;strong&gt;Website navigation:&lt;/strong&gt; "
+	    "&lt;a href=\"../index.html\"&gt;"
+	    "homepage&lt;/a&gt; | "
+	    "&lt;a href=\"../term/index.html\"&gt;"
+	    "definitions&lt;/a&gt; | "
+	    "&lt;a href=\"../ref/index.html\"&gt;"
+	    "references"
+	    "&lt;/a&gt; | "
+	    "&lt;a href=\"../com/index.html\"&gt;"
+	    "communication"
+	    "&lt;/a&gt; | "
+	    "&lt;a href=\"../daily/index.html\"&gt;"
+	    "daily summary"
+	    "&lt;/a&gt;"
+	    "&lt;p&gt;"
+	    "This Website was cultivated as a public asset with &lt;a href=\"https://ko-fi.com/emsenn\"&gt;support&lt;/a&gt; from people like you. &lt;strong&gt;&lt;em&gt;Thank you!&lt;/em&gt;&lt;/strong&gt;"
+	    "&lt;/p&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;Click this sentence for information about this Website.&lt;/summary&gt;"
+	    "&lt;p&gt;Click each sentence below for more information about each topic.&lt;/p&gt;"
+	    "&lt;ul&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;This Website is a collection of records linked through their relationship to each other.&lt;/summary&gt;"
+	    "&lt;p&gt;Each page on this Website is &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;. (There are &lt;a href=\"../record.html\"&gt;records&lt;/a&gt; with more &lt;a href=\"../information.html\"&gt;information&lt;/a&gt; about both of those concepts.) On the &lt;a href=\"../Web.html\"&gt;Web&lt;/a&gt;, these records are &lt;a href=\"hypertext\"&gt;hypertext&lt;/a&gt;: they contain links to each other (and other resources). The table below demonstrates link styling."
+	    "&lt;table&gt;"
+	    "&lt;thead&gt;&lt;tr&gt;"
+	    "&lt;th scope=\"col\"&gt;Color&lt;/th&gt;"
+	    "&lt;th scope=\"col\"&gt;Link type&lt;/th&gt;"
+	    "&lt;/tr&gt;&lt;/thead&gt;"
+	    "&lt;tbody&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Unvisited local resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"visited-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Visited local resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"external-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Unvisited external resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;tr&gt;"
+	    "&lt;td class=\"visited-external-link\"&gt;Sample&lt;/td&gt;"
+	    "&lt;td&gt;Visited external resource&lt;/td&gt;"
+	    "&lt;/tr&gt;"
+	    "&lt;/table&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;It was created by one human person wishing to communicate with others.&lt;/summary&gt;"
+	    "&lt;p&gt;It was created by me, &lt;a href=\"../emsenn.html\"&gt;emsenn&lt;/a&gt;, to share some of my &lt;a href=\"../knowledge.html\"&gt;knowledge&lt;/a&gt; with &lt;a href=\"../person.html\"&gt;people&lt;/a&gt; on the &lt;a href=\"../Web.html\"&gt;Web&lt;/a&gt;.&lt;/p&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;li&gt;"
+	    "&lt;details&gt;"
+	    "&lt;summary&gt;Each Webpage contains a &lt;em&gt;record&lt;/em&gt; of &lt;em&gt;information&lt;/em&gt;.&lt;/summary&gt;"
+	    "&lt;p&gt;Each Webpage on my Website is a &lt;a href=\"../record.html\"&gt;record&lt;/a&gt; of &lt;a  href=\"information.html\"&gt;information&lt;/a&gt;. These records have different components, depending on what type they are, but here's some common components:"
+	    "&lt;dl&gt;"
+	    "&lt;dt&gt;Introduction&lt;/dt&gt;"
+	    "&lt;dd&gt;A record's &lt;em&gt;introduction&lt;/em&gt; describes the record, including what &lt;a href=\"../permission.html\"&gt;permissions&lt;/a&gt; are granted.&lt;/dd&gt;"
+	    "&lt;dt&gt;Backlinks&lt;/dt&gt;"
+	    "&lt;dd&gt;A record's &lt;a href=\"../backlink.html\"&gt;backlinks&lt;/a&gt; shows which other records link to this one.&lt;/dd&gt;"
+	    "&lt;/dl&gt;"
+	    "&lt;/details&gt;"
+	    "&lt;/li&gt;"
+	    "&lt;/ul&gt;"
+	    "&lt;/section&gt;"
+	    ))
+    (setq ghe-org-html-head
+	 (concat "&lt;style&gt;
+	 @charset \"UTF-8\";
+
+	 :root {
+	     --body-font: sans-serif;
+	     --header-font: sans-serif;
+	     --code-font: monospace;
+	     --primary-color: #ffe;
+	     --primary-dim-color: #eed;
+	     --secondary-color: #312;
+	     --secondary-dim-color: #756;
+	     --link-color: #880;
+	     --link-hover-color: #aa2;
+	     --link-visited-color: #934;
+	     --link-visited-hover-color: #b56;
+	     --external-link-color: #008;
+	     --external-link-hover-color: #60b;
+	     --external-link-visited-color: #172;
+	     --external-link-visited-hover-color: #394;
+	 }
+	 @media(prefers-color-scheme:dark){
+	     :root {
+		--body-font: sans-serif;
+		--header-font: sans-serif;
+		--code-font: monospace;
+		--primary-color: #756;
+		--primary-dim-color: #312;
+		--secondary-color: #eed;
+		--secondary-dim-color: #ffe;
+		--link-color: #880;
+		--link-hover-color: #aa2;
+		--link-visited-color: #934;
+		--link-visited-hover-color: #b56;
+	     }}
+	 body {
+	     position: relative;
+	     min-height: 100%;
+	     background-color: var(--primary-color);
+	     color: var(--secondary-color);
+	     margin: 0 auto;
+	     font-family: sans-serif;
+	 }
+	 main, #content {
+	     background-color: var(--primary-dim-color);
+	     border-left: 1.5em dotted var(--primary-color);
+	     padding: 1em;
+	 }
+	 header {
+	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+	 }
+	 h1 { font-size: 2em; margin-bottom: 0; }
+	 h2 {
+	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+	 }
+	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+	     width: 60%;
+	 }
+	 aside {
+	     float: right;
+	     width: 35%;
+	 }
+	 aside p { width: 100%; }
+	 @media screen and (max-width:760px) {
+	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+		width: 90%;
+	     }
+	     aside {
+		float: inherit;
+		width: 90%;
+		border-top: 0.2em dotted var(--secondary-dim-color);
+		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+		font-size: 0.8em;
+		  }
+	 }
+
+	 footer, #postamble, #preamble {
+	     padding: 0.5em;
+	 }
+	 table {
+	     border-collapse: collapse;
+	     border-spacing: 0;
+	     empty-cells: show;
+	     border: 0.1em solid #444;
+	 }
+	 thead { font-family: sans-serif; }
+	 th, td {
+	     padding: 0 0.3em;
+	     border: 0.01em solid #444;
+	 }
+	 img {
+	     max-width: 80vw;
+	     vertical-align: middle;
+	 }
+	 pre, .src {
+	     padding: 0.5em;
+	     border: 0.1em solid #444;
+	     white-space: pre-wrap;
+	     overflow-x: scroll;
+	     text-overflow: clip;
+	     scrollbar-width: none;
+	 }
+	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+	     display: none;
+	 }
+
+
+	 dt {
+	     font-weight: normal;
+	     display: inline-block;
+	     border-bottom: 0.1rem dotted #444;
+	 }
+	 #text-index dt { border-bottom: none; }
+	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+	     display: block;
+	     font-family: sans-serif;
+	     margin: 0.2em auto 0.5em 0;
+	 }
+	 a, .link {
+	     text-decoration: none;
+	     color: #880;
+	     display: inline;
+	     position: relative;
+	     border-bottom: 0.1rem dotted;
+	     line-height: 1.2;
+	     transition: border 0.3s;
+	 }
+	 a:hover {
+	     color: #aa2;
+	     outline-style: none;
+	     border-bottom: 0.1rem solid;
+	 }
+	 a:visited, .visited-link { color: #934; }
+	 a:visited:hover { color: #b56; }
+	 a:focus {
+	     outline-style: none;
+	     border-bottom: 0.1rem solid;
+	 }
+	 ::selection { background-color: #777; color: #eee; }
+	 a::selection { background-color: #ccc; }
+	 .org-todo {
+	     background-color: #ddd;
+	     color: #333;
+	     font-size: .8rem;
+	     float: right;
+	 }
+	 .org-src-container + .example {
+	     margin-left: 8em;
+	 }
+	 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):after, a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:after, .external-link:after, .visited-external-link:after { 
+	     content: \"^\";
+	     font-size: 0.5em;
+	     vertical-align: super;
+	 }
+	 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]), .external-link {
+	     color: var(--external-link-color);
+	 }
+	 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):hover{ 
+	     color: var(--external-link-hover-color);
+	 }
+	 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited, .visited-external-link { 
+	     color: var(--external-link-visited-color);
+	 }
+	 a[href^=\"https://\"]:not([href*=\"emsenn.net\"]):visited:hover{ 
+	     color: var(--external-link-visited-hover-color);
+	 }
+	 blockquote {
+	     border: 0.1em dashed var(--secondary-dim-color);
+	     padding-left: 0.2em;
+	 }
+	 label.org-src-name {
+	     margin: 0 0 0 3em;
+	     font-family: sans-serif;
+	     font-size: 1rem;
+	     line-height: 0;
+	 }
+	 .skip-to-content {
+	     opacity: 0;
+	     position: absolute;
+	     left: 0.2em;
+	 }
+	 .skip-to-content:focus{
+	     opacity: 1;
+	     background-color: var(--secondary-dim-color);
+	     color: var(--primary-color);
+	 }
+	 ul { max-width: 85%; }
+ &lt;/style&gt;"))
+
+ (org-babel-do-load-languages 'org-babel-load-languages
+			       '((shell . t)))
+
+ (defun ghe-org-capture-capture-at-point ()
+    "Insert an org capture template at point."
+    (interactive)
+    (org-capture 0))
+ (defun ghe-org-export-preprocessor (backend)
+   (let ((links (ghe-org-roam-format-backlinks-list (buffer-file-name))))
+     (unless (string= links "")
+       (save-excursion
+	 (goto-char (point-max))
+	 (insert (concat "\n* Backlinks\n   :PROPERTIES:\n   :CUSTOM_ID:   backlinks\n   :END:\n") links)))))
+
+ (defun ghe-org-html-format-drawer (name contents)
+   (format "&lt;section class=\"org-drawer\"&gt; %s &lt;/section&gt;" contents))
+
+ ;; from https://www.john2x.com/blog/blogging-with-orgmode.html
+  (defun ghe-org-publish-format-sitemap (title sitemap)
+    (let ((posts (cdr sitemap)))
+      (concat
+       (format "#+title: %s\n" title)
+       "#+author: emsenn\n"
+       "#+email: emsenn@emsenn.net\n"
+       (format "#+date: %s\n" (format-time-string "[%Y-%m-%d %a %H:%M:%S]" (current-time)))
+       "#+roam_tags: meta\n"
+       (org-list-to-org (cons (car sitemap) posts)))))
+
+  (setq org-capture-templates
+       `(
+	 ("s" "Capture source code block")
+	 ("se" "Elisp code block"
+		     plain (clock)
+		     ,(concat "#+name: %^{NAME}-elisp\n"
+			      "#+caption: %^{CAPTION}\n"
+			    "#+begin_src elisp %^{HEADER-ARGS}\n"
+			    "%?\n"
+			    "#+end_src\n"))
+	 ))
+ (setq org-publish-project-alist
+       `(
+	 ("records" :components ("all-records" "term-records" "comment-records" "reference-records" "daily-records"))
+	 ("all-records"
+	  :base-extension "org"
+	  :publishing-function org-html-publish-to-html
+	  :html-doctype "html5"
+	  :html-html5-fancy t
+	  :html-container "section"
+	  :headline-levels 6
+	  :recursive t
+	  :html-divs ((preamble "section" "preamble")
+		    (content "main" "content")
+		    (postamble "section" "postamble"))
+	  :publishing-function org-html-publish-to-html
+	  :html-format-drawer-function ghe-org-html-format-drawer
+	  :html-head-include-scripts nil
+	  :html-head-include-default-style nil
+	  :html-head ,ghe-org-html-head
+	  :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+	  :with-footnotes t
+	  :with-toc nil
+	  :with-drawers t
+	  :base-directory "~/org/s/"
+	  :publishing-directory "~/org/p"
+	  :makeindex t
+	  :html-preamble ,ghe-org-html-base-preamble)
+	 ("term-records"
+	  :base-extension "org"
+	  :publishing-function org-html-publish-to-html
+	  :html-doctype "html5"
+	  :html-html5-fancy t
+	  :html-container "section"
+	  :headline-levels 6
+	  :recursive t
+	  :html-divs ((preamble "section" "preamble")
+		    (content "main" "content")
+		    (postamble "section" "postamble"))
+	  :publishing-function org-html-publish-to-html
+	  :html-format-drawer-function ghe-org-html-format-drawer
+	  :sitemap-function ghe-org-publish-format-sitemap
+	  :html-head-include-scripts nil
+	  :html-head-include-default-style nil
+	  :html-head ,ghe-org-html-head
+	  :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+	  :auto-sitemap t
+	  :with-footnotes t
+	  :with-toc nil
+	  :with-drawers t
+	  :base-directory "~/org/s/term"
+	  :publishing-directory "~/org/p/term"
+	  :html-preamble ,ghe-org-html-subdir-preamble
+	  :sitemap-filename "index.org"
+	  :sitemap-sort-files alphabetically
+	  :sitemap-title "Term Index")
+	 ("comment-records"
+	  :base-extension "org"
+	  :publishing-function org-html-publish-to-html
+	  :html-doctype "html5"
+	  :html-html5-fancy t
+	  :html-container "section"
+	  :headline-levels 6
+	  :recursive t
+	  :html-divs ((preamble "section" "preamble")
+		    (content "main" "content")
+		    (postamble "section" "postamble"))
+	  :publishing-function org-html-publish-to-html
+	  :html-format-drawer-function ghe-org-html-format-drawer
+	  :sitemap-function ghe-org-publish-format-sitemap
+	  :html-head-include-scripts nil
+	  :html-head-include-default-style nil
+	  :html-head ,ghe-org-html-head
+	  :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+	  :auto-sitemap t
+	  :with-footnotes t
+	  :with-toc nil
+	  :with-drawers t
+	  :base-directory "~/org/s/com"
+	  :publishing-directory "~/org/p/com"
+	  :html-preamble ,ghe-org-html-subdir-preamble
+	  :sitemap-filename "index.org"
+	  :sitemap-sort-files anti-chronologically
+	  :sitemap-title "Communications Index")
+	 ("daily-records"
+	  :base-extension "org"
+	  :publishing-function org-html-publish-to-html
+	  :html-doctype "html5"
+	  :html-html5-fancy t
+	  :html-container "section"
+	  :headline-levels 6
+	  :recursive t
+	  :html-divs ((preamble "section" "preamble")
+		    (content "main" "content")
+		    (postamble "section" "postamble"))
+	  :publishing-function org-html-publish-to-html
+	  :html-format-drawer-function ghe-org-html-format-drawer
+	  :sitemap-function ghe-org-publish-format-sitemap
+	  :html-head-include-scripts nil
+	  :html-head-include-default-style nil
+	  :html-head ,ghe-org-html-head
+	  :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+	  :auto-sitemap t
+	  :with-footnotes t
+	  :with-toc nil
+	  :with-drawers t
+	  :base-directory "~/org/s/daily"
+	  :publishing-directory "~/org/p/daily"
+	  :html-preamble ,ghe-org-html-subdir-preamble
+	  :sitemap-filename "index.org"
+	  :sitemap-sort-files anti-chronologically
+	  :sitemap-title "Daily Index")
+	 ("reference-records"
+	  :base-extension "org"
+	  :publishing-function org-html-publish-to-html
+	  :html-doctype "html5"
+	  :html-html5-fancy t
+	  :html-container "section"
+	  :headline-levels 6
+	  :recursive t
+	  :html-divs ((preamble "section" "preamble")
+		    (content "main" "content")
+		    (postamble "section" "postamble"))
+	  :publishing-function org-html-publish-to-html
+	  :html-format-drawer-function ghe-org-html-format-drawer
+	  :sitemap-function ghe-org-publish-format-sitemap
+	  :html-head-include-scripts nil
+	  :html-head-include-default-style nil
+	  :html-head ,ghe-org-html-head
+	  :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+	  :auto-sitemap t
+	  :with-footnotes t
+	  :with-toc nil
+	  :with-drawers t
+	  :base-directory "~/org/s/ref"
+	  :publishing-directory "~/org/p/ref"
+	  :html-preamble ,ghe-org-html-subdir-preamble
+	  :sitemap-filename "index.org"
+	  :sitemap-sort-files alphabetically
+	  :sitemap-title "Reference Index")
+	 ("teraum"
+	  :base-extension "org"
+	  :publishing-function org-html-publish-to-html
+	  :html-doctype "html5"
+	  :html-html5-fancy t
+	  :html-container "section"
+	  :headline-levels 6
+	  :recursive t
+	  :html-divs ((preamble "section" "preamble")
+		     (content "main" "content")
+		     (postamble "section" "postamble"))
+	  :publishing-function org-html-publish-to-html
+	  :html-format-drawer-function ghe-org-html-format-drawer
+	  :sitemap-function ghe-org-publish-format-sitemap
+	  :html-head-include-scripts nil
+	  :html-head-include-default-style nil
+	  :html-head ,ghe-org-html-head
+	  :exclude ,(regexp-opt '("README.org" "PRIVATE"))
+	  :auto-sitemap t
+	  :with-footnotes t
+	  :with-toc nil
+	  :with-drawers t
+	  :base-directory "~/org/s/teraum"
+	  :publishing-directory "~/org/p/teraum"
+	  :html-preamble ,ghe-org-html-subdir-preamble
+	  :sitemap-filename "index.org"
+	  :sitemap-sort-files anti-chronologically
+	  :sitemap-title "Teraum Index")
+    ))
+ :hook 
+	(org-export-before-processing . ghe-org-export-preprocessor)
+ :bind (
+	("C-c l" . org-store-link)
+	    ("C-c a" . org-agenda)
+	    ("C-c c" . org-capture)
+	    ("C-c t" . org-toggle-link-display)
+	    ("C-c C-q" . counsel-org-tag)
+	    ("&lt;f8&gt;" . ghe-org-capture-capture-at-point)
+	))
+
+(use-package org-attach-screenshot :straight t
+   :config (setq
+	org-attach-screenshot-command-line "spectacle -rbno $f"))
+
+(use-package
+  org-roam :straight t
+  :hook (after-init . org-roam-mode)
+  :bind (
+	 ("&lt;f5&gt;" . org-roam-dailies-capture-today)
+	 ("&lt;f9&gt;" . org-roam-dailies-find-today)
+	 ("C-c n l" . org-roam)
+	 ("C-c n f" . org-roam-find-file)
+	 ("C-c n g" . org-roam-graph)
+	 ("C-c n i" . org-roam-insert)
+	 ("C-c n I" . org-roam-insert-immediate))
+  :custom
+  (org-roam-directory "~/org/s")
+  (org-roam-dailies-directory "d/")
+  (org-roam-capture-immediate-template
+   (backquote
+    ("B" "blank term" plain
+     (function org-roam--capture-get-point)
+     "*/[[file:${slug}.org][${title}]]/* hasn't been defined yet.\n"
+     :file-name "term/${slug}"
+     :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+date: %U\n"
+		"#+index: ${title}\n"
+		"#+name: ${slug}-definition\n")
+     :unnarrowed t
+     :immediate-finish t)
+    ))
+  (org-roam-capture-templates
+   `(
+     ("t" "term" plain
+      (function org-roam--capture-get-point)
+      "*/[[file:${slug}.org][${title}]]/* %?\n"
+      :file-name "term/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+date: %U\n"
+		"#+index: ${title}\n"
+		"#+name: ${slug}-definition\n")
+      :unnarrowed t)
+     ("r" "reference" plain
+      (function org-roam--capture-get-point)
+      ,(concat "#+author: %^{Author?}\n"
+	  "#+date: %^{Date?}\n"
+	  "#+roam_tags: unincorporated-reference\n"
+	  "#+index: %^{Index?}!references!${title}\n"
+	  "#+name: ${slug}-definition\n"
+	  "*/[[file:${slug}.org][${title}]]/* is an [[file:../term/unincorporated-reference.org][unincorporated reference]].\n")
+      :file-name "ref/${slug}"
+      :head ,(concat "#+title: ${title}\n")
+      :unnarrowed t)
+     ("c" "comment" plain
+      (function org-roam--capture-get-point)
+		"#+index: %^{Index?}!comments!${slug}\n\n%?\n"
+      :file-name "com/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+author: " (user-full-name) "\n"
+		"#+date: %U\n"
+		"#+roam_tags: comment\n")
+      :unnarrowed t)
+     ("T" "Teraum")
+     ("Tt" "term" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an term of [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %f\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("Ta" "area" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an area of [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum area\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("Ty" "year" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is a year in [[file:teraum_s_history.org][Teraum's history]].\n\n#+toc: headlines 2\n\n%?\n\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum year\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("Td" "date" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is a date in [[file:teraum_s_history.org][Teraum's history]].\n\n#+toc: headlines 2\n\n%?\n\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum date\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ("Ts" "species" plain
+      (function org-roam--capture-get-point)
+      "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an species from [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
+      :file-name "teraum/${slug}"
+      :head ,(concat "#+title: ${title}\n"
+		"#+begin_head\n"
+		"#+ghe_schema: "
+		"\n"
+		"#+author: " (user-full-name) "\n"
+		"#+email: " user-mail-address "\n"
+		"#+date: %U\n"
+		"#+roam_tags: Teraum species\n"
+		"#+end_head\n\n")
+      :unnarrowed t)
+     ))
+  (org-roam-dailies-capture-templates
+   `(
+     ("d" "daily" plain
+      #'org-roam-capture--get-point
+      "- [[%f][%?]]\n"
+      :file-name "daily/%&lt;%Y-%m-%d&gt;"
+      :head ,(concat "#+title: %&lt;%Y-%m-%d&gt;\n"
+		"#+author: " (user-full-name) "\n"
+		"#+date: %U\n"
+		"#+roam_tags: daily\n"
+		"This is some changes that were made to this record catalog on %u.\n"))
+     ))
+  :config
+  (defun org-roam--title-to-slug (title)
+    "Convert TITLE to a filename-suitable slug. Uses hyphens rather than underscores."
+    (cl-flet* ((nonspacing-mark-p
+		(char)
+		(eq 'Mn (get-char-code-property char 'general-category)))
+	       (strip-nonspacing-marks
+		(s)
+		(apply #'string (seq-remove #'nonspacing-mark-p
+					    (ucs-normalize-NFD-string s))))
+	       (cl-replace (title pair)
+			   (replace-regexp-in-string (car pair)
+						     (cdr pair)
+						     title)))
+      (let* ((pairs `(("[^[:alnum:][:digit:]]" . "-")
+		      ;; convert anything not alphanumeric
+		      ("--*" . "-")  ;; remove sequential underscores
+		      ("^-" . "")  ;; remove starting underscore
+		      ("-$" . "")))  ;; remove ending underscore
+	     (slug (-reduce-from #'cl-replace
+				 (strip-nonspacing-marks title)
+				 pairs)))
+	(s-downcase slug))))
+  ;; from neil mather's commonplace wiki
+  (defun ghe-org-roam-format-backlinks-list (file)
+    (if (org-roam--org-roam-file-p file)
+	(--reduce-from
+	 (concat acc
+		 (format
+		  "- [[file:%s][%s]]\n"
+		  (if (or (string= (org-roam-dailies-directory--get-absolute-path)
+				   (file-name-directory file))
+			  (string= "/home/emsenn/org/s/term/"
+				   (file-name-directory file))
+			  (string= "/home/emsenn/org/s/ref/"
+				   (file-name-directory file))
+			  (string= "/home/emsenn/org/s/com/"
+				   (file-name-directory file))
+			  (string= "/home/emsenn/org/s/daily/"
+				   (file-name-directory file))
+			  )
+		      (file-relative-name (car it))
+		    (file-relative-name (car it) org-roam-directory))
+		  (org-roam-db--get-title (car it))))
+	 "" (org-roam-db-query
+	     [:select [source]
+		      :from links
+		      :where (= dest $s1)] file))
+      "")))
+
+(use-package org-roam-server :straight t)
+
+
+</pre>
+</div>
+</div>
+</section>
+
+
+<section id="outline-container-backlinks" class="outline-2">
+<h2 id="backlinks">Backlinks</h2>
+<div class="outline-text-2" id="text-backlinks">
+<ul class="org-ul">
+<li><a href=index.html>Term Index</a></li>
+<li><a href=groundhog-emacs.html>Groundhog Emacs</a></li>
+</ul>
+</div>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2021-01-26 Tue 13:13</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2021-01-26 Tue 18:26</p>
+</section>
+</body>
+</html>
