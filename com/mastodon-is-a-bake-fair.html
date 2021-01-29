@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-01-28 Thu 19:16 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mastodon is a bake fair</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="../index.html">homepage</a> | <a href="../term/index.html">definitions</a> | <a href="../ref/index.html">references</a> | <a href="../com/index.html">communication</a> | <a href="../daily/index.html">daily summary</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="../record.html">records</a> with more <a href="../information.html">information</a> about both of those concepts.) On the <a href="../Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="../emsenn.html">emsenn</a>, to share some of my <a href="../knowledge.html">knowledge</a> with <a href="../person.html">people</a> on the <a href="../Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="../record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="../permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="../backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">Mastodon is a bake fair</h1>
+</header><p>
+Also – and this is important – I don’t really mean <a href=../term/mastodon.html>Mastodon</a>. I mean the <a href=../term/fediverse.html>Fediverse</a>: the federation of online information sharing platforms which communicate in some meaningful way with each other.
+</p>
+
+<p>
+But I’ll get to that later, perhaps.
+</p>
+
+<p>
+This essay you’re reading is in response to the discourse I saw today in the Fediverse, in response to <a href="https://www.dailydot.com/debug/mastodon-fediverse-eugen-rochko/">"Mastodon is Crumbling,"</a> an article by Ana Valens for the Daily Dot in which she gives her perspective on the Fediverse, and conducts an interview with Eugen Rochko, the primary develop of Mastodon.
+</p>
+
+<p>
+It – this essay – is written for people who are already in the Fediverse, but who might not be familiar with today’s discourse or the mentioned article. It’s where I’m going to share my perspective on the sorts of dicussions that happen about Mastodon and the Fediverse, in the Fediverse, and how I try to think about things myself. In truth, it’s a rant sparked by reading one too many posts about the topic, and feeling like I have to give my two cents. So fair warning, I wrote this in one-go and did very little editing.
+</p>
+
+<section id="outline-container-org7bb7740" class="outline-2">
+<h2 id="org7bb7740">Mastodon, the Fediverse, and ActivityPub, Oh My!</h2>
+<div class="outline-text-2" id="text-org7bb7740">
+<p>
+(I bet that’s been used as a header before.)
+</p>
+
+<p>
+Mastodon is a piece of software for running a server which provides a frontend for creating and managing an account that lets you make posts that are seen by other people on that server, but also (depending on the post’s settings) to people on other servers, with whom their server federates.
+</p>
+
+<p>
+I have an account at <code>@emsenn@ecosteader.com</code> – my username is <code>@emsenn</code> and the server (or in Fediverse lingo, instance) is <code>@ecosteader.com</code>.
+</p>
+
+<p>
+If I make a public post from that account, everyone on the <code>@ecosteader.com</code> instance can see it – but so can everyone on the <code>@mastodon.social</code> instance, because my account at <code>@emsenn@mastodon.social</code> follows it. (Or any other account could follow any other account at the respective instances.)
+</p>
+
+<p>
+That’s federation. Mastodon is just one software that federates. There are others for microblogging, I know of <a href="https://pleroma.social/">Pleroma</a> and <a href="https://glitch-soc.github.io/docs/">glitch-soc</a>, and <a href="https://pixelfed.org/">Pixelfed</a> for image-sharing. There’s <a href="https://writefreely.org/">Write Freely</a> for long-form blogging.
+</p>
+
+<p>
+For the sake of the headline, ActivityPub is the protocol these services use to federate – it’s how they communicate between each other, so they can make sense of the others’ data. Now, moving on.
+</p>
+</div>
+</section>
+
+<section id="outline-container-orgf1794e9" class="outline-2">
+<h2 id="orgf1794e9">The Fediverse is Big</h2>
+<div class="outline-text-2" id="text-orgf1794e9">
+<p>
+The important take-away here is that a lot of the time – most of the time, in my experience – when people talk about Mastodon culture, they’re actually speaking of the Fediverse.
+</p>
+
+<p>
+Which means a lot of critiques, like “there’s one developer!” or “it’s a White space” just don’t hold up.
+</p>
+
+<p>
+Certain instances are White. Mastodon has just one developer. Neither of those things is the Fediverse.
+</p>
+
+<p>
+A lot of the discourse about the “Mastodon is Crumbling” article involved mention of crumbles, the baked goods, which got me to thinking.
+</p>
+</div>
+</section>
+
+<section id="outline-container-org73eced7" class="outline-2">
+<h2 id="org73eced7">Explaing the Metaphor in the Headline</h2>
+<div class="outline-text-2" id="text-org73eced7">
+<p>
+The Fediverse is sort of like a bake fair. There’s a lot of different booths (instances). A lot. Each booth has their own styles of pie (the platform they use, whether it’s Mastodon or Pixelfed), but also, their own local culture that makes it their pie.
+</p>
+
+<p>
+Sometimes, a style of pie goes out of favor – I mean, when was the last time you had a green tomato pie? Usually because of wider trends in the consumer culture, that exposes some failing in the pie that was probably there the whole time.
+</p>
+
+<p>
+Or maybe it was only when the recipe was made at scale and explored by a bunch of different booths that it became clear that it was a culinary dead-end – marshmallow creme pies aren’t couture these days.
+</p>
+
+<p>
+But there will be a number of new styles that arise as a fusion of the failed, or as I see it, outgrown, styles. And some that manage to stick around, always begging for a little more perfection – lemon curd.
+</p>
+</div>
+</section>
+
+<section id="outline-container-org797a5a0" class="outline-2">
+<h2 id="org797a5a0">My Opinion</h2>
+<div class="outline-text-2" id="text-org797a5a0">
+<p>
+I dont’ think Mr. Rochko is the right developer to maintain a lemon curd. but I also don’t think we’re quite done savoring the marshmallow creme he’s presented with us.
+</p>
+
+<p>
+But – one closing thought. I’ve participated, in some way or another, in a lot of online communities in my 28-year-long life. I think a lot of the conversations that are being had are being had with much too narrow a lens, and have very little to do with Mastodon, the Fediverse, or even the Internet.
+</p>
+
+<p>
+Communication is communication, and I think if conducting it successfully is truly important to you, it’s a more worthwhile to develop your personal best-practices, and bend the tools you use to best-fit that.
+</p>
+</div>
+</section>
+</main>
+<section id="postamble" class="status">
+<p class="date">Date: 2021-01-28 Thu 14:27</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2021-01-28 Thu 19:16</p>
+</section>
+</body>
+</html>
