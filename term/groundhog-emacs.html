@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-30 Sat 10:43 -->
+<!-- 2021-01-30 Sat 11:26 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Groundhog Emacs</title>
@@ -14,18 +14,18 @@
  	     --body-font: sans-serif;
  	     --header-font: sans-serif;
  	     --code-font: monospace;
- 	     --primary-color: #ffe;
- 	     --primary-dim-color: #eed;
+ 	     --primary-color: #eee;
+ 	     --primary-dim-color: #ffe;
  	     --secondary-color: #312;
  	     --secondary-dim-color: #756;
- 	     --link-color: #880;
- 	     --link-hover-color: #aa2;
- 	     --link-visited-color: #934;
- 	     --link-visited-hover-color: #b56;
- 	     --external-link-color: #008;
- 	     --external-link-hover-color: #60b;
- 	     --external-link-visited-color: #172;
- 	     --external-link-visited-hover-color: #394;
+ 	     --link-color: #440;
+ 	     --link-hover-color: #882;
+ 	     --link-visited-color: #400;
+ 	     --link-visited-hover-color: #822;
+ 	     --external-link-color: #004;
+ 	     --external-link-hover-color: #228;
+ 	     --external-link-visited-color: #040;
+ 	     --external-link-visited-hover-color: #282;
  	 }
  	 @media(prefers-color-scheme:dark){
  	     :root {
@@ -77,7 +77,7 @@
  	 	float: inherit;
  	 	width: 90%;
  	 	border-top: 0.2em dotted var(--secondary-dim-color);
- 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted var(--secondary-dim-color);
  	 	font-size: 0.8em;
  	 	  }
  	 }
@@ -89,12 +89,12 @@
  	     border-collapse: collapse;
  	     border-spacing: 0;
  	     empty-cells: show;
- 	     border: 0.1em solid #444;
+ 	     border: 0.1em solid var(--secondary-color);
  	 }
  	 thead { font-family: sans-serif; }
  	 th, td {
  	     padding: 0 0.3em;
- 	     border: 0.01em solid #444;
+ 	     border: 0.01em solid var(--secondary-color);
  	 }
  	 img {
  	     max-width: 80vw;
@@ -102,7 +102,7 @@
  	 }
  	 pre, .src {
  	     padding: 0.5em;
- 	     border: 0.1em solid #444;
+ 	     border: 0.1em solid var(--secondary-color);
  	     white-space: pre-wrap;
  	     overflow-x: scroll;
  	     text-overflow: clip;
@@ -116,7 +116,7 @@
  	 dt {
  	     font-weight: normal;
  	     display: inline-block;
- 	     border-bottom: 0.1rem dotted #444;
+ 	     border-bottom: 0.1rem dotted var(--secondary-color);
  	 }
  	 #text-index dt { border-bottom: none; }
  	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
@@ -126,7 +126,7 @@
  	 }
  	 a, .link {
  	     text-decoration: none;
- 	     color: #880;
+ 	     color: var(--link-color);
  	     display: inline;
  	     position: relative;
  	     border-bottom: 0.1rem dotted;
@@ -134,21 +134,21 @@
  	     transition: border 0.3s;
  	 }
  	 a:hover {
- 	     color: #aa2;
+ 	     color: var(--link-hover-color);
  	     outline-style: none;
  	     border-bottom: 0.1rem solid;
  	 }
- 	 a:visited, .visited-link { color: #934; }
- 	 a:visited:hover { color: #b56; }
+ 	 a:visited, .visited-link { color: var(--link-visited-color); }
+ 	 a:visited:hover { color: var(--link-visited-hover-color); }
  	 a:focus {
  	     outline-style: none;
  	     border-bottom: 0.1rem solid;
  	 }
- 	 ::selection { background-color: #777; color: #eee; }
- 	 a::selection { background-color: #ccc; }
+ 	 ::selection { background-color: var(--secondary-color); color: var(--secondary-color-dim); }
+ 	 a::selection { background-color: var(--secondary-color-dim); }
  	 .org-todo {
- 	     background-color: #ddd;
- 	     color: #333;
+ 	     background-color: var(--secondary-color);
+ 	     color: var(--secondary-color-dim);
  	     font-size: .8rem;
  	     float: right;
  	 }
@@ -197,7 +197,7 @@
 </head>
 <body>
 <section id="preamble" class="status">
-<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="../index.html">homepage</a> | <a href="../term/index.html">definitions</a> | <a href="../ref/index.html">references</a> | <a href="../com/index.html">communication</a> | <a href="../daily/index.html">daily summary</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="../record.html">records</a> with more <a href="../information.html">information</a> about both of those concepts.) On the <a href="../Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="../emsenn.html">emsenn</a>, to share some of my <a href="../knowledge.html">knowledge</a> with <a href="../person.html">people</a> on the <a href="../Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="../record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="../permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="../backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="./index.html">homepage</a> | <a href="./term/index.html">definitions</a> | <a href="./ref/index.html">references</a> | <a href="./com/index.html">communication</a> | <a href="./daily/index.html">daily summary</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="./record.html">records</a> with more <a href="./information.html">information</a> about both of those concepts.) On the <a href="./Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="./emsenn.html">emsenn</a>, to share some of my <a href="./knowledge.html">knowledge</a> with <a href="./person.html">people</a> on the <a href="Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="./record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="./permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="./backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
 </section>
 <main id="content">
 <header>
@@ -209,121 +209,121 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd53aedc">Plans</a>
+<li><a href="#org4b5d121">Plans</a>
 <ul>
-<li><a href="#orged2e8ad">Look at org-ql</a></li>
-<li><a href="#orga159386">Look at tabfs</a></li>
-<li><a href="#orgefa6093">Look at roam-block</a></li>
-<li><a href="#orgb2ec3de">Figure out org-attach</a></li>
+<li><a href="#org10fcd17">Look at org-ql</a></li>
+<li><a href="#org5550315">Look at tabfs</a></li>
+<li><a href="#org9a4e437">Look at roam-block</a></li>
+<li><a href="#org96a41a2">Figure out org-attach</a></li>
 </ul>
 </li>
-<li><a href="#org60a1821">User Guide</a>
+<li><a href="#orgc83a89b">User Guide</a>
 <ul>
-<li><a href="#orgcded3cd">Note-taking</a></li>
+<li><a href="#orgf35b526">Note-taking</a></li>
 </ul>
 </li>
-<li><a href="#orgcdfe9f5">Configuration</a>
+<li><a href="#org05b0c80">Configuration</a>
 <ul>
-<li><a href="#orgde2ca5e">Email</a></li>
-<li><a href="#org277546b">Save configuration</a></li>
-<li><a href="#org79282d6">Startup configuration</a></li>
-<li><a href="#orgb4780ac">Scratch configuration</a></li>
-<li><a href="#org8a9e0bc">Interface configuration</a></li>
-<li><a href="#org81309b4">Basic behavior configuration</a></li>
-<li><a href="#org8949e47">Org-mode configuration</a></li>
-<li><a href="#org960ea47">Org-mode capture templates</a></li>
-<li><a href="#orgc358b1d">Org-mode projects</a></li>
-<li><a href="#org6e65f2a">Org-roam configuration</a></li>
+<li><a href="#org8ffce3e">Email</a></li>
+<li><a href="#orgb353ac1">Save configuration</a></li>
+<li><a href="#org2de144a">Startup configuration</a></li>
+<li><a href="#org353245a">Scratch configuration</a></li>
+<li><a href="#org734941f">Interface configuration</a></li>
+<li><a href="#org0750a13">Basic behavior configuration</a></li>
+<li><a href="#org780d6dc">Org-mode configuration</a></li>
+<li><a href="#orgcb7dd1e">Org-mode capture templates</a></li>
+<li><a href="#org2eb341e">Org-mode projects</a></li>
+<li><a href="#org3f643c3">Org-roam configuration</a></li>
 </ul>
 </li>
-<li><a href="#orgb3796c1">Components</a>
+<li><a href="#org48ec4b8">Components</a>
 <ul>
-<li><a href="#orgf139659">Bugfixes &amp; Version-handling</a></li>
-<li><a href="#org150510d">Straight.el and use-package</a></li>
-<li><a href="#orge759762">Tao theme</a></li>
-<li><a href="#org5c682aa">HTMLize</a></li>
-<li><a href="#orgc7b898a">Ivy</a></li>
-<li><a href="#orgfb90d9c">Fennel-mode</a></li>
-<li><a href="#org6ed2d23">Lua-mode</a></li>
-<li><a href="#org7af1829">Racket-mode</a></li>
-<li><a href="#orgad3c623">rcIRC</a></li>
-<li><a href="#org722e39e">Magit</a></li>
-<li><a href="#org0333ad7">Olivetti</a></li>
-<li><a href="#orgdb243a7">Org-mode</a></li>
-<li><a href="#org7bd64e7">Org-attach-screenshot</a></li>
-<li><a href="#org8fb4220">Org-roam</a></li>
-<li><a href="#org8ab9b6b">Org-roam-server</a></li>
-<li><a href="#org40e6fee">Org-mode export HTML &amp; CSS chunks</a></li>
+<li><a href="#org14a7cc3">Bugfixes &amp; Version-handling</a></li>
+<li><a href="#org2b9bdf1">Straight.el and use-package</a></li>
+<li><a href="#org026e6c9">Tao theme</a></li>
+<li><a href="#org93b8bc1">HTMLize</a></li>
+<li><a href="#org8c9ca15">Ivy</a></li>
+<li><a href="#org3cc4a33">Fennel-mode</a></li>
+<li><a href="#orge9db7d9">Lua-mode</a></li>
+<li><a href="#orga7f76f7">Racket-mode</a></li>
+<li><a href="#orgbe1c27e">rcIRC</a></li>
+<li><a href="#orge75d153">Magit</a></li>
+<li><a href="#org5d74422">Olivetti</a></li>
+<li><a href="#orgcbeff99">Org-mode</a></li>
+<li><a href="#org4b39cdb">Org-attach-screenshot</a></li>
+<li><a href="#org4cc1340">Org-roam</a></li>
+<li><a href="#orgdc925fc">Org-roam-server</a></li>
+<li><a href="#org9bec95a">Org-mode export HTML &amp; CSS chunks</a></li>
 </ul>
 </li>
-<li><a href="#org853f27d">Full Source</a></li>
+<li><a href="#org8658762">Full Source</a></li>
 <li><a href="#backlinks">Backlinks</a></li>
 </ul>
 </div>
 </nav>
-<section id="outline-container-orgd53aedc" class="outline-2">
-<h2 id="orgd53aedc">Plans</h2>
-<div class="outline-text-2" id="text-orgd53aedc">
+<section id="outline-container-org4b5d121" class="outline-2">
+<h2 id="org4b5d121">Plans</h2>
+<div class="outline-text-2" id="text-org4b5d121">
 </div>
-<div id="outline-container-orged2e8ad" class="outline-3">
-<h3 id="orged2e8ad">Look at org-ql</h3>
-<div class="outline-text-3" id="text-orged2e8ad">
+<div id="outline-container-org10fcd17" class="outline-3">
+<h3 id="org10fcd17">Look at org-ql</h3>
+<div class="outline-text-3" id="text-org10fcd17">
 <p>
 <a href="https://github.com/alphapapa/org-ql">https://github.com/alphapapa/org-ql</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orga159386" class="outline-3">
-<h3 id="orga159386">Look at tabfs</h3>
-<div class="outline-text-3" id="text-orga159386">
+<div id="outline-container-org5550315" class="outline-3">
+<h3 id="org5550315">Look at tabfs</h3>
+<div class="outline-text-3" id="text-org5550315">
 <p>
 <a href="https://omar.website/tabfs/">https://omar.website/tabfs/</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orgefa6093" class="outline-3">
-<h3 id="orgefa6093">Look at roam-block</h3>
-<div class="outline-text-3" id="text-orgefa6093">
+<div id="outline-container-org9a4e437" class="outline-3">
+<h3 id="org9a4e437">Look at roam-block</h3>
+<div class="outline-text-3" id="text-org9a4e437">
 <p>
 <a href="https://github.com/Kinneyzhang/roam-block">https://github.com/Kinneyzhang/roam-block</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orgb2ec3de" class="outline-3">
-<h3 id="orgb2ec3de">Figure out org-attach</h3>
+<div id="outline-container-org96a41a2" class="outline-3">
+<h3 id="org96a41a2">Figure out org-attach</h3>
 </div>
 </section>
-<section id="outline-container-org60a1821" class="outline-2">
-<h2 id="org60a1821">User Guide</h2>
-<div class="outline-text-2" id="text-org60a1821">
+<section id="outline-container-orgc83a89b" class="outline-2">
+<h2 id="orgc83a89b">User Guide</h2>
+<div class="outline-text-2" id="text-orgc83a89b">
 <p>
 I don't plan on writing on even <i>starting</i> writing a guide until the end of Winter, 2020, since that'll only mark three months of using the system and my procedures have been churning heavily since then. What's below are some notes to self, that I wanted to make sure I had when it comes time to write the guide:
 </p>
 </div>
 
-<div id="outline-container-orgcded3cd" class="outline-3">
-<h3 id="orgcded3cd">Note-taking</h3>
-<div class="outline-text-3" id="text-orgcded3cd">
+<div id="outline-container-orgf35b526" class="outline-3">
+<h3 id="orgf35b526">Note-taking</h3>
+<div class="outline-text-3" id="text-orgf35b526">
 </div>
-<div id="outline-container-org90748d6" class="outline-4">
-<h4 id="org90748d6">Reference notes</h4>
-<div class="outline-text-4" id="text-org90748d6">
+<div id="outline-container-orgba2f1aa" class="outline-4">
+<h4 id="orgba2f1aa">Reference notes</h4>
+<div class="outline-text-4" id="text-orgba2f1aa">
 <ul class="org-ul">
 <li>Link up every precise term that's mentioned</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcad670a" class="outline-4">
-<h4 id="orgcad670a">Term notes</h4>
-<div class="outline-text-4" id="text-orgcad670a">
+<div id="outline-container-org97a2a1a" class="outline-4">
+<h4 id="org97a2a1a">Term notes</h4>
+<div class="outline-text-4" id="text-org97a2a1a">
 <ul class="org-ul">
 <li>Link up every precise term that's mentioned</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge43287f" class="outline-4">
-<h4 id="orge43287f">Comment notes</h4>
-<div class="outline-text-4" id="text-orge43287f">
+<div id="outline-container-org7802626" class="outline-4">
+<h4 id="org7802626">Comment notes</h4>
+<div class="outline-text-4" id="text-org7802626">
 <ul class="org-ul">
 <li>Link to references</li>
 <li>Include definitions as asides under the paragraph where they're mentioned.</li>
@@ -333,33 +333,33 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </section>
 
-<section id="outline-container-orgcdfe9f5" class="outline-2">
-<h2 id="orgcdfe9f5">Configuration</h2>
-<div class="outline-text-2" id="text-orgcdfe9f5">
+<section id="outline-container-org05b0c80" class="outline-2">
+<h2 id="org05b0c80">Configuration</h2>
+<div class="outline-text-2" id="text-org05b0c80">
 </div>
-<div id="outline-container-orgde2ca5e" class="outline-3">
-<h3 id="orgde2ca5e">Email</h3>
-<div class="outline-text-3" id="text-orgde2ca5e">
+<div id="outline-container-org8ffce3e" class="outline-3">
+<h3 id="org8ffce3e">Email</h3>
+<div class="outline-text-3" id="text-org8ffce3e">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 1: </span>Set the <code>user-mail-address</code> variable.</label><pre class="src src-elisp" id="org07461ea">(setq user-mail-address "emsenn@emsenn.net")
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Set the <code>user-mail-address</code> variable.</label><pre class="src src-elisp" id="org2b910bf">(setq user-mail-address "emsenn@emsenn.net")
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org277546b" class="outline-3">
-<h3 id="org277546b">Save configuration</h3>
-<div class="outline-text-3" id="text-org277546b">
+<div id="outline-container-orgb353ac1" class="outline-3">
+<h3 id="orgb353ac1">Save configuration</h3>
+<div class="outline-text-3" id="text-orgb353ac1">
 <div class="org-src-container">
-<pre class="src src-elisp" id="orgb43f9ca">(setq make-backup-files nil)
+<pre class="src src-elisp" id="org4b5b039">(setq make-backup-files nil)
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org79282d6" class="outline-3">
-<h3 id="org79282d6">Startup configuration</h3>
-<div class="outline-text-3" id="text-org79282d6">
+<div id="outline-container-org2de144a" class="outline-3">
+<h3 id="org2de144a">Startup configuration</h3>
+<div class="outline-text-3" id="text-org2de144a">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org1b7520b">(setq inhibit-startup-message t)
+<pre class="src src-elisp" id="org85b5331">(setq inhibit-startup-message t)
 (setq visible-bell 1)
 (setq inhibit-startup-screen t)
 
@@ -367,21 +367,21 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </div>
-<div id="outline-container-orgb4780ac" class="outline-3">
-<h3 id="orgb4780ac">Scratch configuration</h3>
-<div class="outline-text-3" id="text-orgb4780ac">
+<div id="outline-container-org353245a" class="outline-3">
+<h3 id="org353245a">Scratch configuration</h3>
+<div class="outline-text-3" id="text-org353245a">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org3189934">(setq initial-scratch-message ";; Groundhog Emacs has some bugs\n;; Press C-x C-e after the following lines to fix them\n(ivy-mode)\n")
+<pre class="src src-elisp" id="orgd25cc0e">(setq initial-scratch-message ";; Groundhog Emacs has some bugs\n;; Press C-x C-e after the following lines to fix them\n(ivy-mode)\n")
 
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org8a9e0bc" class="outline-3">
-<h3 id="org8a9e0bc">Interface configuration</h3>
-<div class="outline-text-3" id="text-org8a9e0bc">
+<div id="outline-container-org734941f" class="outline-3">
+<h3 id="org734941f">Interface configuration</h3>
+<div class="outline-text-3" id="text-org734941f">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org7ebb877">(menu-bar-mode -1)
+<pre class="src src-elisp" id="org87f7381">(menu-bar-mode -1)
 (tool-bar-mode -1)
 (show-paren-mode 1)
 (setq line-number-mode t)
@@ -394,22 +394,22 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </div>
-<div id="outline-container-org81309b4" class="outline-3">
-<h3 id="org81309b4">Basic behavior configuration</h3>
-<div class="outline-text-3" id="text-org81309b4">
+<div id="outline-container-org0750a13" class="outline-3">
+<h3 id="org0750a13">Basic behavior configuration</h3>
+<div class="outline-text-3" id="text-org0750a13">
 <div class="org-src-container">
-<pre class="src src-elisp" id="orgdb6cbac">(setq echo-keystrokes 0.1)
+<pre class="src src-elisp" id="orgc8459bd">(setq echo-keystrokes 0.1)
 (setq fill-column 68)
 (setq mouse-wheel-scroll-amount '(1 ((shift) .1)))
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org8949e47" class="outline-3">
-<h3 id="org8949e47">Org-mode configuration</h3>
-<div class="outline-text-3" id="text-org8949e47">
+<div id="outline-container-org780d6dc" class="outline-3">
+<h3 id="org780d6dc">Org-mode configuration</h3>
+<div class="outline-text-3" id="text-org780d6dc">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org105207d">(setq org-directory "~/org")
+<pre class="src src-elisp" id="orgf1d934a">(setq org-directory "~/org")
 (setq org-startup-folded 'fold)
 (setq org-hide-block-startup 'hideblocks)
 (setq org-catch-invisible-edits 'show-and-error)
@@ -426,28 +426,28 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </div>
-<div id="outline-container-org960ea47" class="outline-3">
-<h3 id="org960ea47">Org-mode capture templates</h3>
-<div class="outline-text-3" id="text-org960ea47">
+<div id="outline-container-orgcb7dd1e" class="outline-3">
+<h3 id="orgcb7dd1e">Org-mode capture templates</h3>
+<div class="outline-text-3" id="text-orgcb7dd1e">
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgff778cf">Source block (s)</a></li>
+<li><a href="#orgb88edfa">Source block (s)</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgff778cf" class="outline-4">
-<h4 id="orgff778cf">Source block (s)</h4>
-<div class="outline-text-4" id="text-orgff778cf">
+<div id="outline-container-orgb88edfa" class="outline-4">
+<h4 id="orgb88edfa">Source block (s)</h4>
+<div class="outline-text-4" id="text-orgb88edfa">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org3e34f1f">("s" "Capture source code block")
+<pre class="src src-elisp" id="org99dc726">("s" "Capture source code block")
 </pre>
 </div>
 </div>
-<div id="outline-container-org3dcf117" class="outline-5">
-<h5 id="org3dcf117">Elisp source block (se)</h5>
-<div class="outline-text-5" id="text-org3dcf117">
+<div id="outline-container-org7b2a1ea" class="outline-5">
+<h5 id="org7b2a1ea">Elisp source block (se)</h5>
+<div class="outline-text-5" id="text-org7b2a1ea">
 <div class="org-src-container">
-<pre class="src src-elisp" id="orgfd4a7fb">("se" "Elisp code block"
+<pre class="src src-elisp" id="org4216760">("se" "Elisp code block"
 	     plain (clock)
 	     ,(concat "#+name: %^{NAME}-elisp\n"
 		      "#+caption: %^{CAPTION}\n"
@@ -460,35 +460,35 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </div>
-<div id="outline-container-orgc358b1d" class="outline-3">
-<h3 id="orgc358b1d">Org-mode projects</h3>
-<div class="outline-text-3" id="text-orgc358b1d">
+<div id="outline-container-org2eb341e" class="outline-3">
+<h3 id="org2eb341e">Org-mode projects</h3>
+<div class="outline-text-3" id="text-org2eb341e">
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org45fdbd1">Records catalog project</a></li>
-<li><a href="#org0ff648c">All records project</a></li>
-<li><a href="#org94731ff">Term records project</a></li>
-<li><a href="#org26e2392">Comment records project</a></li>
-<li><a href="#org7d0b8c8">Reference records project</a></li>
-<li><a href="#orgc10b1f5">Daily records project</a></li>
-<li><a href="#org13ed56f">Teraum project</a></li>
+<li><a href="#org4ee6a44">Records catalog project</a></li>
+<li><a href="#orgeba42be">All records project</a></li>
+<li><a href="#orgd945865">Term records project</a></li>
+<li><a href="#orgb261cf2">Comment records project</a></li>
+<li><a href="#orge799770">Reference records project</a></li>
+<li><a href="#org6316528">Daily records project</a></li>
+<li><a href="#org905e61c">Teraum project</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org45fdbd1" class="outline-4">
-<h4 id="org45fdbd1">Records catalog project</h4>
-<div class="outline-text-4" id="text-org45fdbd1">
+<div id="outline-container-org4ee6a44" class="outline-4">
+<h4 id="org4ee6a44">Records catalog project</h4>
+<div class="outline-text-4" id="text-org4ee6a44">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org4dd9923">("records" :components ("all-records" "term-records" "comment-records" "reference-records" "daily-records"))
+<pre class="src src-elisp" id="orgbf4739b">("records" :components ("all-records" "term-records" "comment-records" "reference-records" "daily-records"))
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org0ff648c" class="outline-4">
-<h4 id="org0ff648c">All records project</h4>
-<div class="outline-text-4" id="text-org0ff648c">
+<div id="outline-container-orgeba42be" class="outline-4">
+<h4 id="orgeba42be">All records project</h4>
+<div class="outline-text-4" id="text-orgeba42be">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org6105954">("all-records"
+<pre class="src src-elisp" id="org9ba41d9">("all-records"
  :base-extension "org"
  :publishing-function org-html-publish-to-html
  :html-doctype "html5"
@@ -516,11 +516,11 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </div>
-<div id="outline-container-org94731ff" class="outline-4">
-<h4 id="org94731ff">Term records project</h4>
-<div class="outline-text-4" id="text-org94731ff">
+<div id="outline-container-orgd945865" class="outline-4">
+<h4 id="orgd945865">Term records project</h4>
+<div class="outline-text-4" id="text-orgd945865">
 <div class="org-src-container">
-<pre class="src src-elisp" id="orgaeb8043">("term-records"
+<pre class="src src-elisp" id="org0579ddf">("term-records"
  :base-extension "org"
  :publishing-function org-html-publish-to-html
  :html-doctype "html5"
@@ -552,11 +552,11 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </div>
-<div id="outline-container-org26e2392" class="outline-4">
-<h4 id="org26e2392">Comment records project</h4>
-<div class="outline-text-4" id="text-org26e2392">
+<div id="outline-container-orgb261cf2" class="outline-4">
+<h4 id="orgb261cf2">Comment records project</h4>
+<div class="outline-text-4" id="text-orgb261cf2">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org1ef4da7">("comment-records"
+<pre class="src src-elisp" id="org563c0ef">("comment-records"
  :base-extension "org"
  :publishing-function org-html-publish-to-html
  :html-doctype "html5"
@@ -589,11 +589,11 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 
-<div id="outline-container-org7d0b8c8" class="outline-4">
-<h4 id="org7d0b8c8">Reference records project</h4>
-<div class="outline-text-4" id="text-org7d0b8c8">
+<div id="outline-container-orge799770" class="outline-4">
+<h4 id="orge799770">Reference records project</h4>
+<div class="outline-text-4" id="text-orge799770">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org4d1baa3">("reference-records"
+<pre class="src src-elisp" id="orgf647222">("reference-records"
  :base-extension "org"
  :publishing-function org-html-publish-to-html
  :html-doctype "html5"
@@ -625,11 +625,11 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </div>
-<div id="outline-container-orgc10b1f5" class="outline-4">
-<h4 id="orgc10b1f5">Daily records project</h4>
-<div class="outline-text-4" id="text-orgc10b1f5">
+<div id="outline-container-org6316528" class="outline-4">
+<h4 id="org6316528">Daily records project</h4>
+<div class="outline-text-4" id="text-org6316528">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org3d3bdf7">("daily-records"
+<pre class="src src-elisp" id="org81ad205">("daily-records"
  :base-extension "org"
  :publishing-function org-html-publish-to-html
  :html-doctype "html5"
@@ -661,11 +661,11 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </div>
-<div id="outline-container-org13ed56f" class="outline-4">
-<h4 id="org13ed56f">Teraum project</h4>
-<div class="outline-text-4" id="text-org13ed56f">
+<div id="outline-container-org905e61c" class="outline-4">
+<h4 id="org905e61c">Teraum project</h4>
+<div class="outline-text-4" id="text-org905e61c">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org4a289e9">("teraum"
+<pre class="src src-elisp" id="org69ecdbb">("teraum"
  :base-extension "org"
  :publishing-function org-html-publish-to-html
  :html-doctype "html5"
@@ -699,15 +699,15 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 
-<div id="outline-container-org6e65f2a" class="outline-3">
-<h3 id="org6e65f2a">Org-roam configuration</h3>
-<div class="outline-text-3" id="text-org6e65f2a">
+<div id="outline-container-org3f643c3" class="outline-3">
+<h3 id="org3f643c3">Org-roam configuration</h3>
+<div class="outline-text-3" id="text-org3f643c3">
 </div>
-<div id="outline-container-org887228e" class="outline-4">
-<h4 id="org887228e">Org-roam immediate capture template</h4>
-<div class="outline-text-4" id="text-org887228e">
+<div id="outline-container-org4291c9f" class="outline-4">
+<h4 id="org4291c9f">Org-roam immediate capture template</h4>
+<div class="outline-text-4" id="text-org4291c9f">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org4950dc9">("B" "blank term" plain
+<pre class="src src-elisp" id="orge1e026b">("B" "blank term" plain
  (function org-roam--capture-get-point)
  "*/[[file:${slug}.org][${title}]]/* hasn't been defined yet.\n"
  :file-name "term/${slug}"
@@ -722,15 +722,15 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </div>
-<div id="outline-container-org04add96" class="outline-4">
-<h4 id="org04add96">Org-roam capture templates</h4>
-<div class="outline-text-4" id="text-org04add96">
+<div id="outline-container-orge158ee0" class="outline-4">
+<h4 id="orge158ee0">Org-roam capture templates</h4>
+<div class="outline-text-4" id="text-orge158ee0">
 </div>
-<div id="outline-container-org8d126d9" class="outline-5">
-<h5 id="org8d126d9">Org-roam term capture template</h5>
-<div class="outline-text-5" id="text-org8d126d9">
+<div id="outline-container-org20bed20" class="outline-5">
+<h5 id="org20bed20">Org-roam term capture template</h5>
+<div class="outline-text-5" id="text-org20bed20">
 <div class="org-src-container">
-<pre class="src src-elisp" id="orga96fe6e">("t" "term" plain
+<pre class="src src-elisp" id="orgfa99c7b">("t" "term" plain
  (function org-roam--capture-get-point)
  "*/[[file:${slug}.org][${title}]]/* %?\n"
  :file-name "term/${slug}"
@@ -744,11 +744,11 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </div>
-<div id="outline-container-orgffc5a7c" class="outline-5">
-<h5 id="orgffc5a7c">Org-roam reference capture template</h5>
-<div class="outline-text-5" id="text-orgffc5a7c">
+<div id="outline-container-org1e79a95" class="outline-5">
+<h5 id="org1e79a95">Org-roam reference capture template</h5>
+<div class="outline-text-5" id="text-org1e79a95">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org7c5ddde">("r" "reference" plain
+<pre class="src src-elisp" id="orgb9d4bc2">("r" "reference" plain
  (function org-roam--capture-get-point)
  ,(concat "#+author: %^{Author?}\n"
 	  "#+date: %^{Date?}\n"
@@ -764,11 +764,11 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 
-<div id="outline-container-orgaa7883e" class="outline-5">
-<h5 id="orgaa7883e">Org-roam comment capture template</h5>
-<div class="outline-text-5" id="text-orgaa7883e">
+<div id="outline-container-org00f801e" class="outline-5">
+<h5 id="org00f801e">Org-roam comment capture template</h5>
+<div class="outline-text-5" id="text-org00f801e">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org74ba486">("c" "comment" plain
+<pre class="src src-elisp" id="org9bc12e5">("c" "comment" plain
  (function org-roam--capture-get-point)
 		"#+index: %^{Index?}!comments!${slug}\n\n%?\n"
  :file-name "com/${slug}"
@@ -782,15 +782,15 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 
-<div id="outline-container-orgaa87bc8" class="outline-5">
-<h5 id="orgaa87bc8">Org-roam Teraum capture templates</h5>
-<div class="outline-text-5" id="text-orgaa87bc8">
+<div id="outline-container-orgbf163ad" class="outline-5">
+<h5 id="orgbf163ad">Org-roam Teraum capture templates</h5>
+<div class="outline-text-5" id="text-orgbf163ad">
 </div>
-<div id="outline-container-orgebeb4a5" class="outline-6">
-<h6 id="orgebeb4a5">Org-roam Teraum term capture template</h6>
-<div class="outline-text-6" id="text-orgebeb4a5">
+<div id="outline-container-org58612ec" class="outline-6">
+<h6 id="org58612ec">Org-roam Teraum term capture template</h6>
+<div class="outline-text-6" id="text-org58612ec">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org5294a5a">("Tt" "term" plain
+<pre class="src src-elisp" id="org5b9137f">("Tt" "term" plain
  (function org-roam--capture-get-point)
  "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an term of [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %f\n\n      %?\n   :END:\n"
  :file-name "teraum/${slug}"
@@ -808,11 +808,11 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </div>
-<div id="outline-container-orga86bb18" class="outline-6">
-<h6 id="orga86bb18">Org-roam Teraum area capture template</h6>
-<div class="outline-text-6" id="text-orga86bb18">
+<div id="outline-container-org018457a" class="outline-6">
+<h6 id="org018457a">Org-roam Teraum area capture template</h6>
+<div class="outline-text-6" id="text-org018457a">
 <div class="org-src-container">
-<pre class="src src-elisp" id="orgcd94cc3">("Ta" "area" plain
+<pre class="src src-elisp" id="orge7715ed">("Ta" "area" plain
  (function org-roam--capture-get-point)
  "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an area of [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
  :file-name "teraum/${slug}"
@@ -830,11 +830,11 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </div>
-<div id="outline-container-org6e6800d" class="outline-6">
-<h6 id="org6e6800d">Org-roam Teraum year capture template</h6>
-<div class="outline-text-6" id="text-org6e6800d">
+<div id="outline-container-orgdd45192" class="outline-6">
+<h6 id="orgdd45192">Org-roam Teraum year capture template</h6>
+<div class="outline-text-6" id="text-orgdd45192">
 <div class="org-src-container">
-<pre class="src src-elisp" id="orgb046cf4">("Ty" "year" plain
+<pre class="src src-elisp" id="orgd23bb71">("Ty" "year" plain
  (function org-roam--capture-get-point)
  "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is a year in [[file:teraum_s_history.org][Teraum's history]].\n\n#+toc: headlines 2\n\n%?\n\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
  :file-name "teraum/${slug}"
@@ -852,11 +852,11 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </div>
-<div id="outline-container-orgbe4dc83" class="outline-6">
-<h6 id="orgbe4dc83">Org-roam Teraum date capture template</h6>
-<div class="outline-text-6" id="text-orgbe4dc83">
+<div id="outline-container-org19b7a9d" class="outline-6">
+<h6 id="org19b7a9d">Org-roam Teraum date capture template</h6>
+<div class="outline-text-6" id="text-org19b7a9d">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org73ec7f1">("Td" "date" plain
+<pre class="src src-elisp" id="orgf4d66e3">("Td" "date" plain
  (function org-roam--capture-get-point)
  "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is a date in [[file:teraum_s_history.org][Teraum's history]].\n\n#+toc: headlines 2\n\n%?\n\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
  :file-name "teraum/${slug}"
@@ -874,11 +874,11 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </div>
-<div id="outline-container-org24393ff" class="outline-6">
-<h6 id="org24393ff">Org-roam Teraum species capture template</h6>
-<div class="outline-text-6" id="text-org24393ff">
+<div id="outline-container-orgb41f39f" class="outline-6">
+<h6 id="orgb41f39f">Org-roam Teraum species capture template</h6>
+<div class="outline-text-6" id="text-orgb41f39f">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org105f460">("Ts" "species" plain
+<pre class="src src-elisp" id="orgb2a2b76">("Ts" "species" plain
  (function org-roam--capture-get-point)
  "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an species from [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n\n      %?\n   :END:\n"
  :file-name "teraum/${slug}"
@@ -896,11 +896,11 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </div>
-<div id="outline-container-org617c9eb" class="outline-6">
-<h6 id="org617c9eb">Org-roam Teraum person capture template</h6>
-<div class="outline-text-6" id="text-org617c9eb">
+<div id="outline-container-org6418b0b" class="outline-6">
+<h6 id="org6418b0b">Org-roam Teraum person capture template</h6>
+<div class="outline-text-6" id="text-org6418b0b">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org9963996">("Tp" "species" plain
+<pre class="src src-elisp" id="org72e8e1d">("Tp" "species" plain
  (function org-roam--capture-get-point)
  "#+name: ${slug}-definition\n*/[[file:${slug}.org][${title}]]/* is an person from [[file:../teraum.org][Teraum]].\n\n#+toc: headlines 2\n\n%?\n* Supplements\n** Record history\n   :PROPERTIES:\n   :CUSTOM_ID: record-history\n   :END:\n   :LOGBOOK:\n   - Note taken on %U \\\\\n      Created from %a\n   :END:\n"
  :file-name "teraum/${slug}"
@@ -920,11 +920,11 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </div>
-<div id="outline-container-org14fb38a" class="outline-4">
-<h4 id="org14fb38a">Org-roam dailies capture templates</h4>
-<div class="outline-text-4" id="text-org14fb38a">
+<div id="outline-container-org17cbdbc" class="outline-4">
+<h4 id="org17cbdbc">Org-roam dailies capture templates</h4>
+<div class="outline-text-4" id="text-org17cbdbc">
 <div class="org-src-container">
-<pre class="src src-elisp" id="orgdeb3fdc">("d" "daily" plain
+<pre class="src src-elisp" id="org757db0f">("d" "daily" plain
  #'org-roam-capture--get-point
  "- [[%f][%?]]\n"
  :file-name "daily/%&lt;%Y-%m-%d&gt;"
@@ -939,54 +939,54 @@ I don't plan on writing on even <i>starting</i> writing a guide until the end of
 </div>
 </div>
 </section>
-<section id="outline-container-orgb3796c1" class="outline-2">
-<h2 id="orgb3796c1">Components</h2>
-<div class="outline-text-2" id="text-orgb3796c1">
+<section id="outline-container-org48ec4b8" class="outline-2">
+<h2 id="org48ec4b8">Components</h2>
+<div class="outline-text-2" id="text-org48ec4b8">
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf139659">Bugfixes &amp; Version-handling</a>
+<li><a href="#org14a7cc3">Bugfixes &amp; Version-handling</a>
 <ul>
-<li><a href="#orgc968699">Isearch occurence bug</a></li>
-<li><a href="#org91ff03d">TLS fix for Emacs &lt;26.3</a></li>
+<li><a href="#org37c5e1a">Isearch occurence bug</a></li>
+<li><a href="#orgedf77ec">TLS fix for Emacs &lt;26.3</a></li>
 </ul>
 </li>
-<li><a href="#org150510d">Straight.el and use-package</a>
+<li><a href="#org2b9bdf1">Straight.el and use-package</a>
 <ul>
-<li><a href="#org4bea900">Straight.el bootstrapping</a></li>
-<li><a href="#org43046d7">Use-package bootstrapping</a></li>
+<li><a href="#org4ead5be">Straight.el bootstrapping</a></li>
+<li><a href="#orgfdb36ef">Use-package bootstrapping</a></li>
 </ul>
 </li>
-<li><a href="#orge759762">Tao theme</a></li>
-<li><a href="#org5c682aa">HTMLize</a></li>
-<li><a href="#orgc7b898a">Ivy</a></li>
-<li><a href="#orgfb90d9c">Fennel-mode</a></li>
-<li><a href="#org6ed2d23">Lua-mode</a></li>
-<li><a href="#org7af1829">Racket-mode</a></li>
-<li><a href="#orgad3c623">rcIRC</a></li>
-<li><a href="#org722e39e">Magit</a></li>
-<li><a href="#org0333ad7">Olivetti</a></li>
-<li><a href="#orgdb243a7">Org-mode</a></li>
-<li><a href="#org7bd64e7">Org-attach-screenshot</a></li>
-<li><a href="#org8fb4220">Org-roam</a></li>
-<li><a href="#org8ab9b6b">Org-roam-server</a></li>
-<li><a href="#org40e6fee">Org-mode export HTML &amp; CSS chunks</a>
+<li><a href="#org026e6c9">Tao theme</a></li>
+<li><a href="#org93b8bc1">HTMLize</a></li>
+<li><a href="#org8c9ca15">Ivy</a></li>
+<li><a href="#org3cc4a33">Fennel-mode</a></li>
+<li><a href="#orge9db7d9">Lua-mode</a></li>
+<li><a href="#orga7f76f7">Racket-mode</a></li>
+<li><a href="#orgbe1c27e">rcIRC</a></li>
+<li><a href="#orge75d153">Magit</a></li>
+<li><a href="#org5d74422">Olivetti</a></li>
+<li><a href="#orgcbeff99">Org-mode</a></li>
+<li><a href="#org4b39cdb">Org-attach-screenshot</a></li>
+<li><a href="#org4cc1340">Org-roam</a></li>
+<li><a href="#orgdc925fc">Org-roam-server</a></li>
+<li><a href="#org9bec95a">Org-mode export HTML &amp; CSS chunks</a>
 <ul>
-<li><a href="#org29f318b">HTML base preamble</a></li>
-<li><a href="#orga3f1fe3">HTML subdir preamble</a></li>
-<li><a href="#orgf2fd692">CSS stylesheet</a></li>
-<li><a href="#org4ec9be0">HTML head</a></li>
+<li><a href="#org30a6f33">HTML base preamble</a></li>
+<li><a href="#orgab81d4d">HTML subdir preamble</a></li>
+<li><a href="#orgc957072">CSS stylesheet</a></li>
+<li><a href="#orgca73a35">HTML head</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf139659" class="outline-3">
-<h3 id="orgf139659">Bugfixes &amp; Version-handling</h3>
-<div class="outline-text-3" id="text-orgf139659">
+<div id="outline-container-org14a7cc3" class="outline-3">
+<h3 id="org14a7cc3">Bugfixes &amp; Version-handling</h3>
+<div class="outline-text-3" id="text-org14a7cc3">
 </div>
-<div id="outline-container-orgc968699" class="outline-4">
-<h4 id="orgc968699">Isearch occurence bug</h4>
-<div class="outline-text-4" id="text-orgc968699">
+<div id="outline-container-org37c5e1a" class="outline-4">
+<h4 id="org37c5e1a">Isearch occurence bug</h4>
+<div class="outline-text-4" id="text-org37c5e1a">
 <section class="org-drawer"> <ul class="org-ul">
 <li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2021-01-01 Fri 17:34] </span></span> <br></li>
 </ul>
@@ -996,7 +996,7 @@ When I was first setting up <i>Groundhog Emacs</i>, I looked at <a href="alex_sc
  </section>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 2: </span>An <i>Elisp</i> declaration for fixing bug #20971 in <i>Emacs</i>.</label><pre class="src src-elisp" id="org1c6a4e1">(defadvice isearch-occur (after isearch-occur-fix activate)
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>An <i>Elisp</i> declaration for fixing bug #20971 in <i>Emacs</i>.</label><pre class="src src-elisp" id="org354a4ef">(defadvice isearch-occur (after isearch-occur-fix activate)
   "Fixes bug #20971: http://debbugs.gnu.org/cgi/bugreport.cgi?bug=20971"
   (setq buffer-read-only nil))
 </pre>
@@ -1004,11 +1004,11 @@ When I was first setting up <i>Groundhog Emacs</i>, I looked at <a href="alex_sc
 </div>
 </div>
 
-<div id="outline-container-org91ff03d" class="outline-4">
-<h4 id="org91ff03d">TLS fix for Emacs &lt;26.3</h4>
-<div class="outline-text-4" id="text-org91ff03d">
+<div id="outline-container-orgedf77ec" class="outline-4">
+<h4 id="orgedf77ec">TLS fix for Emacs &lt;26.3</h4>
+<div class="outline-text-4" id="text-orgedf77ec">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 3: </span>Fix an error with <i>TLS</i> stuff in Emacs versions &lt;26.3</label><pre class="src src-elisp" id="org6dace8d">(if (and (version&lt; emacs-version "26.3") (&gt;= libgnutls-version 30600))
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>Fix an error with <i>TLS</i> stuff in Emacs versions &lt;26.3</label><pre class="src src-elisp" id="org3be7f84">(if (and (version&lt; emacs-version "26.3") (&gt;= libgnutls-version 30600))
     (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 
 </pre>
@@ -1016,19 +1016,19 @@ When I was first setting up <i>Groundhog Emacs</i>, I looked at <a href="alex_sc
 </div>
 </div>
 </div>
-<div id="outline-container-org150510d" class="outline-3">
-<h3 id="org150510d">Straight.el and use-package</h3>
-<div class="outline-text-3" id="text-org150510d">
+<div id="outline-container-org2b9bdf1" class="outline-3">
+<h3 id="org2b9bdf1">Straight.el and use-package</h3>
+<div class="outline-text-3" id="text-org2b9bdf1">
 <p>
 Requires <a href="git.html">Git</a> be installed.
 </p>
 </div>
 
-<div id="outline-container-org4bea900" class="outline-4">
-<h4 id="org4bea900">Straight.el bootstrapping</h4>
-<div class="outline-text-4" id="text-org4bea900">
+<div id="outline-container-org4ead5be" class="outline-4">
+<h4 id="org4ead5be">Straight.el bootstrapping</h4>
+<div class="outline-text-4" id="text-org4ead5be">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org009cb26">(defvar straight-install-script-path
+<pre class="src src-elisp" id="orgc3e3c95">(defvar straight-install-script-path
   "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el")
 
 (defvar bootstrap-version)
@@ -1047,43 +1047,43 @@ Requires <a href="git.html">Git</a> be installed.
 </div>
 </div>
 </div>
-<div id="outline-container-org43046d7" class="outline-4">
-<h4 id="org43046d7">Use-package bootstrapping</h4>
-<div class="outline-text-4" id="text-org43046d7">
+<div id="outline-container-orgfdb36ef" class="outline-4">
+<h4 id="orgfdb36ef">Use-package bootstrapping</h4>
+<div class="outline-text-4" id="text-orgfdb36ef">
 <div class="org-src-container">
-<pre class="src src-elisp" id="orgdafbeb1">(straight-use-package 'use-package)
+<pre class="src src-elisp" id="orgc96734f">(straight-use-package 'use-package)
 </pre>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-orge759762" class="outline-3">
-<h3 id="orge759762">Tao theme</h3>
-<div class="outline-text-3" id="text-orge759762">
+<div id="outline-container-org026e6c9" class="outline-3">
+<h3 id="org026e6c9">Tao theme</h3>
+<div class="outline-text-3" id="text-org026e6c9">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org0e9078a">(use-package darktooth-theme :straight t
+<pre class="src src-elisp" id="orge8af918">(use-package darktooth-theme :straight t
   :config
   (load-theme 'darktooth t))
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org5c682aa" class="outline-3">
-<h3 id="org5c682aa">HTMLize</h3>
-<div class="outline-text-3" id="text-org5c682aa">
+<div id="outline-container-org93b8bc1" class="outline-3">
+<h3 id="org93b8bc1">HTMLize</h3>
+<div class="outline-text-3" id="text-org93b8bc1">
 <div class="org-src-container">
-<pre class="src src-elisp" id="orge173430">(use-package htmlize :straight t)
+<pre class="src src-elisp" id="org1d84ae6">(use-package htmlize :straight t)
 
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc7b898a" class="outline-3">
-<h3 id="orgc7b898a">Ivy</h3>
-<div class="outline-text-3" id="text-orgc7b898a">
+<div id="outline-container-org8c9ca15" class="outline-3">
+<h3 id="org8c9ca15">Ivy</h3>
+<div class="outline-text-3" id="text-org8c9ca15">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org08ceec2">(use-package ivy
+<pre class="src src-elisp" id="org9acbe9b">(use-package ivy
       :straight t
       :diminish (ivy-mode . "")
       :bind (("C-c C-r" . ivy-resume))
@@ -1100,11 +1100,11 @@ Requires <a href="git.html">Git</a> be installed.
 </div>
 </div>
 
-<div id="outline-container-orgfb90d9c" class="outline-3">
-<h3 id="orgfb90d9c">Fennel-mode</h3>
-<div class="outline-text-3" id="text-orgfb90d9c">
+<div id="outline-container-org3cc4a33" class="outline-3">
+<h3 id="org3cc4a33">Fennel-mode</h3>
+<div class="outline-text-3" id="text-org3cc4a33">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org5ce2c4c">(use-package fennel-mode :straight t
+<pre class="src src-elisp" id="org59322b8">(use-package fennel-mode :straight t
   :mode "\\.fnl\\'"
   :interpreter "fennel"
   :custom
@@ -1113,33 +1113,33 @@ Requires <a href="git.html">Git</a> be installed.
 </div>
 </div>
 </div>
-<div id="outline-container-org6ed2d23" class="outline-3">
-<h3 id="org6ed2d23">Lua-mode</h3>
-<div class="outline-text-3" id="text-org6ed2d23">
+<div id="outline-container-orge9db7d9" class="outline-3">
+<h3 id="orge9db7d9">Lua-mode</h3>
+<div class="outline-text-3" id="text-orge9db7d9">
 <div class="org-src-container">
-<pre class="src src-elisp" id="orge041a9f">(use-package lua-mode :straight t
+<pre class="src src-elisp" id="org18fee59">(use-package lua-mode :straight t
   :mode "\\.lua\\'"
   :interpreter "lua")
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org7af1829" class="outline-3">
-<h3 id="org7af1829">Racket-mode</h3>
-<div class="outline-text-3" id="text-org7af1829">
+<div id="outline-container-orga7f76f7" class="outline-3">
+<h3 id="orga7f76f7">Racket-mode</h3>
+<div class="outline-text-3" id="text-orga7f76f7">
 <div class="org-src-container">
-<pre class="src src-elisp" id="orgd79ea5c">(use-package racket-mode :straight t
+<pre class="src src-elisp" id="orgac1e510">(use-package racket-mode :straight t
   :mode "\\.rkt\\'"
   :interpreter "racket")
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgad3c623" class="outline-3">
-<h3 id="orgad3c623">rcIRC</h3>
-<div class="outline-text-3" id="text-orgad3c623">
+<div id="outline-container-orgbe1c27e" class="outline-3">
+<h3 id="orgbe1c27e">rcIRC</h3>
+<div class="outline-text-3" id="text-orgbe1c27e">
 <div class="org-src-container">
-<pre class="src src-elisp" id="orgd1af3fd">(use-package rcirc :straight t
+<pre class="src src-elisp" id="org86e479d">(use-package rcirc :straight t
   :custom
   (rcirc-time-format "%Y-%m-%d %H:%M ")
   (rcirc-default-nick "emsenn")
@@ -1152,30 +1152,30 @@ Requires <a href="git.html">Git</a> be installed.
 </div>
 </div>
 </div>
-<div id="outline-container-org722e39e" class="outline-3">
-<h3 id="org722e39e">Magit</h3>
-<div class="outline-text-3" id="text-org722e39e">
+<div id="outline-container-orge75d153" class="outline-3">
+<h3 id="orge75d153">Magit</h3>
+<div class="outline-text-3" id="text-orge75d153">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org67d1866">(use-package magit :straight t)
+<pre class="src src-elisp" id="org121c8a7">(use-package magit :straight t)
 
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org0333ad7" class="outline-3">
-<h3 id="org0333ad7">Olivetti</h3>
-<div class="outline-text-3" id="text-org0333ad7">
+<div id="outline-container-org5d74422" class="outline-3">
+<h3 id="org5d74422">Olivetti</h3>
+<div class="outline-text-3" id="text-org5d74422">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org6efd1fe">(use-package olivetti :straight t)
+<pre class="src src-elisp" id="orgd49d948">(use-package olivetti :straight t)
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgdb243a7" class="outline-3">
-<h3 id="orgdb243a7">Org-mode</h3>
-<div class="outline-text-3" id="text-orgdb243a7">
+<div id="outline-container-orgcbeff99" class="outline-3">
+<h3 id="orgcbeff99">Org-mode</h3>
+<div class="outline-text-3" id="text-orgcbeff99">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org3199fa9">(use-package
+<pre class="src src-elisp" id="org132e146">(use-package
  org :straight t
  :config 
  (setq org-directory "~/org")
@@ -1345,18 +1345,18 @@ Requires <a href="git.html">Git</a> be installed.
 	     --body-font: sans-serif;
 	     --header-font: sans-serif;
 	     --code-font: monospace;
-	     --primary-color: #ffe;
-	     --primary-dim-color: #eed;
+	     --primary-color: #eee;
+	     --primary-dim-color: #ffe;
 	     --secondary-color: #312;
 	     --secondary-dim-color: #756;
-	     --link-color: #880;
-	     --link-hover-color: #aa2;
-	     --link-visited-color: #934;
-	     --link-visited-hover-color: #b56;
-	     --external-link-color: #008;
-	     --external-link-hover-color: #60b;
-	     --external-link-visited-color: #172;
-	     --external-link-visited-hover-color: #394;
+	     --link-color: #440;
+	     --link-hover-color: #882;
+	     --link-visited-color: #400;
+	     --link-visited-hover-color: #822;
+	     --external-link-color: #004;
+	     --external-link-hover-color: #228;
+	     --external-link-visited-color: #040;
+	     --external-link-visited-hover-color: #282;
 	 }
 	 @media(prefers-color-scheme:dark){
 	     :root {
@@ -1408,7 +1408,7 @@ Requires <a href="git.html">Git</a> be installed.
 		float: inherit;
 		width: 90%;
 		border-top: 0.2em dotted var(--secondary-dim-color);
-		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+		border-bottom: 0.2em dotted var(--secondary-dim-color);
 		font-size: 0.8em;
 		  }
 	 }
@@ -1420,12 +1420,12 @@ Requires <a href="git.html">Git</a> be installed.
 	     border-collapse: collapse;
 	     border-spacing: 0;
 	     empty-cells: show;
-	     border: 0.1em solid #444;
+	     border: 0.1em solid var(--secondary-color);
 	 }
 	 thead { font-family: sans-serif; }
 	 th, td {
 	     padding: 0 0.3em;
-	     border: 0.01em solid #444;
+	     border: 0.01em solid var(--secondary-color);
 	 }
 	 img {
 	     max-width: 80vw;
@@ -1433,7 +1433,7 @@ Requires <a href="git.html">Git</a> be installed.
 	 }
 	 pre, .src {
 	     padding: 0.5em;
-	     border: 0.1em solid #444;
+	     border: 0.1em solid var(--secondary-color);
 	     white-space: pre-wrap;
 	     overflow-x: scroll;
 	     text-overflow: clip;
@@ -1447,7 +1447,7 @@ Requires <a href="git.html">Git</a> be installed.
 	 dt {
 	     font-weight: normal;
 	     display: inline-block;
-	     border-bottom: 0.1rem dotted #444;
+	     border-bottom: 0.1rem dotted var(--secondary-color);
 	 }
 	 #text-index dt { border-bottom: none; }
 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
@@ -1457,7 +1457,7 @@ Requires <a href="git.html">Git</a> be installed.
 	 }
 	 a, .link {
 	     text-decoration: none;
-	     color: #880;
+	     color: var(--link-color);
 	     display: inline;
 	     position: relative;
 	     border-bottom: 0.1rem dotted;
@@ -1465,21 +1465,21 @@ Requires <a href="git.html">Git</a> be installed.
 	     transition: border 0.3s;
 	 }
 	 a:hover {
-	     color: #aa2;
+	     color: var(--link-hover-color);
 	     outline-style: none;
 	     border-bottom: 0.1rem solid;
 	 }
-	 a:visited, .visited-link { color: #934; }
-	 a:visited:hover { color: #b56; }
+	 a:visited, .visited-link { color: var(--link-visited-color); }
+	 a:visited:hover { color: var(--link-visited-hover-color); }
 	 a:focus {
 	     outline-style: none;
 	     border-bottom: 0.1rem solid;
 	 }
-	 ::selection { background-color: #777; color: #eee; }
-	 a::selection { background-color: #ccc; }
+	 ::selection { background-color: var(--secondary-color); color: var(--secondary-color-dim); }
+	 a::selection { background-color: var(--secondary-color-dim); }
 	 .org-todo {
-	     background-color: #ddd;
-	     color: #333;
+	     background-color: var(--secondary-color);
+	     color: var(--secondary-color-dim);
 	     font-size: .8rem;
 	     float: right;
 	 }
@@ -1748,11 +1748,11 @@ Requires <a href="git.html">Git</a> be installed.
 </div>
 </div>
 
-<div id="outline-container-org7bd64e7" class="outline-3">
-<h3 id="org7bd64e7">Org-attach-screenshot</h3>
-<div class="outline-text-3" id="text-org7bd64e7">
+<div id="outline-container-org4b39cdb" class="outline-3">
+<h3 id="org4b39cdb">Org-attach-screenshot</h3>
+<div class="outline-text-3" id="text-org4b39cdb">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org6db73ab">(use-package org-attach-screenshot :straight t
+<pre class="src src-elisp" id="org5cc46eb">(use-package org-attach-screenshot :straight t
    :config (setq
 	org-attach-screenshot-command-line "spectacle -rbno $f"))
 </pre>
@@ -1760,11 +1760,11 @@ Requires <a href="git.html">Git</a> be installed.
 </div>
 </div>
 
-<div id="outline-container-org8fb4220" class="outline-3">
-<h3 id="org8fb4220">Org-roam</h3>
-<div class="outline-text-3" id="text-org8fb4220">
+<div id="outline-container-org4cc1340" class="outline-3">
+<h3 id="org4cc1340">Org-roam</h3>
+<div class="outline-text-3" id="text-org4cc1340">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org8e92158">(use-package
+<pre class="src src-elisp" id="orgd04aca8">(use-package
   org-roam :straight t
   :hook (after-init . org-roam-mode)
   :bind (
@@ -1962,26 +1962,26 @@ Requires <a href="git.html">Git</a> be installed.
 </div>
 </div>
 
-<div id="outline-container-org8ab9b6b" class="outline-3">
-<h3 id="org8ab9b6b">Org-roam-server</h3>
-<div class="outline-text-3" id="text-org8ab9b6b">
+<div id="outline-container-orgdc925fc" class="outline-3">
+<h3 id="orgdc925fc">Org-roam-server</h3>
+<div class="outline-text-3" id="text-orgdc925fc">
 <div class="org-src-container">
-<pre class="src src-elisp" id="orgf00fa15">(use-package org-roam-server :straight t)
+<pre class="src src-elisp" id="org0714ceb">(use-package org-roam-server :straight t)
 
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org40e6fee" class="outline-3">
-<h3 id="org40e6fee">Org-mode export HTML &amp; CSS chunks</h3>
-<div class="outline-text-3" id="text-org40e6fee">
+<div id="outline-container-org9bec95a" class="outline-3">
+<h3 id="org9bec95a">Org-mode export HTML &amp; CSS chunks</h3>
+<div class="outline-text-3" id="text-org9bec95a">
 </div>
-<div id="outline-container-org29f318b" class="outline-4">
-<h4 id="org29f318b">HTML base preamble</h4>
-<div class="outline-text-4" id="text-org29f318b">
+<div id="outline-container-org30a6f33" class="outline-4">
+<h4 id="org30a6f33">HTML base preamble</h4>
+<div class="outline-text-4" id="text-org30a6f33">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org340102f">(setq ghe-org-html-base-preamble
+<pre class="src src-elisp" id="org98b0495">(setq ghe-org-html-base-preamble
     (concat "&lt;a href=\"#content\" class=\"skip-to-content\"&gt;skip to content&lt;/a&gt;"
 	    "&lt;section class=\"nav\"&gt;&lt;strong&gt;Website navigation:&lt;/strong&gt; "
 	    "&lt;a href=\"./index.html\"&gt;"
@@ -2058,11 +2058,11 @@ Requires <a href="git.html">Git</a> be installed.
 </div>
 </div>
 </div>
-<div id="outline-container-orga3f1fe3" class="outline-4">
-<h4 id="orga3f1fe3">HTML subdir preamble</h4>
-<div class="outline-text-4" id="text-orga3f1fe3">
+<div id="outline-container-orgab81d4d" class="outline-4">
+<h4 id="orgab81d4d">HTML subdir preamble</h4>
+<div class="outline-text-4" id="text-orgab81d4d">
 <div class="org-src-container">
-<pre class="src src-elisp" id="orgee7ec44">(setq ghe-org-html-subdir-preamble
+<pre class="src src-elisp" id="orgaf012ab">(setq ghe-org-html-subdir-preamble
     (concat "&lt;a href=\"#content\" class=\"skip-to-content\"&gt;skip to content&lt;/a&gt;"
 	    "&lt;section class=\"nav\"&gt;&lt;strong&gt;Website navigation:&lt;/strong&gt; "
 	    "&lt;a href=\"../index.html\"&gt;"
@@ -2139,28 +2139,28 @@ Requires <a href="git.html">Git</a> be installed.
 </div>
 </div>
 </div>
-<div id="outline-container-orgf2fd692" class="outline-4">
-<h4 id="orgf2fd692">CSS stylesheet</h4>
-<div class="outline-text-4" id="text-orgf2fd692">
+<div id="outline-container-orgc957072" class="outline-4">
+<h4 id="orgc957072">CSS stylesheet</h4>
+<div class="outline-text-4" id="text-orgc957072">
 <div class="org-src-container">
-<pre class="src src-css" id="org98d8e31">@charset \"UTF-8\";
+<pre class="src src-css" id="org3f67d93">@charset \"UTF-8\";
 
 :root {
     --body-font: sans-serif;
     --header-font: sans-serif;
     --code-font: monospace;
-    --primary-color: #ffe;
-    --primary-dim-color: #eed;
+    --primary-color: #eee;
+    --primary-dim-color: #ffe;
     --secondary-color: #312;
     --secondary-dim-color: #756;
-    --link-color: #880;
-    --link-hover-color: #aa2;
-    --link-visited-color: #934;
-    --link-visited-hover-color: #b56;
-    --external-link-color: #008;
-    --external-link-hover-color: #60b;
-    --external-link-visited-color: #172;
-    --external-link-visited-hover-color: #394;
+    --link-color: #440;
+    --link-hover-color: #882;
+    --link-visited-color: #400;
+    --link-visited-hover-color: #822;
+    --external-link-color: #004;
+    --external-link-hover-color: #228;
+    --external-link-visited-color: #040;
+    --external-link-visited-hover-color: #282;
 }
 @media(prefers-color-scheme:dark){
     :root {
@@ -2212,7 +2212,7 @@ aside p { width: 100%; }
 	float: inherit;
 	width: 90%;
 	border-top: 0.2em dotted var(--secondary-dim-color);
-	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+	border-bottom: 0.2em dotted var(--secondary-dim-color);
 	font-size: 0.8em;
 	  }
 }
@@ -2224,12 +2224,12 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
     empty-cells: show;
-    border: 0.1em solid #444;
+    border: 0.1em solid var(--secondary-color);
 }
 thead { font-family: sans-serif; }
 th, td {
     padding: 0 0.3em;
-    border: 0.01em solid #444;
+    border: 0.01em solid var(--secondary-color);
 }
 img {
     max-width: 80vw;
@@ -2237,7 +2237,7 @@ img {
 }
 pre, .src {
     padding: 0.5em;
-    border: 0.1em solid #444;
+    border: 0.1em solid var(--secondary-color);
     white-space: pre-wrap;
     overflow-x: scroll;
     text-overflow: clip;
@@ -2251,7 +2251,7 @@ pre::-webkit-scrollbar, .src::-webkit-scrollbar {
 dt {
     font-weight: normal;
     display: inline-block;
-    border-bottom: 0.1rem dotted #444;
+    border-bottom: 0.1rem dotted var(--secondary-color);
 }
 #text-index dt { border-bottom: none; }
 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
@@ -2261,7 +2261,7 @@ h2, h3, h4, h5, h6, h7, h8, h9, h10 {
 }
 a, .link {
     text-decoration: none;
-    color: #880;
+    color: var(--link-color);
     display: inline;
     position: relative;
     border-bottom: 0.1rem dotted;
@@ -2269,21 +2269,21 @@ a, .link {
     transition: border 0.3s;
 }
 a:hover {
-    color: #aa2;
+    color: var(--link-hover-color);
     outline-style: none;
     border-bottom: 0.1rem solid;
 }
-a:visited, .visited-link { color: #934; }
-a:visited:hover { color: #b56; }
+a:visited, .visited-link { color: var(--link-visited-color); }
+a:visited:hover { color: var(--link-visited-hover-color); }
 a:focus {
     outline-style: none;
     border-bottom: 0.1rem solid;
 }
-::selection { background-color: #777; color: #eee; }
-a::selection { background-color: #ccc; }
+::selection { background-color: var(--secondary-color); color: var(--secondary-color-dim); }
+a::selection { background-color: var(--secondary-color-dim); }
 .org-todo {
-    background-color: #ddd;
-    color: #333;
+    background-color: var(--secondary-color);
+    color: var(--secondary-color-dim);
     font-size: .8rem;
     float: right;
 }
@@ -2332,11 +2332,11 @@ ul { max-width: 85%; }
 </div>
 </div>
 </div>
-<div id="outline-container-org4ec9be0" class="outline-4">
-<h4 id="org4ec9be0">HTML head</h4>
-<div class="outline-text-4" id="text-org4ec9be0">
+<div id="outline-container-orgca73a35" class="outline-4">
+<h4 id="orgca73a35">HTML head</h4>
+<div class="outline-text-4" id="text-orgca73a35">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org87f2ef3">   (setq ghe-org-html-head
+<pre class="src src-elisp" id="org8afa0fe">   (setq ghe-org-html-head
 	 (concat "&lt;style&gt;
 	 @charset \"UTF-8\";
 
@@ -2344,18 +2344,18 @@ ul { max-width: 85%; }
 	     --body-font: sans-serif;
 	     --header-font: sans-serif;
 	     --code-font: monospace;
-	     --primary-color: #ffe;
-	     --primary-dim-color: #eed;
+	     --primary-color: #eee;
+	     --primary-dim-color: #ffe;
 	     --secondary-color: #312;
 	     --secondary-dim-color: #756;
-	     --link-color: #880;
-	     --link-hover-color: #aa2;
-	     --link-visited-color: #934;
-	     --link-visited-hover-color: #b56;
-	     --external-link-color: #008;
-	     --external-link-hover-color: #60b;
-	     --external-link-visited-color: #172;
-	     --external-link-visited-hover-color: #394;
+	     --link-color: #440;
+	     --link-hover-color: #882;
+	     --link-visited-color: #400;
+	     --link-visited-hover-color: #822;
+	     --external-link-color: #004;
+	     --external-link-hover-color: #228;
+	     --external-link-visited-color: #040;
+	     --external-link-visited-hover-color: #282;
 	 }
 	 @media(prefers-color-scheme:dark){
 	     :root {
@@ -2407,7 +2407,7 @@ ul { max-width: 85%; }
 		float: inherit;
 		width: 90%;
 		border-top: 0.2em dotted var(--secondary-dim-color);
-		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+		border-bottom: 0.2em dotted var(--secondary-dim-color);
 		font-size: 0.8em;
 		  }
 	 }
@@ -2419,12 +2419,12 @@ ul { max-width: 85%; }
 	     border-collapse: collapse;
 	     border-spacing: 0;
 	     empty-cells: show;
-	     border: 0.1em solid #444;
+	     border: 0.1em solid var(--secondary-color);
 	 }
 	 thead { font-family: sans-serif; }
 	 th, td {
 	     padding: 0 0.3em;
-	     border: 0.01em solid #444;
+	     border: 0.01em solid var(--secondary-color);
 	 }
 	 img {
 	     max-width: 80vw;
@@ -2432,7 +2432,7 @@ ul { max-width: 85%; }
 	 }
 	 pre, .src {
 	     padding: 0.5em;
-	     border: 0.1em solid #444;
+	     border: 0.1em solid var(--secondary-color);
 	     white-space: pre-wrap;
 	     overflow-x: scroll;
 	     text-overflow: clip;
@@ -2446,7 +2446,7 @@ ul { max-width: 85%; }
 	 dt {
 	     font-weight: normal;
 	     display: inline-block;
-	     border-bottom: 0.1rem dotted #444;
+	     border-bottom: 0.1rem dotted var(--secondary-color);
 	 }
 	 #text-index dt { border-bottom: none; }
 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
@@ -2456,7 +2456,7 @@ ul { max-width: 85%; }
 	 }
 	 a, .link {
 	     text-decoration: none;
-	     color: #880;
+	     color: var(--link-color);
 	     display: inline;
 	     position: relative;
 	     border-bottom: 0.1rem dotted;
@@ -2464,21 +2464,21 @@ ul { max-width: 85%; }
 	     transition: border 0.3s;
 	 }
 	 a:hover {
-	     color: #aa2;
+	     color: var(--link-hover-color);
 	     outline-style: none;
 	     border-bottom: 0.1rem solid;
 	 }
-	 a:visited, .visited-link { color: #934; }
-	 a:visited:hover { color: #b56; }
+	 a:visited, .visited-link { color: var(--link-visited-color); }
+	 a:visited:hover { color: var(--link-visited-hover-color); }
 	 a:focus {
 	     outline-style: none;
 	     border-bottom: 0.1rem solid;
 	 }
-	 ::selection { background-color: #777; color: #eee; }
-	 a::selection { background-color: #ccc; }
+	 ::selection { background-color: var(--secondary-color); color: var(--secondary-color-dim); }
+	 a::selection { background-color: var(--secondary-color-dim); }
 	 .org-todo {
-	     background-color: #ddd;
-	     color: #333;
+	     background-color: var(--secondary-color);
+	     color: var(--secondary-color-dim);
 	     font-size: .8rem;
 	     float: right;
 	 }
@@ -2530,11 +2530,11 @@ ul { max-width: 85%; }
 </div>
 </div>
 </section>
-<section id="outline-container-org853f27d" class="outline-2">
-<h2 id="org853f27d">Full Source</h2>
-<div class="outline-text-2" id="text-org853f27d">
+<section id="outline-container-org8658762" class="outline-2">
+<h2 id="org8658762">Full Source</h2>
+<div class="outline-text-2" id="text-org8658762">
 <div class="org-src-container">
-<pre class="src src-elisp" id="org6f9de0c">
+<pre class="src src-elisp" id="orgf5137e0">
 (if (and (version&lt; emacs-version "26.3") (&gt;= libgnutls-version 30600))
     (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 
@@ -2785,18 +2785,18 @@ ul { max-width: 85%; }
 	     --body-font: sans-serif;
 	     --header-font: sans-serif;
 	     --code-font: monospace;
-	     --primary-color: #ffe;
-	     --primary-dim-color: #eed;
+	     --primary-color: #eee;
+	     --primary-dim-color: #ffe;
 	     --secondary-color: #312;
 	     --secondary-dim-color: #756;
-	     --link-color: #880;
-	     --link-hover-color: #aa2;
-	     --link-visited-color: #934;
-	     --link-visited-hover-color: #b56;
-	     --external-link-color: #008;
-	     --external-link-hover-color: #60b;
-	     --external-link-visited-color: #172;
-	     --external-link-visited-hover-color: #394;
+	     --link-color: #440;
+	     --link-hover-color: #882;
+	     --link-visited-color: #400;
+	     --link-visited-hover-color: #822;
+	     --external-link-color: #004;
+	     --external-link-hover-color: #228;
+	     --external-link-visited-color: #040;
+	     --external-link-visited-hover-color: #282;
 	 }
 	 @media(prefers-color-scheme:dark){
 	     :root {
@@ -2848,7 +2848,7 @@ ul { max-width: 85%; }
 		float: inherit;
 		width: 90%;
 		border-top: 0.2em dotted var(--secondary-dim-color);
-		border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+		border-bottom: 0.2em dotted var(--secondary-dim-color);
 		font-size: 0.8em;
 		  }
 	 }
@@ -2860,12 +2860,12 @@ ul { max-width: 85%; }
 	     border-collapse: collapse;
 	     border-spacing: 0;
 	     empty-cells: show;
-	     border: 0.1em solid #444;
+	     border: 0.1em solid var(--secondary-color);
 	 }
 	 thead { font-family: sans-serif; }
 	 th, td {
 	     padding: 0 0.3em;
-	     border: 0.01em solid #444;
+	     border: 0.01em solid var(--secondary-color);
 	 }
 	 img {
 	     max-width: 80vw;
@@ -2873,7 +2873,7 @@ ul { max-width: 85%; }
 	 }
 	 pre, .src {
 	     padding: 0.5em;
-	     border: 0.1em solid #444;
+	     border: 0.1em solid var(--secondary-color);
 	     white-space: pre-wrap;
 	     overflow-x: scroll;
 	     text-overflow: clip;
@@ -2887,7 +2887,7 @@ ul { max-width: 85%; }
 	 dt {
 	     font-weight: normal;
 	     display: inline-block;
-	     border-bottom: 0.1rem dotted #444;
+	     border-bottom: 0.1rem dotted var(--secondary-color);
 	 }
 	 #text-index dt { border-bottom: none; }
 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
@@ -2897,7 +2897,7 @@ ul { max-width: 85%; }
 	 }
 	 a, .link {
 	     text-decoration: none;
-	     color: #880;
+	     color: var(--link-color);
 	     display: inline;
 	     position: relative;
 	     border-bottom: 0.1rem dotted;
@@ -2905,21 +2905,21 @@ ul { max-width: 85%; }
 	     transition: border 0.3s;
 	 }
 	 a:hover {
-	     color: #aa2;
+	     color: var(--link-hover-color);
 	     outline-style: none;
 	     border-bottom: 0.1rem solid;
 	 }
-	 a:visited, .visited-link { color: #934; }
-	 a:visited:hover { color: #b56; }
+	 a:visited, .visited-link { color: var(--link-visited-color); }
+	 a:visited:hover { color: var(--link-visited-hover-color); }
 	 a:focus {
 	     outline-style: none;
 	     border-bottom: 0.1rem solid;
 	 }
-	 ::selection { background-color: #777; color: #eee; }
-	 a::selection { background-color: #ccc; }
+	 ::selection { background-color: var(--secondary-color); color: var(--secondary-color-dim); }
+	 a::selection { background-color: var(--secondary-color-dim); }
 	 .org-todo {
-	     background-color: #ddd;
-	     color: #333;
+	     background-color: var(--secondary-color);
+	     color: var(--secondary-color-dim);
 	     font-size: .8rem;
 	     float: right;
 	 }
@@ -3395,8 +3395,8 @@ ul { max-width: 85%; }
 <h2 id="backlinks">Backlinks</h2>
 <div class="outline-text-2" id="text-backlinks">
 <ul class="org-ul">
-<li><a href="groundhog-emacs.html">Groundhog Emacs</a></li>
 <li><a href="index.html">Term Index</a></li>
+<li><a href="groundhog-emacs.html">Groundhog Emacs</a></li>
 </ul>
 </div>
 </section>
@@ -3404,7 +3404,7 @@ ul { max-width: 85%; }
 <section id="postamble" class="status">
 <p class="date">Date: 2021-01-26 Tue 13:13</p>
 <p class="author">Author: emsenn</p>
-<p class="date">Created: 2021-01-30 Sat 10:43</p>
+<p class="date">Created: 2021-01-30 Sat 11:26</p>
 </section>
 </body>
 </html>
