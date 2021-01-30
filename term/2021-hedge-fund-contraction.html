@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-01-30 Sat 09:03 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2021 Hedge Fund Contraction</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="emsenn">
+<style>
+ 	 @charset "UTF-8";
+ 	 
+ 	 :root {
+ 	     --body-font: sans-serif;
+ 	     --header-font: sans-serif;
+ 	     --code-font: monospace;
+ 	     --primary-color: #ffe;
+ 	     --primary-dim-color: #eed;
+ 	     --secondary-color: #312;
+ 	     --secondary-dim-color: #756;
+ 	     --link-color: #880;
+ 	     --link-hover-color: #aa2;
+ 	     --link-visited-color: #934;
+ 	     --link-visited-hover-color: #b56;
+ 	     --external-link-color: #008;
+ 	     --external-link-hover-color: #60b;
+ 	     --external-link-visited-color: #172;
+ 	     --external-link-visited-hover-color: #394;
+ 	 }
+ 	 @media(prefers-color-scheme:dark){
+ 	     :root {
+ 	 	--body-font: sans-serif;
+ 	 	--header-font: sans-serif;
+ 	 	--code-font: monospace;
+ 	 	--primary-color: #756;
+ 	 	--primary-dim-color: #312;
+ 	 	--secondary-color: #eed;
+ 	 	--secondary-dim-color: #ffe;
+ 	 	--link-color: #880;
+ 	 	--link-hover-color: #aa2;
+ 	 	--link-visited-color: #934;
+ 	 	--link-visited-hover-color: #b56;
+ 	     }}
+ 	 body {
+ 	     position: relative;
+ 	     min-height: 100%;
+ 	     background-color: var(--primary-color);
+ 	     color: var(--secondary-color);
+ 	     margin: 0 auto;
+ 	     font-family: sans-serif;
+ 	 }
+ 	 main, #content {
+ 	     background-color: var(--primary-dim-color);
+ 	     border-left: 1.5em dotted var(--primary-color);
+ 	     padding: 1em;
+ 	 }
+ 	 header {
+ 	     border-bottom: 0.8em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h1 { font-size: 2em; margin-bottom: 0; }
+ 	 h2 {
+ 	     border-bottom: 0.3em dotted var(--secondary-dim-color);
+ 	 }
+ 	 h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	     width: 60%;
+ 	 }
+ 	 aside {
+ 	     float: right;
+ 	     width: 35%;
+ 	 }
+ 	 aside p { width: 100%; }
+ 	 @media screen and (max-width:760px) {
+ 	     h2, h3, h4, h5, h6, p, table, ul, ol, .org-src-container {
+ 	 	width: 90%;
+ 	     }
+ 	     aside {
+ 	 	float: inherit;
+ 	 	width: 90%;
+ 	 	border-top: 0.2em dotted var(--secondary-dim-color);
+ 	 	border-bottom: 0.2em dotted VAR(--secondary-dim-color);
+ 	 	font-size: 0.8em;
+ 	 	  }
+ 	 }
+ 	 
+ 	 footer, #postamble, #preamble {
+ 	     padding: 0.5em;
+ 	 }
+ 	 table {
+ 	     border-collapse: collapse;
+ 	     border-spacing: 0;
+ 	     empty-cells: show;
+ 	     border: 0.1em solid #444;
+ 	 }
+ 	 thead { font-family: sans-serif; }
+ 	 th, td {
+ 	     padding: 0 0.3em;
+ 	     border: 0.01em solid #444;
+ 	 }
+ 	 img {
+ 	     max-width: 80vw;
+ 	     vertical-align: middle;
+ 	 }
+ 	 pre, .src {
+ 	     padding: 0.5em;
+ 	     border: 0.1em solid #444;
+ 	     white-space: pre-wrap;
+ 	     overflow-x: scroll;
+ 	     text-overflow: clip;
+ 	     scrollbar-width: none;
+ 	 }
+ 	 pre::-webkit-scrollbar, .src::-webkit-scrollbar {
+ 	     display: none;
+ 	 }
+ 	 
+ 	 
+ 	 dt {
+ 	     font-weight: normal;
+ 	     display: inline-block;
+ 	     border-bottom: 0.1rem dotted #444;
+ 	 }
+ 	 #text-index dt { border-bottom: none; }
+ 	 h2, h3, h4, h5, h6, h7, h8, h9, h10 {
+ 	     display: block;
+ 	     font-family: sans-serif;
+ 	     margin: 0.2em auto 0.5em 0;
+ 	 }
+ 	 a, .link {
+ 	     text-decoration: none;
+ 	     color: #880;
+ 	     display: inline;
+ 	     position: relative;
+ 	     border-bottom: 0.1rem dotted;
+ 	     line-height: 1.2;
+ 	     transition: border 0.3s;
+ 	 }
+ 	 a:hover {
+ 	     color: #aa2;
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 a:visited, .visited-link { color: #934; }
+ 	 a:visited:hover { color: #b56; }
+ 	 a:focus {
+ 	     outline-style: none;
+ 	     border-bottom: 0.1rem solid;
+ 	 }
+ 	 ::selection { background-color: #777; color: #eee; }
+ 	 a::selection { background-color: #ccc; }
+ 	 .org-todo {
+ 	     background-color: #ddd;
+ 	     color: #333;
+ 	     font-size: .8rem;
+ 	     float: right;
+ 	 }
+ 	 .org-src-container + .example {
+ 	     margin-left: 8em;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):after, a[href^="https://"]:not([href*="emsenn.net"]):visited:after, .external-link:after, .visited-external-link:after { 
+ 	     content: "^";
+ 	     font-size: 0.5em;
+ 	     vertical-align: super;
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]), .external-link {
+ 	     color: var(--external-link-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):hover{ 
+ 	     color: var(--external-link-hover-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited, .visited-external-link { 
+ 	     color: var(--external-link-visited-color);
+ 	 }
+ 	 a[href^="https://"]:not([href*="emsenn.net"]):visited:hover{ 
+ 	     color: var(--external-link-visited-hover-color);
+ 	 }
+ 	 blockquote {
+ 	     border: 0.1em dashed var(--secondary-dim-color);
+ 	     padding-left: 0.2em;
+ 	 }
+ 	 label.org-src-name {
+ 	     margin: 0 0 0 3em;
+ 	     font-family: sans-serif;
+ 	     font-size: 1rem;
+ 	     line-height: 0;
+ 	 }
+ 	 .skip-to-content {
+ 	     opacity: 0;
+ 	     position: absolute;
+ 	     left: 0.2em;
+ 	 }
+ 	 .skip-to-content:focus{
+ 	     opacity: 1;
+ 	     background-color: var(--secondary-dim-color);
+ 	     color: var(--primary-color);
+ 	 }
+ 	 ul { max-width: 85%; }
+ </style>
+</head>
+<body>
+<section id="preamble" class="status">
+<a href="#content" class="skip-to-content">skip to content</a><section class="nav"><strong>Website navigation:</strong> <a href="../index.html">homepage</a> | <a href="../term/index.html">definitions</a> | <a href="../ref/index.html">references</a> | <a href="../com/index.html">communication</a> | <a href="../daily/index.html">daily summary</a><p>This Website was cultivated as a public asset with <a href="https://ko-fi.com/emsenn">support</a> from people like you. <strong><em>Thank you!</em></strong></p><details><summary>Click this sentence for information about this Website.</summary><p>Click each sentence below for more information about each topic.</p><ul><li><details><summary>This Website is a collection of records linked through their relationship to each other.</summary><p>Each page on this Website is <em>record</em> of <em>information</em>. (There are <a href="../record.html">records</a> with more <a href="../information.html">information</a> about both of those concepts.) On the <a href="../Web.html">Web</a>, these records are <a href="hypertext">hypertext</a>: they contain links to each other (and other resources). The table below demonstrates link styling.<table><thead><tr><th scope="col">Color</th><th scope="col">Link type</th></tr></thead><tbody><tr><td class="link">Sample</td><td>Unvisited local resource</td></tr><tr><td class="visited-link">Sample</td><td>Visited local resource</td></tr><tr><td class="external-link">Sample</td><td>Unvisited external resource</td></tr><tr><td class="visited-external-link">Sample</td><td>Visited external resource</td></tr></table></details></li><li><details><summary>It was created by one human person wishing to communicate with others.</summary><p>It was created by me, <a href="../emsenn.html">emsenn</a>, to share some of my <a href="../knowledge.html">knowledge</a> with <a href="../person.html">people</a> on the <a href="../Web.html">Web</a>.</p></details></li><li><details><summary>Each Webpage contains a <em>record</em> of <em>information</em>.</summary><p>Each Webpage on my Website is a <a href="../record.html">record</a> of <a  href="information.html">information</a>. These records have different components, depending on what type they are, but here's some common components:<dl><dt>Introduction</dt><dd>A record's <em>introduction</em> describes the record, including what <a href="../permission.html">permissions</a> are granted.</dd><dt>Backlinks</dt><dd>A record's <a href="../backlink.html">backlinks</a> shows which other records link to this one.</dd></dl></details></li></ul></section>
+</section>
+<main id="content">
+<header>
+<h1 class="title">2021 Hedge Fund Contraction</h1>
+</header><p>
+<b><i><a href="2021-hedge-fund-contraction.html">2021 Hedge Fund Contraction</a></i></b> is an event that's happening, as of mid-January, 2021.
+</p>
+
+<section id="outline-container-orge00fbf7" class="outline-2">
+<h2 id="orge00fbf7">emsenn's version of the 2021 Hedge Fund Contraction</h2>
+<div class="outline-text-2" id="text-orge00fbf7">
+<p>
+Here's my brief story of it. This is still happening, from my perspective, so I'll add sources and change it as it happens. None of this constitutes financial advice, and I am not a lawyer<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>:
+</p>
+
+<ul class="org-ul">
+<li>There's a subcommunity of a Web community that talks about the stock market from the cultural perspective of early 2010s 4chan. It's called /r/WallStreetBets (WSB), on Reddit.</li>
+<li>In September 2019, /u/DeepFuckingValue (DFV), on WSB, shared that they invested around $50,000 into Gamestop, through long-term equity anticipation securities.<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>
+<ul class="org-ul">
+<li>This was seen as an absolutely ridiculous move.<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup></li>
+</ul></li>
+<li>Every month or so since, DFC would post about holding onto his Gamestop securities.</li>
+<li>After about 10 months, this led folk to look into <i>why</i> DFV was doing this.
+<ul class="org-ul">
+<li>Turns out, Gamestop might've been a pretty decent company:
+<ul class="org-ul">
+<li>They had a lot of cash-on-hand
+<ul class="org-ul">
+<li>More than enough to pay off their debts, in fact!</li>
+</ul></li>
+<li>And a fair number of solid assets like stores</li>
+</ul></li>
+</ul></li>
+<li>This led to some other users on WSB investing in Gamestop</li>
+<li>In September 2020, Ryan Cohen, co-founder of Chewy, bought like 13% of Gamestop's shares<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup></li>
+<li>This led to more folk looking at the stock, asking: If Gamestop is solid, why's it valued so low? ($2-4 a share)</li>
+<li>In September 2020, short interest in Gamestop was at around 140% of total shares.
+<ul class="org-ul">
+<li>What is "short interest"
+<ul class="org-ul">
+<li>"Shorting" is when you borrow a stock from someone who owns it and sell it back on the market, because you expect the price to go down.</li>
+<li>Then you buy the stock back at the lower price, and pocket the difference: profit!</li>
+<li>(So, 100% of Gamestop's shares were shorted, and then 40% on top of that.)
+<ul class="org-ul">
+<li>&#x2026;Which&#x2026; makes no sense: How can you sell more shares than there are shares?
+<ul class="org-ul">
+<li>Especially because 75% of Gamestop's stock is held by passive funds and the board and executives!</li>
+</ul></li>
+<li>You don't!</li>
+<li>You wait for the company to go bankrupt, so you don't have to return your shares.</li>
+<li>That's what DFV figured out! So they bet against the hedge funds, that Gamestop was a fine company.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>After people noticed all this, Gamestop stock prices went up, from $4 to $8 to $12 from September until the end of October.</li>
+<li>Then more people started buying in.</li>
+<li>Which made the prices go up higher.</li>
+<li>And more people bought in.</li>
+<li>Eventually, the shorts are supposed to buy back all these stocks. But.. they can't: there are more shares that need to be purchased than there are in the company.</li>
+<li>This led to the hedge funds buying up the stocks at any price, which pushed the price up higher<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup></li>
+<li>Finally, on January 22nd, the gamma squeeze happened
+<ul class="org-ul">
+<li>That's a very complicated thing but basically it meant that hedge funds had to resolve the shorts, which meant stock prices went up even higher.</li>
+</ul></li>
+<li>On Monday the 25th, a bunch of prominent rich people advocated buying into Gamestop stock.</li>
+<li>On Wednesday the 27th, Melvin Capital almost went bankrupt, but got bailed out by two other funds</li>
+<li>On Thursday morning, Robinhood, the retail trading app many WSB users use, cancelled pending buys on Gamestop and Blackberry stock and froze the ability to buy stock.
+<ul class="org-ul">
+<li>Many apps followed suite</li>
+<li>It was leaked that Robinhood was instructed to freeze it by their owner, a hedge fund&#x2026; which had bought a bunch of shorts on Gamestop overnight. (Guess they can't help themselves.)</li>
+<li>Rich people went on the news to complain</li>
+<li>Alexandria Ocasio-Cortez suggested that Robinhood be investigated</li>
+<li>A class action lawsuit was opened against Robinhood.</li>
+<li>Thomas Peterffy (CEO of Interactive Brokers) admitted to closing retail positions<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup>, which is, I'm pretty sure, not legal.</li>
+</ul></li>
+<li>On Friday&#x2026;
+<ul class="org-ul">
+<li>Clarity Money is closing<sup><a id="fnr.7" class="footref" href="#fn.7">7</a></sup>; I'd speculate to free up capital for Goldman-Sachs</li>
+</ul></li>
+</ul>
+</div>
+</section>
+
+
+<section id="outline-container-backlinks" class="outline-2">
+<h2 id="backlinks">Backlinks</h2>
+<div class="outline-text-2" id="text-backlinks">
+<ul class="org-ul">
+<li><a href="index.html">Term Index</a></li>
+<li><a href="../com/game-stonks.html">Game-stonks</a></li>
+<li><a href="../daily/2021-01-28.html">2021-01-28</a></li>
+<li><a href="../com/deontology-isn-t-universal.html">Deontology isn't universal</a></li>
+<li><a href="2021-hedge-fund-contraction.html">2021 Hedge Fund Contraction</a></li>
+<li><a href="../com/stonks-as-praxis.html">Stonks as praxis</a></li>
+<li><a href="../com/know-thy-markets.html">Know thy markets</a></li>
+<li><a href="../com/overhead-gamestonks-chatter-at-the-cottenboro-gaz.html">Overhead Gamestonks chatter at the Cottenboro GAZ</a></li>
+<li><a href="../com/blessed-are-the-short-squeezers.html">Blessed are the short-squeezers</a></li>
+<li><a href="../com/are-hedge-funds-retirement-funds.html">Are hedge funds retirement funds?</a></li>
+</ul>
+</div>
+</section>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">Give away your money and fuck the law.</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara"><a href="https://www.reddit.com/r/wallstreetbets/comments/d1g7x0/hey_burry_thanks_a_lot_for_jacking_up_my_cost/">https://www.reddit.com/r/wallstreetbets/comments/d1g7x0/hey_burry_thanks_a_lot_for_jacking_up_my_cost/</a></p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara"><a href="https://www.reddit.com/r/wallstreetbets/comments/d1g7x0/hey_burry_thanks_a_lot_for_jacking_up_my_cost/ezlg40l/?utm_source=reddit&amp;utm_medium=web2x&amp;context=3">https://www.reddit.com/r/wallstreetbets/comments/d1g7x0/hey_burry_thanks_a_lot_for_jacking_up_my_cost/ezlg40l/?utm_source=reddit&amp;utm_medium=web2x&amp;context=3</a></p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">citation wanted?</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara"><p class="footpara">Oh yeah, and while this is happening, users on WSB continue to buy into many other stocks, all of which have been similarly shorted</p></div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara"><p class="footpara"><a href="https://www.youtube.com/watch?v=_G1syTVGdwo">https://www.youtube.com/watch?v=_G1syTVGdwo</a></p></div></div>
+
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7">7</a></sup> <div class="footpara"><p class="footpara">citation needed</p></div></div>
+
+
+</div>
+</div></main>
+<section id="postamble" class="status">
+<p class="date">Date: 2021-01-28 Thu 18:28</p>
+<p class="author">Author: emsenn</p>
+<p class="date">Created: 2021-01-30 Sat 09:03</p>
+</section>
+</body>
+</html>
